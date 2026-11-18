@@ -1,0 +1,47 @@
+name: Enrich Open Design catalog from pinned source
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/enrich_open_design.py
+      - .github/workflows/enrich-open-design.yml
+  workflow_dispatch:
+jobs:
+  enrich:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: catalog-repo
+          persist-credentials: true
+      - uses: actions/checkout@v4
+        with:
+          repository: feimacode/open-design-agent-kit
+          ref: 1b3832c3452720f028a96b1bdab805ecc1aa3213
+          path: upstream
+          sparse-checkout: |
+            claude-design-systems
+          filter: blob:none
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Enrich and verify source-pinned design systems
+        working-directory: catalog-repo
+        run: |
+          python scripts/enrich_open_design.py --upstream-root ../upstream
+          python -m unittest discover -s tests -v
+      - name: Commit resulting metadata only
+        working-directory: catalog-repo
+        run: |
+          if git diff --quiet -- catalog/entries/open-design-design-systems.json; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add catalog/entries/open-design-design-systems.json
+          git commit -m "catalog: enrich 198 Open Design systems from pinned upstream tokens"
+          git push origin HEAD:main
