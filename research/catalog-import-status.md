@@ -1,15 +1,15 @@
 # Catalog inventory and verification — 2026-11-18
 
-**Current scope:** five pinned upstream repositories, 19 main inventory files, **1,927 non-starter records**, plus nine earlier illustrative starter records that are **excluded** from production counts. The import represents an inventory snapshot, not production-ready bundled content.
+**Current scope:** five pinned upstream repositories, 28 main inventory files, **5,373 non-starter records**, plus nine earlier illustrative starter records that are **excluded** from production counts. The import represents an inventory snapshot, not production-ready bundled content.
 
 | Source | Records | Verified depth |
 |---|---:|---|
 | Hallmark | 50 themes | Parsed theme index, material descriptions and preview references; CSS token files and individual asset rights not yet extracted/cleared |
-| UI UX Pro Max | 1,116 rows from 12 CSVs | Parsed individual dataset rows (selected fields + source row identity); exact unselected columns remain referenced in pinned source |
+| UI UX Pro Max | 4,562 records: 1,116 CSV rows, 1,934 Google Font family metadata, 1,512 Phosphor icon descriptors | Parsed individual dataset rows (selected fields + source row identity); exact unselected columns remain referenced in pinned source |
 | Open Design Agent Kit | 702 entries: 198 systems, 114 templates, 193 examples, 197 skills | Pinned Git tree path inventory; **individual token JSON and example/template bodies not yet extracted**. Treat as candidate records, not fully inspected content |
 | MengTo Skills | 14 illustration stylecards | Parsed style.json, palette and example references; SVG example rights not independently cleared |
 | Impeccable | 45 design-knowledge references | Pinned reference path inventory; selected critique/audit methods previously inspected, no wholesale adoption |
-| **Total** | **1,927** | **Mixed evidence depth; review each entry state** |
+| **Total** | **5,373** | **Mixed evidence depth; review each entry state** |
 
 Cross-source overlap: 8 normalized-name matches are recorded in `catalog/relations/overlaps.json` as **candidate** relationships; no entries have been deleted, merged or declared visually equivalent.
 
