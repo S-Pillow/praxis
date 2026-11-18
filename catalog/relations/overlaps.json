@@ -1,0 +1,74 @@
+[
+  {
+    "left_id": "hallmark:theme:editorial",
+    "right_id": "open-design:design-systems:editorial",
+    "relation": "name_overlap_candidate",
+    "review_status": "unreviewed",
+    "evidence": "name_match_only",
+    "should_merge": false,
+    "comment": "Entries remain distinct; similar names do not prove shared design grammar."
+  },
+  {
+    "left_id": "hallmark:theme:loom",
+    "right_id": "open-design:design-systems:loom",
+    "relation": "name_overlap_candidate",
+    "review_status": "unreviewed",
+    "evidence": "name_match_only",
+    "should_merge": false,
+    "comment": "Entries remain distinct; similar names do not prove shared design grammar."
+  },
+  {
+    "left_id": "hallmark:theme:riso",
+    "right_id": "open-design:design-systems:riso",
+    "relation": "name_overlap_candidate",
+    "review_status": "unreviewed",
+    "evidence": "name_match_only",
+    "should_merge": false,
+    "comment": "Entries remain distinct; similar names do not prove shared design grammar."
+  },
+  {
+    "left_id": "uupm:styles:neumorphism",
+    "right_id": "open-design:design-systems:neumorphism",
+    "relation": "name_overlap_candidate",
+    "review_status": "unreviewed",
+    "evidence": "name_match_only",
+    "should_merge": false,
+    "comment": "Entries remain distinct; similar names do not prove shared design grammar."
+  },
+  {
+    "left_id": "uupm:styles:glassmorphism",
+    "right_id": "open-design:design-systems:glassmorphism",
+    "relation": "name_overlap_candidate",
+    "review_status": "unreviewed",
+    "evidence": "name_match_only",
+    "should_merge": false,
+    "comment": "Entries remain distinct; similar names do not prove shared design grammar."
+  },
+  {
+    "left_id": "uupm:styles:brutalism",
+    "right_id": "open-design:design-systems:brutalism",
+    "relation": "name_overlap_candidate",
+    "review_status": "unreviewed",
+    "evidence": "name_match_only",
+    "should_merge": false,
+    "comment": "Entries remain distinct; similar names do not prove shared design grammar."
+  },
+  {
+    "left_id": "uupm:styles:claymorphism",
+    "right_id": "open-design:design-systems:claymorphism",
+    "relation": "name_overlap_candidate",
+    "review_status": "unreviewed",
+    "evidence": "name_match_only",
+    "should_merge": false,
+    "comment": "Entries remain distinct; similar names do not prove shared design grammar."
+  },
+  {
+    "left_id": "open-design:design-systems:flat",
+    "right_id": "mengto:illustration:illustration-flat",
+    "relation": "name_overlap_candidate",
+    "review_status": "unreviewed",
+    "evidence": "name_match_only",
+    "should_merge": false,
+    "comment": "Entries remain distinct; similar names do not prove shared design grammar."
+  }
+]
