@@ -1,0 +1,356 @@
+[
+  {
+    "catalog_id": "hallmark:theme:almanac",
+    "entry_type": "theme",
+    "original_name": "Almanac",
+    "normalized_name": "Almanac",
+    "description": "Cool slate stock, pale printed sheet, ink typography, reference/data-oriented editorial direction.",
+    "source_repo": "Nutlope/hallmark",
+    "source_path_or_key": "skills/hallmark/references/themes/index.json#themes[slug=almanac]",
+    "source_url": "https://github.com/Nutlope/hallmark/blob/main/skills/hallmark/references/themes/index.json",
+    "source_ref": null,
+    "verified_at": "2026-11-18",
+    "source_license": "MIT (repo; verify each asset)",
+    "license_evidence_url": "https://github.com/Nutlope/hallmark/blob/main/LICENSE",
+    "asset_license_status": "mixed",
+    "redistribution_status": "metadata_only",
+    "attribution_requirements": "Maintain original credit and recheck any preview/photo file before redistribution.",
+    "upstream_dependencies": [],
+    "design_tokens": null,
+    "preview_reference": "https://github.com/Nutlope/hallmark/blob/main/skills/hallmark/references/themes/almanac.jpg",
+    "compatibility_restrictions": [
+      "Web/page theme; requires contextual review before use outside that surface"
+    ],
+    "platforms": [
+      "web"
+    ],
+    "keywords": [
+      "editorial",
+      "reference",
+      "data",
+      "yearbook"
+    ],
+    "related_entry_ids": [],
+    "review_notes": "Theme material metadata inspected; preview exists as a source reference, not licensed for bundling here.",
+    "evidence_status": "source_inspected",
+    "specialist_use": "build",
+    "optional_diagnostic": false
+  },
+  {
+    "catalog_id": "hallmark:theme:arcade",
+    "entry_type": "theme",
+    "original_name": "Arcade",
+    "normalized_name": "Arcade",
+    "description": "Playful CRT/pixel-inspired theme with aubergine ground and saturated signals.",
+    "source_repo": "Nutlope/hallmark",
+    "source_path_or_key": "skills/hallmark/references/themes/index.json#themes[slug=arcade]",
+    "source_url": "https://github.com/Nutlope/hallmark/blob/main/skills/hallmark/references/themes/index.json",
+    "source_ref": null,
+    "verified_at": "2026-11-18",
+    "source_license": "MIT (repo; verify each asset)",
+    "license_evidence_url": "https://github.com/Nutlope/hallmark/blob/main/LICENSE",
+    "asset_license_status": "mixed",
+    "redistribution_status": "metadata_only",
+    "attribution_requirements": "Credit upstream if redistributed; review visual assets separately.",
+    "upstream_dependencies": [],
+    "design_tokens": null,
+    "preview_reference": "https://github.com/Nutlope/hallmark/blob/main/skills/hallmark/references/themes/arcade.jpg",
+    "compatibility_restrictions": [
+      "High expression; verify readability and motion requirements"
+    ],
+    "platforms": [
+      "web"
+    ],
+    "keywords": [
+      "retro",
+      "pixel",
+      "gaming"
+    ],
+    "related_entry_ids": [],
+    "review_notes": "Preview pointer is not a rights clearance.",
+    "evidence_status": "source_inspected",
+    "specialist_use": "build",
+    "optional_diagnostic": false
+  },
+  {
+    "catalog_id": "uupm:style:minimalism-and-swiss-style",
+    "entry_type": "style",
+    "original_name": "Minimalism & Swiss Style",
+    "normalized_name": "Minimalism / Swiss",
+    "description": "Grid-based, spacious, typographic style with high contrast and restrained ornament.",
+    "source_repo": "nextlevelbuilder/ui-ux-pro-max-skill",
+    "source_path_or_key": ".claude/skills/ui-ux-pro-max/data/styles.csv#Style ID=minimalism-and-swiss-style",
+    "source_url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/main/.claude/skills/ui-ux-pro-max/data/styles.csv",
+    "source_ref": null,
+    "verified_at": "2026-11-18",
+    "source_license": "MIT (repo)",
+    "license_evidence_url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/main/LICENSE",
+    "asset_license_status": "not_applicable",
+    "redistribution_status": "metadata_only",
+    "attribution_requirements": "Review upstream notices before full CSV redistribution.",
+    "upstream_dependencies": [],
+    "design_tokens": null,
+    "preview_reference": null,
+    "compatibility_restrictions": [
+      "Style recommendation only; should not override approved design language"
+    ],
+    "platforms": [
+      "web",
+      "responsive web"
+    ],
+    "keywords": [
+      "minimal",
+      "grid",
+      "typography"
+    ],
+    "related_entry_ids": [],
+    "review_notes": "Source row has additional fields including performance, accessibility, compatibility, and CSS variables; full import pending.",
+    "evidence_status": "source_inspected",
+    "specialist_use": "build",
+    "optional_diagnostic": false
+  },
+  {
+    "catalog_id": "uupm:palette:financial-dashboard",
+    "entry_type": "palette",
+    "original_name": "Financial Dashboard",
+    "normalized_name": "Financial Dashboard",
+    "description": "Dark financial dashboard semantic color palette.",
+    "source_repo": "nextlevelbuilder/ui-ux-pro-max-skill",
+    "source_path_or_key": ".claude/skills/ui-ux-pro-max/data/colors.csv#Product Type=Financial Dashboard",
+    "source_url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/main/.claude/skills/ui-ux-pro-max/data/colors.csv",
+    "source_ref": null,
+    "verified_at": "2026-11-18",
+    "source_license": "MIT (repo)",
+    "license_evidence_url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/main/LICENSE",
+    "asset_license_status": "not_applicable",
+    "redistribution_status": "metadata_only",
+    "attribution_requirements": "Source attribution in aggregate release notices if material reused.",
+    "upstream_dependencies": [],
+    "design_tokens": {
+      "primary": "#0F172A",
+      "background": "#020617",
+      "foreground": "#F8FAFC",
+      "accent": "#22C55E"
+    },
+    "preview_reference": null,
+    "compatibility_restrictions": [
+      "Contrast pairs require rendered checks; not a compliance certificate"
+    ],
+    "platforms": [
+      "web"
+    ],
+    "keywords": [
+      "finance",
+      "dark",
+      "data"
+    ],
+    "related_entry_ids": [],
+    "review_notes": "Partial illustrative token extract from source row, not a full imported palette.",
+    "evidence_status": "source_inspected",
+    "specialist_use": "build",
+    "optional_diagnostic": false
+  },
+  {
+    "catalog_id": "uupm:font-pairing:tech-startup",
+    "entry_type": "font_pairing",
+    "original_name": "Tech Startup",
+    "normalized_name": "Tech Startup",
+    "description": "Space Grotesk headings with DM Sans body text.",
+    "source_repo": "nextlevelbuilder/ui-ux-pro-max-skill",
+    "source_path_or_key": ".claude/skills/ui-ux-pro-max/data/typography.csv#Font Pairing Name=Tech Startup",
+    "source_url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/main/.claude/skills/ui-ux-pro-max/data/typography.csv",
+    "source_ref": null,
+    "verified_at": "2026-11-18",
+    "source_license": "MIT (pairing guidance only; fonts have their own licenses)",
+    "license_evidence_url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/main/LICENSE",
+    "asset_license_status": "mixed",
+    "redistribution_status": "metadata_only",
+    "attribution_requirements": "Check each exact font file/license before embedding; don't bundle font binaries by default.",
+    "upstream_dependencies": [
+      "Space Grotesk font",
+      "DM Sans font"
+    ],
+    "design_tokens": {
+      "heading_font": "Space Grotesk",
+      "body_font": "DM Sans"
+    },
+    "preview_reference": null,
+    "compatibility_restrictions": [
+      "Browser font loading/privacy/performance depends on deployment"
+    ],
+    "platforms": [
+      "web"
+    ],
+    "keywords": [
+      "startup",
+      "technical",
+      "sans"
+    ],
+    "related_entry_ids": [],
+    "review_notes": "Font pairing is catalog data, not permission to redistribute font binaries.",
+    "evidence_status": "source_inspected",
+    "specialist_use": "build",
+    "optional_diagnostic": false
+  },
+  {
+    "catalog_id": "open-design:design-system:colorful",
+    "entry_type": "design_system",
+    "original_name": "Colorful",
+    "normalized_name": "Colorful",
+    "description": "Tokenized warm-bright design system with explicit surface, foreground, accent, typography and spacing roles.",
+    "source_repo": "feimacode/open-design-agent-kit",
+    "source_path_or_key": "claude-design-systems/colorful/project/tokens.json",
+    "source_url": "https://github.com/feimacode/open-design-agent-kit/blob/main/claude-design-systems/colorful/project/tokens.json",
+    "source_ref": null,
+    "verified_at": "2026-11-18",
+    "source_license": "MIT repo; vendored design system provenance references Apache-2.0 upstream",
+    "license_evidence_url": "https://github.com/feimacode/open-design-agent-kit/blob/main/LICENSE",
+    "asset_license_status": "mixed",
+    "redistribution_status": "metadata_only",
+    "attribution_requirements": "Preserve upstream open-design origin, Apache-2.0 notices and exact file provenance before bundling.",
+    "upstream_dependencies": [
+      "open-design upstream content"
+    ],
+    "design_tokens": {
+      "bg": "#fff8d7",
+      "fg": "#1d1836",
+      "accent": "#ff6b00"
+    },
+    "preview_reference": null,
+    "compatibility_restrictions": [
+      "The upstream token file warns some foreground-on-background pairs fail 4.5:1; verify functional text contrast"
+    ],
+    "platforms": [
+      "web"
+    ],
+    "keywords": [
+      "warm",
+      "bright",
+      "tokenized"
+    ],
+    "related_entry_ids": [],
+    "review_notes": "Partial illustrative tokens; do not claim accessibility compliance. Vendor provenance needs item-level tracing.",
+    "evidence_status": "source_inspected",
+    "specialist_use": "build",
+    "optional_diagnostic": false
+  },
+  {
+    "catalog_id": "mengto:illustration-style:flat",
+    "entry_type": "illustration_style",
+    "original_name": "Flat",
+    "normalized_name": "Flat illustration",
+    "description": "Outline-free flat vector figures with thin white fold strokes and sparse floating confetti.",
+    "source_repo": "MengTo/Skills",
+    "source_path_or_key": "agent-skills/illustration/illustration-flat/style.json",
+    "source_url": "https://github.com/MengTo/Skills/blob/main/agent-skills/illustration/illustration-flat/style.json",
+    "source_ref": null,
+    "verified_at": "2026-11-18",
+    "source_license": "MIT (repo; example assets pending separate review)",
+    "license_evidence_url": "https://github.com/MengTo/Skills/blob/main/LICENSE",
+    "asset_license_status": "unresolved",
+    "redistribution_status": "metadata_only",
+    "attribution_requirements": "Review individual example SVG asset rights and embedded elements before bundling.",
+    "upstream_dependencies": [],
+    "design_tokens": {
+      "background": "#FFFFFF",
+      "navy": "#011B5C",
+      "lavender": "#9E91E1",
+      "sunshine": "#FEC600"
+    },
+    "preview_reference": "https://github.com/MengTo/Skills/tree/main/agent-skills/illustration/illustration-flat/examples",
+    "compatibility_restrictions": [
+      "Illustrative SVG family for product moments, not universal component style"
+    ],
+    "platforms": [
+      "web",
+      "svg"
+    ],
+    "keywords": [
+      "flat",
+      "illustration",
+      "empty-state"
+    ],
+    "related_entry_ids": [],
+    "review_notes": "Illustrative palette subset; source JSON contains detailed roles/rules and 3 cards.",
+    "evidence_status": "source_inspected",
+    "specialist_use": "build",
+    "optional_diagnostic": false
+  },
+  {
+    "catalog_id": "impeccable:knowledge:critique",
+    "entry_type": "design_knowledge",
+    "original_name": "Critique",
+    "normalized_name": "Design critique",
+    "description": "Aesthetic and usability critique procedure distinct from technical audit.",
+    "source_repo": "pbakaus/impeccable",
+    "source_path_or_key": ".agents/skills/impeccable/reference/critique.md",
+    "source_url": "https://github.com/pbakaus/impeccable/blob/main/.agents/skills/impeccable/reference/critique.md",
+    "source_ref": null,
+    "verified_at": "2026-11-18",
+    "source_license": "Apache-2.0 (repo)",
+    "license_evidence_url": "https://github.com/pbakaus/impeccable/blob/main/LICENSE",
+    "asset_license_status": "not_applicable",
+    "redistribution_status": "reference_only",
+    "attribution_requirements": "Use as research reference; no direct procedure copying until scope and attribution assessed.",
+    "upstream_dependencies": [
+      "optional browser/detector tools"
+    ],
+    "design_tokens": null,
+    "preview_reference": null,
+    "compatibility_restrictions": [
+      "Original workflow assumes independent subagents where available; AIPF does not inherit it intact"
+    ],
+    "platforms": [
+      "web",
+      "native (different path)"
+    ],
+    "keywords": [
+      "review",
+      "aesthetic",
+      "critique"
+    ],
+    "related_entry_ids": [],
+    "review_notes": "Knowledge entry, not a visual catalog style. Do not add mandatory degraded-review declaration.",
+    "evidence_status": "source_inspected",
+    "specialist_use": "critique",
+    "optional_diagnostic": false
+  },
+  {
+    "catalog_id": "impeccable:knowledge:audit",
+    "entry_type": "design_knowledge",
+    "original_name": "Audit",
+    "normalized_name": "Technical UI audit",
+    "description": "Separate measurable accessibility, performance, responsive, theming and implementation-integrity review.",
+    "source_repo": "pbakaus/impeccable",
+    "source_path_or_key": ".agents/skills/impeccable/reference/audit.md",
+    "source_url": "https://github.com/pbakaus/impeccable/blob/main/.agents/skills/impeccable/reference/audit.md",
+    "source_ref": null,
+    "verified_at": "2026-11-18",
+    "source_license": "Apache-2.0 (repo)",
+    "license_evidence_url": "https://github.com/pbakaus/impeccable/blob/main/LICENSE",
+    "asset_license_status": "not_applicable",
+    "redistribution_status": "reference_only",
+    "attribution_requirements": "Keep upstream citation; implement original procedure if selected.",
+    "upstream_dependencies": [
+      "optional browser/detector tools"
+    ],
+    "design_tokens": null,
+    "preview_reference": null,
+    "compatibility_restrictions": [
+      "Web and native platform methods differ"
+    ],
+    "platforms": [
+      "web"
+    ],
+    "keywords": [
+      "accessibility",
+      "performance",
+      "verification"
+    ],
+    "related_entry_ids": [],
+    "review_notes": "Do not represent source-only reasoning as rendered inspection.",
+    "evidence_status": "source_inspected",
+    "specialist_use": "audit",
+    "optional_diagnostic": false
+  }
+]

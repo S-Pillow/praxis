@@ -1,0 +1,182 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AIPF Unified Design Catalog Entry",
+  "description": "One provenance-preserving source entry. A source entry need not be unique in aesthetic semantics; keep all originals.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "catalog_id",
+    "entry_type",
+    "original_name",
+    "source_repo",
+    "source_path_or_key",
+    "source_url",
+    "description",
+    "source_license",
+    "asset_license_status",
+    "redistribution_status",
+    "verified_at"
+  ],
+  "properties": {
+    "catalog_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9._:-]+$"
+    },
+    "entry_type": {
+      "enum": [
+        "theme",
+        "style",
+        "template",
+        "palette",
+        "font_pairing",
+        "font_family",
+        "design_system",
+        "example",
+        "guideline",
+        "anti_pattern",
+        "motion_preset",
+        "chart_type",
+        "illustration_style",
+        "design_knowledge",
+        "brand_reference"
+      ]
+    },
+    "original_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "normalized_name": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "description": {
+      "type": "string"
+    },
+    "source_repo": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_url": {
+      "type": "string",
+      "format": "uri"
+    },
+    "source_path_or_key": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_ref": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Commit SHA ideally, or unpinned main with explicit warning"
+    },
+    "verified_at": {
+      "type": "string",
+      "format": "date"
+    },
+    "source_license": {
+      "type": "string"
+    },
+    "license_evidence_url": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "asset_license_status": {
+      "enum": [
+        "unknown",
+        "unresolved",
+        "mixed",
+        "clear",
+        "not_applicable"
+      ]
+    },
+    "redistribution_status": {
+      "enum": [
+        "metadata_only",
+        "reference_only",
+        "blocked_pending_review",
+        "approved_for_bundle"
+      ]
+    },
+    "attribution_requirements": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "upstream_dependencies": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "design_tokens": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true
+    },
+    "preview_reference": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "compatibility_restrictions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "platforms": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "keywords": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "related_entry_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "review_notes": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "evidence_status": {
+      "enum": [
+        "source_inspected",
+        "reported_by_upstream",
+        "candidate_unverified"
+      ]
+    },
+    "specialist_use": {
+      "enum": [
+        "build",
+        "critique",
+        "audit",
+        "reference",
+        "multiple"
+      ]
+    },
+    "optional_diagnostic": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}
