@@ -8,7 +8,7 @@ class SearchCatalogTests(unittest.TestCase):
         cls.rows = load_catalog()
 
     def test_all_populated_entries_available(self):
-        self.assertEqual(len(self.rows), 5373)
+        self.assertEqual(len(self.rows), 5500)
 
     def test_financial_dashboard_palette(self):
         matches = rank_entries("financial dashboard", self.rows, limit=8, entry_type="palette")

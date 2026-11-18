@@ -39,6 +39,8 @@ EXPECTED_DATASET_COUNTS = {
     "open-design-skills.json": 197,
     "mengto-illustration.json": 14,
     "impeccable-knowledge.json": 45,
+    "mengto-design-knowledge.json": 123,
+    "hallmark-design-knowledge.json": 4,
     "uupm-font-families-01.json": 400,
     "uupm-font-families-02.json": 400,
     "uupm-font-families-03.json": 400,
@@ -68,7 +70,7 @@ class PopulatedCatalogTests(unittest.TestCase):
 
     def test_source_inventory_count(self):
         self.assertEqual(len(self.entries), sum(EXPECTED_DATASET_COUNTS.values()))
-        self.assertEqual(len(self.entries), 5373)
+        self.assertEqual(len(self.entries), 5500)
 
     def test_unique_ids_and_pinned_sources(self):
         self.assertEqual(len(self.by_id), len(self.entries))
