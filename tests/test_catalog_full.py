@@ -103,7 +103,7 @@ class PopulatedCatalogTests(unittest.TestCase):
             self.assertIn(r["right_id"], self.by_id)
             self.assertNotEqual(r["left_id"], r["right_id"])
             self.assertFalse(r["should_merge"])
-            self.assertEqual(r["review_status"], "unreviewed")
+            self.assertIn(r["review_status"], ["unreviewed", "source_compared", "candidate_explained"])
 
     def test_license_manifest_is_not_claimed_as_independent_verification(self):
         h = json.loads((ROOT / "catalog/provenance/hallmark-photo-manifest.json").read_text())

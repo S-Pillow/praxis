@@ -1,11 +1,10 @@
-# Cross-source overlap reconciliation
+# Overlap reconciliation: retain source variants
 
-This is a **non-destructive relationship register**. Source entries are never discarded or rewritten simply because a name is similar.
+This register distinguishes *matching names* from *shared design families*. We inspect source language/tokens and annotate relations; **never delete** original source entries. A single term can legitimately name different asset classes.
 
-- `name_overlap_candidate`: normalized names match; **not** proof of visual or technical equivalence.
-- Review must inspect source descriptions and actual design tokens; only then may entries be marked `related`, `variant_of` or `semantic_equivalent`.
-- An equivalent relationship **never** automatically authorizes removal of an original entry.
-- Relations currently cover the first comparable source-level style/theme/design-system and illustration family sets, not entire product-guidance/knowledge catalogs.
-- False positives are plausible: “Flat” illustration vs “Flat” UI design system are different asset classes.
+- `source_compared`: original descriptions/representative token values were examined, but no full rendered equivalence tests were performed.
+- `candidate_explained`: thematic/name association supported by category descriptors; deeper review may change it.
+- `unreviewed`: initial normalized match only.
+- `should_merge=false` across all entries because stylistic relation does not collapse provenance, implementation tokens, or independently licensed source material.
 
-The adjacent JSON file stores candidate relations while retaining both independent source catalog IDs.
+Source pins live in `../provenance/pinned-upstream-sources.md`. All relations are non-authoritative recommendation metadata; the approved product/brand takes precedence.

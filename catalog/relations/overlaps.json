@@ -2,73 +2,109 @@
   {
     "left_id": "hallmark:theme:editorial",
     "right_id": "open-design:design-systems:editorial",
-    "relation": "name_overlap_candidate",
-    "review_status": "unreviewed",
-    "evidence": "name_match_only",
+    "relation": "shared_broad_style_family",
+    "review_status": "source_compared",
+    "evidence": "Hallmark material description and Open Design editorial token file",
     "should_merge": false,
-    "comment": "Entries remain distinct; similar names do not prove shared design grammar."
+    "comment": "Both describe editorial/print-inspired compositions; distinct fonts/palette and specific implementation; retain both."
   },
   {
     "left_id": "hallmark:theme:loom",
     "right_id": "open-design:design-systems:loom",
-    "relation": "name_overlap_candidate",
-    "review_status": "unreviewed",
-    "evidence": "name_match_only",
+    "relation": "same_name_different_product",
+    "review_status": "source_compared",
+    "evidence": "Hallmark index versus Open Design Loom brand system token families",
     "should_merge": false,
-    "comment": "Entries remain distinct; similar names do not prove shared design grammar."
+    "comment": "Hallmark Loom is textile/editorial ecru Caslon, while Open Design Loom is a branded software UI system with Inter; name collision, not merge."
   },
   {
     "left_id": "hallmark:theme:riso",
     "right_id": "open-design:design-systems:riso",
-    "relation": "name_overlap_candidate",
-    "review_status": "unreviewed",
-    "evidence": "name_match_only",
+    "relation": "shared_broad_style_family",
+    "review_status": "source_compared",
+    "evidence": "Hallmark Riso material description versus Open Design Riso color/typography tokens",
     "should_merge": false,
-    "comment": "Entries remain distinct; similar names do not prove shared design grammar."
+    "comment": "Both refer to risograph-inspired print grammar; color and type values differ; retain separately."
   },
   {
     "left_id": "uupm:styles:neumorphism",
     "right_id": "open-design:design-systems:neumorphism",
-    "relation": "name_overlap_candidate",
-    "review_status": "unreviewed",
-    "evidence": "name_match_only",
+    "relation": "shared_broad_style_family",
+    "review_status": "source_compared",
+    "evidence": "UI UX Pro Max style row and Open Design Neumorphism token file",
     "should_merge": false,
-    "comment": "Entries remain distinct; similar names do not prove shared design grammar."
+    "comment": "Both use neumorphic style vocabulary; distinct palettes/implementation, neither supersedes the other."
   },
   {
     "left_id": "uupm:styles:glassmorphism",
     "right_id": "open-design:design-systems:glassmorphism",
-    "relation": "name_overlap_candidate",
-    "review_status": "unreviewed",
-    "evidence": "name_match_only",
+    "relation": "shared_broad_style_family",
+    "review_status": "source_compared",
+    "evidence": "UI UX Pro Max style row and Open Design Glassmorphism token file",
     "should_merge": false,
-    "comment": "Entries remain distinct; similar names do not prove shared design grammar."
+    "comment": "Shared glass/translucent-surface design grammar; tokens and application constraints differ."
   },
   {
     "left_id": "uupm:styles:brutalism",
     "right_id": "open-design:design-systems:brutalism",
-    "relation": "name_overlap_candidate",
-    "review_status": "unreviewed",
-    "evidence": "name_match_only",
+    "relation": "shared_broad_style_family",
+    "review_status": "source_compared",
+    "evidence": "UI UX Pro Max style row and Open Design Brutalism token file",
     "should_merge": false,
-    "comment": "Entries remain distinct; similar names do not prove shared design grammar."
+    "comment": "Shared bold/brutalist style family; implementation-specific selections retained."
   },
   {
     "left_id": "uupm:styles:claymorphism",
     "right_id": "open-design:design-systems:claymorphism",
-    "relation": "name_overlap_candidate",
-    "review_status": "unreviewed",
-    "evidence": "name_match_only",
+    "relation": "shared_broad_style_family",
+    "review_status": "source_compared",
+    "evidence": "UI UX Pro Max style row and Open Design Claymorphism token file",
     "should_merge": false,
-    "comment": "Entries remain distinct; similar names do not prove shared design grammar."
+    "comment": "Shared claymorphic style vocabulary; different concrete token choices."
   },
   {
     "left_id": "open-design:design-systems:flat",
     "right_id": "mengto:illustration:illustration-flat",
-    "relation": "name_overlap_candidate",
-    "review_status": "unreviewed",
-    "evidence": "name_match_only",
+    "relation": "same_name_different_asset_class",
+    "review_status": "source_compared",
+    "evidence": "Open Design Flat UI system tokens versus MengTo Flat SVG illustration style.json",
     "should_merge": false,
-    "comment": "Entries remain distinct; similar names do not prove shared design grammar."
+    "comment": "One is a UI design system; the other is an illustration style, not duplicates."
+  },
+  {
+    "left_id": "hallmark:theme:brutal",
+    "right_id": "uupm:styles:brutalism",
+    "relation": "shared_broad_style_family",
+    "review_status": "candidate_explained",
+    "evidence": "Hallmark brutal title + UUPM Brutalism style",
+    "should_merge": false,
+    "comment": "Style-family correlation; material implementation needs visual comparison"
+  },
+  {
+    "left_id": "hallmark:theme:terminal",
+    "right_id": "uupm:styles:terminal-cli-mobile",
+    "relation": "thematic_related",
+    "review_status": "candidate_explained",
+    "evidence": "Hallmark Terminal visual language vs UUPM mobile terminal style",
+    "should_merge": false,
+    "comment": "Platform mismatch; do not equate mobile operating UI with desktop/web terminal theme"
+  },
+  {
+    "left_id": "uupm:styles:editorial-grid-magazine",
+    "right_id": "open-design:design-systems:editorial",
+    "relation": "thematic_related",
+    "review_status": "candidate_explained",
+    "evidence": "UUPM Editorial Grid/Magazine style vs Open Design Editorial design system",
+    "should_merge": false,
+    "comment": "Editorial treatment commonality, not matching token system"
+  },
+  {
+    "left_id": "uupm:styles:neubrutalism",
+    "right_id": "open-design:design-systems:neobrutalism",
+    "relation": "thematic_related",
+    "review_status": "candidate_explained",
+    "evidence": "UUPM Neubrutalism vs Open Design Neobrutalism",
+    "should_merge": false,
+    "comment": "Likely close family; name variant and design-token implementation should be compared"
   }
 ]
