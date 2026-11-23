@@ -1,6 +1,6 @@
 # Read-only catalog search
 
-The unified catalog contains **5,373 source-preserving records** and supports concise retrieval without loading all entries into an AI context.
+The unified catalog contains **5,500 source-preserving records** and supports concise retrieval without loading all entries into an AI context.
 
 Run from the repository root:
 

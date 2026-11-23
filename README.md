@@ -26,8 +26,16 @@
 - `research/` — workstream scope and source evaluation record
 - `research/licensing/` — rights review and redistribution gates
 - `research/decisions/` — accepted boundaries
-- `skills/` — reserved for future reviewed specialists; no runnable skills yet
+- `skills/` — optional prototype specialists; currently one UI/UX skill
 - `tests/` — reserved for schema and catalog checks
+
+## First usable UI/UX specialist (prototype v0.1)
+
+The optional [UI/UX skill](skills/aipf-ui-ux/SKILL.md) now uses the existing [read-only catalog search](catalog/SEARCH.md) to help an AI **design during implementation** and then perform a separate design critique and technical UI audit. It is one `SKILL.md` file with no additional runtime dependencies or required ceremonies; for use see [skills/README.md](skills/README.md). It is not installed or released and has not yet been proven to improve rendered design outcomes.
+
+## Real catalog interface (local prototype)
+
+The [Design Index](ui/catalog-explorer/README.md) is a local-only, read-only browser of the existing 5,500-entry unified catalog. It offers search, category filters, incremental browsing, real source details and locally saved references without any new data store or third-party runtime. It is not a deployed site or a replacement for the optional UI/UX specialist.
 
 ## Current source set
 

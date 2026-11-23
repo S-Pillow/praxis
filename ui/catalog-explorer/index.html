@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f5f3ec" />
+  <title>The Design Index — AIPF Specialist Suite</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to catalog</a>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Library navigation">
+      <div class="brand">
+        <div class="brand-icon" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+        <div><strong>AIPF</strong><span>DESIGN STUDIO</span></div>
+      </div>
+      <div class="sidebar-rule"></div>
+      <p class="nav-label">WORKSPACE</p>
+      <nav class="nav" aria-label="Main navigation">
+        <button class="nav-item active" type="button" data-view="explore" aria-current="page">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+          <span>Explore library</span>
+        </button>
+        <button class="nav-item" type="button" data-view="saved">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M6 4.75h12v15.5l-6-4.15-6 4.15V4.75Z"/></svg>
+          <span>Saved references</span><span class="nav-count" id="savedCount">0</span>
+        </button>
+      </nav>
+      <p class="nav-label second">YOUR LIBRARY</p>
+      <div class="sidebar-note"><span class="note-swatch"></span><div><strong>Unified catalog</strong><small id="sidebarCatalogCount">Source-linked entries</small></div></div>
+      <div class="side-bottom">
+        <div class="side-bottom-icon" aria-hidden="true">✦</div>
+        <strong>Design with intention.</strong>
+        <p>Relevant references. Better decisions. No generic defaults.</p>
+        <button id="aboutButton" type="button" class="about-link">About this library <span aria-hidden="true">↗</span></button>
+      </div>
+    </aside>
+
+    <main id="main" class="main">
+      <header class="topbar">
+        <div class="breadcrumbs"><span>Workspace</span><span class="crumb-divider">/</span><strong>Design index</strong></div>
+        <div class="topbar-right"><button type="button" id="aboutTopButton" class="top-about" aria-label="About this library">About</button><span class="status-dot" aria-hidden="true"></span><span>Source-linked knowledge</span><span class="topbar-rule"></span><span class="topbar-meta">Prototype / 01</span></div>
+      </header>
+
+      <div class="page-inner">
+        <section class="hero" aria-labelledby="hero-title">
+          <div class="hero-topline"><span class="eyebrow">THE DESIGN INDEX</span><span class="volume">AIPF / VOLUME 001</span></div>
+          <div class="hero-content">
+            <h1 id="hero-title">A better place to find<br/><em>your next direction.</em></h1>
+            <p class="hero-copy">Explore thoughtful design systems, palettes, styles, and interface guidance. Every reference has a source. Every choice has a purpose.</p>
+          </div>
+          <div class="hero-ornament" aria-hidden="true"><div class="ornament-circle"></div><div class="ornament-lines"></div><span class="ornament-text">FORM / FUNCTION<br/>REFERENCE INDEX</span></div>
+          <div class="hero-bottom"><span>CURATED KNOWLEDGE, NOT A TEMPLATE GENERATOR.</span><span>DISCOVER <span class="hero-arrow">↗</span> REFINE <span class="hero-arrow">↗</span> BUILD</span></div>
+        </section>
+
+        <section class="toolbar" aria-label="Find catalog references">
+          <div class="search-row">
+            <label class="search-box" for="searchInput"><svg aria-hidden="true" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.8"><circle cx="10.8" cy="10.8" r="6.75"/><path d="m16 16 4.5 4.5"/></svg><input id="searchInput" autocomplete="off" placeholder="Search styles, systems, palettes, guidance…" aria-label="Search catalog" /><kbd>/</kbd></label>
+            <button type="button" id="clearSearch" class="clear-button" hidden>Clear search</button>
+          </div>
+          <div class="filter-row" role="group" aria-label="Filter by category">
+            <div class="filter-scroll" id="filters">
+              <button class="chip selected" type="button" data-type="" aria-pressed="true">All references</button>
+              <button class="chip" type="button" data-type="theme" aria-pressed="false">Themes</button>
+              <button class="chip" type="button" data-type="palette" aria-pressed="false">Palettes</button>
+              <button class="chip" type="button" data-type="design_system" aria-pressed="false">Design systems</button>
+              <button class="chip" type="button" data-type="style" aria-pressed="false">Styles</button>
+              <button class="chip" type="button" data-type="font_pairing" aria-pressed="false">Typography</button>
+              <button class="chip" type="button" data-type="guideline" aria-pressed="false">UX guidance</button>
+            </div>
+            <label class="other-filter">Other types
+              <select id="moreTypes" aria-label="More catalog categories">
+                <option value="">Choose category…</option>
+                <option value="template">Templates</option>
+                <option value="example">Examples</option>
+                <option value="font_family">Font families</option>
+                <option value="motion_preset">Motion</option>
+                <option value="chart_type">Charts</option>
+                <option value="illustration_style">Illustrations</option>
+                <option value="design_knowledge">Design knowledge</option>
+                <option value="anti_pattern">Anti-patterns</option>
+                <option value="brand_reference">Brand references</option>
+              </select>
+            </label>
+          </div>
+        </section>
+
+        <section class="results" aria-labelledby="resultsTitle">
+          <div class="section-head">
+            <div><span class="section-kicker" id="resultsEyebrow">01 / COLLECTION</span><h2 id="resultsTitle">Selected references</h2><p class="section-subtitle" id="resultsDescription">Browse the unified catalog, with original sources and usage restrictions.</p></div>
+            <span class="result-count" id="resultCount" role="status" aria-live="polite">Loading…</span>
+          </div>
+          <div id="cards" class="cards-grid" aria-live="polite" aria-busy="true"></div>
+          <div id="emptyState" class="empty-state" hidden><div class="empty-symbol" aria-hidden="true">⌕</div><h3>No matching references</h3><p>Try another term or choose a broader category.</p><button type="button" id="resetButton">Reset filters</button></div>
+          <div id="errorState" class="error-state" role="alert" hidden>Could not load catalog records. Check that the local server is running.</div>
+          <button type="button" id="loadMore" class="more-button" hidden>Show more references</button>
+        </section>
+        <footer class="page-footer"><span>THE DESIGN INDEX <span class="footer-dot">✳</span> AIPF SPECIALIST SUITE</span><span>No third-party images or font files are bundled.</span></footer>
+      </div>
+    </main>
+  </div>
+
+  <div class="dialog-backdrop" id="drawerBackdrop" hidden></div>
+  <aside id="detailDrawer" class="detail-drawer" role="dialog" aria-modal="true" aria-labelledby="detailTitle" aria-hidden="true" hidden>
+    <div class="drawer-head"><span class="section-kicker">REFERENCE DETAILS</span><button type="button" id="closeDrawer" class="icon-btn" aria-label="Close reference details">×</button></div>
+    <div class="drawer-scroll"><div id="drawerPreview" class="drawer-preview"></div><div class="drawer-type" id="detailType"></div><h2 id="detailTitle"></h2><p id="detailDescription" class="drawer-description"></p><div class="drawer-metadata"><span>ORIGINAL SOURCE</span><strong id="detailSource"></strong><span>SOURCE STATUS</span><strong id="detailStatus"></strong><span>USAGE</span><strong id="detailLicense"></strong></div><div class="drawer-tokens" id="detailTokens"></div></div>
+    <div class="drawer-footer"><button type="button" id="drawerSave" class="drawer-save">Save reference</button><a id="detailSourceLink" class="drawer-source" href="#" target="_blank" rel="noopener noreferrer">View source ↗</a></div>
+  </aside>
+
+  <div class="dialog-backdrop" id="aboutBackdrop" hidden></div>
+  <section class="about-dialog" id="aboutDialog" role="dialog" aria-modal="true" aria-labelledby="aboutTitle" hidden>
+    <button type="button" id="closeAbout" class="icon-btn about-close" aria-label="Close about this library">×</button>
+    <span class="eyebrow">AIPF DESIGN STUDIO</span><h2 id="aboutTitle">A design library with its sources attached.</h2>
+    <p>This is a working interface for the Specialist Suite's unified catalog. Browse original source-linked metadata, save useful references locally, and inspect available token values. Recommendations are not project approvals, visual quality guarantees, or rights to copy third-party assets.</p>
+    <p><strong id="aboutDataset">Loading catalog…</strong> This interface uses ordinary system fonts and CSS-generated previews—no redistributed images, fonts, or external libraries.</p>
+    <button type="button" id="aboutDone" class="drawer-save">Back to the catalog</button>
+  </section>
+</body>
+</html>
