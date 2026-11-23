@@ -92,6 +92,15 @@
             <div><span class="section-kicker" id="resultsEyebrow">01 / COLLECTION</span><h2 id="resultsTitle">Selected references</h2><p class="section-subtitle" id="resultsDescription">Browse the unified catalog, with original sources and usage restrictions.</p></div>
             <span class="result-count" id="resultCount" role="status" aria-live="polite">Loading…</span>
           </div>
+          <section id="aiHandoff" class="ai-handoff" aria-labelledby="handoffTitle" hidden>
+            <span class="section-kicker">NEXT / DESIGN WITH AI</span>
+            <h3 id="handoffTitle">Put these references to work.</h3>
+            <p>Describe the UI you want to create or improve. We'll copy a short brief with up to three saved references, their original sources, and usage restrictions. Nothing is sent anywhere.</p>
+            <label for="designTask">What should the AI help you design?</label>
+            <textarea id="designTask" rows="2" maxlength="600" placeholder="e.g. Improve the navigation and mobile layout of my customer support dashboard without changing its functionality."></textarea>
+            <div class="handoff-actions"><button type="button" id="copyBrief" class="copy-brief">Copy instructions for AI</button><span id="copyStatus" role="status" aria-live="polite"></span></div>
+            <textarea id="briefOutput" class="brief-output" readonly hidden aria-label="Generated design instructions to copy manually"></textarea>
+          </section>
           <div id="cards" class="cards-grid" aria-live="polite" aria-busy="true"></div>
           <div id="emptyState" class="empty-state" hidden><div class="empty-symbol" aria-hidden="true">⌕</div><h3>No matching references</h3><p>Try another term or choose a broader category.</p><button type="button" id="resetButton">Reset filters</button></div>
           <div id="errorState" class="error-state" role="alert" hidden>Could not load catalog records. Check that the local server is running.</div>
