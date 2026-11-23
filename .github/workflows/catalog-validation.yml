@@ -1,10 +1,18 @@
 name: Catalog validation
 on:
   workflow_dispatch:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'catalog/**'
+      - 'skills/**'
+      - 'tests/**'
+      - '.github/workflows/catalog-validation.yml'
   push:
     branches: [main]
     paths:
       - 'catalog/**'
+      - 'skills/**'
       - 'tests/**'
       - '.github/workflows/catalog-validation.yml'
 jobs:
