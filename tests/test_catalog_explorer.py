@@ -72,7 +72,7 @@ class FullCatalogExplorerTests(unittest.TestCase):
         self.assertEqual(first['results'][0]['catalog_id'], keys[0])
         self.assertEqual(rest['results'][0]['catalog_id'], keys[96])
         self.assertEqual(mod.search(ids='')['matches'], 0)
-        self.assertEqual(mod.search(query='unlikely-name-string-123456')['matches'], 0)
+        self.assertEqual(mod.search(query='zzzzunlikely987654321')['matches'], 0)
 
     def test_design_tokens_preserved_in_relevant_details(self):
         row = mod.search(ids='uupm:colors:6')['results'][0]
