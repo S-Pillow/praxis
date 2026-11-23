@@ -22,3 +22,17 @@
 
 /* Full library browsing: expose additional categories and pagination without a new design system. */
 .other-filter{display:flex;flex-shrink:0;align-items:center;gap:8px;font-size:11px;color:#536154;font-weight:670;white-space:nowrap}.other-filter select{font:inherit;font-weight:590;background:#fff;border:1px solid #cdd5c9;color:#314b37;border-radius:2px;padding:8px 25px 8px 9px;min-width:150px;max-width:175px}.other-filter select:focus-visible{outline:3px solid #e1b65d;outline-offset:2px}.more-button{display:block;margin:26px auto 0;padding:14px 24px;background:#294835;color:white;border:0;font-size:12px;font-weight:700}.more-button:hover{background:#3c654a}.more-button:disabled{opacity:.55;cursor:wait}.more-button[hidden]{display:none!important}@media(max-width:720px){.other-filter{margin-top:13px;justify-content:space-between}.other-filter select{max-width:220px;min-width:190px}.more-button{width:100%}}
+
+/* Saved references -> bounded, local AI design brief. */
+.ai-handoff{background:#f9faf6;border:1px solid #cfd8ca;padding:24px;margin-bottom:25px;max-width:100%}
+.ai-handoff h3{font-family:Georgia,serif;font-size:25px;line-height:1.2;margin:10px 0 8px;color:#243d2c}
+.ai-handoff p{max-width:62ch;color:#475c4b;font-size:13px;line-height:1.6;margin:0 0 15px}
+.ai-handoff label{display:block;font-size:12px;font-weight:700;color:#29432f;margin-bottom:7px}
+.ai-handoff textarea{display:block;width:100%;max-width:100%;padding:12px;border:1px solid #a7b9a7;border-radius:2px;background:#fff;color:#243328;font-size:13px;line-height:1.5;resize:vertical}
+.ai-handoff textarea:focus-visible{outline:3px solid #dfb35a;outline-offset:2px}
+.handoff-actions{display:flex;align-items:center;gap:13px;flex-wrap:wrap;margin-top:12px}
+.copy-brief{background:#294835;border:0;color:#fff;font-size:13px;font-weight:700;padding:12px 17px;min-height:42px}
+.copy-brief:hover{background:#365f43}.copy-brief:disabled{opacity:.55;cursor:not-allowed}
+#copyStatus{font-size:12px;color:#355641;line-height:1.5}
+.ai-handoff .brief-output{margin-top:14px;min-height:135px;font-family:ui-monospace,Consolas,monospace;font-size:12px;white-space:pre;overflow:auto}
+@media(max-width:720px){.ai-handoff{padding:18px}.ai-handoff h3{font-size:22px}.copy-brief{width:100%}.handoff-actions{align-items:stretch}}
