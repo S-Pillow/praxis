@@ -17,6 +17,9 @@ ROOT = pathlib.Path(__file__).resolve().parents[1]
 ENTRIES_DIR = ROOT / "catalog" / "entries"
 TOKEN_PATTERN = re.compile(r"[a-z0-9]+")
 STOP = {"the", "and", "for", "with", "that", "this", "from", "into", "like", "use", "a", "an", "of", "in", "on", "to", "ui", "ux", "design"}
+# Critique judges usability as well as appearance, so audit-tagged guidelines
+# (the same pool recommend_design.py uses for critique) are eligible.
+SPECIALIST_USE_FILTER = {"critique": {"critique", "audit", "multiple"}}
 
 def terms(text):
     return [term for term in TOKEN_PATTERN.findall(str(text).lower()) if term not in STOP]
@@ -46,7 +49,18 @@ def entry_fields(entry):
         + terms(" ".join(entry.get("compatibility_restrictions", [])))
     )
 
-def rank_entries(query, entries, limit=5, entry_type=None, source=None, specialist_use=None):
+def positive_fields(entry):
+    """Recommendation evidence only: restrictions describe discouraged or
+    conditional use, so matching them would reward the opposite of a request."""
+    return (
+        terms(entry["original_name"]) * 8
+        + terms(entry["entry_type"]) * 3
+        + [t for keyword in entry.get("keywords", []) for t in terms(keyword)] * 2
+        + terms(entry.get("description", ""))
+    )
+
+def rank_entries(query, entries, limit=5, entry_type=None, source=None, specialist_use=None, fields=None):
+    fields = fields or entry_fields
     q = list(dict.fromkeys(terms(query)))
     if not q:
         return []
@@ -54,11 +68,12 @@ def rank_entries(query, entries, limit=5, entry_type=None, source=None, speciali
         e for e in entries
         if (entry_type is None or e["entry_type"] == entry_type)
         and (source is None or e["source_repo"].lower() == source.lower())
-        and (specialist_use is None or e["specialist_use"] in {specialist_use, "multiple"})
+        and (specialist_use is None
+             or e["specialist_use"] in SPECIALIST_USE_FILTER.get(specialist_use, {specialist_use, "multiple"}))
     ]
     if not filtered:
         return []
-    docs = [Counter(entry_fields(e)) for e in filtered]
+    docs = [Counter(fields(e)) for e in filtered]
     df = Counter(term for document in docs for term in document)
     avg_length = sum(sum(d.values()) for d in docs) / len(docs)
     k1, b = 1.2, 0.75
@@ -106,8 +121,11 @@ def main():
     ap.add_argument("--specialist-use", choices=["build", "critique", "audit", "reference"])
     ap.add_argument("--include-tokens", action="store_true", help="Include actual source tokens, if imported")
     args = ap.parse_args()
+    entries = load_catalog()
+    if not entries:
+        ap.exit(1, "error: catalog entries not found\n")
     matches = rank_entries(
-        args.query, load_catalog(), limit=args.limit,
+        args.query, entries, limit=args.limit,
         entry_type=args.type, source=args.source, specialist_use=args.specialist_use
     )
     output = {

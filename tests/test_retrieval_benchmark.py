@@ -7,12 +7,17 @@ import tempfile
 import unittest
 
 from scripts.retrieval_benchmark import (
-    BENCH_DIR, CASES, POST_HOC, ROOT, TOOLS, catalog_identity, catalog_index, parse_output,
-    run_command, score_case, sha256_file,
+    BENCH_DIR, CASES, POST_HOC, REFERENCE_V02, ROOT, TOOLS, Implementation, catalog_identity,
+    catalog_index, compare, load_json, parse_output, reproduction_differences, run_command,
+    score_case, sha256_file,
 )
 
 BASELINE = BENCH_DIR / "baseline-v0.2-481bb18.json"
+EXPERIMENT_DIR = BENCH_DIR / "experiments" / "specialist-uiux-02"
+EXPERIMENT_JUDGMENTS = EXPERIMENT_DIR / "judgments.json"
+EXPERIMENT_RESULT = EXPERIMENT_DIR / "candidate-results.json"
 FROZEN_CASES_SHA256 = "6b6dda63eac336f2ee6078550f82f3175d0a1e440fd8a666a8de324b0d6038d2"
+FROZEN_POST_HOC_SHA256 = "573f4da10fe2dd72c0abb6fd2f4508b179f3db76ea4586f0090d1a4d73684f1d"
 
 
 def raw(stdout="", exit_code=0, stderr=""):
@@ -65,21 +70,40 @@ class RetrievalBenchmarkFixtureTests(unittest.TestCase):
         self.assertEqual(sha256_file(CASES), FROZEN_CASES_SHA256)
         self.assertEqual(self.baseline["cases_sha256"], FROZEN_CASES_SHA256)
         self.assertEqual(self.post_hoc["judged_after"]["cases_sha256"], FROZEN_CASES_SHA256)
+        self.assertEqual(sha256_file(POST_HOC), FROZEN_POST_HOC_SHA256)
 
-    def test_historical_cases_reproduce_retained_output(self):
-        for case in self.fixture["cases"]:
-            if case["origin"] != "historical":
-                continue
-            result = run_command(case)
-            self.assertEqual(result["exit_code"], 0, case["id"])
-            self.assertEqual(result["stderr"], "", case["id"])
-            self.assertEqual(result["stdout"], (BENCH_DIR / case["retained_output"]).read_text(encoding="utf-8"), case["id"])
+    def test_experiment_judgments_are_separate_and_labelled(self):
+        data = load_json(EXPERIMENT_JUDGMENTS)
+        self.assertEqual(data["label"], "post_hoc_uiux02")
+        self.assertEqual(data["judged_after"]["cases_sha256"], FROZEN_CASES_SHA256)
+        for case_id, grades in data["judgments"].items():
+            case = self.cases[case_id]
+            earlier = self.post_hoc["judgments"].get(case_id, {})
+            for cid, item in grades.items():
+                self.assertIn(cid, self.index)
+                self.assertIn(item["grade"], (0, 1, 2, 3))
+                self.assertIn(item["phase"], ("development", "reserved_evaluation"))
+                self.assertTrue(item["rationale"])
+                self.assertNotIn(cid, earlier)
+                self.assertFalse(any(cid in ids for ids in case["judgments"].values()))
+                if case["split"] == "held_out":
+                    self.assertEqual(item["phase"], "reserved_evaluation")
 
-    def test_catalog_and_retrieval_scripts_match_baseline(self):
+    def test_historical_cases_reproduce_retained_output_with_v02(self):
+        with Implementation("v0.2") as impl:
+            for case in self.fixture["cases"]:
+                if case["origin"] != "historical":
+                    continue
+                result = run_command(case, impl.workdir)
+                self.assertEqual(result["exit_code"], 0, case["id"])
+                self.assertEqual(result["stderr"], "", case["id"])
+                self.assertEqual(result["stdout"], (BENCH_DIR / case["retained_output"]).read_text(encoding="utf-8"), case["id"])
+
+    def test_catalog_and_pinned_v02_scripts_match_baseline(self):
         env = self.baseline["environment"]
         self.assertEqual(catalog_identity(), env["catalog"])
         for name, (path, _) in TOOLS.items():
-            self.assertEqual(sha256_file(ROOT / path), env["retrieval_scripts_sha256"][name])
+            self.assertEqual(sha256_file(REFERENCE_V02 / pathlib.Path(path).name), env["retrieval_scripts_sha256"][name])
 
 
 class RetrievalBenchmarkScoringTests(unittest.TestCase):
@@ -167,15 +191,44 @@ class RetrievalBenchmarkScoringTests(unittest.TestCase):
 
 
 class RetrievalBenchmarkBaselineTests(unittest.TestCase):
-    def test_full_run_reproduces_frozen_baseline(self):
+    def run_cli(self, *args):
         with tempfile.TemporaryDirectory() as tmp:
             out = pathlib.Path(tmp) / "run.json"
             proc = subprocess.run(
-                [sys.executable, "scripts/retrieval_benchmark.py", "--raw", "--check-historical", "--output", str(out)],
+                [sys.executable, "scripts/retrieval_benchmark.py", "--raw", "--output", str(out), *args],
                 cwd=ROOT, capture_output=True, text=True, timeout=300,
             )
             self.assertEqual(proc.returncode, 0, proc.stderr)
-            self.assertEqual(out.read_bytes(), BASELINE.read_bytes())
+            return out.read_bytes()
+
+    def test_v02_run_reproduces_frozen_baseline(self):
+        first = self.run_cli("--implementation", "v0.2", "--check-historical")
+        self.assertEqual(reproduction_differences(load_json(BASELINE), json.loads(first)), [])
+        self.assertEqual(first, self.run_cli("--implementation", "v0.2", "--check-historical"))
+
+    def test_working_tree_reproduces_frozen_candidate_results(self):
+        run = json.loads(self.run_cli("--judgments", str(EXPERIMENT_JUDGMENTS)))
+        self.assertEqual(reproduction_differences(load_json(EXPERIMENT_RESULT), run), [])
+
+    def test_reproduction_check_detects_changed_results(self):
+        baseline = load_json(BASELINE)
+        changed = json.loads(json.dumps(baseline))
+        changed["cases"][0]["results"][0]["catalog_id"] = "other"
+        changed["environment"]["repository"]["head"] = "different"
+        self.assertEqual(reproduction_differences(baseline, changed), [("cases", 0, "results", 0, "catalog_id")])
+
+    def test_comparison_reports_gains_and_regressions(self):
+        base = load_json(BASELINE)
+        cand = json.loads(json.dumps(base))
+        hist = next(c for c in cand["cases"] if c["id"] == "HIST-02")
+        hist.update(useful=True, conflict_count=0, first_actionable_rank=1)
+        hist["results"] = [dict(hist["results"][0], catalog_id="uupm:ux-guidelines:36", grade=3, conflicts=[])]
+        key = next(c for c in cand["cases"] if c["id"] == "HIST-03")
+        key.update(useful=False, first_actionable_rank=None)
+        report = compare(base, cand)
+        self.assertEqual(report["newly_useful"], ["HIST-02"])
+        self.assertEqual(report["regressed"], ["HIST-03"])
+        self.assertTrue(report["same_catalog"])
 
 
 if __name__ == "__main__":

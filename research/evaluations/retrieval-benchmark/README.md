@@ -14,6 +14,8 @@ This directory holds a small, reproducible benchmark of the catalog lookup used 
 | `historical/HIST-0*.json` | Byte-exact copies of the raw specialist outputs retained by the URL Activity Scanner pilot (UIUX-PILOT-01 and UIUX-PILOT-02 evidence). They contain catalog data only, with no paths, hosts or credentials. |
 | `post-hoc-judgments.json` | Grades for 20 synthetic results that the frozen judgments did not anticipate. Assigned after viewing the baseline output; weaker evidence. |
 | `baseline-v0.2-481bb18.json` | Frozen baseline: environment, exact commands, exit codes, stderr size, raw stdout, returned IDs, scores, grades, conflicts, provenance fields and metrics. |
+| `reference-v0.2/` | Pinned v0.2 retrieval scripts used for replay (see below). |
+| `experiments/specialist-uiux-02/` | SPECIALIST-UIUX-02 retrieval experiment results (see the experiment report). |
 | `../../../scripts/retrieval_benchmark.py` | Standard-library runner. |
 | `../../../tests/test_retrieval_benchmark.py` | Fixture integrity, scoring behaviour and baseline-reproduction tests. |
 
@@ -33,7 +35,7 @@ Each case records the task, the constraints, the interface purpose, platform sem
 
 ## Metrics
 
-All metrics are reported per split (`historical`, `development`, `held_out`), with denominators and contributing case IDs. Expected-empty (abstention) cases are excluded from relevance denominators.
+All metrics are reported per split (`historical`, `development`, `held_out`), with denominators and contributing case IDs. Expected-empty (abstention) cases are excluded from relevance denominators. SYN-09 is the only such case, so relevance metrics use 11 of the 12 synthetic cases (8 development and 3 held-out); SYN-09 is reported only under abstention, and `useful_query_coverage.excluded_expected_empty` names it.
 
 | Metric | Definition | Kind |
 |---|---|---|
@@ -52,16 +54,26 @@ All metrics are reported per split (`historical`, `development`, `held_out`), wi
 From the repository root, with Python 3.12 (the CI version) and no dependencies:
 
 ```bash
-python3 scripts/retrieval_benchmark.py --raw --check-historical --output /tmp/run.json
-cmp /tmp/run.json research/evaluations/retrieval-benchmark/baseline-v0.2-481bb18.json
+# v0.2, from the pinned copies in reference-v0.2/ against this checkout's catalog
+python3 scripts/retrieval_benchmark.py --implementation v0.2 --raw --check-historical --output /tmp/v02.json
+# the scripts in this working tree
+python3 scripts/retrieval_benchmark.py --raw --judgments research/evaluations/retrieval-benchmark/experiments/specialist-uiux-02/judgments.json --output /tmp/current.json
+# case-level comparison
+python3 scripts/retrieval_benchmark.py --compare /tmp/v02.json /tmp/current.json --output /tmp/comparison.json
 python3 -m unittest discover -s tests
 ```
 
-`--split held_out` (repeatable) restricts the run. `--check-historical` exits 1 if a historical rerun differs from the retained pilot output. The runner writes no timestamps, so identical code and catalog produce byte-identical output.
+`--split` (repeatable) restricts the run. `--check-historical` exits 1 if a historical rerun differs from the retained pilot output; it is meaningful only for `--implementation v0.2`. `--scripts-dir DIR` runs copies of `recommend_design.py` and `search_catalog.py` from another directory, such as a saved experimental stage. `--judgments FILE` adds a labelled judgment set consulted after the frozen and post-hoc judgments. The runner writes no timestamps, so identical code, catalog and judgments produce byte-identical output.
 
-## Using the baseline for a future change
+A rerun reproduces a results file when every field of that file is present and equal in the rerun. New fields are allowed, and the recorded checkout revision and Python patch version are ignored (`reproduction_differences` in the runner). The original v0.2 baseline file is never rewritten.
 
-The baseline tests deliberately pin the v0.2 retrieval scripts and catalog (`test_catalog_and_retrieval_scripts_match_baseline`, `test_historical_cases_reproduce_retained_output`, `test_full_run_reproduces_frozen_baseline`). An authorized retrieval change is expected to fail them. That unit should keep this baseline file, write a new one named for its revision, compare the two per case (including any newly introduced conflicts), and update the tests to point at the new pin while keeping v0.2 as the comparison point. Do not edit `cases.json`; add a new fixture version instead, so the freeze hash stays meaningful.
+## Pinned implementations
+
+`reference-v0.2/` holds byte-exact copies of `scripts/recommend_design.py` and `scripts/search_catalog.py` at `481bb188`. Their hashes equal those recorded in `baseline-v0.2-481bb18.json`, and a test checks this. The v0.2 replay tests run these copies, so the working-tree scripts may change without losing the ability to reproduce v0.2 or the retained pilot outputs.
+
+## Experiments
+
+Each retrieval experiment gets its own directory under `experiments/`. It holds a labelled judgment file for newly returned records (separate from `cases.json` and `post-hoc-judgments.json`), any intermediate stage results, a freeze record written before the reserved cases are run, the candidate's full results, a same-judgment v0.2 rerun and a comparison. `cases.json` is never edited. A future fixture version should be added alongside it, so the freeze hash stays meaningful.
 
 ## Limitations
 

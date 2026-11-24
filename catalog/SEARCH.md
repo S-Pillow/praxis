@@ -13,6 +13,17 @@ python scripts/recommend_design.py "Audit keyboard focus and navigation" --mode 
 
 The output is a small set of source-linked **candidates**, not automatic design approval. It includes evidence, license restrictions and a short exact-token excerpt where available; it does not create files or execute a build. The existing `search_catalog.py` remains the deeper, read-only search tool.
 
+**Experimental selection behaviour (SPECIALIST-UIUX-02, unreleased).** The shortlist reads explicit constraints in the request; `task_signals` in the output shows what it detected.
+- Only a record's name, type, keywords and description count as matching evidence. `compatibility_restrictions` ("Avoid: …", "Avoid for: …") are returned unchanged but never scored.
+- A stated interface priority ("desktop-first", or desktop or mobile mentioned alone) excludes records that advocate the opposite priority or discourage the stated one. This is separate from `--platform`: a web interface can be desktop-first or mobile-first.
+- Explicitly prohibited items ("do not use dark mode or glassmorphism") are removed from the query and exclude matching theme, style, palette, font and motion records.
+- An explicit instruction to keep an identity ("keep the current theme", "do not introduce new colours or fonts") suppresses replacement direction, palette or typography unless that part is explicitly requested. When every identity role is suppressed, `selection_scope` is `preserve_identity` and the shortlist contains usability guidelines.
+- Audit and `preserve_identity` shortlists add further guidelines up to `--limit` when each scores at least half of the best match.
+- Platform labels are normalized ("iOS/Android/React Native" counts as mobile). Framework-labelled guidance ("React/Next.js") requires the framework to be named in the request.
+- Clearly non-visual work (backend cues and no interface cues) returns no references, with `selection_scope: non_visual_task`. A missing catalog or empty request is an error, never an empty result.
+
+Benchmark evidence and limits: `research/evaluations/2026-11-24-specialist-uiux-02-retrieval-experiment.md`.
+
 ### Manual targeted search (optional)
 
 Run from the repository root:
@@ -24,7 +35,7 @@ python scripts/search_catalog.py "riso" --limit 5 --include-tokens
 python scripts/search_catalog.py "navigation accessibility" --specialist-use audit
 ```
 
-Outputs JSON including original source ID, pinned commit, original location, license/redistribution status, and compatibility restrictions. `--include-tokens` returns exact imported source values where present; omit it for a concise shortlist.
+Outputs JSON including original source ID, pinned commit, original location, license/redistribution status, and compatibility restrictions. Ranking is unchanged for manual search (including the Design Index). `--specialist-use critique` also admits audit-tagged guidelines, because only two records are tagged `critique`. `--include-tokens` returns exact imported source values where present; omit it for a concise shortlist.
 
 **AIPF Prompt Agent / Builder Agent:**
 - The Prompt Agent chooses an authorized unit, approved direction and relevant catalog findings.

@@ -1,9 +1,13 @@
 #!/usr/bin/env python3
 """Reproducible retrieval-quality benchmark for the UI/UX Specialist lookup.
 
-Runs the existing retrieval commands unchanged as subprocesses, validates their
-JSON output and scores it against frozen case judgments. Read-only: it never
-modifies the catalog, the retrieval scripts or any project.
+Runs a retrieval implementation as subprocesses, validates its JSON output and
+scores it against frozen case judgments. Read-only: it never modifies the
+catalog, the retrieval scripts or any project.
+
+Implementations: ``working-tree`` (scripts/ in this checkout) or ``v0.2`` (the
+pinned copies in research/evaluations/retrieval-benchmark/reference-v0.2, run
+against this checkout's catalog).
 """
 import argparse
 import hashlib
@@ -12,8 +16,11 @@ import math
 import pathlib
 import platform
 import re
+import shutil
 import subprocess
 import sys
+import tempfile
+from collections import Counter
 
 if __package__:
     from .search_catalog import load_catalog
@@ -24,11 +31,14 @@ ROOT = pathlib.Path(__file__).resolve().parents[1]
 BENCH_DIR = ROOT / "research" / "evaluations" / "retrieval-benchmark"
 CASES = BENCH_DIR / "cases.json"
 POST_HOC = BENCH_DIR / "post-hoc-judgments.json"
+REFERENCE_V02 = BENCH_DIR / "reference-v0.2"
 TOOLS = {
     "recommend": ("scripts/recommend_design.py", "references"),
     "search": ("scripts/search_catalog.py", "results"),
 }
 SPLITS = ("historical", "development", "held_out")
+IMPLEMENTATIONS = ("working-tree", "v0.2")
+REPRODUCTION_IGNORED = {("environment", "repository"), ("environment", "python")}
 
 
 def sha256_file(path):
@@ -65,6 +75,36 @@ def git_revision(root=ROOT):
         return {"head": rev, "retrieval_and_catalog_modified": bool(tracked)}
     except (OSError, subprocess.CalledProcessError):
         return {"head": None, "retrieval_and_catalog_modified": None}
+
+
+class Implementation:
+    """A directory containing scripts/ and catalog/ that commands run from."""
+
+    def __init__(self, name, root=ROOT, scripts_dir=None):
+        if name not in IMPLEMENTATIONS and scripts_dir is None:
+            raise ValueError(f"unknown implementation {name!r}")
+        self.name, self.root, self._tmp = name, root, None
+        self.source = pathlib.Path(scripts_dir) if scripts_dir else (REFERENCE_V02 if name == "v0.2" else None)
+        self.workdir = root
+
+    def __enter__(self):
+        if self.source is not None:
+            self._tmp = tempfile.TemporaryDirectory(prefix="retrieval-impl-")
+            work = pathlib.Path(self._tmp.name)
+            (work / "scripts").mkdir()
+            for script, _ in TOOLS.values():
+                shutil.copyfile(self.source / pathlib.Path(script).name, work / script)
+            (work / "catalog").symlink_to(self.root / "catalog", target_is_directory=True)
+            self.workdir = work
+        return self
+
+    def __exit__(self, *exc):
+        if self._tmp:
+            self._tmp.cleanup()
+        self.workdir = self.root
+
+    def scripts_sha256(self):
+        return {name: sha256_file(self.workdir / path) for name, (path, _) in TOOLS.items()}
 
 
 def build_argv(case, python=sys.executable):
@@ -131,23 +171,37 @@ def rule_matches(rule, catalog_id, entry):
     return bool((name_re and re.search(name_re, name)) or (text_re and re.search(text_re, text)))
 
 
-def grade_for(case, catalog_id, post_hoc):
+def load_judgment_sets(post_hoc_path=POST_HOC, extra_paths=()):
+    """Ordered (label, judgments) pairs consulted after the frozen judgments."""
+    sets = []
+    if post_hoc_path and pathlib.Path(post_hoc_path).exists():
+        sets.append(("post_hoc", load_json(post_hoc_path).get("judgments", {})))
+    for path in extra_paths:
+        data = load_json(path)
+        sets.append((data["label"], data.get("judgments", {})))
+    return sets
+
+
+def grade_for(case, catalog_id, judgment_sets):
     for grade, ids in case["judgments"].items():
         if catalog_id in ids:
             return int(grade), "frozen"
-    extra = post_hoc.get(case["id"], {}).get(catalog_id)
-    if extra is not None:
-        return int(extra["grade"]), "post_hoc"
+    for label, judgments in judgment_sets:
+        extra = judgments.get(case["id"], {}).get(catalog_id)
+        if extra is not None:
+            return int(extra["grade"]), label
     return None, "unjudged"
 
 
-def score_case(case, raw, rules, index, post_hoc):
+def score_case(case, raw, rules, index, judgment_sets):
+    if isinstance(judgment_sets, dict):
+        judgment_sets = [("post_hoc", judgment_sets)]
     status, items, problems = parse_output(case["tool"], raw)
     results = []
     for rank, item in enumerate(items, 1):
         cid = item["catalog_id"]
         entry = index.get(cid)
-        grade, source = grade_for(case, cid, post_hoc)
+        grade, source = grade_for(case, cid, judgment_sets)
         conflicts = [name for name in case["conflict_rules"] if rule_matches(rules[name], cid, entry)]
         results.append({
             "rank": rank,
@@ -165,7 +219,10 @@ def score_case(case, raw, rules, index, post_hoc):
             "asset_license_status": item.get("asset_license_status"),
         })
     graded = [r for r in results if r["grade"] is not None]
+    frozen = [r for r in graded if r["grade_source"] == "frozen"]
     actionable = [r["rank"] for r in graded if r["grade"] == 3]
+    actionable_frozen = [r["rank"] for r in frozen if r["grade"] == 3]
+    sources = Counter(r["grade_source"] for r in results)
     scored = {
         "id": case["id"],
         "origin": case["origin"],
@@ -183,9 +240,13 @@ def score_case(case, raw, rules, index, post_hoc):
         "first_actionable_rank": min(actionable) if actionable else None,
         "conflict_count": sum(1 for r in results if r["conflicts"]),
         "useful": any(r["grade"] >= 2 for r in graded),
-        "useful_frozen_only": any(r["grade"] >= 2 for r in graded if r["grade_source"] == "frozen"),
-        "unjudged": sum(1 for r in results if r["grade_source"] == "unjudged"),
-        "post_hoc": sum(1 for r in results if r["grade_source"] == "post_hoc"),
+        "useful_frozen_only": any(r["grade"] >= 2 for r in frozen),
+        "unjudged": sources.get("unjudged", 0),
+        "post_hoc": sources.get("post_hoc", 0),
+        "relevant_returned": sum(1 for r in graded if r["grade"] >= 2),
+        "relevant_returned_frozen_only": sum(1 for r in frozen if r["grade"] >= 2),
+        "first_actionable_rank_frozen_only": min(actionable_frozen) if actionable_frozen else None,
+        "grade_sources": dict(sorted(sources.items())),
     }
     if case["expect_empty"]:
         scored["abstention"] = "correct" if status == "empty" else (
@@ -205,6 +266,11 @@ def summarize(scored):
     applicable = [s for s in scored if s["abstention"] not in ("correct", "incorrect", "not_assessable")]
     follow = [s for s in applicable if s["role"] == "follow_up"]
     ids = lambda rows: [s["id"] for s in rows]
+    returned = sum(s["result_count"] for s in scored)
+    conflicting = sum(s["conflict_count"] for s in scored)
+    sources = Counter()
+    for s in scored:
+        sources.update(s["grade_sources"])
     return {
         "cases": len(scored),
         "status": {k: ids([s for s in scored if s["status"] == k])
@@ -218,18 +284,29 @@ def summarize(scored):
             "per_case": {s["id"]: s["first_actionable_rank"] for s in applicable},
             "cases_with_actionable": len([s for s in applicable if s["first_actionable_rank"]]),
             "denominator": len(applicable),
+            "per_case_frozen_only": {s["id"]: s["first_actionable_rank_frozen_only"] for s in applicable},
         },
         "constraint_conflicts": {
-            "conflicting_results": sum(s["conflict_count"] for s in scored),
-            "returned_results": sum(s["result_count"] for s in scored),
+            "conflicting_results": conflicting,
+            "returned_results": returned,
             "per_case": {s["id"]: s["conflict_count"] for s in scored if s["conflict_count"]},
+            "rate": round(conflicting / returned, 4) if returned else None,
+            "cases_with_conflict": ids([s for s in scored if s["conflict_count"]]),
         },
         "useful_query_coverage": {
             "useful": ids([s for s in applicable if s["useful"]]),
             "not_useful": ids([s for s in applicable if not s["useful"]]),
             "useful_frozen_judgments_only": ids([s for s in applicable if s["useful_frozen_only"]]),
             "denominator": len(applicable),
+            "excluded_expected_empty": ids([s for s in scored if s not in applicable]),
         },
+        "relevant_returned": {
+            "total": sum(s["relevant_returned"] for s in applicable),
+            "total_frozen_only": sum(s["relevant_returned_frozen_only"] for s in applicable),
+            "returned_in_scored_cases": sum(s["result_count"] for s in applicable),
+            "per_case": {s["id"]: s["relevant_returned"] for s in applicable},
+        },
+        "returned_per_case": {s["id"]: s["result_count"] for s in scored},
         "abstention": {
             "expected_empty": {s["id"]: s["abstention"] for s in scored if s["abstention"] in ("correct", "incorrect", "not_assessable")},
             "empty_results": {s["id"]: s["abstention"] for s in scored if s["abstention"] in ("acceptable_empty", "unacceptable_empty")},
@@ -238,35 +315,169 @@ def summarize(scored):
             "useful": ids([s for s in follow if s["useful"]]),
             "denominator": len(follow),
             "case_ids": ids(follow),
+            "useful_frozen_judgments_only": ids([s for s in follow if s["useful_frozen_only"]]),
         },
         "judgment_coverage": {
-            "returned_results": sum(s["result_count"] for s in scored),
-            "frozen": sum(s["result_count"] - s["unjudged"] - s["post_hoc"] for s in scored),
-            "post_hoc": sum(s["post_hoc"] for s in scored),
-            "unjudged": sum(s["unjudged"] for s in scored),
+            "returned_results": returned,
+            "frozen": sources.get("frozen", 0),
+            "post_hoc": sources.get("post_hoc", 0),
+            "unjudged": sources.get("unjudged", 0),
+            "by_source": dict(sorted(sources.items())),
         },
     }
 
 
-def run_benchmark(cases_path=CASES, post_hoc_path=POST_HOC, splits=SPLITS, runner=run_command, root=ROOT):
+def run_benchmark(cases_path=CASES, post_hoc_path=POST_HOC, splits=SPLITS, runner=None, root=ROOT,
+                  implementation="working-tree", extra_judgments=(), raw_stdout=False, scripts_dir=None):
     fixture = load_json(cases_path)
-    post_hoc = load_json(post_hoc_path).get("judgments", {}) if pathlib.Path(post_hoc_path).exists() else {}
+    judgment_sets = load_judgment_sets(post_hoc_path, extra_judgments)
     index = catalog_index(root)
     cases = [c for c in fixture["cases"] if c["split"] in splits]
-    scored = [score_case(c, runner(c), fixture["conflict_rules"], index, post_hoc) for c in cases]
-    return {
+    raws = {}
+    with Implementation(implementation, root, scripts_dir) as impl:
+        run = runner or (lambda case: run_command(case, impl.workdir))
+        scored = []
+        for case in cases:
+            raw = run(case)
+            raws[case["id"]] = raw["stdout"]
+            scored.append(score_case(case, raw, fixture["conflict_rules"], index, judgment_sets))
+        scripts = impl.scripts_sha256()
+    result = {
         "benchmark": fixture["benchmark"],
         "cases_sha256": sha256_file(cases_path),
-        "post_hoc_sha256": sha256_file(post_hoc_path) if pathlib.Path(post_hoc_path).exists() else None,
+        "post_hoc_sha256": sha256_file(post_hoc_path) if post_hoc_path and pathlib.Path(post_hoc_path).exists() else None,
         "environment": {
             "repository": git_revision(root),
             "catalog": catalog_identity(root),
             "python": platform.python_version(),
-            "retrieval_scripts_sha256": {name: sha256_file(root / path) for name, (path, _) in TOOLS.items()},
+            "retrieval_scripts_sha256": scripts,
+            "implementation": implementation,
         },
         "summary": {split: summarize([s for s in scored if s["split"] == split]) for split in splits},
         "summary_all_non_held_out": summarize([s for s in scored if s["split"] != "held_out"]),
         "cases": scored,
+    }
+    if extra_judgments:
+        result["additional_judgments"] = [
+            {"label": label, "path": str(pathlib.Path(path).resolve().relative_to(root)), "sha256": sha256_file(path)}
+            for (label, _), path in zip(judgment_sets[-len(extra_judgments):], extra_judgments)
+        ]
+    if raw_stdout:
+        result["raw_stdout"] = raws
+    return result
+
+
+def reproduction_differences(expected, actual, path=()):
+    """Paths where ``actual`` does not reproduce every field of ``expected``.
+
+    New fields in ``actual`` are allowed; the recorded checkout revision and
+    Python patch version are informational and ignored.
+    """
+    if path in REPRODUCTION_IGNORED:
+        return []
+    if isinstance(expected, dict):
+        if not isinstance(actual, dict):
+            return [path]
+        diffs = []
+        for key, value in expected.items():
+            if key not in actual:
+                diffs.append(path + (key,))
+            else:
+                diffs.extend(reproduction_differences(value, actual[key], path + (key,)))
+        return diffs
+    if isinstance(expected, list):
+        if not isinstance(actual, list) or len(expected) != len(actual):
+            return [path]
+        diffs = []
+        for i, (a, b) in enumerate(zip(expected, actual)):
+            diffs.extend(reproduction_differences(a, b, path + (i,)))
+        return diffs
+    return [] if expected == actual else [path]
+
+
+def _case_view(case):
+    return {
+        "status": case["status"],
+        "returned": [r["catalog_id"] for r in case["results"]],
+        "grades": [r["grade"] for r in case["results"]],
+        "useful": case["useful"],
+        "useful_frozen_only": case["useful_frozen_only"],
+        "relevant_returned": case.get("relevant_returned", sum(1 for r in case["results"] if (r["grade"] or 0) >= 2)),
+        "first_actionable_rank": case["first_actionable_rank"],
+        "conflict_count": case["conflict_count"],
+        "conflicting_ids": [r["catalog_id"] for r in case["results"] if r["conflicts"]],
+        "abstention": case["abstention"],
+    }
+
+
+def compare(base, candidate):
+    """Case-level and split-level differences between two benchmark runs."""
+    base_cases = {c["id"]: c for c in base["cases"]}
+    rows, newly_useful, regressed = [], [], []
+    for case in candidate["cases"]:
+        if case["id"] not in base_cases:
+            continue
+        before, after = _case_view(base_cases[case["id"]]), _case_view(case)
+        reasons = []
+        if before["useful"] and not after["useful"]:
+            reasons.append("lost usefulness")
+        if after["conflict_count"] > before["conflict_count"]:
+            reasons.append("more conflicts")
+        if before["first_actionable_rank"] and (not after["first_actionable_rank"]
+                                                or after["first_actionable_rank"] > before["first_actionable_rank"]):
+            reasons.append("first actionable result lost or lower")
+        if before["abstention"] == "correct" and after["abstention"] != "correct":
+            reasons.append("abstention lost")
+        if before["status"] in ("ok", "empty") and after["status"] not in ("ok", "empty"):
+            reasons.append("command failed or malformed")
+        improvements = []
+        if after["useful"] and not before["useful"]:
+            improvements.append("newly useful")
+        if after["conflict_count"] < before["conflict_count"]:
+            improvements.append("fewer conflicts")
+        if after["first_actionable_rank"] and (not before["first_actionable_rank"]
+                                               or after["first_actionable_rank"] < before["first_actionable_rank"]):
+            improvements.append("first actionable result gained or higher")
+        if after["abstention"] == "correct" and before["abstention"] != "correct":
+            improvements.append("abstention gained")
+        if "newly useful" in improvements:
+            newly_useful.append(case["id"])
+        if reasons:
+            regressed.append(case["id"])
+        rows.append({"id": case["id"], "split": case["split"], "before": before, "after": after,
+                     "improvements": improvements, "regressions": reasons})
+    splits = [s for s in SPLITS if s in candidate["summary"] and s in base["summary"]]
+    metrics = {}
+    for split in splits:
+        b, a = base["summary"][split], candidate["summary"][split]
+        view = lambda s: {
+            "useful": f"{len(s['useful_query_coverage']['useful'])}/{s['useful_query_coverage']['denominator']}",
+            "useful_frozen_only": f"{len(s['useful_query_coverage']['useful_frozen_judgments_only'])}/{s['useful_query_coverage']['denominator']}",
+            "cases_with_relevant_in_top3": f"{len(s['relevant_in_top3']['cases_with_at_least_one'])}/{s['relevant_in_top3']['denominator']}",
+            "cases_with_actionable": f"{s['first_actionable_rank']['cases_with_actionable']}/{s['first_actionable_rank']['denominator']}",
+            "conflicting_results": f"{s['constraint_conflicts']['conflicting_results']}/{s['constraint_conflicts']['returned_results']}",
+            "returned_results": s["constraint_conflicts"]["returned_results"],
+            "abstention": s["abstention"],
+            "follow_up_useful": f"{len(s['follow_up_usefulness']['useful'])}/{s['follow_up_usefulness']['denominator']}",
+        }
+        metrics[split] = {"before": view(b), "after": view(a)}
+        for side, run in (("before", base), ("after", candidate)):
+            cases = [c for c in run["cases"] if c["split"] == split and c["abstention"] not in ("correct", "incorrect", "not_assessable")]
+            metrics[split][side]["relevant_returned"] = sum(_case_view(c)["relevant_returned"] for c in cases)
+            metrics[split][side]["relevant_returned_frozen_only"] = sum(
+                1 for c in cases for r in c["results"] if r["grade_source"] == "frozen" and r["grade"] >= 2)
+    return {
+        "before": {"implementation": base["environment"].get("implementation", "v0.2"),
+                   "retrieval_scripts_sha256": base["environment"]["retrieval_scripts_sha256"]},
+        "after": {"implementation": candidate["environment"].get("implementation"),
+                  "retrieval_scripts_sha256": candidate["environment"]["retrieval_scripts_sha256"]},
+        "catalog": candidate["environment"]["catalog"],
+        "same_catalog": base["environment"]["catalog"] == candidate["environment"]["catalog"],
+        "cases_sha256": candidate["cases_sha256"],
+        "by_split": metrics,
+        "newly_useful": newly_useful,
+        "regressed": regressed,
+        "cases": rows,
     }
 
 
@@ -274,23 +485,30 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--cases", default=str(CASES))
     ap.add_argument("--post-hoc", default=str(POST_HOC))
+    ap.add_argument("--judgments", action="append", default=[],
+                    help="Additional labelled judgment file consulted after post-hoc judgments (repeatable)")
+    ap.add_argument("--implementation", default="working-tree",
+                    help="working-tree, v0.2, or a label for --scripts-dir")
+    ap.add_argument("--scripts-dir", help="Run recommend_design.py and search_catalog.py copied from this directory")
     ap.add_argument("--split", action="append", choices=SPLITS,
                     help="Restrict to a split (repeatable). Default: all splits.")
     ap.add_argument("--output", help="Write full results JSON to this path")
     ap.add_argument("--raw", action="store_true", help="Include raw stdout of every command in the output")
     ap.add_argument("--check-historical", action="store_true",
                     help="Exit 1 if any historical rerun differs from its retained output")
+    ap.add_argument("--compare", nargs=2, metavar=("BEFORE", "AFTER"),
+                    help="Compare two results files instead of running; writes to --output")
     args = ap.parse_args()
-    raws = {}
-
-    def recording_runner(case):
-        raw = run_command(case)
-        raws[case["id"]] = raw["stdout"]
-        return raw
-
-    result = run_benchmark(args.cases, args.post_hoc, tuple(args.split or SPLITS), recording_runner)
-    if args.raw:
-        result["raw_stdout"] = raws
+    if args.compare:
+        text = json.dumps(compare(load_json(args.compare[0]), load_json(args.compare[1])), ensure_ascii=False, indent=2) + "\n"
+        if args.output:
+            pathlib.Path(args.output).write_text(text, encoding="utf-8")
+        else:
+            print(text, end="")
+        return 0
+    result = run_benchmark(args.cases, args.post_hoc, tuple(args.split or SPLITS),
+                           implementation=args.implementation, extra_judgments=args.judgments,
+                           raw_stdout=args.raw, scripts_dir=args.scripts_dir)
     text = json.dumps(result, ensure_ascii=False, indent=2, sort_keys=False) + "\n"
     if args.output:
         pathlib.Path(args.output).write_text(text, encoding="utf-8")
