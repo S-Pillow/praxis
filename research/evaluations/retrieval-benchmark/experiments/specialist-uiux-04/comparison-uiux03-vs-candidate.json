@@ -9,7 +9,7 @@
   "after": {
     "implementation": "working-tree",
     "retrieval_scripts_sha256": {
-      "recommend": "5fd8f759b971c7d7c1501064225aa7464c9388621a73a89a88178c0a6c79019e",
+      "recommend": "c054c1adf6fa24be6723c8f344942ef0157df00fe42d86a3daef736bc288ab53",
       "search": "f3a5c885cb510f55769d94999f93a2c0a7752bf45f52050aa3c2397808a0c128"
     }
   },

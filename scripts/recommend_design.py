@@ -98,12 +98,12 @@ def norm(term):
 EXCLUSIVE_RELIANCE = re.compile(r'\b(?:alone|only|solely|exclusively|sole)\b')
 EXISTING_REFERENCE = re.compile(r'\b(?:existing|current|established)\b')
 LOOK_AND_FEEL = re.compile(r'\blook and feel\b')
-CHANGE_VERBS = r'(?:change|changing|alter|altering|modify|modifying|replace|replacing|touch|touching)'
+CHANGE_VERBS = r'(?:change|changing|alter|altering|modify|modifying|replace|replacing)'
 PART_CHANGE = re.compile(rf'^{CHANGE_VERBS}\b')
 PART_PRESERVE = re.compile(r'^(?:keep|keeping|preserve|preserving|retain|retaining|maintain|maintaining)\b')
 PART_PROHIBIT = re.compile(r'^(?:use|using|introduce|introducing|add|adding|apply|applying|include|including)\b')
 NEGATED_CHANGE = re.compile(
-    rf"\b(?:without|do not|don't|does not|must not|should not|never|not|avoid|avoiding)\s+(?:\w+\s+)?{CHANGE_VERBS}\b")
+    rf"\b(?:without|do not|don't|does not|must not|should not|never|not|avoid|avoiding)\s+{CHANGE_VERBS}\b")
 
 
 def negation_scopes(text):
@@ -198,9 +198,13 @@ def identity_intent(task, prohibited):
         parts = re.split(r',|\band\b', clause)
         modes = []
         for part in parts:
-            if PRESERVE_CUES.search(part) or NEGATED_CHANGE.search(part):
+            cues = part
+            for rx, _ in IDENTITY_OBJECTS:
+                # "design system" names an object; it is not a request to design.
+                cues = rx.sub(' ', cues)
+            if PRESERVE_CUES.search(cues) or NEGATED_CHANGE.search(cues):
                 modes.append('preserve')
-            elif REQUEST_CUES.search(part) and not NEGATION.search(part):
+            elif REQUEST_CUES.search(cues) and not NEGATION.search(cues):
                 modes.append('request')
             else:
                 modes.append(modes[-1] if modes else None)

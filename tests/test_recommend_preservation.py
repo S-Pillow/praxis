@@ -79,6 +79,17 @@ class PreservationVersusProhibitionTests(unittest.TestCase):
         self.assertEqual(analyse_task('Keep the current light theme and component library.')['preserved'],
                          set(IDENTITY_GROUPS))
         self.assertEqual(analyse_task('Redesign the look and feel of the app.')['requested'], set(IDENTITY_GROUPS))
+        kept = analyse_task('Keep the current theme and design system.')
+        self.assertEqual(kept['preserved'], set(IDENTITY_GROUPS))
+        self.assertFalse(kept['requested'])
+        self.assertEqual(analyse_task('Create a new design system for the app.')['requested'], set(IDENTITY_GROUPS))
+
+    def test_ordinary_ui_terms_are_not_negated_changes(self):
+        for task in ('Avoid large touch targets in this new theme.', 'Do not use a touch-first theme.'):
+            with self.subTest(task=task):
+                signals = analyse_task(task)
+                self.assertFalse(signals['preserved'])
+                self.assertTrue(signals['prohibited'])
 
     def test_redesign_and_genuine_prohibition_remain_distinct(self):
         redesign = analyse_task('Redesign the dashboard with a new appearance and a fresh palette.')
