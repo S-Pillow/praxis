@@ -36,3 +36,5 @@
 #copyStatus{font-size:12px;color:#355641;line-height:1.5}
 .ai-handoff .brief-output{margin-top:14px;min-height:135px;font-family:ui-monospace,Consolas,monospace;font-size:12px;white-space:pre;overflow:auto}
 @media(max-width:720px){.ai-handoff{padding:18px}.ai-handoff h3{font-size:22px}.copy-brief{width:100%}.handoff-actions{align-items:stretch}}
+/* Keep keyboard focus visible within the horizontally scrolling category row. */
+.filter-scroll .chip:focus-visible { outline-offset: -3px; }
