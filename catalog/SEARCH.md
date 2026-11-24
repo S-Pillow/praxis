@@ -2,6 +2,19 @@
 
 The unified catalog contains **5,500 source-preserving records** and supports concise retrieval without loading all entries into an AI context.
 
+### Agent-initiated shortlist (preferred for normal UI requests)
+
+When the UI/UX skill is loaded and the repository is accessible to the coding agent, it runs this **itself**, not the end user:
+
+```bash
+python scripts/recommend_design.py "Build a financial dashboard with clear data tables" --mode build --platform web
+python scripts/recommend_design.py "Audit keyboard focus and navigation" --mode audit
+```
+
+The output is a small set of source-linked **candidates**, not automatic design approval. It includes evidence, license restrictions and a short exact-token excerpt where available; it does not create files or execute a build. The existing `search_catalog.py` remains the deeper, read-only search tool.
+
+### Manual targeted search (optional)
+
 Run from the repository root:
 
 ```bash
