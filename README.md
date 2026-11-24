@@ -21,7 +21,7 @@
 ## Layout
 
 - `catalog/schema/` — normalized entry schema
-- `catalog/entries/` — small, source-linked starter inventory, not the complete imported catalog
+- `catalog/entries/` — 5,500 source-linked production entries plus an illustrative starter file
 - `catalog/mappings/` — source-specific mapping and extraction notes
 - `research/` — workstream scope and source evaluation record
 - `research/licensing/` — rights review and redistribution gates
@@ -31,7 +31,7 @@
 
 ## First usable UI/UX specialist (prototype v0.1)
 
-The optional [UI/UX skill](skills/aipf-ui-ux/SKILL.md) now uses the existing [read-only catalog search](catalog/SEARCH.md) to help an AI **design during implementation** and then perform a separate design critique and technical UI audit. It is one `SKILL.md` file with no additional runtime dependencies or required ceremonies; for use see [skills/README.md](skills/README.md). It is not installed or released and has not yet been proven to improve rendered design outcomes.
+The optional [UI/UX skill](skills/aipf-ui-ux/SKILL.md) now automatically requests a short, read-only set of relevant references from the existing [unified catalog](catalog/SEARCH.md) when the coding AI can access this repository and run Python. Users provide a normal UI request; they do not need to run catalog searches or copy prompts. The AI uses candidates to **design during implementation** and then performs separate design critique and technical UI audit. It is one `SKILL.md` file with no additional runtime dependencies or required ceremonies; for use see [skills/README.md](skills/README.md). It is not installed or released and has not yet been proven to improve rendered design outcomes.
 
 ## Real catalog interface (local prototype)
 

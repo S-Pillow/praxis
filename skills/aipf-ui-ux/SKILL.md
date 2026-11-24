@@ -3,7 +3,7 @@ name: aipf-ui-ux
 description: Optional practical UI/UX specialist for designing, implementing, improving, critiquing, and auditing user-facing interfaces. Uses the AIPF Unified Design Catalog when accessible. Offers design knowledge, not project governance.
 ---
 
-# AIPF UI/UX Specialist — prototype v0.1
+# AIPF UI/UX Specialist — prototype v0.2
 
 **Goal:** Help an AI produce a coherent, product-specific interface while building it, then spot meaningful design and usability weaknesses before it finishes. Activate for actual UI/UX work, not unrelated coding tasks.
 
@@ -23,26 +23,23 @@ Use the supplied brief and actual project, not generic taste. Identify:
 
 Inspect accessible current UI, design tokens, styles, component patterns, and approved references before suggesting replacements. Ask for a missing decision only if it materially blocks the requested outcome; otherwise make reasonable in-scope choices and state consequential assumptions.
 
-## 2. Consult the unified catalog only when it helps
+## 2. Retrieve relevant catalog knowledge without user intervention
 
-If this repository is accessible, run the existing **read-only** search from its root. Start with one or two focused searches, not a dump of the entire catalog.
+**For a material UI/UX task, if this repository and a command runner are actually accessible, perform the lookup yourself.** The user simply describes what they want; do not require them to open the Design Index, save references, run Python, or paste a copied prompt.
 
-Examples:
+Run from the Specialist Suite repository root, using the actual user request:
 
 ```bash
-python scripts/search_catalog.py "editorial research dashboard" --type style --limit 4
-python scripts/search_catalog.py "financial dashboard" --type palette --limit 4 --include-tokens
-python scripts/search_catalog.py "editorial" --type design_system --limit 3 --include-tokens
-python scripts/search_catalog.py "keyboard focus navigation" --specialist-use audit --limit 4
+python scripts/recommend_design.py "Build a financial dashboard with clear data tables" --mode build --platform web
 ```
 
-Search themes, typography, motion, examples, or illustration only if they matter to this particular task. Usually **one strong direction and 1–3 relevant catalog references** are enough. More options are appropriate only when the design decision genuinely needs comparison.
+Use `--mode build` for creation and design changes, `--mode critique` for visual/usability review, or `--mode audit` for technical UI checks. Use `--platform web|mobile|desktop` only when grounded in the task; default to at most three references. This command is **read-only**, uses the existing 5,500-entry catalog and search ranking, and needs no server, new database, or extra dependencies.
 
-Review each candidate's `catalog_id`, source/commit, platform fit, description, evidence level, license/redistribution status, and any exact tokens that are actually present. Search ranking means topical relevance, **not** aesthetic merit, accuracy, accessibility, approval, or permission to copy.
+The command returns **candidate references**, not an approved design. Check each result's original identity, pinned source, evidence level, license and asset restrictions, platform fit, and any exact token excerpt. Make a product-grounded choice; discard weak or conflicting results rather than forcing all returned ideas into the interface. The current approved brand/design system and existing behavior always take precedence. A source or style name is not permission to copy third-party media, fonts, icons, logos, demos or code.
 
-Prefer source-inspected, appropriate references. A record marked candidate/unverified is an idea to check, not an established design system. Brand-derived examples are inspiration only unless the project is authorized to use that identity. Never copy or bundle source photos, icons, fonts, screenshots, demos, or branded assets merely because metadata is searchable. When rights or source access are unclear, use an original implementation instead.
+When the automatic shortlist is insufficient, use the existing `scripts/search_catalog.py` for **one targeted follow-up** only if it will materially improve the decision; do not dump the entire catalog into context. If this repository, Python, or catalog data is unavailable, use the approved project and general design craft, without inventing retrieved references or claiming a lookup. Do not impose new setup work on the user for an otherwise feasible UI task.
 
-If the search script or data is unavailable, work from the approved project and general design craft. **Do not claim a catalog search occurred**, silently install tooling, or demand that the user retrieve the catalog to complete otherwise feasible work.
+If a distinct Builder Agent cannot access the same source, transfer the **selected, verified, necessary tokens, provenance and restrictions** in its existing AIPF-authorized payload. Do not assume a catalog ID or URL gives the Builder access. For a single coding agent no separate payload or copy-prompt workflow is needed.
 
 ## 3. Design and implement, within the approved change
 
