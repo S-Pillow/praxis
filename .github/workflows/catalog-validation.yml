@@ -7,6 +7,8 @@ on:
       - 'catalog/**'
       - 'ui/**'
       - 'skills/**'
+      - '.agents/**'
+      - 'AGENTS.md'
       - 'tests/**'
       - '.github/workflows/catalog-validation.yml'
   push:

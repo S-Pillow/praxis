@@ -13,3 +13,11 @@ Example request: **"Use the AIPF UI/UX specialist to improve this dashboard's hi
 The catalog is reference-only: search results are recommendations, not permission to copy fonts, photos, brand assets or third-party code. No installation, runtime deployment, or independent visual-performance improvement is implied by this prototype.
 
 Smoke checks: `python -m unittest discover -s tests -v`.
+
+## Codex repository discovery (no manual catalog setup)
+
+Codex discovers skills from `.agents/skills` in the repository hierarchy. This repository includes `.agents/skills/aipf-ui-ux/SKILL.md`, a **short adapter** that loads the single authoritative specialist at `skills/aipf-ui-ux/SKILL.md`; `AGENTS.md` scopes its intended use to material UI tasks. A coding agent launched inside this repository can choose the specialist from a normal user request and run the read-only catalog lookup itself.
+
+**Boundary:** This is a **repository-local** discovery setup, not a system-wide installation or a guarantee that every AI tool will automatically activate it. To use the specialist from a different application repository, the target coding agent must be given access to this specialist and catalog through its supported skill/plugin mechanism. The full catalog remains in this repo and should not be copied into every target app by default.
+
+These checks validate file discovery layout and executable retrieval, **not** whether a live Codex runtime selected and used the skill. That final activation test requires a Codex session with this checkout open.
