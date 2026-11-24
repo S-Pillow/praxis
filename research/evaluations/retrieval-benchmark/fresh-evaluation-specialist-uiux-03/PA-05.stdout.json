@@ -1,0 +1,80 @@
+{
+  "task": "Improve a help centre's article navigation and search discoverability without changing its established appearance.",
+  "mode": "build",
+  "platform": "web",
+  "catalog_records_searched": 5500,
+  "selection_scope": "normal",
+  "task_signals": {
+    "interface_priority": null,
+    "prohibited": [
+      "established appearance"
+    ],
+    "preserved_identity": [],
+    "requested_identity": [],
+    "not_sole_reliance": []
+  },
+  "references": [
+    {
+      "role": "direction",
+      "catalog_id": "uupm:styles:liquid-glass",
+      "entry_type": "style",
+      "original_name": "Liquid Glass",
+      "description": "Lensing and refraction, adaptive translucency, and fluid morph transitions aligned to Apple platform behavior",
+      "source_repo": "nextlevelbuilder/ui-ux-pro-max-skill",
+      "source_ref": "f2cc36555984fbfb08f1dca037da2467578f33d2",
+      "source_url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/f2cc36555984fbfb08f1dca037da2467578f33d2/.claude/skills/ui-ux-pro-max/data/styles.csv",
+      "source_path_or_key": ".claude/skills/ui-ux-pro-max/data/styles.csv#row=15",
+      "evidence_status": "source_inspected",
+      "redistribution_status": "metadata_only",
+      "asset_license_status": "not_applicable",
+      "platforms": [],
+      "compatibility_restrictions": [
+        "Avoid for: content layers, dense reading surfaces, or custom effects without accessibility fallbacks",
+        "Accessibility note: risk:conditional|requires:contrast-text-4.5,keyboard,visible-focus,reduced-motion",
+        "Frameworks: swiftui|uikit|appkit"
+      ],
+      "relevance_score": 5.503699
+    },
+    {
+      "role": "usability_reference",
+      "catalog_id": "uupm:ux-guidelines:2",
+      "entry_type": "guideline",
+      "original_name": "Sticky Navigation",
+      "description": "Fixed nav should not obscure content",
+      "source_repo": "nextlevelbuilder/ui-ux-pro-max-skill",
+      "source_ref": "f2cc36555984fbfb08f1dca037da2467578f33d2",
+      "source_url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/f2cc36555984fbfb08f1dca037da2467578f33d2/.claude/skills/ui-ux-pro-max/data/ux-guidelines.csv",
+      "source_path_or_key": ".claude/skills/ui-ux-pro-max/data/ux-guidelines.csv#row=3",
+      "evidence_status": "source_inspected",
+      "redistribution_status": "metadata_only",
+      "asset_license_status": "not_applicable",
+      "platforms": [
+        "Web"
+      ],
+      "compatibility_restrictions": [
+        "Platform: Web",
+        "Avoid: Let nav overlap first section content"
+      ],
+      "relevance_score": 6.181639
+    },
+    {
+      "role": "typography",
+      "catalog_id": "uupm:typography:66",
+      "entry_type": "font_pairing",
+      "original_name": "Neo Brutalism Mobile (Space Grotesk Bold)",
+      "description": "Single-weight system using the loaded Space Grotesk 700 (Bold). Display: 48–64px. Heading: 24–32px. Body: 18–20px for deliberate brutalist density. Labels: 14px ALL CAPS letterSpacing 2. All buttons and navigation: uppercase. Use a bold sans-serif system fallback. No italic or thin weights.",
+      "source_repo": "nextlevelbuilder/ui-ux-pro-max-skill",
+      "source_ref": "f2cc36555984fbfb08f1dca037da2467578f33d2",
+      "source_url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/f2cc36555984fbfb08f1dca037da2467578f33d2/.claude/skills/ui-ux-pro-max/data/typography.csv",
+      "source_path_or_key": ".claude/skills/ui-ux-pro-max/data/typography.csv#row=67",
+      "evidence_status": "source_inspected",
+      "redistribution_status": "metadata_only",
+      "asset_license_status": "mixed",
+      "platforms": [],
+      "compatibility_restrictions": [],
+      "relevance_score": 2.780874
+    }
+  ],
+  "selection_method": "heuristic text matching; not design or legal approval",
+  "use_boundary": "Suggestions are optional and unapproved. Existing project identity, design system, behavior, and applicable AIPF authorization take priority. Do not copy third-party fonts, photos, icons, branded assets or code based on metadata. Confirm source rights and actual access. Inspect the rendered UI before claiming visual acceptance. This command does not build, modify, install, deploy, or verify an interface."
+}

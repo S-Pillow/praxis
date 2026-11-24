@@ -73,13 +73,15 @@ A rerun reproduces a results file when every field of that file is present and e
 
 `reference-v0.2/` holds byte-exact copies of `scripts/recommend_design.py` and `scripts/search_catalog.py` at `481bb188`. Their hashes equal those recorded in `baseline-v0.2-481bb18.json`, and a test checks this. The v0.2 replay tests run these copies, so the working-tree scripts may change without losing the ability to reproduce v0.2 or the retained pilot outputs.
 
-`reference-specialist-uiux-02/` holds byte-exact copies of the SPECIALIST-UIUX-02 candidate scripts (commit `4ebee264`). Their hashes equal those in `experiments/specialist-uiux-02/candidate-freeze.json`, and `--implementation specialist-uiux-02` reproduces `experiments/specialist-uiux-02/candidate-results.json` (whose `implementation` field reads `working-tree`, because it was frozen from the working tree).
+`reference-specialist-uiux-02/` holds byte-exact copies of the SPECIALIST-UIUX-02 candidate scripts (commit `4ebee264`). Their hashes equal those in `experiments/specialist-uiux-02/candidate-freeze.json`, and `--implementation specialist-uiux-02` reproduces `experiments/specialist-uiux-02/candidate-results.json` (whose `implementation` field reads `working-tree`, because it was frozen from the working tree). `reference-specialist-uiux-03/` likewise holds the frozen SPECIALIST-UIUX-03 candidate (commit `cd3ef156`), reproduced by `--implementation specialist-uiux-03`.
 
 ## Experiments
 
 Each retrieval experiment gets its own directory under `experiments/`. It holds a labelled judgment file for newly returned records (separate from `cases.json` and `post-hoc-judgments.json`), any intermediate stage results, a freeze record written before the reserved cases are run, the candidate's full results, a same-judgment v0.2 rerun and a comparison. `cases.json` is never edited.
 
-In SPECIALIST-UIUX-03 (`experiments/specialist-uiux-03/`) all 17 cases are development and regression evidence. SYN-04, SYN-07 and SYN-11 keep the `held_out` split label and their recorded SPECIALIST-UIUX-02 reserved results, but they were used for refinement and are no longer reserved. That directory compares v0.2, pinned SPECIALIST-UIUX-02 and the refinement candidate under identical judgment sets. A future fixture version should be added alongside it, so the freeze hash stays meaningful.
+In SPECIALIST-UIUX-03 (`experiments/specialist-uiux-03/`) all 17 cases are development and regression evidence. SYN-04, SYN-07 and SYN-11 keep the `held_out` split label and their recorded SPECIALIST-UIUX-02 reserved results, but they were used for refinement and are no longer reserved. That directory compares v0.2, pinned SPECIALIST-UIUX-02 and the refinement candidate under identical judgment sets.
+
+`fresh-evaluation-specialist-uiux-03/` preserves, unchanged, the seven withheld Prompt Agent queries (PA-01 to PA-07) run once against the frozen UIUX-03 candidate. `experiments/specialist-uiux-04/` holds the v0.3 preservation-versus-prohibition correction: the 17-case results (no case changed), a comparison with UIUX-03, and `correction-results.json`, which reruns PA-01 to PA-07 as regression evidence (only PA-02 and PA-05 changed). Those queries are no longer held-out evidence. A future fixture version should be added alongside it, so the freeze hash stays meaningful.
 
 ## Limitations
 

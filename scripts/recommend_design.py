@@ -109,7 +109,7 @@ def negation_scopes(text):
     prohibited, reliance = [], []
     for match in NEGATION.finditer(text.lower()):
         scope = match.group('scope')
-        if re.search(r'\b(?:existing|current)\b', scope):
+        if re.search(r'\b(?:existing|current|established)\b', scope):
             continue
         for part in re.split(r',|\bor\b|\bnor\b|\band\b', scope):
             if EXCLUSIVE_RELIANCE.match(part.strip()):
@@ -140,7 +140,7 @@ def interface_priority(text):
 IDENTITY_GROUPS = ('direction', 'palette', 'typography')
 # Words naming part of a visual identity, mapped to the build groups they cover.
 IDENTITY_OBJECTS = (
-    (re.compile(r'\b(?:identity|brand|branding|theme|design[- ]system|tokens|aesthetic|look and feel)\b'),
+    (re.compile(r'\b(?:identity|brand|branding|theme|design[- ]system|tokens|aesthetic|look and feel|appearance)\b'),
      IDENTITY_GROUPS),
     (re.compile(r'\b(?:style|styling|component library|components)\b'), ('direction',)),
     (re.compile(r'\b(?:palette|colou?rs?)\b'), ('palette',)),
@@ -184,7 +184,13 @@ def identity_intent(task, prohibited):
         elif REQUEST_CUES.search(clause) and not NEGATION.search(clause):
             requested.update(named)
     for item in prohibited:
-        preserved.update(identity_groups(' '.join(item)))
+        # "no new colours" protects the palette; "avoid saturated accent colours" constrains a new one.
+        text = ' '.join(item)
+        remainder = text
+        for rx, _ in IDENTITY_OBJECTS:
+            remainder = rx.sub(' ', remainder)
+        if not remainder.strip():
+            preserved.update(identity_groups(text))
     return preserved - requested, requested
 
 

@@ -1,0 +1,903 @@
+{
+  "before": {
+    "implementation": "working-tree",
+    "retrieval_scripts_sha256": {
+      "recommend": "1f64c70145f8ccf376b79f053d331492be1351c0aefe5ad353eb025ca2fd1c0e",
+      "search": "f3a5c885cb510f55769d94999f93a2c0a7752bf45f52050aa3c2397808a0c128"
+    }
+  },
+  "after": {
+    "implementation": "working-tree",
+    "retrieval_scripts_sha256": {
+      "recommend": "2e077446344c7eb942bb4520a76179c0b21e783c02b7b8bc73b66b2f79bfe7a0",
+      "search": "f3a5c885cb510f55769d94999f93a2c0a7752bf45f52050aa3c2397808a0c128"
+    }
+  },
+  "catalog": {
+    "files": 30,
+    "records": 5500,
+    "sha256": "e3ae82ff0e08c9f77e58dced6e5645a7d6f2eabb818206bb4a853d963ab933d4"
+  },
+  "same_catalog": true,
+  "cases_sha256": "6b6dda63eac336f2ee6078550f82f3175d0a1e440fd8a666a8de324b0d6038d2",
+  "by_split": {
+    "historical": {
+      "before": {
+        "useful": "4/5",
+        "useful_frozen_only": "4/5",
+        "cases_with_relevant_in_top3": "4/5",
+        "cases_with_actionable": "3/5",
+        "conflicting_results": "0/17",
+        "returned_results": 17,
+        "abstention": {
+          "expected_empty": {},
+          "empty_results": {}
+        },
+        "follow_up_useful": "1/2",
+        "relevant_returned": 7,
+        "relevant_returned_frozen_only": 7
+      },
+      "after": {
+        "useful": "4/5",
+        "useful_frozen_only": "4/5",
+        "cases_with_relevant_in_top3": "4/5",
+        "cases_with_actionable": "3/5",
+        "conflicting_results": "0/17",
+        "returned_results": 17,
+        "abstention": {
+          "expected_empty": {},
+          "empty_results": {}
+        },
+        "follow_up_useful": "1/2",
+        "relevant_returned": 7,
+        "relevant_returned_frozen_only": 7
+      }
+    },
+    "development": {
+      "before": {
+        "useful": "8/8",
+        "useful_frozen_only": "8/8",
+        "cases_with_relevant_in_top3": "8/8",
+        "cases_with_actionable": "6/8",
+        "conflicting_results": "0/25",
+        "returned_results": 25,
+        "abstention": {
+          "expected_empty": {
+            "SYN-09": "correct"
+          },
+          "empty_results": {}
+        },
+        "follow_up_useful": "1/1",
+        "relevant_returned": 17,
+        "relevant_returned_frozen_only": 14
+      },
+      "after": {
+        "useful": "8/8",
+        "useful_frozen_only": "8/8",
+        "cases_with_relevant_in_top3": "8/8",
+        "cases_with_actionable": "6/8",
+        "conflicting_results": "0/25",
+        "returned_results": 25,
+        "abstention": {
+          "expected_empty": {
+            "SYN-09": "correct"
+          },
+          "empty_results": {}
+        },
+        "follow_up_useful": "1/1",
+        "relevant_returned": 17,
+        "relevant_returned_frozen_only": 14
+      }
+    },
+    "held_out": {
+      "before": {
+        "useful": "3/3",
+        "useful_frozen_only": "3/3",
+        "cases_with_relevant_in_top3": "3/3",
+        "cases_with_actionable": "3/3",
+        "conflicting_results": "0/8",
+        "returned_results": 8,
+        "abstention": {
+          "expected_empty": {},
+          "empty_results": {}
+        },
+        "follow_up_useful": "0/0",
+        "relevant_returned": 7,
+        "relevant_returned_frozen_only": 7
+      },
+      "after": {
+        "useful": "3/3",
+        "useful_frozen_only": "3/3",
+        "cases_with_relevant_in_top3": "3/3",
+        "cases_with_actionable": "3/3",
+        "conflicting_results": "0/8",
+        "returned_results": 8,
+        "abstention": {
+          "expected_empty": {},
+          "empty_results": {}
+        },
+        "follow_up_useful": "0/0",
+        "relevant_returned": 7,
+        "relevant_returned_frozen_only": 7
+      }
+    }
+  },
+  "newly_useful": [],
+  "regressed": [],
+  "cases": [
+    {
+      "id": "HIST-01",
+      "split": "historical",
+      "before": {
+        "status": "ok",
+        "returned": [
+          "uupm:ux-guidelines:90",
+          "uupm:ux-guidelines:39",
+          "uupm:ux-guidelines:76"
+        ],
+        "grades": [
+          1,
+          2,
+          2
+        ],
+        "useful": true,
+        "useful_frozen_only": true,
+        "relevant_returned": 2,
+        "first_actionable_rank": null,
+        "conflict_count": 0,
+        "conflicting_ids": [],
+        "abstention": null
+      },
+      "after": {
+        "status": "ok",
+        "returned": [
+          "uupm:ux-guidelines:90",
+          "uupm:ux-guidelines:39",
+          "uupm:ux-guidelines:76"
+        ],
+        "grades": [
+          1,
+          2,
+          2
+        ],
+        "useful": true,
+        "useful_frozen_only": true,
+        "relevant_returned": 2,
+        "first_actionable_rank": null,
+        "conflict_count": 0,
+        "conflicting_ids": [],
+        "abstention": null
+      },
+      "improvements": [],
+      "regressions": []
+    },
+    {
+      "id": "HIST-02",
+      "split": "historical",
+      "before": {
+        "status": "ok",
+        "returned": [
+          "uupm:ux-guidelines:36"
+        ],
+        "grades": [
+          3
+        ],
+        "useful": true,
+        "useful_frozen_only": true,
+        "relevant_returned": 1,
+        "first_actionable_rank": 1,
+        "conflict_count": 0,
+        "conflicting_ids": [],
+        "abstention": null
+      },
+      "after": {
+        "status": "ok",
+        "returned": [
+          "uupm:ux-guidelines:36"
+        ],
+        "grades": [
+          3
+        ],
+        "useful": true,
+        "useful_frozen_only": true,
+        "relevant_returned": 1,
+        "first_actionable_rank": 1,
+        "conflict_count": 0,
+        "conflicting_ids": [],
+        "abstention": null
+      },
+      "improvements": [],
+      "regressions": []
+    },
+    {
+      "id": "HIST-03",
+      "split": "historical",
+      "before": {
+        "status": "ok",
+        "returned": [
+          "uupm:ux-guidelines:41",
+          "uupm:ux-guidelines:36",
+          "uupm:ux-guidelines:109"
+        ],
+        "grades": [
+          3,
+          3,
+          1
+        ],
+        "useful": true,
+        "useful_frozen_only": true,
+        "relevant_returned": 2,
+        "first_actionable_rank": 1,
+        "conflict_count": 0,
+        "conflicting_ids": [],
+        "abstention": null
+      },
+      "after": {
+        "status": "ok",
+        "returned": [
+          "uupm:ux-guidelines:41",
+          "uupm:ux-guidelines:36",
+          "uupm:ux-guidelines:109"
+        ],
+        "grades": [
+          3,
+          3,
+          1
+        ],
+        "useful": true,
+        "useful_frozen_only": true,
+        "relevant_returned": 2,
+        "first_actionable_rank": 1,
+        "conflict_count": 0,
+        "conflicting_ids": [],
+        "abstention": null
+      },
+      "improvements": [],
+      "regressions": []
+    },
+    {
+      "id": "HIST-04",
+      "split": "historical",
+      "before": {
+        "status": "ok",
+        "returned": [
+          "uupm:ux-guidelines:71",
+          "uupm:react-performance:31",
+          "uupm:ux-guidelines:90",
+          "uupm:ux-guidelines:76",
+          "uupm:react-performance:34"
+        ],
+        "grades": [
+          3,
+          0,
+          1,
+          2,
+          0
+        ],
+        "useful": true,
+        "useful_frozen_only": true,
+        "relevant_returned": 2,
+        "first_actionable_rank": 1,
+        "conflict_count": 0,
+        "conflicting_ids": [],
+        "abstention": null
+      },
+      "after": {
+        "status": "ok",
+        "returned": [
+          "uupm:ux-guidelines:71",
+          "uupm:react-performance:31",
+          "uupm:ux-guidelines:90",
+          "uupm:ux-guidelines:76",
+          "uupm:react-performance:34"
+        ],
+        "grades": [
+          3,
+          0,
+          1,
+          2,
+          0
+        ],
+        "useful": true,
+        "useful_frozen_only": true,
+        "relevant_returned": 2,
+        "first_actionable_rank": 1,
+        "conflict_count": 0,
+        "conflicting_ids": [],
+        "abstention": null
+      },
+      "improvements": [],
+      "regressions": []
+    },
+    {
+      "id": "HIST-05",
+      "split": "historical",
+      "before": {
+        "status": "ok",
+        "returned": [
+          "uupm:landing:comparison-table-cta",
+          "uupm:landing:comparison-table-focus",
+          "open-design:skills:app-table",
+          "uupm:phosphor-icon:table",
+          "open-design:templates:html-ppt-zhangzara-long-table"
+        ],
+        "grades": [
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        "useful": false,
+        "useful_frozen_only": false,
+        "relevant_returned": 0,
+        "first_actionable_rank": null,
+        "conflict_count": 0,
+        "conflicting_ids": [],
+        "abstention": null
+      },
+      "after": {
+        "status": "ok",
+        "returned": [
+          "uupm:landing:comparison-table-cta",
+          "uupm:landing:comparison-table-focus",
+          "open-design:skills:app-table",
+          "uupm:phosphor-icon:table",
+          "open-design:templates:html-ppt-zhangzara-long-table"
+        ],
+        "grades": [
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        "useful": false,
+        "useful_frozen_only": false,
+        "relevant_returned": 0,
+        "first_actionable_rank": null,
+        "conflict_count": 0,
+        "conflicting_ids": [],
+        "abstention": null
+      },
+      "improvements": [],
+      "regressions": []
+    },
+    {
+      "id": "SYN-01",
+      "split": "development",
+      "before": {
+        "status": "ok",
+        "returned": [
+          "uupm:ux-guidelines:91",
+          "uupm:ux-guidelines:41",
+          "uupm:ux-guidelines:61"
+        ],
+        "grades": [
+          2,
+          3,
+          0
+        ],
+        "useful": true,
+        "useful_frozen_only": true,
+        "relevant_returned": 2,
+        "first_actionable_rank": 2,
+        "conflict_count": 0,
+        "conflicting_ids": [],
+        "abstention": null
+      },
+      "after": {
+        "status": "ok",
+        "returned": [
+          "uupm:ux-guidelines:91",
+          "uupm:ux-guidelines:41",
+          "uupm:ux-guidelines:61"
+        ],
+        "grades": [
+          2,
+          3,
+          0
+        ],
+        "useful": true,
+        "useful_frozen_only": true,
+        "relevant_returned": 2,
+        "first_actionable_rank": 2,
+        "conflict_count": 0,
+        "conflicting_ids": [],
+        "abstention": null
+      },
+      "improvements": [],
+      "regressions": []
+    },
+    {
+      "id": "SYN-02",
+      "split": "development",
+      "before": {
+        "status": "ok",
+        "returned": [
+          "uupm:styles:executive-dashboard",
+          "uupm:colors:95",
+          "uupm:typography:42"
+        ],
+        "grades": [
+          1,
+          0,
+          2
+        ],
+        "useful": true,
+        "useful_frozen_only": true,
+        "relevant_returned": 1,
+        "first_actionable_rank": null,
+        "conflict_count": 0,
+        "conflicting_ids": [],
+        "abstention": null
+      },
+      "after": {
+        "status": "ok",
+        "returned": [
+          "uupm:styles:executive-dashboard",
+          "uupm:colors:95",
+          "uupm:typography:42"
+        ],
+        "grades": [
+          1,
+          0,
+          2
+        ],
+        "useful": true,
+        "useful_frozen_only": true,
+        "relevant_returned": 1,
+        "first_actionable_rank": null,
+        "conflict_count": 0,
+        "conflicting_ids": [],
+        "abstention": null
+      },
+      "improvements": [],
+      "regressions": []
+    },
+    {
+      "id": "SYN-03",
+      "split": "development",
+      "before": {
+        "status": "ok",
+        "returned": [
+          "uupm:styles:flat-design-mobile-touch-first",
+          "uupm:colors:174",
+          "uupm:ux-guidelines:64"
+        ],
+        "grades": [
+          2,
+          1,
+          3
+        ],
+        "useful": true,
+        "useful_frozen_only": true,
+        "relevant_returned": 2,
+        "first_actionable_rank": 3,
+        "conflict_count": 0,
+        "conflicting_ids": [],
+        "abstention": null
+      },
+      "after": {
+        "status": "ok",
+        "returned": [
+          "uupm:styles:flat-design-mobile-touch-first",
+          "uupm:colors:174",
+          "uupm:ux-guidelines:64"
+        ],
+        "grades": [
+          2,
+          1,
+          3
+        ],
+        "useful": true,
+        "useful_frozen_only": true,
+        "relevant_returned": 2,
+        "first_actionable_rank": 3,
+        "conflict_count": 0,
+        "conflicting_ids": [],
+        "abstention": null
+      },
+      "improvements": [],
+      "regressions": []
+    },
+    {
+      "id": "SYN-04",
+      "split": "held_out",
+      "before": {
+        "status": "ok",
+        "returned": [
+          "uupm:app-interface:6",
+          "uupm:ux-guidelines:22",
+          "uupm:app-interface:1"
+        ],
+        "grades": [
+          3,
+          3,
+          3
+        ],
+        "useful": true,
+        "useful_frozen_only": true,
+        "relevant_returned": 3,
+        "first_actionable_rank": 1,
+        "conflict_count": 0,
+        "conflicting_ids": [],
+        "abstention": null
+      },
+      "after": {
+        "status": "ok",
+        "returned": [
+          "uupm:app-interface:6",
+          "uupm:ux-guidelines:22",
+          "uupm:app-interface:1"
+        ],
+        "grades": [
+          3,
+          3,
+          3
+        ],
+        "useful": true,
+        "useful_frozen_only": true,
+        "relevant_returned": 3,
+        "first_actionable_rank": 1,
+        "conflict_count": 0,
+        "conflicting_ids": [],
+        "abstention": null
+      },
+      "improvements": [],
+      "regressions": []
+    },
+    {
+      "id": "SYN-05",
+      "split": "development",
+      "before": {
+        "status": "ok",
+        "returned": [
+          "uupm:ux-guidelines:55",
+          "uupm:ux-guidelines:109",
+          "uupm:ux-guidelines:56"
+        ],
+        "grades": [
+          3,
+          3,
+          2
+        ],
+        "useful": true,
+        "useful_frozen_only": true,
+        "relevant_returned": 3,
+        "first_actionable_rank": 1,
+        "conflict_count": 0,
+        "conflicting_ids": [],
+        "abstention": null
+      },
+      "after": {
+        "status": "ok",
+        "returned": [
+          "uupm:ux-guidelines:55",
+          "uupm:ux-guidelines:109",
+          "uupm:ux-guidelines:56"
+        ],
+        "grades": [
+          3,
+          3,
+          2
+        ],
+        "useful": true,
+        "useful_frozen_only": true,
+        "relevant_returned": 3,
+        "first_actionable_rank": 1,
+        "conflict_count": 0,
+        "conflicting_ids": [],
+        "abstention": null
+      },
+      "improvements": [],
+      "regressions": []
+    },
+    {
+      "id": "SYN-06",
+      "split": "development",
+      "before": {
+        "status": "ok",
+        "returned": [
+          "hallmark:theme:specimen",
+          "uupm:colors:149",
+          "uupm:ux-guidelines:67"
+        ],
+        "grades": [
+          2,
+          1,
+          2
+        ],
+        "useful": true,
+        "useful_frozen_only": true,
+        "relevant_returned": 2,
+        "first_actionable_rank": null,
+        "conflict_count": 0,
+        "conflicting_ids": [],
+        "abstention": null
+      },
+      "after": {
+        "status": "ok",
+        "returned": [
+          "hallmark:theme:specimen",
+          "uupm:colors:149",
+          "uupm:ux-guidelines:67"
+        ],
+        "grades": [
+          2,
+          1,
+          2
+        ],
+        "useful": true,
+        "useful_frozen_only": true,
+        "relevant_returned": 2,
+        "first_actionable_rank": null,
+        "conflict_count": 0,
+        "conflicting_ids": [],
+        "abstention": null
+      },
+      "improvements": [],
+      "regressions": []
+    },
+    {
+      "id": "SYN-07",
+      "split": "held_out",
+      "before": {
+        "status": "ok",
+        "returned": [
+          "uupm:ux-guidelines:39",
+          "hallmark:theme:coral"
+        ],
+        "grades": [
+          3,
+          1
+        ],
+        "useful": true,
+        "useful_frozen_only": true,
+        "relevant_returned": 1,
+        "first_actionable_rank": 1,
+        "conflict_count": 0,
+        "conflicting_ids": [],
+        "abstention": null
+      },
+      "after": {
+        "status": "ok",
+        "returned": [
+          "uupm:ux-guidelines:39",
+          "hallmark:theme:coral"
+        ],
+        "grades": [
+          3,
+          1
+        ],
+        "useful": true,
+        "useful_frozen_only": true,
+        "relevant_returned": 1,
+        "first_actionable_rank": 1,
+        "conflict_count": 0,
+        "conflicting_ids": [],
+        "abstention": null
+      },
+      "improvements": [],
+      "regressions": []
+    },
+    {
+      "id": "SYN-08",
+      "split": "development",
+      "before": {
+        "status": "ok",
+        "returned": [
+          "uupm:ux-guidelines:31",
+          "uupm:ux-guidelines:28",
+          "uupm:ux-guidelines:78"
+        ],
+        "grades": [
+          3,
+          3,
+          2
+        ],
+        "useful": true,
+        "useful_frozen_only": true,
+        "relevant_returned": 3,
+        "first_actionable_rank": 1,
+        "conflict_count": 0,
+        "conflicting_ids": [],
+        "abstention": null
+      },
+      "after": {
+        "status": "ok",
+        "returned": [
+          "uupm:ux-guidelines:31",
+          "uupm:ux-guidelines:28",
+          "uupm:ux-guidelines:78"
+        ],
+        "grades": [
+          3,
+          3,
+          2
+        ],
+        "useful": true,
+        "useful_frozen_only": true,
+        "relevant_returned": 3,
+        "first_actionable_rank": 1,
+        "conflict_count": 0,
+        "conflicting_ids": [],
+        "abstention": null
+      },
+      "improvements": [],
+      "regressions": []
+    },
+    {
+      "id": "SYN-09",
+      "split": "development",
+      "before": {
+        "status": "empty",
+        "returned": [],
+        "grades": [],
+        "useful": false,
+        "useful_frozen_only": false,
+        "relevant_returned": 0,
+        "first_actionable_rank": null,
+        "conflict_count": 0,
+        "conflicting_ids": [],
+        "abstention": "correct"
+      },
+      "after": {
+        "status": "empty",
+        "returned": [],
+        "grades": [],
+        "useful": false,
+        "useful_frozen_only": false,
+        "relevant_returned": 0,
+        "first_actionable_rank": null,
+        "conflict_count": 0,
+        "conflicting_ids": [],
+        "abstention": "correct"
+      },
+      "improvements": [],
+      "regressions": []
+    },
+    {
+      "id": "SYN-10",
+      "split": "development",
+      "before": {
+        "status": "ok",
+        "returned": [
+          "uupm:colors:44",
+          "uupm:typography:45"
+        ],
+        "grades": [
+          3,
+          1
+        ],
+        "useful": true,
+        "useful_frozen_only": true,
+        "relevant_returned": 1,
+        "first_actionable_rank": 1,
+        "conflict_count": 0,
+        "conflicting_ids": [],
+        "abstention": null
+      },
+      "after": {
+        "status": "ok",
+        "returned": [
+          "uupm:colors:44",
+          "uupm:typography:45"
+        ],
+        "grades": [
+          3,
+          1
+        ],
+        "useful": true,
+        "useful_frozen_only": true,
+        "relevant_returned": 1,
+        "first_actionable_rank": 1,
+        "conflict_count": 0,
+        "conflicting_ids": [],
+        "abstention": null
+      },
+      "improvements": [],
+      "regressions": []
+    },
+    {
+      "id": "SYN-11",
+      "split": "held_out",
+      "before": {
+        "status": "ok",
+        "returned": [
+          "uupm:ux-guidelines:37",
+          "uupm:ux-guidelines:71",
+          "uupm:ux-guidelines:36"
+        ],
+        "grades": [
+          3,
+          2,
+          2
+        ],
+        "useful": true,
+        "useful_frozen_only": true,
+        "relevant_returned": 3,
+        "first_actionable_rank": 1,
+        "conflict_count": 0,
+        "conflicting_ids": [],
+        "abstention": null
+      },
+      "after": {
+        "status": "ok",
+        "returned": [
+          "uupm:ux-guidelines:37",
+          "uupm:ux-guidelines:71",
+          "uupm:ux-guidelines:36"
+        ],
+        "grades": [
+          3,
+          2,
+          2
+        ],
+        "useful": true,
+        "useful_frozen_only": true,
+        "relevant_returned": 3,
+        "first_actionable_rank": 1,
+        "conflict_count": 0,
+        "conflicting_ids": [],
+        "abstention": null
+      },
+      "improvements": [],
+      "regressions": []
+    },
+    {
+      "id": "SYN-12",
+      "split": "development",
+      "before": {
+        "status": "ok",
+        "returned": [
+          "uupm:ux-guidelines:71",
+          "uupm:ux-guidelines:41",
+          "uupm:app-interface:17",
+          "uupm:ux-guidelines:91",
+          "uupm:ux-guidelines:63"
+        ],
+        "grades": [
+          2,
+          3,
+          0,
+          2,
+          0
+        ],
+        "useful": true,
+        "useful_frozen_only": true,
+        "relevant_returned": 3,
+        "first_actionable_rank": 2,
+        "conflict_count": 0,
+        "conflicting_ids": [],
+        "abstention": null
+      },
+      "after": {
+        "status": "ok",
+        "returned": [
+          "uupm:ux-guidelines:71",
+          "uupm:ux-guidelines:41",
+          "uupm:app-interface:17",
+          "uupm:ux-guidelines:91",
+          "uupm:ux-guidelines:63"
+        ],
+        "grades": [
+          2,
+          3,
+          0,
+          2,
+          0
+        ],
+        "useful": true,
+        "useful_frozen_only": true,
+        "relevant_returned": 3,
+        "first_actionable_rank": 2,
+        "conflict_count": 0,
+        "conflicting_ids": [],
+        "abstention": null
+      },
+      "improvements": [],
+      "regressions": []
+    }
+  ]
+}

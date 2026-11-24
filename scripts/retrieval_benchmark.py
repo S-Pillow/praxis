@@ -6,9 +6,10 @@ scores it against frozen case judgments. Read-only: it never modifies the
 catalog, the retrieval scripts or any project.
 
 Implementations: ``working-tree`` (scripts/ in this checkout), ``v0.2`` (the
-pinned copies in research/evaluations/retrieval-benchmark/reference-v0.2) or
-``specialist-uiux-02`` (the pinned experiment copies in
-reference-specialist-uiux-02), each run against this checkout's catalog.
+pinned copies in research/evaluations/retrieval-benchmark/reference-v0.2),
+``specialist-uiux-02`` or ``specialist-uiux-03`` (the pinned experiment copies
+in reference-specialist-uiux-02 and reference-specialist-uiux-03), each run
+against this checkout's catalog.
 """
 import argparse
 import hashlib
@@ -34,7 +35,8 @@ CASES = BENCH_DIR / "cases.json"
 POST_HOC = BENCH_DIR / "post-hoc-judgments.json"
 REFERENCE_V02 = BENCH_DIR / "reference-v0.2"
 REFERENCE_UIUX02 = BENCH_DIR / "reference-specialist-uiux-02"
-PINNED = {"v0.2": REFERENCE_V02, "specialist-uiux-02": REFERENCE_UIUX02}
+REFERENCE_UIUX03 = BENCH_DIR / "reference-specialist-uiux-03"
+PINNED = {"v0.2": REFERENCE_V02, "specialist-uiux-02": REFERENCE_UIUX02, "specialist-uiux-03": REFERENCE_UIUX03}
 TOOLS = {
     "recommend": ("scripts/recommend_design.py", "references"),
     "search": ("scripts/search_catalog.py", "results"),
@@ -491,7 +493,7 @@ def main():
     ap.add_argument("--judgments", action="append", default=[],
                     help="Additional labelled judgment file consulted after post-hoc judgments (repeatable)")
     ap.add_argument("--implementation", default="working-tree",
-                    help="working-tree, v0.2, specialist-uiux-02, or a label for --scripts-dir")
+                    help="working-tree, a pinned implementation (" + ", ".join(PINNED) + "), or a label for --scripts-dir")
     ap.add_argument("--scripts-dir", help="Run recommend_design.py and search_catalog.py copied from this directory")
     ap.add_argument("--split", action="append", choices=SPLITS,
                     help="Restrict to a split (repeatable). Default: all splits.")

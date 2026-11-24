@@ -3,7 +3,7 @@ name: aipf-ui-ux
 description: Use for material UI/UX tasks in this repository: create, improve, critique, or audit web/mobile/desktop interfaces using the AIPF UI/UX specialist and optional source-linked design catalog lookup. Do not use for unrelated coding.
 ---
 
-# Repository-discoverable AIPF UI/UX specialist
+# Repository-discoverable AIPF UI/UX specialist (v0.3)
 
 This is a **discovery adapter** for coding agents; the full, single source of truth is `skills/aipf-ui-ux/SKILL.md` at the repository root. **Read that file and follow it before designing or editing a UI.** Do not treat this loader as a separate rule set or a replacement for AIPF v8.10.1.
 

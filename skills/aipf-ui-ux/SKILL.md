@@ -3,7 +3,7 @@ name: aipf-ui-ux
 description: Optional practical UI/UX specialist for designing, implementing, improving, critiquing, and auditing user-facing interfaces. Uses the AIPF Unified Design Catalog when accessible. Offers design knowledge, not project governance.
 ---
 
-# AIPF UI/UX Specialist — prototype v0.2
+# AIPF UI/UX Specialist — v0.3
 
 **Goal:** Help an AI produce a coherent, product-specific interface while building it, then spot meaningful design and usability weaknesses before it finishes. Activate for actual UI/UX work, not unrelated coding tasks.
 

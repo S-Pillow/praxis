@@ -7,7 +7,7 @@ import tempfile
 import unittest
 
 from scripts.retrieval_benchmark import (
-    BENCH_DIR, CASES, POST_HOC, REFERENCE_UIUX02, REFERENCE_V02, ROOT, TOOLS, Implementation, catalog_identity,
+    BENCH_DIR, CASES, POST_HOC, REFERENCE_UIUX02, REFERENCE_UIUX03, REFERENCE_V02, ROOT, TOOLS, Implementation, catalog_identity,
     catalog_index, compare, load_json, parse_output, reproduction_differences, run_command,
     score_case, sha256_file,
 )
@@ -20,6 +20,8 @@ EXPERIMENT_FREEZE = EXPERIMENT_DIR / "candidate-freeze.json"
 REFINEMENT_DIR = BENCH_DIR / "experiments" / "specialist-uiux-03"
 REFINEMENT_JUDGMENTS = REFINEMENT_DIR / "judgments.json"
 REFINEMENT_RESULT = REFINEMENT_DIR / "candidate-results.json"
+REFINEMENT_FREEZE = REFINEMENT_DIR / "candidate-freeze.json"
+RELEASE_RESULT = BENCH_DIR / "experiments" / "specialist-uiux-04" / "candidate-results.json"
 FROZEN_CASES_SHA256 = "6b6dda63eac336f2ee6078550f82f3175d0a1e440fd8a666a8de324b0d6038d2"
 FROZEN_POST_HOC_SHA256 = "573f4da10fe2dd72c0abb6fd2f4508b179f3db76ea4586f0090d1a4d73684f1d"
 
@@ -114,6 +116,11 @@ class RetrievalBenchmarkFixtureTests(unittest.TestCase):
         freeze = load_json(EXPERIMENT_FREEZE)["retrieval_scripts_sha256"]
         for name, (path, _) in TOOLS.items():
             self.assertEqual(sha256_file(REFERENCE_UIUX02 / pathlib.Path(path).name), freeze[name])
+
+    def test_pinned_uiux03_scripts_match_their_freeze(self):
+        freeze = load_json(REFINEMENT_FREEZE)["retrieval_scripts_sha256"]
+        for name, (path, _) in TOOLS.items():
+            self.assertEqual(sha256_file(REFERENCE_UIUX03 / pathlib.Path(path).name), freeze[name])
 
     def test_historical_cases_reproduce_retained_output_with_v02(self):
         with Implementation("v0.2") as impl:
@@ -241,10 +248,19 @@ class RetrievalBenchmarkBaselineTests(unittest.TestCase):
         expected["environment"]["implementation"] = "specialist-uiux-02"
         self.assertEqual(reproduction_differences(expected, run), [])
 
-    def test_working_tree_reproduces_frozen_refinement_results(self):
+    def test_pinned_uiux03_reproduces_its_frozen_results(self):
+        run = json.loads(self.run_cli("--implementation", "specialist-uiux-03",
+                                      "--judgments", str(EXPERIMENT_JUDGMENTS),
+                                      "--judgments", str(REFINEMENT_JUDGMENTS)))
+        expected = load_json(REFINEMENT_RESULT)
+        self.assertEqual(expected["environment"]["implementation"], "working-tree")
+        expected["environment"]["implementation"] = "specialist-uiux-03"
+        self.assertEqual(reproduction_differences(expected, run), [])
+
+    def test_working_tree_reproduces_release_results(self):
         run = json.loads(self.run_cli("--judgments", str(EXPERIMENT_JUDGMENTS),
                                       "--judgments", str(REFINEMENT_JUDGMENTS)))
-        self.assertEqual(reproduction_differences(load_json(REFINEMENT_RESULT), run), [])
+        self.assertEqual(reproduction_differences(load_json(RELEASE_RESULT), run), [])
 
     def test_reproduction_check_detects_changed_results(self):
         baseline = load_json(BASELINE)

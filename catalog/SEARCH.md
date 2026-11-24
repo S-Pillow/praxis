@@ -13,7 +13,7 @@ python scripts/recommend_design.py "Audit keyboard focus and navigation" --mode 
 
 The output is a small set of source-linked **candidates**, not automatic design approval. It includes evidence, license restrictions and a short exact-token excerpt where available; it does not create files or execute a build. The existing `search_catalog.py` remains the deeper, read-only search tool.
 
-**Experimental selection behaviour (SPECIALIST-UIUX-02, unreleased).** The shortlist reads explicit constraints in the request; `task_signals` in the output shows what it detected.
+**Selection behaviour (SPECIALIST-UIUX-02, released in v0.3).** The shortlist reads explicit constraints in the request; `task_signals` in the output shows what it detected.
 - Only a record's name, type, keywords and description count as matching evidence. `compatibility_restrictions` ("Avoid: …", "Avoid for: …") are returned unchanged but never scored.
 - A stated interface priority ("desktop-first", or desktop or mobile mentioned alone) excludes records that advocate the opposite priority or discourage the stated one. This is separate from `--platform`: a web interface can be desktop-first or mobile-first.
 - Explicitly prohibited items ("do not use dark mode or glassmorphism") are removed from the query and exclude matching theme, style, palette, font and motion records.
@@ -22,13 +22,15 @@ The output is a small set of source-linked **candidates**, not automatic design 
 - Platform labels are normalized ("iOS/Android/React Native" counts as mobile). Framework-labelled guidance ("React/Next.js") requires the framework to be named in the request.
 - Clearly non-visual work (backend cues and no interface cues) returns no references, with `selection_scope: non_visual_task`. A missing catalog or empty request is an error, never an empty result.
 
-**Refinements (SPECIALIST-UIUX-03, unreleased candidate).**
+**Refinements (SPECIALIST-UIUX-03, released in v0.3).**
 - A limit on exclusive reliance ("without relying on colour alone", "don't rely solely on color", "no colour-only indicators") is not a prohibition. Colour stays in the query and palettes stay eligible; `task_signals.not_sole_reliance` lists such items. Genuine prohibitions ("do not use red") still apply.
 - A critique includes a theme or style reference only when the request asks about visual direction (style, aesthetic, theme, brand, identity, palette, typography and similar), and only when the reference shares at least two query terms. Other critiques return guidelines and fill up to `--limit` as audits do.
 - The delivery-platform word "web" is not matching evidence; platform fit comes from `--platform`.
 - "help" and "support" count only next to an interface noun ("help center", "support chat", "inline help"), not as domain words or verbs ("help-desk", "support agents", "browsers that support").
 - A word that appears only inside a hyphenated compound ("first-run", "long-form") counts only for records containing the whole phrase. "desktop-first" and "mobile-first" are interpreted as interface priorities.
 - British spellings "colour" and "colours" match the catalog's American spelling.
+
+**Preservation versus prohibition (SPECIALIST-UIUX-04, released in v0.3).** "Without changing its established appearance" protects the existing identity instead of prohibiting the words "established appearance". A prohibition implies preservation only when it names a bare identity part ("no new colours or fonts"); a qualified prohibition ("avoid saturated accent colors") constrains a new design and leaves the palette eligible.
 
 Benchmark evidence and limits: `research/evaluations/2026-11-24-specialist-uiux-02-retrieval-experiment.md` and `research/evaluations/2026-11-24-specialist-uiux-03-refinement.md`.
 

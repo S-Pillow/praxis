@@ -1,0 +1,61 @@
+{
+  "task": "Create a monochrome inventory interface. Avoid gradients and saturated accent colors.",
+  "mode": "build",
+  "platform": "desktop",
+  "catalog_records_searched": 5500,
+  "selection_scope": "normal",
+  "task_signals": {
+    "interface_priority": null,
+    "prohibited": [
+      "gradients",
+      "saturated accent colors"
+    ],
+    "preserved_identity": [
+      "palette"
+    ],
+    "requested_identity": [],
+    "not_sole_reliance": []
+  },
+  "references": [
+    {
+      "role": "direction",
+      "catalog_id": "uupm:styles:minimalist-monochrome",
+      "entry_type": "style",
+      "original_name": "Minimalist Monochrome",
+      "description": "Instant inversion active state (tap → bg-black text-white, zero transition-none), no shadows (strictly 2D), full-bleed horizontal rules (4px black section dividers), subtle paper noise texture (opacity: 0.03), slide-in page transitions with hard edge",
+      "source_repo": "nextlevelbuilder/ui-ux-pro-max-skill",
+      "source_ref": "f2cc36555984fbfb08f1dca037da2467578f33d2",
+      "source_url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/f2cc36555984fbfb08f1dca037da2467578f33d2/.claude/skills/ui-ux-pro-max/data/styles.csv",
+      "source_path_or_key": ".claude/skills/ui-ux-pro-max/data/styles.csv#row=70",
+      "evidence_status": "source_inspected",
+      "redistribution_status": "metadata_only",
+      "asset_license_status": "not_applicable",
+      "platforms": [],
+      "compatibility_restrictions": [
+        "Avoid for: Entertainment, colorful brands, friendly consumer apps, anything requiring visual warmth or gradient",
+        "Accessibility note: risk:low|requires:contrast-text-4.5,keyboard,visible-focus,reduced-motion",
+        "Frameworks: react-native|expo|swiftui|tailwind"
+      ],
+      "relevance_score": 8.414709
+    },
+    {
+      "role": "typography",
+      "catalog_id": "uupm:typography:59",
+      "entry_type": "font_pairing",
+      "original_name": "Minimalist Monochrome Editorial",
+      "description": "Triple stack: Playfair Display 900 tracking-tighter leading-[0.9] for heroes (text-5xl–text-6xl breaks words graphically). Source Serif 4 300–600 for body legibility. JetBrains Mono 400–500 uppercase tracking-widest for tags/dates/labels. NO UI sans-serif — 100% serif/mono.",
+      "source_repo": "nextlevelbuilder/ui-ux-pro-max-skill",
+      "source_ref": "f2cc36555984fbfb08f1dca037da2467578f33d2",
+      "source_url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/f2cc36555984fbfb08f1dca037da2467578f33d2/.claude/skills/ui-ux-pro-max/data/typography.csv",
+      "source_path_or_key": ".claude/skills/ui-ux-pro-max/data/typography.csv#row=60",
+      "evidence_status": "source_inspected",
+      "redistribution_status": "metadata_only",
+      "asset_license_status": "mixed",
+      "platforms": [],
+      "compatibility_restrictions": [],
+      "relevance_score": 7.305205
+    }
+  ],
+  "selection_method": "heuristic text matching; not design or legal approval",
+  "use_boundary": "Suggestions are optional and unapproved. Existing project identity, design system, behavior, and applicable AIPF authorization take priority. Do not copy third-party fonts, photos, icons, branded assets or code based on metadata. Confirm source rights and actual access. Inspect the rendered UI before claiming visual acceptance. This command does not build, modify, install, deploy, or verify an interface."
+}

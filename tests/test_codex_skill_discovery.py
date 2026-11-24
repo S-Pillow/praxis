@@ -1,6 +1,7 @@
 """Check project-scoped Codex skill discovery without asserting a real agent activation."""
 import json
 from pathlib import Path
+import re
 import subprocess
 import sys
 import unittest
@@ -20,6 +21,13 @@ class CodexDiscoveryTests(unittest.TestCase):
         self.assertTrue(SKILL.is_file())
         self.assertIn("AIPF v8.10.1", SKILL.read_text(encoding="utf-8"))
         self.assertLess(len(loader), len(SKILL.read_text(encoding="utf-8")))
+
+    def test_specialist_version_is_consistent(self):
+        version = re.search(r"^# AIPF UI/UX Specialist — (v\d+\.\d+)$", SKILL.read_text(encoding="utf-8"), re.M)
+        self.assertIsNotNone(version)
+        self.assertIn(f"({version.group(1)})", ADAPTER.read_text(encoding="utf-8").splitlines()[5])
+        self.assertIn(f"UI/UX specialist ({version.group(1)})", (ROOT / "README.md").read_text(encoding="utf-8"))
+        self.assertIn(f"## {version.group(1)}", (ROOT / "CHANGELOG.md").read_text(encoding="utf-8"))
 
     def test_scope_does_not_claim_global_install(self):
         guidance = GUIDANCE.read_text(encoding="utf-8")

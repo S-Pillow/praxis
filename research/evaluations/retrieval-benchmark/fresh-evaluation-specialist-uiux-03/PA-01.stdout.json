@@ -1,0 +1,64 @@
+{
+  "task": "Audit an incident dashboard so severity is distinguishable without depending exclusively on color.",
+  "mode": "audit",
+  "platform": "web",
+  "catalog_records_searched": 5500,
+  "selection_scope": "normal",
+  "task_signals": {
+    "interface_priority": null,
+    "prohibited": [],
+    "preserved_identity": [],
+    "requested_identity": [],
+    "not_sole_reliance": [
+      "depending color"
+    ]
+  },
+  "references": [
+    {
+      "role": "check_reference",
+      "catalog_id": "uupm:ux-guidelines:37",
+      "entry_type": "guideline",
+      "original_name": "Color Only",
+      "description": "Don't convey information by color alone",
+      "source_repo": "nextlevelbuilder/ui-ux-pro-max-skill",
+      "source_ref": "f2cc36555984fbfb08f1dca037da2467578f33d2",
+      "source_url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/f2cc36555984fbfb08f1dca037da2467578f33d2/.claude/skills/ui-ux-pro-max/data/ux-guidelines.csv",
+      "source_path_or_key": ".claude/skills/ui-ux-pro-max/data/ux-guidelines.csv#row=38",
+      "evidence_status": "source_inspected",
+      "redistribution_status": "metadata_only",
+      "asset_license_status": "not_applicable",
+      "platforms": [
+        "All"
+      ],
+      "compatibility_restrictions": [
+        "Platform: All",
+        "Avoid: Red/green only for error/success"
+      ],
+      "relevance_score": 7.39275
+    },
+    {
+      "role": "check_reference",
+      "catalog_id": "uupm:ux-guidelines:36",
+      "entry_type": "guideline",
+      "original_name": "Color Contrast",
+      "description": "Text must be readable against background",
+      "source_repo": "nextlevelbuilder/ui-ux-pro-max-skill",
+      "source_ref": "f2cc36555984fbfb08f1dca037da2467578f33d2",
+      "source_url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/f2cc36555984fbfb08f1dca037da2467578f33d2/.claude/skills/ui-ux-pro-max/data/ux-guidelines.csv",
+      "source_path_or_key": ".claude/skills/ui-ux-pro-max/data/ux-guidelines.csv#row=37",
+      "evidence_status": "source_inspected",
+      "redistribution_status": "metadata_only",
+      "asset_license_status": "not_applicable",
+      "platforms": [
+        "All"
+      ],
+      "compatibility_restrictions": [
+        "Platform: All",
+        "Avoid: Low contrast text"
+      ],
+      "relevance_score": 7.315171
+    }
+  ],
+  "selection_method": "heuristic text matching; not design or legal approval",
+  "use_boundary": "Suggestions are optional and unapproved. Existing project identity, design system, behavior, and applicable AIPF authorization take priority. Do not copy third-party fonts, photos, icons, branded assets or code based on metadata. Confirm source rights and actual access. Inspect the rendered UI before claiming visual acceptance. This command does not build, modify, install, deploy, or verify an interface."
+}

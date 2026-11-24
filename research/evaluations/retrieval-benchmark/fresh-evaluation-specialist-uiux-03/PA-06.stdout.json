@@ -1,0 +1,90 @@
+{
+  "task": "Design a mobile-first appointment booking experience for use on small touchscreens.",
+  "mode": "build",
+  "platform": "mobile",
+  "catalog_records_searched": 5500,
+  "selection_scope": "normal",
+  "task_signals": {
+    "interface_priority": "mobile",
+    "prohibited": [],
+    "preserved_identity": [],
+    "requested_identity": [],
+    "not_sole_reliance": []
+  },
+  "references": [
+    {
+      "role": "direction",
+      "catalog_id": "uupm:styles:flat-design-mobile-touch-first",
+      "entry_type": "style",
+      "original_name": "Flat Design Mobile (Touch-First)",
+      "description": "Immediate press feedback (scale 0.97, no delay), color section blocking (full-width contrasting View), zero elevation/shadow, solid icon containers (colored squares/circles), geometric low-opacity shape overlays, bottom tabs solid fill (no floating)",
+      "source_repo": "nextlevelbuilder/ui-ux-pro-max-skill",
+      "source_ref": "f2cc36555984fbfb08f1dca037da2467578f33d2",
+      "source_url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/f2cc36555984fbfb08f1dca037da2467578f33d2/.claude/skills/ui-ux-pro-max/data/styles.csv",
+      "source_path_or_key": ".claude/skills/ui-ux-pro-max/data/styles.csv#row=75",
+      "evidence_status": "source_inspected",
+      "redistribution_status": "metadata_only",
+      "asset_license_status": "not_applicable",
+      "platforms": [],
+      "compatibility_restrictions": [
+        "Avoid for: Ultra-premium contexts needing depth/shadow, dark-mode-first products, contexts where flat design reads as unfinished or sterile",
+        "Accessibility note: risk:low|requires:contrast-text-4.5,keyboard,visible-focus,reduced-motion",
+        "Frameworks: react-native|expo|nativewind|flutter|swiftui"
+      ],
+      "relevance_score": 12.095904
+    },
+    {
+      "role": "palette",
+      "catalog_id": "uupm:colors:104",
+      "entry_type": "palette",
+      "original_name": "Booking & Appointment App",
+      "description": "Calendar blue + available green",
+      "source_repo": "nextlevelbuilder/ui-ux-pro-max-skill",
+      "source_ref": "f2cc36555984fbfb08f1dca037da2467578f33d2",
+      "source_url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/f2cc36555984fbfb08f1dca037da2467578f33d2/.claude/skills/ui-ux-pro-max/data/colors.csv",
+      "source_path_or_key": ".claude/skills/ui-ux-pro-max/data/colors.csv#row=105",
+      "evidence_status": "source_inspected",
+      "redistribution_status": "metadata_only",
+      "asset_license_status": "not_applicable",
+      "platforms": [],
+      "compatibility_restrictions": [],
+      "relevance_score": 16.96631,
+      "source_tokens_excerpt": {
+        "Primary": "#0284C7",
+        "Secondary": "#0EA5E9",
+        "Accent": "#059669",
+        "Background": "#F0F9FF",
+        "Foreground": "#0F172A",
+        "Card": "#FFFFFF",
+        "Card Foreground": "#0F172A",
+        "Muted Foreground": "#475569",
+        "Border": "#E0F0F8",
+        "Ring": "#0284C7"
+      }
+    },
+    {
+      "role": "usability_reference",
+      "catalog_id": "uupm:ux-guidelines:63",
+      "entry_type": "guideline",
+      "original_name": "Mobile Keyboards",
+      "description": "Show appropriate keyboard for input type",
+      "source_repo": "nextlevelbuilder/ui-ux-pro-max-skill",
+      "source_ref": "f2cc36555984fbfb08f1dca037da2467578f33d2",
+      "source_url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/f2cc36555984fbfb08f1dca037da2467578f33d2/.claude/skills/ui-ux-pro-max/data/ux-guidelines.csv",
+      "source_path_or_key": ".claude/skills/ui-ux-pro-max/data/ux-guidelines.csv#row=64",
+      "evidence_status": "source_inspected",
+      "redistribution_status": "metadata_only",
+      "asset_license_status": "not_applicable",
+      "platforms": [
+        "Mobile"
+      ],
+      "compatibility_restrictions": [
+        "Platform: Mobile",
+        "Avoid: Default keyboard for all inputs"
+      ],
+      "relevance_score": 8.257564
+    }
+  ],
+  "selection_method": "heuristic text matching; not design or legal approval",
+  "use_boundary": "Suggestions are optional and unapproved. Existing project identity, design system, behavior, and applicable AIPF authorization take priority. Do not copy third-party fonts, photos, icons, branded assets or code based on metadata. Confirm source rights and actual access. Inspect the rendered UI before claiming visual acceptance. This command does not build, modify, install, deploy, or verify an interface."
+}
