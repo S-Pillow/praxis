@@ -25,7 +25,8 @@ class CodexDiscoveryTests(unittest.TestCase):
         guidance = GUIDANCE.read_text(encoding="utf-8")
         self.assertIn(".agents/skills/aipf-ui-ux/SKILL.md", guidance)
         self.assertIn("project-scoped", guidance)
-        self.assertIn("not a global install", ADAPTER.read_text(encoding="utf-8"))
+        loader = ADAPTER.read_text(encoding="utf-8").replace("*", "")
+        self.assertIn("not a global install", loader)
 
     def test_agent_side_lookup_works_with_full_catalog(self):
         process = subprocess.run(
