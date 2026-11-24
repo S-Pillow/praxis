@@ -1,0 +1,61 @@
+{
+  "task": "Critique the existing URL Activity Scanner results interface for batch readability, information hierarchy, accessibility and responsive usability while preserving its technical dark design identity",
+  "mode": "critique",
+  "platform": "web",
+  "catalog_records_searched": 5500,
+  "selection_scope": "normal",
+  "references": [
+    {
+      "role": "usability_reference",
+      "catalog_id": "uupm:ux-guidelines:90",
+      "entry_type": "guideline",
+      "original_name": "No Results",
+      "description": "Dead ends frustrate users",
+      "source_repo": "nextlevelbuilder/ui-ux-pro-max-skill",
+      "source_ref": "f2cc36555984fbfb08f1dca037da2467578f33d2",
+      "source_url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/f2cc36555984fbfb08f1dca037da2467578f33d2/.claude/skills/ui-ux-pro-max/data/ux-guidelines.csv",
+      "source_path_or_key": ".claude/skills/ui-ux-pro-max/data/ux-guidelines.csv#row=91",
+      "evidence_status": "source_inspected",
+      "redistribution_status": "metadata_only",
+      "asset_license_status": "not_applicable",
+      "platforms": [
+        "Web"
+      ],
+      "compatibility_restrictions": [
+        "Platform: Web",
+        "Avoid: Blank screen or '0 results'"
+      ],
+      "relevance_score": 7.447674
+    },
+    {
+      "role": "design_reference",
+      "catalog_id": "hallmark:theme:midnight",
+      "entry_type": "theme",
+      "original_name": "Midnight",
+      "description": "midnight-blue ground to every edge, cool white ink, Mona Sans expanded at 300 over its normal width, square-cut surfaces in lightness steps, photographs as moonlight, one azure signal",
+      "source_repo": "Nutlope/hallmark",
+      "source_ref": "04977e15f3dfd6ee4b74c887dac3eb52665d6c92",
+      "source_url": "https://github.com/Nutlope/hallmark/blob/04977e15f3dfd6ee4b74c887dac3eb52665d6c92/skills/hallmark/references/themes/index.json",
+      "source_path_or_key": "skills/hallmark/references/themes/index.json#themes[slug=midnight]",
+      "evidence_status": "source_inspected",
+      "redistribution_status": "metadata_only",
+      "asset_license_status": "mixed",
+      "platforms": [
+        "web"
+      ],
+      "compatibility_restrictions": [
+        "Web-oriented theme; verify other platform applicability",
+        "Photo, preview and fonts not cleared for redistribution"
+      ],
+      "relevance_score": 10.702019,
+      "source_tokens_excerpt": {
+        "--color-paper": "oklch(14% 0.048 264)",
+        "--color-ink": "oklch(95% 0.016 250)",
+        "--color-accent": "oklch(80% 0.11 230)",
+        "--color-focus": "oklch(84% 0.12 228)"
+      }
+    }
+  ],
+  "selection_method": "heuristic text matching; not design or legal approval",
+  "use_boundary": "Suggestions are optional and unapproved. Existing project identity, design system, behavior, and applicable AIPF authorization take priority. Do not copy third-party fonts, photos, icons, branded assets or code based on metadata. Confirm source rights and actual access. Inspect the rendered UI before claiming visual acceptance. This command does not build, modify, install, deploy, or verify an interface."
+}
