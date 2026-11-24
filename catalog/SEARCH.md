@@ -22,7 +22,15 @@ The output is a small set of source-linked **candidates**, not automatic design 
 - Platform labels are normalized ("iOS/Android/React Native" counts as mobile). Framework-labelled guidance ("React/Next.js") requires the framework to be named in the request.
 - Clearly non-visual work (backend cues and no interface cues) returns no references, with `selection_scope: non_visual_task`. A missing catalog or empty request is an error, never an empty result.
 
-Benchmark evidence and limits: `research/evaluations/2026-11-24-specialist-uiux-02-retrieval-experiment.md`.
+**Refinements (SPECIALIST-UIUX-03, unreleased candidate).**
+- A limit on exclusive reliance ("without relying on colour alone", "don't rely solely on color", "no colour-only indicators") is not a prohibition. Colour stays in the query and palettes stay eligible; `task_signals.not_sole_reliance` lists such items. Genuine prohibitions ("do not use red") still apply.
+- A critique includes a theme or style reference only when the request asks about visual direction (style, aesthetic, theme, brand, identity, palette, typography and similar), and only when the reference shares at least two query terms. Other critiques return guidelines and fill up to `--limit` as audits do.
+- The delivery-platform word "web" is not matching evidence; platform fit comes from `--platform`.
+- "help" and "support" count only next to an interface noun ("help center", "support chat", "inline help"), not as domain words or verbs ("help-desk", "support agents", "browsers that support").
+- A word that appears only inside a hyphenated compound ("first-run", "long-form") counts only for records containing the whole phrase. "desktop-first" and "mobile-first" are interpreted as interface priorities.
+- British spellings "colour" and "colours" match the catalog's American spelling.
+
+Benchmark evidence and limits: `research/evaluations/2026-11-24-specialist-uiux-02-retrieval-experiment.md` and `research/evaluations/2026-11-24-specialist-uiux-03-refinement.md`.
 
 ### Manual targeted search (optional)
 

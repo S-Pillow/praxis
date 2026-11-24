@@ -7,7 +7,7 @@ import tempfile
 import unittest
 
 from scripts.retrieval_benchmark import (
-    BENCH_DIR, CASES, POST_HOC, REFERENCE_V02, ROOT, TOOLS, Implementation, catalog_identity,
+    BENCH_DIR, CASES, POST_HOC, REFERENCE_UIUX02, REFERENCE_V02, ROOT, TOOLS, Implementation, catalog_identity,
     catalog_index, compare, load_json, parse_output, reproduction_differences, run_command,
     score_case, sha256_file,
 )
@@ -16,6 +16,10 @@ BASELINE = BENCH_DIR / "baseline-v0.2-481bb18.json"
 EXPERIMENT_DIR = BENCH_DIR / "experiments" / "specialist-uiux-02"
 EXPERIMENT_JUDGMENTS = EXPERIMENT_DIR / "judgments.json"
 EXPERIMENT_RESULT = EXPERIMENT_DIR / "candidate-results.json"
+EXPERIMENT_FREEZE = EXPERIMENT_DIR / "candidate-freeze.json"
+REFINEMENT_DIR = BENCH_DIR / "experiments" / "specialist-uiux-03"
+REFINEMENT_JUDGMENTS = REFINEMENT_DIR / "judgments.json"
+REFINEMENT_RESULT = REFINEMENT_DIR / "candidate-results.json"
 FROZEN_CASES_SHA256 = "6b6dda63eac336f2ee6078550f82f3175d0a1e440fd8a666a8de324b0d6038d2"
 FROZEN_POST_HOC_SHA256 = "573f4da10fe2dd72c0abb6fd2f4508b179f3db76ea4586f0090d1a4d73684f1d"
 
@@ -88,6 +92,28 @@ class RetrievalBenchmarkFixtureTests(unittest.TestCase):
                 self.assertFalse(any(cid in ids for ids in case["judgments"].values()))
                 if case["split"] == "held_out":
                     self.assertEqual(item["phase"], "reserved_evaluation")
+
+    def test_refinement_judgments_are_separate_and_labelled(self):
+        data = load_json(REFINEMENT_JUDGMENTS)
+        earlier_experiment = load_json(EXPERIMENT_JUDGMENTS)["judgments"]
+        self.assertEqual(data["label"], "post_hoc_uiux03")
+        self.assertEqual(data["judged_after"]["cases_sha256"], FROZEN_CASES_SHA256)
+        self.assertEqual(data["judged_after"]["uiux02_judgments_sha256"], sha256_file(EXPERIMENT_JUDGMENTS))
+        for case_id, grades in data["judgments"].items():
+            case = self.cases[case_id]
+            for cid, item in grades.items():
+                self.assertIn(cid, self.index)
+                self.assertIn(item["grade"], (0, 1, 2, 3))
+                self.assertEqual(item["phase"], "development")
+                self.assertTrue(item["rationale"])
+                self.assertNotIn(cid, self.post_hoc["judgments"].get(case_id, {}))
+                self.assertNotIn(cid, earlier_experiment.get(case_id, {}))
+                self.assertFalse(any(cid in ids for ids in case["judgments"].values()))
+
+    def test_pinned_uiux02_scripts_match_their_freeze(self):
+        freeze = load_json(EXPERIMENT_FREEZE)["retrieval_scripts_sha256"]
+        for name, (path, _) in TOOLS.items():
+            self.assertEqual(sha256_file(REFERENCE_UIUX02 / pathlib.Path(path).name), freeze[name])
 
     def test_historical_cases_reproduce_retained_output_with_v02(self):
         with Implementation("v0.2") as impl:
@@ -206,9 +232,19 @@ class RetrievalBenchmarkBaselineTests(unittest.TestCase):
         self.assertEqual(reproduction_differences(load_json(BASELINE), json.loads(first)), [])
         self.assertEqual(first, self.run_cli("--implementation", "v0.2", "--check-historical"))
 
-    def test_working_tree_reproduces_frozen_candidate_results(self):
-        run = json.loads(self.run_cli("--judgments", str(EXPERIMENT_JUDGMENTS)))
-        self.assertEqual(reproduction_differences(load_json(EXPERIMENT_RESULT), run), [])
+    def test_pinned_uiux02_reproduces_its_frozen_results(self):
+        run = json.loads(self.run_cli("--implementation", "specialist-uiux-02",
+                                      "--judgments", str(EXPERIMENT_JUDGMENTS)))
+        expected = load_json(EXPERIMENT_RESULT)
+        # Frozen while those scripts were the working tree.
+        self.assertEqual(expected["environment"]["implementation"], "working-tree")
+        expected["environment"]["implementation"] = "specialist-uiux-02"
+        self.assertEqual(reproduction_differences(expected, run), [])
+
+    def test_working_tree_reproduces_frozen_refinement_results(self):
+        run = json.loads(self.run_cli("--judgments", str(EXPERIMENT_JUDGMENTS),
+                                      "--judgments", str(REFINEMENT_JUDGMENTS)))
+        self.assertEqual(reproduction_differences(load_json(REFINEMENT_RESULT), run), [])
 
     def test_reproduction_check_detects_changed_results(self):
         baseline = load_json(BASELINE)

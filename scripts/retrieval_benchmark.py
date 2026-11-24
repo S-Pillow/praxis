@@ -5,9 +5,10 @@ Runs a retrieval implementation as subprocesses, validates its JSON output and
 scores it against frozen case judgments. Read-only: it never modifies the
 catalog, the retrieval scripts or any project.
 
-Implementations: ``working-tree`` (scripts/ in this checkout) or ``v0.2`` (the
-pinned copies in research/evaluations/retrieval-benchmark/reference-v0.2, run
-against this checkout's catalog).
+Implementations: ``working-tree`` (scripts/ in this checkout), ``v0.2`` (the
+pinned copies in research/evaluations/retrieval-benchmark/reference-v0.2) or
+``specialist-uiux-02`` (the pinned experiment copies in
+reference-specialist-uiux-02), each run against this checkout's catalog.
 """
 import argparse
 import hashlib
@@ -32,12 +33,14 @@ BENCH_DIR = ROOT / "research" / "evaluations" / "retrieval-benchmark"
 CASES = BENCH_DIR / "cases.json"
 POST_HOC = BENCH_DIR / "post-hoc-judgments.json"
 REFERENCE_V02 = BENCH_DIR / "reference-v0.2"
+REFERENCE_UIUX02 = BENCH_DIR / "reference-specialist-uiux-02"
+PINNED = {"v0.2": REFERENCE_V02, "specialist-uiux-02": REFERENCE_UIUX02}
 TOOLS = {
     "recommend": ("scripts/recommend_design.py", "references"),
     "search": ("scripts/search_catalog.py", "results"),
 }
 SPLITS = ("historical", "development", "held_out")
-IMPLEMENTATIONS = ("working-tree", "v0.2")
+IMPLEMENTATIONS = ("working-tree", *PINNED)
 REPRODUCTION_IGNORED = {("environment", "repository"), ("environment", "python")}
 
 
@@ -84,7 +87,7 @@ class Implementation:
         if name not in IMPLEMENTATIONS and scripts_dir is None:
             raise ValueError(f"unknown implementation {name!r}")
         self.name, self.root, self._tmp = name, root, None
-        self.source = pathlib.Path(scripts_dir) if scripts_dir else (REFERENCE_V02 if name == "v0.2" else None)
+        self.source = pathlib.Path(scripts_dir) if scripts_dir else PINNED.get(name)
         self.workdir = root
 
     def __enter__(self):
@@ -488,7 +491,7 @@ def main():
     ap.add_argument("--judgments", action="append", default=[],
                     help="Additional labelled judgment file consulted after post-hoc judgments (repeatable)")
     ap.add_argument("--implementation", default="working-tree",
-                    help="working-tree, v0.2, or a label for --scripts-dir")
+                    help="working-tree, v0.2, specialist-uiux-02, or a label for --scripts-dir")
     ap.add_argument("--scripts-dir", help="Run recommend_design.py and search_catalog.py copied from this directory")
     ap.add_argument("--split", action="append", choices=SPLITS,
                     help="Restrict to a split (repeatable). Default: all splits.")

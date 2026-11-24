@@ -19,7 +19,21 @@ of that this with using use want need needs me my please modern beautiful profes
 clean good great nice looking look new existing current project product responsive
 its not our their while where which whose should could would will must every each per several
 there here also very just only show clearly quick quicker refine
+does did can may might whether how what why when who is are was were been being has have had
+they them without never rely relying relies
 '''.split())
+# Platform context ("a web app") is not topical evidence; platform fit is handled by --platform.
+PLATFORM_CONTEXT = frozenset({'web'})
+# Words that name an interface feature only in interface context ("help center", "support chat");
+# elsewhere they describe a domain ("help-desk", "support agents") or act as verbs.
+AMBIGUOUS_TERMS = frozenset({'help', 'support'})
+INTERFACE_NOUNS = frozenset('''text texts center centre page pages panel menu link links button buttons
+tooltip tooltips widget widgets chat article articles docs documentation section content mechanism
+mechanisms interface flow guide guides screen screens icon overlay dialog drawer'''.split())
+# Visual-direction intent makes a theme or style reference meaningful in a critique.
+VISUAL_DIRECTION_CUES = re.compile(
+    r'\b(?:aesthetics?|style|styles|styling|stylistic|themes?|look and feel|visual (?:identity|direction|language|style)|'
+    r'identity|brand|branding|mood|art direction|palettes?|colou?r schemes?|typography|typefaces?|fonts?)\b')
 # Clearly non-visual work gets no visual recommendation; UI cues always win.
 NON_VISUAL_CUES = re.compile(r'\b(?:backend|back-end|serializers?|database|migrations?|schema|endpoints?|'
                              r'cron|sql|server-side|worker|webhooks?)\b')
@@ -28,7 +42,8 @@ UI_CUES = re.compile(r'\b(?:ui|ux|interface|page|screen|layout|visual|view|style
                      r'keyboard|focus|contrast|responsive|mobile|desktop|onboarding|checkout|landing|'
                      r'website|icon|chart|menu|design|critique|frontend|front-end|display)\b')
 ALIASES = {'finance': 'financial', 'fintech': 'financial', 'ecommerce': 'e-commerce',
-           'shop': 'ecommerce', 'docs': 'documentation', 'a11y': 'accessibility'}
+           'shop': 'ecommerce', 'docs': 'documentation', 'a11y': 'accessibility',
+           'colour': 'color', 'colours': 'colors'}
 AUDIT_CUES = frozenset({'accessible', 'accessibility', 'keyboard', 'focus',
                         'contrast', 'navigation', 'mobile', 'touch', 'readability',
                         'readable', 'legibility', 'wcag'})
@@ -80,22 +95,36 @@ def norm(term):
     return term[:-1] if len(term) > 3 and term.endswith('s') and not term.endswith('ss') else term
 
 
-def negated_items(text):
-    """Explicitly prohibited items, e.g. "do not use dark mode or glassmorphism".
+EXCLUSIVE_RELIANCE = re.compile(r'\b(?:alone|only|solely|exclusively|sole)\b')
 
-    A negated statement about something absent ("no existing brand") is not a
-    style prohibition.
+
+def negation_scopes(text):
+    """Split negated phrases into prohibited items and limits on exclusive reliance.
+
+    "Do not use dark mode or glassmorphism" prohibits both items. "Without
+    relying on colour alone" limits reliance: colour stays allowed with an
+    additional cue. A negated statement about something absent ("no existing
+    brand") is neither.
     """
-    items = []
+    prohibited, reliance = [], []
     for match in NEGATION.finditer(text.lower()):
         scope = match.group('scope')
         if re.search(r'\b(?:existing|current)\b', scope):
             continue
         for part in re.split(r',|\bor\b|\bnor\b|\band\b', scope):
-            words = [t for t in terms(part) if t not in FILLER and t not in NEGATED_FILLER and len(t) > 2]
+            if EXCLUSIVE_RELIANCE.match(part.strip()):
+                # "do not use glassmorphism, only flat surfaces": a stated alternative, not negated.
+                continue
+            words = [t for t in terms(part) if t not in FILLER and t not in NEGATED_FILLER
+                     and len(t) > 2 and not EXCLUSIVE_RELIANCE.fullmatch(t)]
             if words:
-                items.append(tuple(words))
-    return items
+                (reliance if EXCLUSIVE_RELIANCE.search(part) else prohibited).append(tuple(words))
+    return prohibited, reliance
+
+
+def negated_items(text):
+    """Explicitly prohibited items, e.g. "do not use dark mode or glassmorphism"."""
+    return negation_scopes(text)[0]
 
 
 def interface_priority(text):
@@ -159,15 +188,50 @@ def identity_intent(task, prohibited):
     return preserved - requested, requested
 
 
+def compound_only_terms(task):
+    """Hyphenated compounds ("help-desk", "first-run") whose parts occur nowhere else.
+
+    Such parts only count for records containing the whole phrase; interface
+    priorities ("desktop-first") are interpreted separately.
+    """
+    low = str(task).lower()
+    compounds = [m.group(0) for m in re.finditer(r'\b[a-z0-9]+(?:-[a-z0-9]+)+\b', low)
+                 if not any(rx.fullmatch(m.group(0)) for rx in PRIORITY_FIRST.values())]
+    standalone = re.sub(r'\b[a-z0-9]+(?:-[a-z0-9]+)+\b', ' ', low)
+    elsewhere = set(terms(standalone))
+    result = {}
+    for compound in compounds:
+        parts = tuple(terms(compound.replace('-', ' ')))
+        only = frozenset(t for t in parts if t not in elsewhere)
+        if only:
+            result[' '.join(parts)] = only
+    return result
+
+
+def contextual_ambiguous_terms(task):
+    """Ambiguous words that the task uses in an interface sense ("help center")."""
+    tokens = re.findall(r'[a-z0-9]+', str(task).lower())
+    keep = set()
+    for i, token in enumerate(tokens):
+        if token in AMBIGUOUS_TERMS:
+            neighbours = set(tokens[max(0, i - 1):i]) | set(tokens[i + 1:i + 2])
+            if neighbours & (INTERFACE_NOUNS | {'inline', 'contextual', 'onboarding'}):
+                keep.add(token)
+    return keep
+
+
 def analyse_task(task):
-    prohibited = negated_items(task)
+    prohibited, reliance = negation_scopes(task)
     preserved, requested = identity_intent(task, prohibited)
     return {
         'prohibited': prohibited,
+        'reliance': reliance,
         'priority': interface_priority(task),
         'preserved': preserved,
         'requested': requested,
         'frameworks': frozenset(label for label, rx in FRAMEWORK_LABELS.items() if rx.search(task.lower())),
+        'ambiguous_kept': contextual_ambiguous_terms(task),
+        'compounds': compound_only_terms(task),
     }
 
 
@@ -176,11 +240,30 @@ def query_terms(task, signals=None):
     signals = signals or {}
     text = PRIORITY_FIRST['desktop'].sub('desktop', str(task).lower())
     excluded = {t for item in signals.get('prohibited', ()) for t in item}
+    excluded |= PLATFORM_CONTEXT
+    excluded |= AMBIGUOUS_TERMS - set(signals.get('ambiguous_kept', AMBIGUOUS_TERMS))
     found = []
     for term in terms(text):
         if term not in FILLER and len(term) > 2 and term not in excluded:
             found.extend(terms(ALIASES.get(term, term)))
     return list(dict.fromkeys(found))
+
+
+def contextual_fields(signals):
+    """Positive fields, crediting compound-only query parts only where the record has the phrase."""
+    compounds = signals.get('compounds') or {}
+    if not compounds:
+        return positive_fields
+
+    def fields(entry):
+        tokens = positive_fields(entry)
+        text = ' ' + ' '.join(terms(_positive_text(entry).replace('-', ' '))) + ' '
+        drop = set()
+        for phrase, only in compounds.items():
+            if f' {phrase} ' not in text:
+                drop |= only
+        return [t for t in tokens if t not in drop] if drop else tokens
+    return fields
 
 
 def _positive_text(entry):
@@ -298,6 +381,7 @@ def recommend(task, entries, mode='build', platform=None, limit=3):
         and not task_words.intersection(EXPLICIT_STYLE_CUES)
     )
     preserved = signals['preserved']
+    visual_direction = mode != 'critique' or bool(VISUAL_DIRECTION_CUES.search(lowered))
     scope = ('non_visual_task' if non_visual
              else 'focused_accessibility_correction' if focused_a11y_fix else 'normal')
     if words:
@@ -315,8 +399,13 @@ def recommend(task, entries, mode='build', platform=None, limit=3):
                 scope = 'preserve_identity'
                 kept = [g for g in kept if g[0] == 'usability_reference'] or [('usability_reference', ('guideline',))]
             groups = kept
-        # Guideline-only scopes fill the budget with further strong guidelines.
-        fill = (mode == 'audit' or scope == 'preserve_identity') and len(groups) == 1
+        if not visual_direction:
+            # Usability and operational critiques need no replacement-theme reference.
+            groups = [g for g in groups if g[0] != 'design_reference']
+        # Guideline-only shortlists fill the budget with further strong guidelines.
+        fill = (not focused_a11y_fix and len(groups) == 1
+                and groups[0][0] in ('usability_reference', 'check_reference'))
+        fields = contextual_fields(signals)
         for role, types in groups:
             if role == 'usability_reference':
                 uses = {'audit', 'critique', 'multiple'}
@@ -330,7 +419,10 @@ def recommend(task, entries, mode='build', platform=None, limit=3):
                     and e.get('specialist_use') in uses
                     and compatible(e, platform, signals['priority'], signals['frameworks'])
                     and not conflicts_with_task(e, signals)]
-            ranked = rank_entries(' '.join(words), pool, limit=limit if fill else 1, fields=positive_fields)
+            ranked = rank_entries(' '.join(words), pool, limit=limit if fill else 1, fields=fields)
+            if role == 'design_reference':
+                # A visual reference needs more than one incidental word in common with the task.
+                ranked = [(s, e) for s, e in ranked if len(set(words) & set(fields(e))) >= 2]
             if ranked:
                 top = ranked[0][0]
                 for score, entry in ranked:
@@ -349,6 +441,7 @@ def recommend(task, entries, mode='build', platform=None, limit=3):
             'prohibited': [' '.join(item) for item in signals['prohibited']],
             'preserved_identity': [g for g in IDENTITY_GROUPS if g in preserved],
             'requested_identity': [g for g in IDENTITY_GROUPS if g in signals['requested']],
+            'not_sole_reliance': [' '.join(item) for item in signals['reliance']],
         },
         'references': selected,
         'selection_method': 'heuristic text matching; not design or legal approval',
