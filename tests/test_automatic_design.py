@@ -37,6 +37,21 @@ class AutomaticDesignRetrievalTests(unittest.TestCase):
                             r['entry_type'] == 'guideline' for r in data['references']))
         self.assertLessEqual(len(data['references']), 3)
 
+    def test_real_existing_ui_keyboard_correction_does_not_restyle(self):
+        request = ('Improve keyboard focus visibility and mobile navigation of the '
+                   'Design Index search and category filters without changing their behavior')
+        data = recommend(request, self.rows, mode='build', platform='web')
+        self.assertEqual(data['selection_scope'], 'focused_accessibility_correction')
+        self.assertEqual([item['role'] for item in data['references']], ['usability_reference'])
+        self.assertEqual(data['references'][0]['catalog_id'], 'uupm:ux-guidelines:41')
+        self.assertIn(data['references'][0]['source_ref'], data['references'][0]['source_url'])
+
+    def test_new_accessible_dashboard_can_retrieve_palette_and_guidance(self):
+        data = recommend('Build an accessible financial dashboard', self.rows)
+        self.assertEqual(data['selection_scope'], 'normal')
+        self.assertIn('palette', [item['role'] for item in data['references']])
+        self.assertIn('usability_reference', [item['role'] for item in data['references']])
+
     def test_audit_returns_guidelines_not_design_systems(self):
         data = recommend('Audit keyboard focus and navigation', self.rows, mode='audit')
         self.assertTrue(data['references'])

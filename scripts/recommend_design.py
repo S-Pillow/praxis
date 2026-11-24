@@ -22,6 +22,11 @@ ALIASES = {'finance': 'financial', 'fintech': 'financial', 'ecommerce': 'e-comme
 AUDIT_CUES = frozenset({'accessible', 'accessibility', 'keyboard', 'focus',
                         'contrast', 'navigation', 'mobile', 'touch', 'readability',
                         'readable', 'legibility', 'wcag'})
+# Narrow accessibility corrections should not recommend a replacement visual identity.
+FOCUSED_ACCESSIBILITY_CUES = frozenset({'keyboard', 'focus', 'wcag', 'accessibility', 'a11y', 'screenreader'})
+CORRECTION_CUES = frozenset({'improve', 'fix', 'repair', 'correct', 'ensure', 'check', 'audit'})
+NEW_DESIGN_CUES = frozenset({'build', 'create', 'make', 'redesign', 'new'})
+EXPLICIT_STYLE_CUES = frozenset({'palette', 'theme', 'typography', 'font', 'branding', 'rebrand', 'restyle'})
 GROUPS = {
     'build': (
         ('direction', ('theme', 'style', 'design_system')),
@@ -116,9 +121,18 @@ def recommend(task, entries, mode='build', platform=None, limit=3):
         raise ValueError('limit must be between 1 and 5')
     words = query_terms(task)
     selected = []
+    task_words = set(terms(task))
+    focused_a11y_fix = bool(
+        mode == 'build'
+        and task_words.intersection(FOCUSED_ACCESSIBILITY_CUES)
+        and task_words.intersection(CORRECTION_CUES)
+        and not task_words.intersection(NEW_DESIGN_CUES)
+        and not task_words.intersection(EXPLICIT_STYLE_CUES)
+    )
     if words:
-        groups = list(GROUPS[mode])
-        if mode == 'build' and set(words).intersection(AUDIT_CUES):
+        groups = ([('usability_reference', ('guideline',))] if focused_a11y_fix
+                  else list(GROUPS[mode]))
+        if mode == 'build' and not focused_a11y_fix and set(words).intersection(AUDIT_CUES):
             # Keep accessibility inside the default three-result budget.
             groups.insert(2, ('usability_reference', ('guideline',)))
         for role, types in groups:
@@ -144,6 +158,7 @@ def recommend(task, entries, mode='build', platform=None, limit=3):
         'mode': mode,
         'platform': platform or 'unspecified',
         'catalog_records_searched': len(entries),
+        'selection_scope': ('focused_accessibility_correction' if focused_a11y_fix else 'normal'),
         'references': selected,
         'selection_method': 'heuristic text matching; not design or legal approval',
         'use_boundary': (
