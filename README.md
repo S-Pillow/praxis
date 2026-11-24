@@ -31,9 +31,9 @@
 - `skills/` — optional prototype specialists; currently one UI/UX skill
 - `tests/` — reserved for schema and catalog checks
 
-## First usable UI/UX specialist (prototype v0.2)
+## UI/UX specialist (v0.3)
 
-The optional [UI/UX skill](skills/aipf-ui-ux/SKILL.md) now automatically requests a short, read-only set of relevant references from the existing [unified catalog](catalog/SEARCH.md) when the coding AI can access this repository and run Python. Users provide a normal UI request; they do not need to run catalog searches or copy prompts. The AI uses candidates to **design during implementation** and then performs separate design critique and technical UI audit. It is one `SKILL.md` file with no additional runtime dependencies or required ceremonies; for use see [skills/README.md](skills/README.md). It is not installed or released and has not yet been proven to improve rendered design outcomes.
+The optional [UI/UX skill](skills/aipf-ui-ux/SKILL.md) now automatically requests a short, read-only set of relevant references from the existing [unified catalog](catalog/SEARCH.md) when the coding AI can access this repository and run Python. Users provide a normal UI request; they do not need to run catalog searches or copy prompts. The AI uses candidates to **design during implementation** and then performs separate design critique and technical UI audit. It is one `SKILL.md` file with no additional runtime dependencies or required ceremonies; for use see [skills/README.md](skills/README.md). v0.3 is a repository release, not a global installation, and has not been proven to improve rendered design outcomes. Changes, evidence and known limitations: [CHANGELOG.md](CHANGELOG.md).
 
 ## Real catalog interface (local prototype)
 

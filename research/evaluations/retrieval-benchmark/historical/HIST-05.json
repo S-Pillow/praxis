@@ -1,0 +1,111 @@
+{
+  "query": "data table",
+  "results": [
+    {
+      "catalog_id": "uupm:landing:comparison-table-cta",
+      "entry_type": "template",
+      "original_name": "Comparison Table + CTA",
+      "description": "Hero > Problem intro > Comparison table (product vs competitors) > Pricing (optional) > CTA",
+      "source_repo": "nextlevelbuilder/ui-ux-pro-max-skill",
+      "source_url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/f2cc36555984fbfb08f1dca037da2467578f33d2/.claude/skills/ui-ux-pro-max/data/landing.csv",
+      "source_ref": "f2cc36555984fbfb08f1dca037da2467578f33d2",
+      "source_path_or_key": ".claude/skills/ui-ux-pro-max/data/landing.csv#row=7",
+      "evidence_status": "source_inspected",
+      "source_license": "MIT repository; bundled font/icon/third-party assets separate",
+      "asset_license_status": "not_applicable",
+      "redistribution_status": "metadata_only",
+      "preview_reference": null,
+      "compatibility_restrictions": [],
+      "platforms": [],
+      "specialist_use": "build",
+      "relevance_score": 10.25295
+    },
+    {
+      "catalog_id": "uupm:landing:comparison-table-focus",
+      "entry_type": "template",
+      "original_name": "Comparison Table Focus",
+      "description": "Hero (problem statement) > Comparison matrix (you vs competitors) > Feature deep-dive > Winner CTA",
+      "source_repo": "nextlevelbuilder/ui-ux-pro-max-skill",
+      "source_url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/f2cc36555984fbfb08f1dca037da2467578f33d2/.claude/skills/ui-ux-pro-max/data/landing.csv",
+      "source_ref": "f2cc36555984fbfb08f1dca037da2467578f33d2",
+      "source_path_or_key": ".claude/skills/ui-ux-pro-max/data/landing.csv#row=14",
+      "evidence_status": "source_inspected",
+      "source_license": "MIT repository; bundled font/icon/third-party assets separate",
+      "asset_license_status": "not_applicable",
+      "redistribution_status": "metadata_only",
+      "preview_reference": null,
+      "compatibility_restrictions": [],
+      "platforms": [],
+      "specialist_use": "build",
+      "relevance_score": 10.12396
+    },
+    {
+      "catalog_id": "open-design:skills:app-table",
+      "entry_type": "design_knowledge",
+      "original_name": "app-table",
+      "description": "A list or table of records with search, filters, sort, selection, bulk actions and pagination, plus its empty, loading and no-results states, inside the app shell.",
+      "source_repo": "feimacode/open-design-agent-kit",
+      "source_url": "https://github.com/feimacode/open-design-agent-kit/blob/1b3832c3452720f028a96b1bdab805ecc1aa3213/packages/content/assets/open-design/skills/app-table/SKILL.md",
+      "source_ref": "1b3832c3452720f028a96b1bdab805ecc1aa3213",
+      "source_path_or_key": "packages/content/assets/open-design/skills/app-table/SKILL.md",
+      "evidence_status": "source_inspected",
+      "source_license": "MIT wrapper; vendored open-design content Apache-2.0; verify per entry",
+      "asset_license_status": "unresolved",
+      "redistribution_status": "reference_only",
+      "preview_reference": null,
+      "compatibility_restrictions": [
+        "Brand and example fidelity rights not established"
+      ],
+      "platforms": [],
+      "specialist_use": "build",
+      "relevance_score": 10.040705
+    },
+    {
+      "catalog_id": "uupm:phosphor-icon:table",
+      "entry_type": "design_knowledge",
+      "original_name": "table",
+      "description": "Phosphor icon Table; categories editor, finances, office.",
+      "source_repo": "nextlevelbuilder/ui-ux-pro-max-skill",
+      "source_url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/f2cc36555984fbfb08f1dca037da2467578f33d2/.claude/skills/ui-ux-pro-max/data/phosphor-icons-upstream.json",
+      "source_ref": "f2cc36555984fbfb08f1dca037da2467578f33d2",
+      "source_path_or_key": ".claude/skills/ui-ux-pro-max/data/phosphor-icons-upstream.json#icons[name=table]",
+      "evidence_status": "reported_by_upstream",
+      "source_license": "MIT upstream Phosphor Icons package (specific package revision check pending)",
+      "asset_license_status": "mixed",
+      "redistribution_status": "metadata_only",
+      "preview_reference": null,
+      "compatibility_restrictions": [
+        "React import availability depends on installed package version",
+        "Icon name and weights are guidance; no asset file included"
+      ],
+      "platforms": [
+        "web",
+        "react"
+      ],
+      "specialist_use": "build",
+      "relevance_score": 9.970647
+    },
+    {
+      "catalog_id": "open-design:templates:html-ppt-zhangzara-long-table",
+      "entry_type": "template",
+      "original_name": "html-ppt-zhangzara-long-table",
+      "description": "|",
+      "source_repo": "feimacode/open-design-agent-kit",
+      "source_url": "https://github.com/feimacode/open-design-agent-kit/blob/1b3832c3452720f028a96b1bdab805ecc1aa3213/packages/content/assets/open-design/design-templates/html-ppt-zhangzara-long-table/SKILL.md",
+      "source_ref": "1b3832c3452720f028a96b1bdab805ecc1aa3213",
+      "source_path_or_key": "packages/content/assets/open-design/design-templates/html-ppt-zhangzara-long-table/SKILL.md",
+      "evidence_status": "source_inspected",
+      "source_license": "MIT wrapper; vendored open-design content Apache-2.0; verify per entry",
+      "asset_license_status": "unresolved",
+      "redistribution_status": "reference_only",
+      "preview_reference": null,
+      "compatibility_restrictions": [
+        "Brand and example fidelity rights not established"
+      ],
+      "platforms": [],
+      "specialist_use": "build",
+      "relevance_score": 9.84228
+    }
+  ],
+  "scope_note": "Catalog results are non-authoritative references. Prompt Agent must verify approved requirements, source provenance, Builder accessibility, license boundaries and the relevant AIPF authorization unit. This search performs no build, deployment, asset bundling or visual validation."
+}

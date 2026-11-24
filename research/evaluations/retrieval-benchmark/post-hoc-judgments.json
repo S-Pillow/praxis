@@ -1,0 +1,51 @@
+{
+  "description": "Post-hoc relevance grades for synthetic-case results that were returned by the v0.2 baseline but were not anticipated in the frozen judgments of cases.json. These grades were assigned AFTER viewing baseline output by the same evaluator (the Builder Agent) and are therefore weaker evidence than frozen judgments. Conflict flags are not post-hoc: they come from the frozen conflict rules in cases.json. Metrics report frozen and post-hoc counts separately.",
+  "judged_on": "2026-11-24",
+  "judged_after": {
+    "cases_sha256": "6b6dda63eac336f2ee6078550f82f3175d0a1e440fd8a666a8de324b0d6038d2",
+    "baseline_revision": "481bb188453b14108890ef0b803249759c5363f4"
+  },
+  "rubric": "0 irrelevant, 1 tangential, 2 relevant, 3 directly actionable",
+  "judgments": {
+    "SYN-01": {
+      "hallmark:theme:console": {"grade": 0, "rationale": "Graphite-ground laboratory theme; replaces the light theme the task says to keep."},
+      "uupm:colors:17": {"grade": 0, "rationale": "Indigo palette matched on the words 'component library'; the task forbids a new palette."},
+      "uupm:ux-guidelines:58": {"grade": 0, "rationale": "Browser autofill; the task concerns queue scanning and keyboard row actions, not form entry."}
+    },
+    "SYN-02": {
+      "uupm:colors:95": {"grade": 0, "rationale": "Food-delivery palette; unrelated to a grid control room."}
+    },
+    "SYN-03": {
+      "uupm:styles:flat-design-mobile-touch-first": {"grade": 2, "rationale": "Touch-first press feedback and solid targets suit a mobile-first checkout; its framework list is native-oriented, so it is a direction, not a directly actionable web check."},
+      "uupm:colors:174": {"grade": 1, "rationale": "Kiosk palette mentions large touch targets but is a signage colour scheme."}
+    },
+    "SYN-05": {
+      "uupm:styles:shopify-polaris": {"grade": 0, "rationale": "A different product's design system; the task requires the existing one."},
+      "uupm:colors:105": {"grade": 1, "rationale": "Billing-domain palette is topically related, but the task forbids new colours (conflict recorded separately)."},
+      "uupm:typography:61": {"grade": 0, "rationale": "Introduces Calistoga and JetBrains Mono; the task forbids new fonts and already uses Inter."}
+    },
+    "SYN-06": {
+      "uupm:colors:149": {"grade": 1, "rationale": "Events palette (orange and map blue); matches the events topic but not the warm literary brief."},
+      "uupm:ux-guidelines:43": {"grade": 0, "rationale": "Form labels; the brief is identity and long-form reading, with no form."}
+    },
+    "SYN-07": {
+      "uupm:ux-guidelines:58": {"grade": 0, "rationale": "Browser autofill; unrelated to onboarding hierarchy, calm aesthetic or motion."},
+      "hallmark:theme:coral": {"grade": 1, "rationale": "Warm, quiet paper aesthetic is a loose comparison point; its keywords target billing SaaS."}
+    },
+    "SYN-09": {
+      "hallmark:theme:newsprint": {"grade": 0, "rationale": "A visual theme for a non-visual backend serializer change; the case expects abstention."}
+    },
+    "SYN-10": {
+      "uupm:styles:modern-dark-cinema-mobile": {"grade": 0, "rationale": "Dark, glassmorphic, animated style; contradicts three explicit prohibitions and its own 'avoid for children's apps' note."},
+      "uupm:colors:181": {"grade": 0, "rationale": "Dark-code open-source palette; unrelated domain and prohibited dark ground."},
+      "uupm:ux-guidelines:12": {"grade": 2, "rationale": "Advises against infinite decorative animation, supporting the stated constraint."}
+    },
+    "SYN-11": {
+      "hallmark:theme:halftone": {"grade": 0, "rationale": "Print-shop food-brand theme; irrelevant to critiquing a trading table."}
+    },
+    "SYN-12": {
+      "uupm:app-interface:17": {"grade": 0, "rationale": "Native soft-keyboard type; matched on 'keyboard', unrelated to table row selection."},
+      "uupm:ux-guidelines:63": {"grade": 0, "rationale": "Mobile soft keyboards; matched on 'keyboard', unrelated to table row selection."}
+    }
+  }
+}

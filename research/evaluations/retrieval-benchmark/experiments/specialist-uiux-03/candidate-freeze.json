@@ -1,0 +1,40 @@
+{
+  "candidate": "specialist-uiux-03 refinement",
+  "frozen_at_utc": "2026-11-24T16:09:18Z",
+  "base_commit": "4ebee2648b49de22ef102100d0d4ff9eee9cf489",
+  "retrieval_scripts_sha256": {
+    "recommend": "1f64c70145f8ccf376b79f053d331492be1351c0aefe5ad353eb025ca2fd1c0e",
+    "search": "f3a5c885cb510f55769d94999f93a2c0a7752bf45f52050aa3c2397808a0c128"
+  },
+  "benchmark_runner_sha256": "06339e1341fc4291ccbf797fb5e3be1850842fef85c520dc7994f7b1e7c5f159",
+  "cases_sha256": "6b6dda63eac336f2ee6078550f82f3175d0a1e440fd8a666a8de324b0d6038d2",
+  "post_hoc_sha256": "573f4da10fe2dd72c0abb6fd2f4508b179f3db76ea4586f0090d1a4d73684f1d",
+  "judgments_sha256": {
+    "post_hoc_uiux02": "20588e0269eeb9a93a3abd1116b675f5a2c6450a5046ace15199f7970fad8755",
+    "post_hoc_uiux03": "427cd924bdad26451e835283f92f568a264dd40bd82259ff1bb397d92d8ac7d0"
+  },
+  "pinned_references_sha256": {
+    "v0.2": {
+      "recommend": "da41ead8e66fd75654a8371d3274ec6890f279b2c7c7f25c510533489307312b",
+      "search": "7c0962c10efa28416b6e5ae718a74c294b3155a7d0c4a782f0e3396ad6ca1704"
+    },
+    "specialist-uiux-02": {
+      "recommend": "3da35bf63580a9c3375b66b19a0ab8ab89d2227e16410eddec9515902c47ed25",
+      "search": "f3a5c885cb510f55769d94999f93a2c0a7752bf45f52050aa3c2397808a0c128"
+    }
+  },
+  "results_sha256": {
+    "candidate-results.json": "d8942a2c9c3fc043d1e0e0d6a18d509d7bf410608dee20f24fd2d56015c8c102",
+    "comparison-uiux02-vs-candidate.json": "64b6fb7bb1d94ad3044635b197f03f3a27e396caa3b8cbc0f262118ea2179f87",
+    "comparison-v0.2-vs-candidate.json": "8c00e941b35244305416de14552949c7f0b855bb43508064315b53ec977523d0",
+    "specialist-uiux-02-reference-results.json": "d5c5127ae2e8b19603c2bb98fcdd62fcef5f13fbefc8e20e1b9b4b44311d6dc7",
+    "v0.2-reference-results.json": "dc18f9216ab6df4e3304f3dd5c2192f3d315a92b3e0704546995a92ae4018c49"
+  },
+  "catalog": {
+    "files": 30,
+    "records": 5500,
+    "sha256": "e3ae82ff0e08c9f77e58dced6e5645a7d6f2eabb818206bb4a853d963ab933d4"
+  },
+  "evidence_status": "All 17 cases are development and regression evidence. SYN-04, SYN-07 and SYN-11 keep their held_out label and recorded SPECIALIST-UIUX-02 reserved results but were used for refinement. No fresh Prompt Agent evaluation cases were accessed.",
+  "statement": "Frozen local candidate. No ranking experiments or changes after this record. Not a release; no version assigned."
+}

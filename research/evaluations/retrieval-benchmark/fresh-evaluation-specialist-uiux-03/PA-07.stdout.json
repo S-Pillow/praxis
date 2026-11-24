@@ -1,0 +1,90 @@
+{
+  "task": "Repair a database connection issue and make the corresponding error message accessible to keyboard and screen-reader users.",
+  "mode": "build",
+  "platform": "web",
+  "catalog_records_searched": 5500,
+  "selection_scope": "normal",
+  "task_signals": {
+    "interface_priority": null,
+    "prohibited": [],
+    "preserved_identity": [],
+    "requested_identity": [],
+    "not_sole_reliance": []
+  },
+  "references": [
+    {
+      "role": "direction",
+      "catalog_id": "uupm:styles:accessible-and-ethical",
+      "entry_type": "style",
+      "original_name": "Accessible & Ethical",
+      "description": "Clear focus rings (3-4px), ARIA labels, skip links, responsive design, reduced motion, 44x44px touch targets",
+      "source_repo": "nextlevelbuilder/ui-ux-pro-max-skill",
+      "source_ref": "f2cc36555984fbfb08f1dca037da2467578f33d2",
+      "source_url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/f2cc36555984fbfb08f1dca037da2467578f33d2/.claude/skills/ui-ux-pro-max/data/styles.csv",
+      "source_path_or_key": ".claude/skills/ui-ux-pro-max/data/styles.csv#row=9",
+      "evidence_status": "source_inspected",
+      "redistribution_status": "metadata_only",
+      "asset_license_status": "not_applicable",
+      "platforms": [],
+      "compatibility_restrictions": [
+        "Avoid for: None - accessibility universal",
+        "Accessibility note: risk:low|requires:contrast-text-4.5,keyboard,visible-focus,reduced-motion",
+        "Frameworks: css"
+      ],
+      "relevance_score": 21.609081
+    },
+    {
+      "role": "palette",
+      "catalog_id": "uupm:colors:183",
+      "entry_type": "palette",
+      "original_name": "Patent / IP Database",
+      "description": "Formal neutral + patent type chips + status badges",
+      "source_repo": "nextlevelbuilder/ui-ux-pro-max-skill",
+      "source_ref": "f2cc36555984fbfb08f1dca037da2467578f33d2",
+      "source_url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/f2cc36555984fbfb08f1dca037da2467578f33d2/.claude/skills/ui-ux-pro-max/data/colors.csv",
+      "source_path_or_key": ".claude/skills/ui-ux-pro-max/data/colors.csv#row=184",
+      "evidence_status": "source_inspected",
+      "redistribution_status": "metadata_only",
+      "asset_license_status": "not_applicable",
+      "platforms": [],
+      "compatibility_restrictions": [],
+      "relevance_score": 9.206744,
+      "source_tokens_excerpt": {
+        "Primary": "#475569",
+        "Secondary": "#64748B",
+        "Accent": "#A16207",
+        "Background": "#F8FAFC",
+        "Foreground": "#1E293B",
+        "Card": "#FFFFFF",
+        "Card Foreground": "#1E293B",
+        "Muted Foreground": "#475569",
+        "Border": "#E2E8F0",
+        "Ring": "#475569"
+      }
+    },
+    {
+      "role": "usability_reference",
+      "catalog_id": "uupm:ux-guidelines:109",
+      "entry_type": "guideline",
+      "original_name": "Focusable Error Summary",
+      "description": "An error summary for failed validation complements inline field errors and must be easy to find by keyboard and screen reader users",
+      "source_repo": "nextlevelbuilder/ui-ux-pro-max-skill",
+      "source_ref": "f2cc36555984fbfb08f1dca037da2467578f33d2",
+      "source_url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/f2cc36555984fbfb08f1dca037da2467578f33d2/.claude/skills/ui-ux-pro-max/data/ux-guidelines.csv",
+      "source_path_or_key": ".claude/skills/ui-ux-pro-max/data/ux-guidelines.csv#row=110",
+      "evidence_status": "source_inspected",
+      "redistribution_status": "metadata_only",
+      "asset_license_status": "not_applicable",
+      "platforms": [
+        "Web"
+      ],
+      "compatibility_restrictions": [
+        "Platform: Web",
+        "Avoid: Replace inline errors with a visual-only summary or move focus on every blur"
+      ],
+      "relevance_score": 12.455362
+    }
+  ],
+  "selection_method": "heuristic text matching; not design or legal approval",
+  "use_boundary": "Suggestions are optional and unapproved. Existing project identity, design system, behavior, and applicable AIPF authorization take priority. Do not copy third-party fonts, photos, icons, branded assets or code based on metadata. Confirm source rights and actual access. Inspect the rendered UI before claiming visual acceptance. This command does not build, modify, install, deploy, or verify an interface."
+}

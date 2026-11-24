@@ -1,0 +1,34 @@
+{
+  "label": "post_hoc_uiux02",
+  "description": "Relevance grades for records returned by SPECIALIST-UIUX-02 experimental stages that neither the frozen judgments in cases.json nor post-hoc-judgments.json cover. Assigned by the Builder Agent after inspecting each catalog record and after seeing the experimental output, so they are weaker evidence than frozen judgments. Grades of 0 are given only where the record content does not fit the task, never merely because a record was absent from earlier judgments. Conflicts are not judged here; they come from the frozen conflict rules.",
+  "judged_on": "2026-11-24",
+  "judged_after": {
+    "cases_sha256": "6b6dda63eac336f2ee6078550f82f3175d0a1e440fd8a666a8de324b0d6038d2",
+    "post_hoc_sha256": "573f4da10fe2dd72c0abb6fd2f4508b179f3db76ea4586f0090d1a4d73684f1d"
+  },
+  "rubric": "0 irrelevant, 1 tangential, 2 relevant, 3 directly actionable",
+  "judgments": {
+    "HIST-03": {
+      "uupm:ux-guidelines:109": {"grade": 1, "phase": "development", "rationale": "Error-summary focus applies to the scanner's validation errors only tangentially; the audit centres on keyboard, focus recovery, key navigation and export."}
+    },
+    "SYN-01": {
+      "uupm:ux-guidelines:105": {"grade": 0, "phase": "development", "rationale": "Consistent placement of help mechanisms; matched the domain word 'help' in 'help-desk', unrelated to queue scanning or row actions."}
+    },
+    "SYN-05": {
+      "uupm:typography:67": {"grade": 0, "phase": "development", "rationale": "Introduces Playfair Display and JetBrains Mono; the task forbids new fonts."}
+    },
+    "SYN-07": {
+      "uupm:styles:shopify-polaris": {"grade": 0, "phase": "reserved_evaluation", "rationale": "Merchant-admin design system matched on 'web' (its 'web components' keyword) and 'restrained'; irrelevant to critiquing a meditation app's onboarding."}
+    },
+    "SYN-11": {
+      "hallmark:theme:sticker": {"grade": 0, "phase": "reserved_evaluation", "rationale": "Print-merch sticker theme matched only the word 'order'; irrelevant to a trading blotter critique."}
+    },
+    "SYN-08": {
+      "uupm:ux-guidelines:78": {"grade": 2, "phase": "development", "rationale": "Loading-feedback timing is a relevant check for the requested loading button states, though not specific to buttons."}
+    },
+    "SYN-10": {
+      "uupm:typography:45": {"grade": 1, "phase": "development", "rationale": "Children's-topic pairing (Comic Neue); matches the charity's subject but not the stated priority of legibility for older donors."},
+      "uupm:ux-guidelines:101": {"grade": 0, "phase": "development", "rationale": "Focus visibility criterion matched only the negation word 'not'."}
+    }
+  }
+}

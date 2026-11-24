@@ -1,6 +1,6 @@
-# AIPF Specialist Suite — prototype skills
+# AIPF Specialist Suite — skills
 
-## First usable prototype: UI/UX
+## UI/UX specialist (v0.3)
 
 `aipf-ui-ux/SKILL.md` is an optional, single-file design specialist. It helps a coding AI **design while building**, then **critique and audit** meaningful results. It does not replace AIPF v8.10.1, install dependencies, create a second project state, or publish anything.
 
@@ -10,7 +10,7 @@ If the catalog or command runner is unavailable, the assistant works from access
 
 Example request: **"Use the AIPF UI/UX specialist to improve this dashboard's hierarchy and mobile layout without changing its functionality. Use the existing brand tokens and inspect the rendered result if tools are available."**
 
-The catalog is reference-only: search results are recommendations, not permission to copy fonts, photos, brand assets or third-party code. No installation, runtime deployment, or independent visual-performance improvement is implied by this prototype.
+The catalog is reference-only: search results are recommendations, not permission to copy fonts, photos, brand assets or third-party code. No installation, runtime deployment, or independent visual-performance improvement is implied by this release. See [CHANGELOG.md](../CHANGELOG.md) for v0.3 changes and known limitations.
 
 Smoke checks: `python -m unittest discover -s tests -v`.
 

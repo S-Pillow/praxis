@@ -1,0 +1,33 @@
+{
+  "task": "Improve the existing desktop-first URL Activity Scanner results experience for technical users reviewing batches of up to 100 URLs. Prioritize information hierarchy, dense readable results, status summaries, keyboard accessibility, contrast, export accessibility and responsive usability while preserving the existing dark technical identity.",
+  "mode": "build",
+  "platform": "web",
+  "catalog_records_searched": 5500,
+  "selection_scope": "focused_accessibility_correction",
+  "references": [
+    {
+      "role": "usability_reference",
+      "catalog_id": "uupm:ux-guidelines:64",
+      "entry_type": "guideline",
+      "original_name": "Mobile First",
+      "description": "Design for mobile then enhance for larger",
+      "source_repo": "nextlevelbuilder/ui-ux-pro-max-skill",
+      "source_ref": "f2cc36555984fbfb08f1dca037da2467578f33d2",
+      "source_url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/f2cc36555984fbfb08f1dca037da2467578f33d2/.claude/skills/ui-ux-pro-max/data/ux-guidelines.csv",
+      "source_path_or_key": ".claude/skills/ui-ux-pro-max/data/ux-guidelines.csv#row=65",
+      "evidence_status": "source_inspected",
+      "redistribution_status": "metadata_only",
+      "asset_license_status": "not_applicable",
+      "platforms": [
+        "Web"
+      ],
+      "compatibility_restrictions": [
+        "Platform: Web",
+        "Avoid: Desktop-first causing mobile issues"
+      ],
+      "relevance_score": 11.329571
+    }
+  ],
+  "selection_method": "heuristic text matching; not design or legal approval",
+  "use_boundary": "Suggestions are optional and unapproved. Existing project identity, design system, behavior, and applicable AIPF authorization take priority. Do not copy third-party fonts, photos, icons, branded assets or code based on metadata. Confirm source rights and actual access. Inspect the rendered UI before claiming visual acceptance. This command does not build, modify, install, deploy, or verify an interface."
+}

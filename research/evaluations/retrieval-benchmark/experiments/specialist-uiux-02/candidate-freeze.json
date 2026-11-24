@@ -1,0 +1,16 @@
+{
+  "candidate": "specialist-uiux-02 stage 3 (ranking and abstention)",
+  "frozen_at_utc": "2026-11-24T15:36:32Z",
+  "base_commit": "951c0930444e06a8c811acb17a7d5ac12255eab5",
+  "retrieval_scripts_sha256": {
+    "recommend": "3da35bf63580a9c3375b66b19a0ab8ab89d2227e16410eddec9515902c47ed25",
+    "search": "f3a5c885cb510f55769d94999f93a2c0a7752bf45f52050aa3c2397808a0c128"
+  },
+  "cases_sha256": "6b6dda63eac336f2ee6078550f82f3175d0a1e440fd8a666a8de324b0d6038d2",
+  "reserved_cases": [
+    "SYN-04",
+    "SYN-07",
+    "SYN-11"
+  ],
+  "statement": "Frozen before any run of the reserved cases against an experimental implementation. Their v0.2 baseline results were already known from SPECIALIST-UIUX-01, so they are reserved evaluation cases, not a blind independent test. Diagnosis and tuning used historical and development cases only."
+}

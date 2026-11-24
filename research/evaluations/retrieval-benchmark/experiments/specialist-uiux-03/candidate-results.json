@@ -1,0 +1,2028 @@
+{
+  "benchmark": "aipf-ui-ux-retrieval",
+  "cases_sha256": "6b6dda63eac336f2ee6078550f82f3175d0a1e440fd8a666a8de324b0d6038d2",
+  "post_hoc_sha256": "573f4da10fe2dd72c0abb6fd2f4508b179f3db76ea4586f0090d1a4d73684f1d",
+  "environment": {
+    "repository": {
+      "head": "4ebee2648b49de22ef102100d0d4ff9eee9cf489",
+      "retrieval_and_catalog_modified": true
+    },
+    "catalog": {
+      "files": 30,
+      "records": 5500,
+      "sha256": "e3ae82ff0e08c9f77e58dced6e5645a7d6f2eabb818206bb4a853d963ab933d4"
+    },
+    "python": "3.12.3",
+    "retrieval_scripts_sha256": {
+      "recommend": "1f64c70145f8ccf376b79f053d331492be1351c0aefe5ad353eb025ca2fd1c0e",
+      "search": "f3a5c885cb510f55769d94999f93a2c0a7752bf45f52050aa3c2397808a0c128"
+    },
+    "implementation": "working-tree"
+  },
+  "summary": {
+    "historical": {
+      "cases": 5,
+      "status": {
+        "ok": [
+          "HIST-01",
+          "HIST-02",
+          "HIST-03",
+          "HIST-04",
+          "HIST-05"
+        ],
+        "empty": [],
+        "command_failed": [],
+        "malformed": []
+      },
+      "relevant_in_top3": {
+        "cases_with_at_least_one": [
+          "HIST-01",
+          "HIST-02",
+          "HIST-03",
+          "HIST-04"
+        ],
+        "denominator": 5,
+        "per_case": {
+          "HIST-01": 2,
+          "HIST-02": 1,
+          "HIST-03": 2,
+          "HIST-04": 1,
+          "HIST-05": 0
+        }
+      },
+      "first_actionable_rank": {
+        "per_case": {
+          "HIST-01": null,
+          "HIST-02": 1,
+          "HIST-03": 1,
+          "HIST-04": 1,
+          "HIST-05": null
+        },
+        "cases_with_actionable": 3,
+        "denominator": 5,
+        "per_case_frozen_only": {
+          "HIST-01": null,
+          "HIST-02": 1,
+          "HIST-03": 1,
+          "HIST-04": 1,
+          "HIST-05": null
+        }
+      },
+      "constraint_conflicts": {
+        "conflicting_results": 0,
+        "returned_results": 17,
+        "per_case": {},
+        "rate": 0.0,
+        "cases_with_conflict": []
+      },
+      "useful_query_coverage": {
+        "useful": [
+          "HIST-01",
+          "HIST-02",
+          "HIST-03",
+          "HIST-04"
+        ],
+        "not_useful": [
+          "HIST-05"
+        ],
+        "useful_frozen_judgments_only": [
+          "HIST-01",
+          "HIST-02",
+          "HIST-03",
+          "HIST-04"
+        ],
+        "denominator": 5,
+        "excluded_expected_empty": []
+      },
+      "relevant_returned": {
+        "total": 7,
+        "total_frozen_only": 7,
+        "returned_in_scored_cases": 17,
+        "per_case": {
+          "HIST-01": 2,
+          "HIST-02": 1,
+          "HIST-03": 2,
+          "HIST-04": 2,
+          "HIST-05": 0
+        }
+      },
+      "returned_per_case": {
+        "HIST-01": 3,
+        "HIST-02": 1,
+        "HIST-03": 3,
+        "HIST-04": 5,
+        "HIST-05": 5
+      },
+      "abstention": {
+        "expected_empty": {},
+        "empty_results": {}
+      },
+      "follow_up_usefulness": {
+        "useful": [
+          "HIST-04"
+        ],
+        "denominator": 2,
+        "case_ids": [
+          "HIST-04",
+          "HIST-05"
+        ],
+        "useful_frozen_judgments_only": [
+          "HIST-04"
+        ]
+      },
+      "judgment_coverage": {
+        "returned_results": 17,
+        "frozen": 16,
+        "post_hoc": 0,
+        "unjudged": 0,
+        "by_source": {
+          "frozen": 16,
+          "post_hoc_uiux02": 1
+        }
+      }
+    },
+    "development": {
+      "cases": 9,
+      "status": {
+        "ok": [
+          "SYN-01",
+          "SYN-02",
+          "SYN-03",
+          "SYN-05",
+          "SYN-06",
+          "SYN-08",
+          "SYN-10",
+          "SYN-12"
+        ],
+        "empty": [
+          "SYN-09"
+        ],
+        "command_failed": [],
+        "malformed": []
+      },
+      "relevant_in_top3": {
+        "cases_with_at_least_one": [
+          "SYN-01",
+          "SYN-02",
+          "SYN-03",
+          "SYN-05",
+          "SYN-06",
+          "SYN-08",
+          "SYN-10",
+          "SYN-12"
+        ],
+        "denominator": 8,
+        "per_case": {
+          "SYN-01": 2,
+          "SYN-02": 1,
+          "SYN-03": 2,
+          "SYN-05": 3,
+          "SYN-06": 2,
+          "SYN-08": 3,
+          "SYN-10": 1,
+          "SYN-12": 2
+        }
+      },
+      "first_actionable_rank": {
+        "per_case": {
+          "SYN-01": 2,
+          "SYN-02": null,
+          "SYN-03": 3,
+          "SYN-05": 1,
+          "SYN-06": null,
+          "SYN-08": 1,
+          "SYN-10": 1,
+          "SYN-12": 2
+        },
+        "cases_with_actionable": 6,
+        "denominator": 8,
+        "per_case_frozen_only": {
+          "SYN-01": 2,
+          "SYN-02": null,
+          "SYN-03": 3,
+          "SYN-05": 1,
+          "SYN-06": null,
+          "SYN-08": 1,
+          "SYN-10": 1,
+          "SYN-12": 2
+        }
+      },
+      "constraint_conflicts": {
+        "conflicting_results": 0,
+        "returned_results": 25,
+        "per_case": {},
+        "rate": 0.0,
+        "cases_with_conflict": []
+      },
+      "useful_query_coverage": {
+        "useful": [
+          "SYN-01",
+          "SYN-02",
+          "SYN-03",
+          "SYN-05",
+          "SYN-06",
+          "SYN-08",
+          "SYN-10",
+          "SYN-12"
+        ],
+        "not_useful": [],
+        "useful_frozen_judgments_only": [
+          "SYN-01",
+          "SYN-02",
+          "SYN-03",
+          "SYN-05",
+          "SYN-06",
+          "SYN-08",
+          "SYN-10",
+          "SYN-12"
+        ],
+        "denominator": 8,
+        "excluded_expected_empty": [
+          "SYN-09"
+        ]
+      },
+      "relevant_returned": {
+        "total": 17,
+        "total_frozen_only": 14,
+        "returned_in_scored_cases": 25,
+        "per_case": {
+          "SYN-01": 2,
+          "SYN-02": 1,
+          "SYN-03": 2,
+          "SYN-05": 3,
+          "SYN-06": 2,
+          "SYN-08": 3,
+          "SYN-10": 1,
+          "SYN-12": 3
+        }
+      },
+      "returned_per_case": {
+        "SYN-01": 3,
+        "SYN-02": 3,
+        "SYN-03": 3,
+        "SYN-05": 3,
+        "SYN-06": 3,
+        "SYN-08": 3,
+        "SYN-09": 0,
+        "SYN-10": 2,
+        "SYN-12": 5
+      },
+      "abstention": {
+        "expected_empty": {
+          "SYN-09": "correct"
+        },
+        "empty_results": {}
+      },
+      "follow_up_usefulness": {
+        "useful": [
+          "SYN-12"
+        ],
+        "denominator": 1,
+        "case_ids": [
+          "SYN-12"
+        ],
+        "useful_frozen_judgments_only": [
+          "SYN-12"
+        ]
+      },
+      "judgment_coverage": {
+        "returned_results": 25,
+        "frozen": 15,
+        "post_hoc": 6,
+        "unjudged": 0,
+        "by_source": {
+          "frozen": 15,
+          "post_hoc": 6,
+          "post_hoc_uiux02": 2,
+          "post_hoc_uiux03": 2
+        }
+      }
+    },
+    "held_out": {
+      "cases": 3,
+      "status": {
+        "ok": [
+          "SYN-04",
+          "SYN-07",
+          "SYN-11"
+        ],
+        "empty": [],
+        "command_failed": [],
+        "malformed": []
+      },
+      "relevant_in_top3": {
+        "cases_with_at_least_one": [
+          "SYN-04",
+          "SYN-07",
+          "SYN-11"
+        ],
+        "denominator": 3,
+        "per_case": {
+          "SYN-04": 3,
+          "SYN-07": 1,
+          "SYN-11": 3
+        }
+      },
+      "first_actionable_rank": {
+        "per_case": {
+          "SYN-04": 1,
+          "SYN-07": 1,
+          "SYN-11": 1
+        },
+        "cases_with_actionable": 3,
+        "denominator": 3,
+        "per_case_frozen_only": {
+          "SYN-04": 1,
+          "SYN-07": 1,
+          "SYN-11": 1
+        }
+      },
+      "constraint_conflicts": {
+        "conflicting_results": 0,
+        "returned_results": 8,
+        "per_case": {},
+        "rate": 0.0,
+        "cases_with_conflict": []
+      },
+      "useful_query_coverage": {
+        "useful": [
+          "SYN-04",
+          "SYN-07",
+          "SYN-11"
+        ],
+        "not_useful": [],
+        "useful_frozen_judgments_only": [
+          "SYN-04",
+          "SYN-07",
+          "SYN-11"
+        ],
+        "denominator": 3,
+        "excluded_expected_empty": []
+      },
+      "relevant_returned": {
+        "total": 7,
+        "total_frozen_only": 7,
+        "returned_in_scored_cases": 8,
+        "per_case": {
+          "SYN-04": 3,
+          "SYN-07": 1,
+          "SYN-11": 3
+        }
+      },
+      "returned_per_case": {
+        "SYN-04": 3,
+        "SYN-07": 2,
+        "SYN-11": 3
+      },
+      "abstention": {
+        "expected_empty": {},
+        "empty_results": {}
+      },
+      "follow_up_usefulness": {
+        "useful": [],
+        "denominator": 0,
+        "case_ids": [],
+        "useful_frozen_judgments_only": []
+      },
+      "judgment_coverage": {
+        "returned_results": 8,
+        "frozen": 7,
+        "post_hoc": 1,
+        "unjudged": 0,
+        "by_source": {
+          "frozen": 7,
+          "post_hoc": 1
+        }
+      }
+    }
+  },
+  "summary_all_non_held_out": {
+    "cases": 14,
+    "status": {
+      "ok": [
+        "HIST-01",
+        "HIST-02",
+        "HIST-03",
+        "HIST-04",
+        "HIST-05",
+        "SYN-01",
+        "SYN-02",
+        "SYN-03",
+        "SYN-05",
+        "SYN-06",
+        "SYN-08",
+        "SYN-10",
+        "SYN-12"
+      ],
+      "empty": [
+        "SYN-09"
+      ],
+      "command_failed": [],
+      "malformed": []
+    },
+    "relevant_in_top3": {
+      "cases_with_at_least_one": [
+        "HIST-01",
+        "HIST-02",
+        "HIST-03",
+        "HIST-04",
+        "SYN-01",
+        "SYN-02",
+        "SYN-03",
+        "SYN-05",
+        "SYN-06",
+        "SYN-08",
+        "SYN-10",
+        "SYN-12"
+      ],
+      "denominator": 13,
+      "per_case": {
+        "HIST-01": 2,
+        "HIST-02": 1,
+        "HIST-03": 2,
+        "HIST-04": 1,
+        "HIST-05": 0,
+        "SYN-01": 2,
+        "SYN-02": 1,
+        "SYN-03": 2,
+        "SYN-05": 3,
+        "SYN-06": 2,
+        "SYN-08": 3,
+        "SYN-10": 1,
+        "SYN-12": 2
+      }
+    },
+    "first_actionable_rank": {
+      "per_case": {
+        "HIST-01": null,
+        "HIST-02": 1,
+        "HIST-03": 1,
+        "HIST-04": 1,
+        "HIST-05": null,
+        "SYN-01": 2,
+        "SYN-02": null,
+        "SYN-03": 3,
+        "SYN-05": 1,
+        "SYN-06": null,
+        "SYN-08": 1,
+        "SYN-10": 1,
+        "SYN-12": 2
+      },
+      "cases_with_actionable": 9,
+      "denominator": 13,
+      "per_case_frozen_only": {
+        "HIST-01": null,
+        "HIST-02": 1,
+        "HIST-03": 1,
+        "HIST-04": 1,
+        "HIST-05": null,
+        "SYN-01": 2,
+        "SYN-02": null,
+        "SYN-03": 3,
+        "SYN-05": 1,
+        "SYN-06": null,
+        "SYN-08": 1,
+        "SYN-10": 1,
+        "SYN-12": 2
+      }
+    },
+    "constraint_conflicts": {
+      "conflicting_results": 0,
+      "returned_results": 42,
+      "per_case": {},
+      "rate": 0.0,
+      "cases_with_conflict": []
+    },
+    "useful_query_coverage": {
+      "useful": [
+        "HIST-01",
+        "HIST-02",
+        "HIST-03",
+        "HIST-04",
+        "SYN-01",
+        "SYN-02",
+        "SYN-03",
+        "SYN-05",
+        "SYN-06",
+        "SYN-08",
+        "SYN-10",
+        "SYN-12"
+      ],
+      "not_useful": [
+        "HIST-05"
+      ],
+      "useful_frozen_judgments_only": [
+        "HIST-01",
+        "HIST-02",
+        "HIST-03",
+        "HIST-04",
+        "SYN-01",
+        "SYN-02",
+        "SYN-03",
+        "SYN-05",
+        "SYN-06",
+        "SYN-08",
+        "SYN-10",
+        "SYN-12"
+      ],
+      "denominator": 13,
+      "excluded_expected_empty": [
+        "SYN-09"
+      ]
+    },
+    "relevant_returned": {
+      "total": 24,
+      "total_frozen_only": 21,
+      "returned_in_scored_cases": 42,
+      "per_case": {
+        "HIST-01": 2,
+        "HIST-02": 1,
+        "HIST-03": 2,
+        "HIST-04": 2,
+        "HIST-05": 0,
+        "SYN-01": 2,
+        "SYN-02": 1,
+        "SYN-03": 2,
+        "SYN-05": 3,
+        "SYN-06": 2,
+        "SYN-08": 3,
+        "SYN-10": 1,
+        "SYN-12": 3
+      }
+    },
+    "returned_per_case": {
+      "HIST-01": 3,
+      "HIST-02": 1,
+      "HIST-03": 3,
+      "HIST-04": 5,
+      "HIST-05": 5,
+      "SYN-01": 3,
+      "SYN-02": 3,
+      "SYN-03": 3,
+      "SYN-05": 3,
+      "SYN-06": 3,
+      "SYN-08": 3,
+      "SYN-09": 0,
+      "SYN-10": 2,
+      "SYN-12": 5
+    },
+    "abstention": {
+      "expected_empty": {
+        "SYN-09": "correct"
+      },
+      "empty_results": {}
+    },
+    "follow_up_usefulness": {
+      "useful": [
+        "HIST-04",
+        "SYN-12"
+      ],
+      "denominator": 3,
+      "case_ids": [
+        "HIST-04",
+        "HIST-05",
+        "SYN-12"
+      ],
+      "useful_frozen_judgments_only": [
+        "HIST-04",
+        "SYN-12"
+      ]
+    },
+    "judgment_coverage": {
+      "returned_results": 42,
+      "frozen": 31,
+      "post_hoc": 6,
+      "unjudged": 0,
+      "by_source": {
+        "frozen": 31,
+        "post_hoc": 6,
+        "post_hoc_uiux02": 3,
+        "post_hoc_uiux03": 2
+      }
+    }
+  },
+  "cases": [
+    {
+      "id": "HIST-01",
+      "origin": "historical",
+      "split": "historical",
+      "role": "primary",
+      "tool": "recommend",
+      "argv": [
+        "python3",
+        "scripts/recommend_design.py",
+        "Critique the existing URL Activity Scanner results interface for batch readability, information hierarchy, accessibility and responsive usability while preserving its technical dark design identity",
+        "--mode",
+        "critique",
+        "--platform",
+        "web"
+      ],
+      "exit_code": 0,
+      "stderr_bytes": 0,
+      "status": "ok",
+      "problems": [],
+      "result_count": 3,
+      "results": [
+        {
+          "rank": 1,
+          "catalog_id": "uupm:ux-guidelines:90",
+          "original_name": "No Results",
+          "entry_type": "guideline",
+          "role": "usability_reference",
+          "relevance_score": 7.368548,
+          "grade": 1,
+          "grade_source": "frozen",
+          "conflicts": [],
+          "in_catalog": true,
+          "evidence_status": "source_inspected",
+          "redistribution_status": "metadata_only",
+          "asset_license_status": "not_applicable"
+        },
+        {
+          "rank": 2,
+          "catalog_id": "uupm:ux-guidelines:39",
+          "original_name": "Heading Hierarchy",
+          "entry_type": "guideline",
+          "role": "usability_reference",
+          "relevance_score": 6.714935,
+          "grade": 2,
+          "grade_source": "frozen",
+          "conflicts": [],
+          "in_catalog": true,
+          "evidence_status": "source_inspected",
+          "redistribution_status": "metadata_only",
+          "asset_license_status": "not_applicable"
+        },
+        {
+          "rank": 3,
+          "catalog_id": "uupm:ux-guidelines:76",
+          "original_name": "Contrast Readability",
+          "entry_type": "guideline",
+          "role": "usability_reference",
+          "relevance_score": 6.690525,
+          "grade": 2,
+          "grade_source": "frozen",
+          "conflicts": [],
+          "in_catalog": true,
+          "evidence_status": "source_inspected",
+          "redistribution_status": "metadata_only",
+          "asset_license_status": "not_applicable"
+        }
+      ],
+      "relevant_in_top3": 2,
+      "first_actionable_rank": null,
+      "conflict_count": 0,
+      "useful": true,
+      "useful_frozen_only": true,
+      "unjudged": 0,
+      "post_hoc": 0,
+      "relevant_returned": 2,
+      "relevant_returned_frozen_only": 2,
+      "first_actionable_rank_frozen_only": null,
+      "grade_sources": {
+        "frozen": 3
+      },
+      "abstention": null,
+      "matches_retained_output": false
+    },
+    {
+      "id": "HIST-02",
+      "origin": "historical",
+      "split": "historical",
+      "role": "primary",
+      "tool": "recommend",
+      "argv": [
+        "python3",
+        "scripts/recommend_design.py",
+        "Improve the existing desktop-first URL Activity Scanner results experience for technical users reviewing batches of up to 100 URLs. Prioritize information hierarchy, dense readable results, status summaries, keyboard accessibility, contrast, export accessibility and responsive usability while preserving the existing dark technical identity.",
+        "--mode",
+        "build",
+        "--platform",
+        "web"
+      ],
+      "exit_code": 0,
+      "stderr_bytes": 0,
+      "status": "ok",
+      "problems": [],
+      "result_count": 1,
+      "results": [
+        {
+          "rank": 1,
+          "catalog_id": "uupm:ux-guidelines:36",
+          "original_name": "Color Contrast",
+          "entry_type": "guideline",
+          "role": "usability_reference",
+          "relevance_score": 10.567074,
+          "grade": 3,
+          "grade_source": "frozen",
+          "conflicts": [],
+          "in_catalog": true,
+          "evidence_status": "source_inspected",
+          "redistribution_status": "metadata_only",
+          "asset_license_status": "not_applicable"
+        }
+      ],
+      "relevant_in_top3": 1,
+      "first_actionable_rank": 1,
+      "conflict_count": 0,
+      "useful": true,
+      "useful_frozen_only": true,
+      "unjudged": 0,
+      "post_hoc": 0,
+      "relevant_returned": 1,
+      "relevant_returned_frozen_only": 1,
+      "first_actionable_rank_frozen_only": 1,
+      "grade_sources": {
+        "frozen": 1
+      },
+      "abstention": null,
+      "matches_retained_output": false
+    },
+    {
+      "id": "HIST-03",
+      "origin": "historical",
+      "split": "historical",
+      "role": "primary",
+      "tool": "recommend",
+      "argv": [
+        "python3",
+        "scripts/recommend_design.py",
+        "Audit the improved URL Activity Scanner results interface for keyboard accessibility, focus recovery, contrast, readable technical data, batch summary accuracy, desktop and mobile usability, result-key navigation and CSV export accessibility.",
+        "--mode",
+        "audit",
+        "--platform",
+        "web"
+      ],
+      "exit_code": 0,
+      "stderr_bytes": 0,
+      "status": "ok",
+      "problems": [],
+      "result_count": 3,
+      "results": [
+        {
+          "rank": 1,
+          "catalog_id": "uupm:ux-guidelines:41",
+          "original_name": "Keyboard Navigation",
+          "entry_type": "guideline",
+          "role": "check_reference",
+          "relevance_score": 13.937958,
+          "grade": 3,
+          "grade_source": "frozen",
+          "conflicts": [],
+          "in_catalog": true,
+          "evidence_status": "source_inspected",
+          "redistribution_status": "metadata_only",
+          "asset_license_status": "not_applicable"
+        },
+        {
+          "rank": 2,
+          "catalog_id": "uupm:ux-guidelines:36",
+          "original_name": "Color Contrast",
+          "entry_type": "guideline",
+          "role": "check_reference",
+          "relevance_score": 10.590868,
+          "grade": 3,
+          "grade_source": "frozen",
+          "conflicts": [],
+          "in_catalog": true,
+          "evidence_status": "source_inspected",
+          "redistribution_status": "metadata_only",
+          "asset_license_status": "not_applicable"
+        },
+        {
+          "rank": 3,
+          "catalog_id": "uupm:ux-guidelines:109",
+          "original_name": "Focusable Error Summary",
+          "entry_type": "guideline",
+          "role": "check_reference",
+          "relevance_score": 10.076466,
+          "grade": 1,
+          "grade_source": "post_hoc_uiux02",
+          "conflicts": [],
+          "in_catalog": true,
+          "evidence_status": "source_inspected",
+          "redistribution_status": "metadata_only",
+          "asset_license_status": "not_applicable"
+        }
+      ],
+      "relevant_in_top3": 2,
+      "first_actionable_rank": 1,
+      "conflict_count": 0,
+      "useful": true,
+      "useful_frozen_only": true,
+      "unjudged": 0,
+      "post_hoc": 0,
+      "relevant_returned": 2,
+      "relevant_returned_frozen_only": 2,
+      "first_actionable_rank_frozen_only": 1,
+      "grade_sources": {
+        "frozen": 2,
+        "post_hoc_uiux02": 1
+      },
+      "abstention": null,
+      "matches_retained_output": false
+    },
+    {
+      "id": "HIST-04",
+      "origin": "historical",
+      "split": "historical",
+      "role": "follow_up",
+      "tool": "search",
+      "argv": [
+        "python3",
+        "scripts/search_catalog.py",
+        "dense data table status results readability scanning batch",
+        "--specialist-use",
+        "critique",
+        "--limit",
+        "5"
+      ],
+      "exit_code": 0,
+      "stderr_bytes": 0,
+      "status": "ok",
+      "problems": [],
+      "result_count": 5,
+      "results": [
+        {
+          "rank": 1,
+          "catalog_id": "uupm:ux-guidelines:71",
+          "original_name": "Table Handling",
+          "entry_type": "guideline",
+          "role": null,
+          "relevance_score": 9.632336,
+          "grade": 3,
+          "grade_source": "frozen",
+          "conflicts": [],
+          "in_catalog": true,
+          "evidence_status": "source_inspected",
+          "redistribution_status": "metadata_only",
+          "asset_license_status": "not_applicable"
+        },
+        {
+          "rank": 2,
+          "catalog_id": "uupm:react-performance:31",
+          "original_name": "Batch DOM CSS",
+          "entry_type": "guideline",
+          "role": null,
+          "relevance_score": 9.373668,
+          "grade": 0,
+          "grade_source": "frozen",
+          "conflicts": [],
+          "in_catalog": true,
+          "evidence_status": "source_inspected",
+          "redistribution_status": "metadata_only",
+          "asset_license_status": "not_applicable"
+        },
+        {
+          "rank": 3,
+          "catalog_id": "uupm:ux-guidelines:90",
+          "original_name": "No Results",
+          "entry_type": "guideline",
+          "role": null,
+          "relevance_score": 8.045798,
+          "grade": 1,
+          "grade_source": "frozen",
+          "conflicts": [],
+          "in_catalog": true,
+          "evidence_status": "source_inspected",
+          "redistribution_status": "metadata_only",
+          "asset_license_status": "not_applicable"
+        },
+        {
+          "rank": 4,
+          "catalog_id": "uupm:ux-guidelines:76",
+          "original_name": "Contrast Readability",
+          "entry_type": "guideline",
+          "role": null,
+          "relevance_score": 7.948215,
+          "grade": 2,
+          "grade_source": "frozen",
+          "conflicts": [],
+          "in_catalog": true,
+          "evidence_status": "source_inspected",
+          "redistribution_status": "metadata_only",
+          "asset_license_status": "not_applicable"
+        },
+        {
+          "rank": 5,
+          "catalog_id": "uupm:react-performance:34",
+          "original_name": "Cache Function Results",
+          "entry_type": "guideline",
+          "role": null,
+          "relevance_score": 7.739499,
+          "grade": 0,
+          "grade_source": "frozen",
+          "conflicts": [],
+          "in_catalog": true,
+          "evidence_status": "source_inspected",
+          "redistribution_status": "metadata_only",
+          "asset_license_status": "not_applicable"
+        }
+      ],
+      "relevant_in_top3": 1,
+      "first_actionable_rank": 1,
+      "conflict_count": 0,
+      "useful": true,
+      "useful_frozen_only": true,
+      "unjudged": 0,
+      "post_hoc": 0,
+      "relevant_returned": 2,
+      "relevant_returned_frozen_only": 2,
+      "first_actionable_rank_frozen_only": 1,
+      "grade_sources": {
+        "frozen": 5
+      },
+      "abstention": null,
+      "matches_retained_output": false
+    },
+    {
+      "id": "HIST-05",
+      "origin": "historical",
+      "split": "historical",
+      "role": "follow_up",
+      "tool": "search",
+      "argv": [
+        "python3",
+        "scripts/search_catalog.py",
+        "data table",
+        "--specialist-use",
+        "build",
+        "--limit",
+        "5"
+      ],
+      "exit_code": 0,
+      "stderr_bytes": 0,
+      "status": "ok",
+      "problems": [],
+      "result_count": 5,
+      "results": [
+        {
+          "rank": 1,
+          "catalog_id": "uupm:landing:comparison-table-cta",
+          "original_name": "Comparison Table + CTA",
+          "entry_type": "template",
+          "role": null,
+          "relevance_score": 10.25295,
+          "grade": 0,
+          "grade_source": "frozen",
+          "conflicts": [],
+          "in_catalog": true,
+          "evidence_status": "source_inspected",
+          "redistribution_status": "metadata_only",
+          "asset_license_status": "not_applicable"
+        },
+        {
+          "rank": 2,
+          "catalog_id": "uupm:landing:comparison-table-focus",
+          "original_name": "Comparison Table Focus",
+          "entry_type": "template",
+          "role": null,
+          "relevance_score": 10.12396,
+          "grade": 0,
+          "grade_source": "frozen",
+          "conflicts": [],
+          "in_catalog": true,
+          "evidence_status": "source_inspected",
+          "redistribution_status": "metadata_only",
+          "asset_license_status": "not_applicable"
+        },
+        {
+          "rank": 3,
+          "catalog_id": "open-design:skills:app-table",
+          "original_name": "app-table",
+          "entry_type": "design_knowledge",
+          "role": null,
+          "relevance_score": 10.040705,
+          "grade": 1,
+          "grade_source": "frozen",
+          "conflicts": [],
+          "in_catalog": true,
+          "evidence_status": "source_inspected",
+          "redistribution_status": "reference_only",
+          "asset_license_status": "unresolved"
+        },
+        {
+          "rank": 4,
+          "catalog_id": "uupm:phosphor-icon:table",
+          "original_name": "table",
+          "entry_type": "design_knowledge",
+          "role": null,
+          "relevance_score": 9.970647,
+          "grade": 0,
+          "grade_source": "frozen",
+          "conflicts": [],
+          "in_catalog": true,
+          "evidence_status": "reported_by_upstream",
+          "redistribution_status": "metadata_only",
+          "asset_license_status": "mixed"
+        },
+        {
+          "rank": 5,
+          "catalog_id": "open-design:templates:html-ppt-zhangzara-long-table",
+          "original_name": "html-ppt-zhangzara-long-table",
+          "entry_type": "template",
+          "role": null,
+          "relevance_score": 9.84228,
+          "grade": 0,
+          "grade_source": "frozen",
+          "conflicts": [],
+          "in_catalog": true,
+          "evidence_status": "source_inspected",
+          "redistribution_status": "reference_only",
+          "asset_license_status": "unresolved"
+        }
+      ],
+      "relevant_in_top3": 0,
+      "first_actionable_rank": null,
+      "conflict_count": 0,
+      "useful": false,
+      "useful_frozen_only": false,
+      "unjudged": 0,
+      "post_hoc": 0,
+      "relevant_returned": 0,
+      "relevant_returned_frozen_only": 0,
+      "first_actionable_rank_frozen_only": null,
+      "grade_sources": {
+        "frozen": 5
+      },
+      "abstention": null,
+      "matches_retained_output": true
+    },
+    {
+      "id": "SYN-01",
+      "origin": "synthetic",
+      "split": "development",
+      "role": "primary",
+      "tool": "recommend",
+      "argv": [
+        "python3",
+        "scripts/recommend_design.py",
+        "Refine the existing desktop help-desk console where support agents triage several hundred open tickets per shift: make queue rows quicker to scan, show ticket priority and SLA status clearly, and keep row actions reachable from the keyboard. Keep the current light theme and component library.",
+        "--mode",
+        "build",
+        "--platform",
+        "web"
+      ],
+      "exit_code": 0,
+      "stderr_bytes": 0,
+      "status": "ok",
+      "problems": [],
+      "result_count": 3,
+      "results": [
+        {
+          "rank": 1,
+          "catalog_id": "uupm:ux-guidelines:91",
+          "original_name": "Bulk Actions",
+          "entry_type": "guideline",
+          "role": "usability_reference",
+          "relevance_score": 5.17784,
+          "grade": 2,
+          "grade_source": "frozen",
+          "conflicts": [],
+          "in_catalog": true,
+          "evidence_status": "source_inspected",
+          "redistribution_status": "metadata_only",
+          "asset_license_status": "not_applicable"
+        },
+        {
+          "rank": 2,
+          "catalog_id": "uupm:ux-guidelines:41",
+          "original_name": "Keyboard Navigation",
+          "entry_type": "guideline",
+          "role": "usability_reference",
+          "relevance_score": 5.165446,
+          "grade": 3,
+          "grade_source": "frozen",
+          "conflicts": [],
+          "in_catalog": true,
+          "evidence_status": "source_inspected",
+          "redistribution_status": "metadata_only",
+          "asset_license_status": "not_applicable"
+        },
+        {
+          "rank": 3,
+          "catalog_id": "uupm:ux-guidelines:61",
+          "original_name": "Submit Feedback",
+          "entry_type": "guideline",
+          "role": "usability_reference",
+          "relevance_score": 4.036932,
+          "grade": 0,
+          "grade_source": "post_hoc_uiux03",
+          "conflicts": [],
+          "in_catalog": true,
+          "evidence_status": "source_inspected",
+          "redistribution_status": "metadata_only",
+          "asset_license_status": "not_applicable"
+        }
+      ],
+      "relevant_in_top3": 2,
+      "first_actionable_rank": 2,
+      "conflict_count": 0,
+      "useful": true,
+      "useful_frozen_only": true,
+      "unjudged": 0,
+      "post_hoc": 0,
+      "relevant_returned": 2,
+      "relevant_returned_frozen_only": 2,
+      "first_actionable_rank_frozen_only": 2,
+      "grade_sources": {
+        "frozen": 2,
+        "post_hoc_uiux03": 1
+      },
+      "abstention": null
+    },
+    {
+      "id": "SYN-02",
+      "origin": "synthetic",
+      "split": "development",
+      "role": "primary",
+      "tool": "recommend",
+      "argv": [
+        "python3",
+        "scripts/recommend_design.py",
+        "Design a new control-room dashboard for an electricity grid operator showing live load, outage alarms and 24-hour demand forecasts on large desktop monitors. There is no existing brand to follow.",
+        "--mode",
+        "build",
+        "--platform",
+        "web"
+      ],
+      "exit_code": 0,
+      "stderr_bytes": 0,
+      "status": "ok",
+      "problems": [],
+      "result_count": 3,
+      "results": [
+        {
+          "rank": 1,
+          "catalog_id": "uupm:styles:executive-dashboard",
+          "original_name": "Executive Dashboard",
+          "entry_type": "style",
+          "role": "direction",
+          "relevance_score": 10.929195,
+          "grade": 1,
+          "grade_source": "frozen",
+          "conflicts": [],
+          "in_catalog": true,
+          "evidence_status": "source_inspected",
+          "redistribution_status": "metadata_only",
+          "asset_license_status": "not_applicable"
+        },
+        {
+          "rank": 2,
+          "catalog_id": "uupm:colors:95",
+          "original_name": "Food Delivery / On-Demand",
+          "entry_type": "palette",
+          "role": "palette",
+          "relevance_score": 9.29376,
+          "grade": 0,
+          "grade_source": "post_hoc",
+          "conflicts": [],
+          "in_catalog": true,
+          "evidence_status": "source_inspected",
+          "redistribution_status": "metadata_only",
+          "asset_license_status": "not_applicable"
+        },
+        {
+          "rank": 3,
+          "catalog_id": "uupm:typography:42",
+          "original_name": "Dashboard Data",
+          "entry_type": "font_pairing",
+          "role": "typography",
+          "relevance_score": 7.50826,
+          "grade": 2,
+          "grade_source": "frozen",
+          "conflicts": [],
+          "in_catalog": true,
+          "evidence_status": "source_inspected",
+          "redistribution_status": "metadata_only",
+          "asset_license_status": "mixed"
+        }
+      ],
+      "relevant_in_top3": 1,
+      "first_actionable_rank": null,
+      "conflict_count": 0,
+      "useful": true,
+      "useful_frozen_only": true,
+      "unjudged": 0,
+      "post_hoc": 1,
+      "relevant_returned": 1,
+      "relevant_returned_frozen_only": 1,
+      "first_actionable_rank_frozen_only": null,
+      "grade_sources": {
+        "frozen": 2,
+        "post_hoc": 1
+      },
+      "abstention": null
+    },
+    {
+      "id": "SYN-03",
+      "origin": "synthetic",
+      "split": "development",
+      "role": "primary",
+      "tool": "recommend",
+      "argv": [
+        "python3",
+        "scripts/recommend_design.py",
+        "Build a mobile-first checkout for a grocery delivery web shop. Most customers order on phones with one hand, so prioritise thumb-reachable actions, large touch targets and quick address entry.",
+        "--mode",
+        "build",
+        "--platform",
+        "web"
+      ],
+      "exit_code": 0,
+      "stderr_bytes": 0,
+      "status": "ok",
+      "problems": [],
+      "result_count": 3,
+      "results": [
+        {
+          "rank": 1,
+          "catalog_id": "uupm:styles:flat-design-mobile-touch-first",
+          "original_name": "Flat Design Mobile (Touch-First)",
+          "entry_type": "style",
+          "role": "direction",
+          "relevance_score": 21.050228,
+          "grade": 2,
+          "grade_source": "post_hoc",
+          "conflicts": [],
+          "in_catalog": true,
+          "evidence_status": "source_inspected",
+          "redistribution_status": "metadata_only",
+          "asset_license_status": "not_applicable"
+        },
+        {
+          "rank": 2,
+          "catalog_id": "uupm:colors:174",
+          "original_name": "Digital Signage / Kiosk",
+          "entry_type": "palette",
+          "role": "palette",
+          "relevance_score": 13.852273,
+          "grade": 1,
+          "grade_source": "post_hoc",
+          "conflicts": [],
+          "in_catalog": true,
+          "evidence_status": "source_inspected",
+          "redistribution_status": "metadata_only",
+          "asset_license_status": "not_applicable"
+        },
+        {
+          "rank": 3,
+          "catalog_id": "uupm:ux-guidelines:64",
+          "original_name": "Mobile First",
+          "entry_type": "guideline",
+          "role": "usability_reference",
+          "relevance_score": 13.220495,
+          "grade": 3,
+          "grade_source": "frozen",
+          "conflicts": [],
+          "in_catalog": true,
+          "evidence_status": "source_inspected",
+          "redistribution_status": "metadata_only",
+          "asset_license_status": "not_applicable"
+        }
+      ],
+      "relevant_in_top3": 2,
+      "first_actionable_rank": 3,
+      "conflict_count": 0,
+      "useful": true,
+      "useful_frozen_only": true,
+      "unjudged": 0,
+      "post_hoc": 2,
+      "relevant_returned": 2,
+      "relevant_returned_frozen_only": 1,
+      "first_actionable_rank_frozen_only": 3,
+      "grade_sources": {
+        "frozen": 1,
+        "post_hoc": 2
+      },
+      "abstention": null
+    },
+    {
+      "id": "SYN-04",
+      "origin": "synthetic",
+      "split": "held_out",
+      "role": "primary",
+      "tool": "recommend",
+      "argv": [
+        "python3",
+        "scripts/recommend_design.py",
+        "Audit the native iOS and Android settings screens for touch target size, dynamic type scaling and screen reader labels on icon-only buttons.",
+        "--mode",
+        "audit",
+        "--platform",
+        "mobile"
+      ],
+      "exit_code": 0,
+      "stderr_bytes": 0,
+      "status": "ok",
+      "problems": [],
+      "result_count": 3,
+      "results": [
+        {
+          "rank": 1,
+          "catalog_id": "uupm:app-interface:6",
+          "original_name": "Touch Target Size",
+          "entry_type": "guideline",
+          "role": "check_reference",
+          "relevance_score": 28.598579,
+          "grade": 3,
+          "grade_source": "frozen",
+          "conflicts": [],
+          "in_catalog": true,
+          "evidence_status": "source_inspected",
+          "redistribution_status": "metadata_only",
+          "asset_license_status": "not_applicable"
+        },
+        {
+          "rank": 2,
+          "catalog_id": "uupm:ux-guidelines:22",
+          "original_name": "Touch Target Size",
+          "entry_type": "guideline",
+          "role": "check_reference",
+          "relevance_score": 17.706526,
+          "grade": 3,
+          "grade_source": "frozen",
+          "conflicts": [],
+          "in_catalog": true,
+          "evidence_status": "source_inspected",
+          "redistribution_status": "metadata_only",
+          "asset_license_status": "not_applicable"
+        },
+        {
+          "rank": 3,
+          "catalog_id": "uupm:app-interface:1",
+          "original_name": "Icon Button Labels",
+          "entry_type": "guideline",
+          "role": "check_reference",
+          "relevance_score": 16.288273,
+          "grade": 3,
+          "grade_source": "frozen",
+          "conflicts": [],
+          "in_catalog": true,
+          "evidence_status": "source_inspected",
+          "redistribution_status": "metadata_only",
+          "asset_license_status": "not_applicable"
+        }
+      ],
+      "relevant_in_top3": 3,
+      "first_actionable_rank": 1,
+      "conflict_count": 0,
+      "useful": true,
+      "useful_frozen_only": true,
+      "unjudged": 0,
+      "post_hoc": 0,
+      "relevant_returned": 3,
+      "relevant_returned_frozen_only": 3,
+      "first_actionable_rank_frozen_only": 1,
+      "grade_sources": {
+        "frozen": 3
+      },
+      "abstention": null
+    },
+    {
+      "id": "SYN-05",
+      "origin": "synthetic",
+      "split": "development",
+      "role": "primary",
+      "tool": "recommend",
+      "argv": [
+        "python3",
+        "scripts/recommend_design.py",
+        "Add a billing settings page to our existing SaaS admin using its established design-system tokens, components and Inter typography. Do not introduce new colours or fonts; every field needs a visible label and clear inline errors.",
+        "--mode",
+        "build",
+        "--platform",
+        "web"
+      ],
+      "exit_code": 0,
+      "stderr_bytes": 0,
+      "status": "ok",
+      "problems": [],
+      "result_count": 3,
+      "results": [
+        {
+          "rank": 1,
+          "catalog_id": "uupm:ux-guidelines:55",
+          "original_name": "Error Placement",
+          "entry_type": "guideline",
+          "role": "usability_reference",
+          "relevance_score": 8.69659,
+          "grade": 3,
+          "grade_source": "frozen",
+          "conflicts": [],
+          "in_catalog": true,
+          "evidence_status": "source_inspected",
+          "redistribution_status": "metadata_only",
+          "asset_license_status": "not_applicable"
+        },
+        {
+          "rank": 2,
+          "catalog_id": "uupm:ux-guidelines:109",
+          "original_name": "Focusable Error Summary",
+          "entry_type": "guideline",
+          "role": "usability_reference",
+          "relevance_score": 8.551662,
+          "grade": 3,
+          "grade_source": "frozen",
+          "conflicts": [],
+          "in_catalog": true,
+          "evidence_status": "source_inspected",
+          "redistribution_status": "metadata_only",
+          "asset_license_status": "not_applicable"
+        },
+        {
+          "rank": 3,
+          "catalog_id": "uupm:ux-guidelines:56",
+          "original_name": "Inline Validation",
+          "entry_type": "guideline",
+          "role": "usability_reference",
+          "relevance_score": 6.666293,
+          "grade": 2,
+          "grade_source": "frozen",
+          "conflicts": [],
+          "in_catalog": true,
+          "evidence_status": "source_inspected",
+          "redistribution_status": "metadata_only",
+          "asset_license_status": "not_applicable"
+        }
+      ],
+      "relevant_in_top3": 3,
+      "first_actionable_rank": 1,
+      "conflict_count": 0,
+      "useful": true,
+      "useful_frozen_only": true,
+      "unjudged": 0,
+      "post_hoc": 0,
+      "relevant_returned": 3,
+      "relevant_returned_frozen_only": 3,
+      "first_actionable_rank_frozen_only": 1,
+      "grade_sources": {
+        "frozen": 3
+      },
+      "abstention": null
+    },
+    {
+      "id": "SYN-06",
+      "origin": "synthetic",
+      "split": "development",
+      "role": "primary",
+      "tool": "recommend",
+      "argv": [
+        "python3",
+        "scripts/recommend_design.py",
+        "Create a visual identity for an independent bookshop's events website: warm, literary and editorial, with readable long-form event descriptions. No existing brand exists.",
+        "--mode",
+        "build",
+        "--platform",
+        "web"
+      ],
+      "exit_code": 0,
+      "stderr_bytes": 0,
+      "status": "ok",
+      "problems": [],
+      "result_count": 3,
+      "results": [
+        {
+          "rank": 1,
+          "catalog_id": "hallmark:theme:specimen",
+          "original_name": "Specimen",
+          "entry_type": "theme",
+          "role": "direction",
+          "relevance_score": 17.812584,
+          "grade": 2,
+          "grade_source": "frozen",
+          "conflicts": [],
+          "in_catalog": true,
+          "evidence_status": "source_inspected",
+          "redistribution_status": "metadata_only",
+          "asset_license_status": "mixed"
+        },
+        {
+          "rank": 2,
+          "catalog_id": "uupm:colors:149",
+          "original_name": "Local Events & Discovery",
+          "entry_type": "palette",
+          "role": "palette",
+          "relevance_score": 12.851216,
+          "grade": 1,
+          "grade_source": "post_hoc",
+          "conflicts": [],
+          "in_catalog": true,
+          "evidence_status": "source_inspected",
+          "redistribution_status": "metadata_only",
+          "asset_license_status": "not_applicable"
+        },
+        {
+          "rank": 3,
+          "catalog_id": "uupm:ux-guidelines:67",
+          "original_name": "Readable Font Size",
+          "entry_type": "guideline",
+          "role": "usability_reference",
+          "relevance_score": 7.223285,
+          "grade": 2,
+          "grade_source": "post_hoc_uiux03",
+          "conflicts": [],
+          "in_catalog": true,
+          "evidence_status": "source_inspected",
+          "redistribution_status": "metadata_only",
+          "asset_license_status": "not_applicable"
+        }
+      ],
+      "relevant_in_top3": 2,
+      "first_actionable_rank": null,
+      "conflict_count": 0,
+      "useful": true,
+      "useful_frozen_only": true,
+      "unjudged": 0,
+      "post_hoc": 1,
+      "relevant_returned": 2,
+      "relevant_returned_frozen_only": 1,
+      "first_actionable_rank_frozen_only": null,
+      "grade_sources": {
+        "frozen": 1,
+        "post_hoc": 1,
+        "post_hoc_uiux03": 1
+      },
+      "abstention": null
+    },
+    {
+      "id": "SYN-07",
+      "origin": "synthetic",
+      "split": "held_out",
+      "role": "primary",
+      "tool": "recommend",
+      "argv": [
+        "python3",
+        "scripts/recommend_design.py",
+        "Critique the first-run onboarding screens of a meditation web app: does the calm aesthetic support comprehension, is the visual hierarchy clear, and is motion restrained?",
+        "--mode",
+        "critique",
+        "--platform",
+        "web"
+      ],
+      "exit_code": 0,
+      "stderr_bytes": 0,
+      "status": "ok",
+      "problems": [],
+      "result_count": 2,
+      "results": [
+        {
+          "rank": 1,
+          "catalog_id": "uupm:ux-guidelines:39",
+          "original_name": "Heading Hierarchy",
+          "entry_type": "guideline",
+          "role": "usability_reference",
+          "relevance_score": 6.713237,
+          "grade": 3,
+          "grade_source": "frozen",
+          "conflicts": [],
+          "in_catalog": true,
+          "evidence_status": "source_inspected",
+          "redistribution_status": "metadata_only",
+          "asset_license_status": "not_applicable"
+        },
+        {
+          "rank": 2,
+          "catalog_id": "hallmark:theme:coral",
+          "original_name": "Coral",
+          "entry_type": "theme",
+          "role": "design_reference",
+          "relevance_score": 10.314556,
+          "grade": 1,
+          "grade_source": "post_hoc",
+          "conflicts": [],
+          "in_catalog": true,
+          "evidence_status": "source_inspected",
+          "redistribution_status": "metadata_only",
+          "asset_license_status": "mixed"
+        }
+      ],
+      "relevant_in_top3": 1,
+      "first_actionable_rank": 1,
+      "conflict_count": 0,
+      "useful": true,
+      "useful_frozen_only": true,
+      "unjudged": 0,
+      "post_hoc": 1,
+      "relevant_returned": 1,
+      "relevant_returned_frozen_only": 1,
+      "first_actionable_rank_frozen_only": 1,
+      "grade_sources": {
+        "frozen": 1,
+        "post_hoc": 1
+      },
+      "abstention": null
+    },
+    {
+      "id": "SYN-08",
+      "origin": "synthetic",
+      "split": "development",
+      "role": "primary",
+      "tool": "recommend",
+      "argv": [
+        "python3",
+        "scripts/recommend_design.py",
+        "Audit a modal-heavy admin panel for focus trapping, escape to close, visible focus indicators, and disabled and loading button states.",
+        "--mode",
+        "audit",
+        "--platform",
+        "web"
+      ],
+      "exit_code": 0,
+      "stderr_bytes": 0,
+      "status": "ok",
+      "problems": [],
+      "result_count": 3,
+      "results": [
+        {
+          "rank": 1,
+          "catalog_id": "uupm:ux-guidelines:31",
+          "original_name": "Disabled States",
+          "entry_type": "guideline",
+          "role": "check_reference",
+          "relevance_score": 13.822037,
+          "grade": 3,
+          "grade_source": "frozen",
+          "conflicts": [],
+          "in_catalog": true,
+          "evidence_status": "source_inspected",
+          "redistribution_status": "metadata_only",
+          "asset_license_status": "not_applicable"
+        },
+        {
+          "rank": 2,
+          "catalog_id": "uupm:ux-guidelines:28",
+          "original_name": "Focus States",
+          "entry_type": "guideline",
+          "role": "check_reference",
+          "relevance_score": 13.513754,
+          "grade": 3,
+          "grade_source": "frozen",
+          "conflicts": [],
+          "in_catalog": true,
+          "evidence_status": "source_inspected",
+          "redistribution_status": "metadata_only",
+          "asset_license_status": "not_applicable"
+        },
+        {
+          "rank": 3,
+          "catalog_id": "uupm:ux-guidelines:78",
+          "original_name": "Loading Indicators",
+          "entry_type": "guideline",
+          "role": "check_reference",
+          "relevance_score": 11.530373,
+          "grade": 2,
+          "grade_source": "post_hoc_uiux02",
+          "conflicts": [],
+          "in_catalog": true,
+          "evidence_status": "source_inspected",
+          "redistribution_status": "metadata_only",
+          "asset_license_status": "not_applicable"
+        }
+      ],
+      "relevant_in_top3": 3,
+      "first_actionable_rank": 1,
+      "conflict_count": 0,
+      "useful": true,
+      "useful_frozen_only": true,
+      "unjudged": 0,
+      "post_hoc": 0,
+      "relevant_returned": 3,
+      "relevant_returned_frozen_only": 2,
+      "first_actionable_rank_frozen_only": 1,
+      "grade_sources": {
+        "frozen": 2,
+        "post_hoc_uiux02": 1
+      },
+      "abstention": null
+    },
+    {
+      "id": "SYN-09",
+      "origin": "synthetic",
+      "split": "development",
+      "role": "primary",
+      "tool": "recommend",
+      "argv": [
+        "python3",
+        "scripts/recommend_design.py",
+        "Rename the CSV export column header from 'Checked' to 'Checked at' in the backend serializer.",
+        "--mode",
+        "build",
+        "--platform",
+        "web"
+      ],
+      "exit_code": 0,
+      "stderr_bytes": 0,
+      "status": "empty",
+      "problems": [],
+      "result_count": 0,
+      "results": [],
+      "relevant_in_top3": 0,
+      "first_actionable_rank": null,
+      "conflict_count": 0,
+      "useful": false,
+      "useful_frozen_only": false,
+      "unjudged": 0,
+      "post_hoc": 0,
+      "relevant_returned": 0,
+      "relevant_returned_frozen_only": 0,
+      "first_actionable_rank_frozen_only": null,
+      "grade_sources": {},
+      "abstention": "correct"
+    },
+    {
+      "id": "SYN-10",
+      "origin": "synthetic",
+      "split": "development",
+      "role": "primary",
+      "tool": "recommend",
+      "argv": [
+        "python3",
+        "scripts/recommend_design.py",
+        "Redesign the donation landing page for a children's hospital charity. Do not use dark mode, glassmorphism or decorative animation; prioritise legibility for older donors.",
+        "--mode",
+        "build",
+        "--platform",
+        "web"
+      ],
+      "exit_code": 0,
+      "stderr_bytes": 0,
+      "status": "ok",
+      "problems": [],
+      "result_count": 2,
+      "results": [
+        {
+          "rank": 1,
+          "catalog_id": "uupm:colors:44",
+          "original_name": "Non-profit/Charity",
+          "entry_type": "palette",
+          "role": "palette",
+          "relevance_score": 8.840564,
+          "grade": 3,
+          "grade_source": "frozen",
+          "conflicts": [],
+          "in_catalog": true,
+          "evidence_status": "source_inspected",
+          "redistribution_status": "metadata_only",
+          "asset_license_status": "not_applicable"
+        },
+        {
+          "rank": 2,
+          "catalog_id": "uupm:typography:45",
+          "original_name": "Kids/Education",
+          "entry_type": "font_pairing",
+          "role": "typography",
+          "relevance_score": 3.747086,
+          "grade": 1,
+          "grade_source": "post_hoc_uiux02",
+          "conflicts": [],
+          "in_catalog": true,
+          "evidence_status": "source_inspected",
+          "redistribution_status": "metadata_only",
+          "asset_license_status": "mixed"
+        }
+      ],
+      "relevant_in_top3": 1,
+      "first_actionable_rank": 1,
+      "conflict_count": 0,
+      "useful": true,
+      "useful_frozen_only": true,
+      "unjudged": 0,
+      "post_hoc": 0,
+      "relevant_returned": 1,
+      "relevant_returned_frozen_only": 1,
+      "first_actionable_rank_frozen_only": 1,
+      "grade_sources": {
+        "frozen": 1,
+        "post_hoc_uiux02": 1
+      },
+      "abstention": null
+    },
+    {
+      "id": "SYN-11",
+      "origin": "synthetic",
+      "split": "held_out",
+      "role": "primary",
+      "tool": "recommend",
+      "argv": [
+        "python3",
+        "scripts/recommend_design.py",
+        "Review the desktop trading blotter's order table for scan speed, numeric alignment and whether status colours can be told apart without relying on colour alone.",
+        "--mode",
+        "critique",
+        "--platform",
+        "web"
+      ],
+      "exit_code": 0,
+      "stderr_bytes": 0,
+      "status": "ok",
+      "problems": [],
+      "result_count": 3,
+      "results": [
+        {
+          "rank": 1,
+          "catalog_id": "uupm:ux-guidelines:37",
+          "original_name": "Color Only",
+          "entry_type": "guideline",
+          "role": "usability_reference",
+          "relevance_score": 11.754181,
+          "grade": 3,
+          "grade_source": "frozen",
+          "conflicts": [],
+          "in_catalog": true,
+          "evidence_status": "source_inspected",
+          "redistribution_status": "metadata_only",
+          "asset_license_status": "not_applicable"
+        },
+        {
+          "rank": 2,
+          "catalog_id": "uupm:ux-guidelines:71",
+          "original_name": "Table Handling",
+          "entry_type": "guideline",
+          "role": "usability_reference",
+          "relevance_score": 8.344267,
+          "grade": 2,
+          "grade_source": "frozen",
+          "conflicts": [],
+          "in_catalog": true,
+          "evidence_status": "source_inspected",
+          "redistribution_status": "metadata_only",
+          "asset_license_status": "not_applicable"
+        },
+        {
+          "rank": 3,
+          "catalog_id": "uupm:ux-guidelines:36",
+          "original_name": "Color Contrast",
+          "entry_type": "guideline",
+          "role": "usability_reference",
+          "relevance_score": 7.298659,
+          "grade": 2,
+          "grade_source": "frozen",
+          "conflicts": [],
+          "in_catalog": true,
+          "evidence_status": "source_inspected",
+          "redistribution_status": "metadata_only",
+          "asset_license_status": "not_applicable"
+        }
+      ],
+      "relevant_in_top3": 3,
+      "first_actionable_rank": 1,
+      "conflict_count": 0,
+      "useful": true,
+      "useful_frozen_only": true,
+      "unjudged": 0,
+      "post_hoc": 0,
+      "relevant_returned": 3,
+      "relevant_returned_frozen_only": 3,
+      "first_actionable_rank_frozen_only": 1,
+      "grade_sources": {
+        "frozen": 3
+      },
+      "abstention": null
+    },
+    {
+      "id": "SYN-12",
+      "origin": "synthetic",
+      "split": "development",
+      "role": "follow_up",
+      "tool": "search",
+      "argv": [
+        "python3",
+        "scripts/search_catalog.py",
+        "keyboard row selection table",
+        "--specialist-use",
+        "audit",
+        "--limit",
+        "5"
+      ],
+      "exit_code": 0,
+      "stderr_bytes": 0,
+      "status": "ok",
+      "problems": [],
+      "result_count": 5,
+      "results": [
+        {
+          "rank": 1,
+          "catalog_id": "uupm:ux-guidelines:71",
+          "original_name": "Table Handling",
+          "entry_type": "guideline",
+          "role": null,
+          "relevance_score": 9.613222,
+          "grade": 2,
+          "grade_source": "frozen",
+          "conflicts": [],
+          "in_catalog": true,
+          "evidence_status": "source_inspected",
+          "redistribution_status": "metadata_only",
+          "asset_license_status": "not_applicable"
+        },
+        {
+          "rank": 2,
+          "catalog_id": "uupm:ux-guidelines:41",
+          "original_name": "Keyboard Navigation",
+          "entry_type": "guideline",
+          "role": null,
+          "relevance_score": 5.811853,
+          "grade": 3,
+          "grade_source": "frozen",
+          "conflicts": [],
+          "in_catalog": true,
+          "evidence_status": "source_inspected",
+          "redistribution_status": "metadata_only",
+          "asset_license_status": "not_applicable"
+        },
+        {
+          "rank": 3,
+          "catalog_id": "uupm:app-interface:17",
+          "original_name": "Keyboard Type",
+          "entry_type": "guideline",
+          "role": null,
+          "relevance_score": 5.783203,
+          "grade": 0,
+          "grade_source": "post_hoc",
+          "conflicts": [],
+          "in_catalog": true,
+          "evidence_status": "source_inspected",
+          "redistribution_status": "metadata_only",
+          "asset_license_status": "not_applicable"
+        },
+        {
+          "rank": 4,
+          "catalog_id": "uupm:ux-guidelines:91",
+          "original_name": "Bulk Actions",
+          "entry_type": "guideline",
+          "role": null,
+          "relevance_score": 4.816013,
+          "grade": 2,
+          "grade_source": "frozen",
+          "conflicts": [],
+          "in_catalog": true,
+          "evidence_status": "source_inspected",
+          "redistribution_status": "metadata_only",
+          "asset_license_status": "not_applicable"
+        },
+        {
+          "rank": 5,
+          "catalog_id": "uupm:ux-guidelines:63",
+          "original_name": "Mobile Keyboards",
+          "entry_type": "guideline",
+          "role": null,
+          "relevance_score": 4.351451,
+          "grade": 0,
+          "grade_source": "post_hoc",
+          "conflicts": [],
+          "in_catalog": true,
+          "evidence_status": "source_inspected",
+          "redistribution_status": "metadata_only",
+          "asset_license_status": "not_applicable"
+        }
+      ],
+      "relevant_in_top3": 2,
+      "first_actionable_rank": 2,
+      "conflict_count": 0,
+      "useful": true,
+      "useful_frozen_only": true,
+      "unjudged": 0,
+      "post_hoc": 2,
+      "relevant_returned": 3,
+      "relevant_returned_frozen_only": 3,
+      "first_actionable_rank_frozen_only": 2,
+      "grade_sources": {
+        "frozen": 3,
+        "post_hoc": 2
+      },
+      "abstention": null
+    }
+  ],
+  "additional_judgments": [
+    {
+      "label": "post_hoc_uiux02",
+      "path": "research/evaluations/retrieval-benchmark/experiments/specialist-uiux-02/judgments.json",
+      "sha256": "20588e0269eeb9a93a3abd1116b675f5a2c6450a5046ace15199f7970fad8755"
+    },
+    {
+      "label": "post_hoc_uiux03",
+      "path": "research/evaluations/retrieval-benchmark/experiments/specialist-uiux-03/judgments.json",
+      "sha256": "427cd924bdad26451e835283f92f568a264dd40bd82259ff1bb397d92d8ac7d0"
+    }
+  ],
+  "raw_stdout": {
+    "HIST-01": "{\n  \"task\": \"Critique the existing URL Activity Scanner results interface for batch readability, information hierarchy, accessibility and responsive usability while preserving its technical dark design identity\",\n  \"mode\": \"critique\",\n  \"platform\": \"web\",\n  \"catalog_records_searched\": 5500,\n  \"selection_scope\": \"preserve_identity\",\n  \"task_signals\": {\n    \"interface_priority\": null,\n    \"prohibited\": [],\n    \"preserved_identity\": [\n      \"direction\",\n      \"palette\",\n      \"typography\"\n    ],\n    \"requested_identity\": [],\n    \"not_sole_reliance\": []\n  },\n  \"references\": [\n    {\n      \"role\": \"usability_reference\",\n      \"catalog_id\": \"uupm:ux-guidelines:90\",\n      \"entry_type\": \"guideline\",\n      \"original_name\": \"No Results\",\n      \"description\": \"Dead ends frustrate users\",\n      \"source_repo\": \"nextlevelbuilder/ui-ux-pro-max-skill\",\n      \"source_ref\": \"f2cc36555984fbfb08f1dca037da2467578f33d2\",\n      \"source_url\": \"https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/f2cc36555984fbfb08f1dca037da2467578f33d2/.claude/skills/ui-ux-pro-max/data/ux-guidelines.csv\",\n      \"source_path_or_key\": \".claude/skills/ui-ux-pro-max/data/ux-guidelines.csv#row=91\",\n      \"evidence_status\": \"source_inspected\",\n      \"redistribution_status\": \"metadata_only\",\n      \"asset_license_status\": \"not_applicable\",\n      \"platforms\": [\n        \"Web\"\n      ],\n      \"compatibility_restrictions\": [\n        \"Platform: Web\",\n        \"Avoid: Blank screen or '0 results'\"\n      ],\n      \"relevance_score\": 7.368548\n    },\n    {\n      \"role\": \"usability_reference\",\n      \"catalog_id\": \"uupm:ux-guidelines:39\",\n      \"entry_type\": \"guideline\",\n      \"original_name\": \"Heading Hierarchy\",\n      \"description\": \"Screen readers use headings for navigation\",\n      \"source_repo\": \"nextlevelbuilder/ui-ux-pro-max-skill\",\n      \"source_ref\": \"f2cc36555984fbfb08f1dca037da2467578f33d2\",\n      \"source_url\": \"https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/f2cc36555984fbfb08f1dca037da2467578f33d2/.claude/skills/ui-ux-pro-max/data/ux-guidelines.csv\",\n      \"source_path_or_key\": \".claude/skills/ui-ux-pro-max/data/ux-guidelines.csv#row=40\",\n      \"evidence_status\": \"source_inspected\",\n      \"redistribution_status\": \"metadata_only\",\n      \"asset_license_status\": \"not_applicable\",\n      \"platforms\": [\n        \"Web\"\n      ],\n      \"compatibility_restrictions\": [\n        \"Platform: Web\",\n        \"Avoid: Skip heading levels or misuse for styling\"\n      ],\n      \"relevance_score\": 6.714935\n    },\n    {\n      \"role\": \"usability_reference\",\n      \"catalog_id\": \"uupm:ux-guidelines:76\",\n      \"entry_type\": \"guideline\",\n      \"original_name\": \"Contrast Readability\",\n      \"description\": \"Body text needs good contrast\",\n      \"source_repo\": \"nextlevelbuilder/ui-ux-pro-max-skill\",\n      \"source_ref\": \"f2cc36555984fbfb08f1dca037da2467578f33d2\",\n      \"source_url\": \"https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/f2cc36555984fbfb08f1dca037da2467578f33d2/.claude/skills/ui-ux-pro-max/data/ux-guidelines.csv\",\n      \"source_path_or_key\": \".claude/skills/ui-ux-pro-max/data/ux-guidelines.csv#row=77\",\n      \"evidence_status\": \"source_inspected\",\n      \"redistribution_status\": \"metadata_only\",\n      \"asset_license_status\": \"not_applicable\",\n      \"platforms\": [\n        \"All\"\n      ],\n      \"compatibility_restrictions\": [\n        \"Platform: All\",\n        \"Avoid: Gray text on gray background\"\n      ],\n      \"relevance_score\": 6.690525\n    }\n  ],\n  \"selection_method\": \"heuristic text matching; not design or legal approval\",\n  \"use_boundary\": \"Suggestions are optional and unapproved. Existing project identity, design system, behavior, and applicable AIPF authorization take priority. Do not copy third-party fonts, photos, icons, branded assets or code based on metadata. Confirm source rights and actual access. Inspect the rendered UI before claiming visual acceptance. This command does not build, modify, install, deploy, or verify an interface.\"\n}\n",
+    "HIST-02": "{\n  \"task\": \"Improve the existing desktop-first URL Activity Scanner results experience for technical users reviewing batches of up to 100 URLs. Prioritize information hierarchy, dense readable results, status summaries, keyboard accessibility, contrast, export accessibility and responsive usability while preserving the existing dark technical identity.\",\n  \"mode\": \"build\",\n  \"platform\": \"web\",\n  \"catalog_records_searched\": 5500,\n  \"selection_scope\": \"focused_accessibility_correction\",\n  \"task_signals\": {\n    \"interface_priority\": \"desktop\",\n    \"prohibited\": [],\n    \"preserved_identity\": [\n      \"direction\",\n      \"palette\",\n      \"typography\"\n    ],\n    \"requested_identity\": [],\n    \"not_sole_reliance\": []\n  },\n  \"references\": [\n    {\n      \"role\": \"usability_reference\",\n      \"catalog_id\": \"uupm:ux-guidelines:36\",\n      \"entry_type\": \"guideline\",\n      \"original_name\": \"Color Contrast\",\n      \"description\": \"Text must be readable against background\",\n      \"source_repo\": \"nextlevelbuilder/ui-ux-pro-max-skill\",\n      \"source_ref\": \"f2cc36555984fbfb08f1dca037da2467578f33d2\",\n      \"source_url\": \"https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/f2cc36555984fbfb08f1dca037da2467578f33d2/.claude/skills/ui-ux-pro-max/data/ux-guidelines.csv\",\n      \"source_path_or_key\": \".claude/skills/ui-ux-pro-max/data/ux-guidelines.csv#row=37\",\n      \"evidence_status\": \"source_inspected\",\n      \"redistribution_status\": \"metadata_only\",\n      \"asset_license_status\": \"not_applicable\",\n      \"platforms\": [\n        \"All\"\n      ],\n      \"compatibility_restrictions\": [\n        \"Platform: All\",\n        \"Avoid: Low contrast text\"\n      ],\n      \"relevance_score\": 10.567074\n    }\n  ],\n  \"selection_method\": \"heuristic text matching; not design or legal approval\",\n  \"use_boundary\": \"Suggestions are optional and unapproved. Existing project identity, design system, behavior, and applicable AIPF authorization take priority. Do not copy third-party fonts, photos, icons, branded assets or code based on metadata. Confirm source rights and actual access. Inspect the rendered UI before claiming visual acceptance. This command does not build, modify, install, deploy, or verify an interface.\"\n}\n",
+    "HIST-03": "{\n  \"task\": \"Audit the improved URL Activity Scanner results interface for keyboard accessibility, focus recovery, contrast, readable technical data, batch summary accuracy, desktop and mobile usability, result-key navigation and CSV export accessibility.\",\n  \"mode\": \"audit\",\n  \"platform\": \"web\",\n  \"catalog_records_searched\": 5500,\n  \"selection_scope\": \"normal\",\n  \"task_signals\": {\n    \"interface_priority\": null,\n    \"prohibited\": [],\n    \"preserved_identity\": [],\n    \"requested_identity\": [],\n    \"not_sole_reliance\": []\n  },\n  \"references\": [\n    {\n      \"role\": \"check_reference\",\n      \"catalog_id\": \"uupm:ux-guidelines:41\",\n      \"entry_type\": \"guideline\",\n      \"original_name\": \"Keyboard Navigation\",\n      \"description\": \"Web users need complete keyboard navigation with visible focus on every operable control\",\n      \"source_repo\": \"nextlevelbuilder/ui-ux-pro-max-skill\",\n      \"source_ref\": \"f2cc36555984fbfb08f1dca037da2467578f33d2\",\n      \"source_url\": \"https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/f2cc36555984fbfb08f1dca037da2467578f33d2/.claude/skills/ui-ux-pro-max/data/ux-guidelines.csv\",\n      \"source_path_or_key\": \".claude/skills/ui-ux-pro-max/data/ux-guidelines.csv#row=42\",\n      \"evidence_status\": \"source_inspected\",\n      \"redistribution_status\": \"metadata_only\",\n      \"asset_license_status\": \"not_applicable\",\n      \"platforms\": [\n        \"Web\"\n      ],\n      \"compatibility_restrictions\": [\n        \"Platform: Web\",\n        \"Avoid: Keyboard traps or illogical tab order\"\n      ],\n      \"relevance_score\": 13.937958\n    },\n    {\n      \"role\": \"check_reference\",\n      \"catalog_id\": \"uupm:ux-guidelines:36\",\n      \"entry_type\": \"guideline\",\n      \"original_name\": \"Color Contrast\",\n      \"description\": \"Text must be readable against background\",\n      \"source_repo\": \"nextlevelbuilder/ui-ux-pro-max-skill\",\n      \"source_ref\": \"f2cc36555984fbfb08f1dca037da2467578f33d2\",\n      \"source_url\": \"https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/f2cc36555984fbfb08f1dca037da2467578f33d2/.claude/skills/ui-ux-pro-max/data/ux-guidelines.csv\",\n      \"source_path_or_key\": \".claude/skills/ui-ux-pro-max/data/ux-guidelines.csv#row=37\",\n      \"evidence_status\": \"source_inspected\",\n      \"redistribution_status\": \"metadata_only\",\n      \"asset_license_status\": \"not_applicable\",\n      \"platforms\": [\n        \"All\"\n      ],\n      \"compatibility_restrictions\": [\n        \"Platform: All\",\n        \"Avoid: Low contrast text\"\n      ],\n      \"relevance_score\": 10.590868\n    },\n    {\n      \"role\": \"check_reference\",\n      \"catalog_id\": \"uupm:ux-guidelines:109\",\n      \"entry_type\": \"guideline\",\n      \"original_name\": \"Focusable Error Summary\",\n      \"description\": \"An error summary for failed validation complements inline field errors and must be easy to find by keyboard and screen reader users\",\n      \"source_repo\": \"nextlevelbuilder/ui-ux-pro-max-skill\",\n      \"source_ref\": \"f2cc36555984fbfb08f1dca037da2467578f33d2\",\n      \"source_url\": \"https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/f2cc36555984fbfb08f1dca037da2467578f33d2/.claude/skills/ui-ux-pro-max/data/ux-guidelines.csv\",\n      \"source_path_or_key\": \".claude/skills/ui-ux-pro-max/data/ux-guidelines.csv#row=110\",\n      \"evidence_status\": \"source_inspected\",\n      \"redistribution_status\": \"metadata_only\",\n      \"asset_license_status\": \"not_applicable\",\n      \"platforms\": [\n        \"Web\"\n      ],\n      \"compatibility_restrictions\": [\n        \"Platform: Web\",\n        \"Avoid: Replace inline errors with a visual-only summary or move focus on every blur\"\n      ],\n      \"relevance_score\": 10.076466\n    }\n  ],\n  \"selection_method\": \"heuristic text matching; not design or legal approval\",\n  \"use_boundary\": \"Suggestions are optional and unapproved. Existing project identity, design system, behavior, and applicable AIPF authorization take priority. Do not copy third-party fonts, photos, icons, branded assets or code based on metadata. Confirm source rights and actual access. Inspect the rendered UI before claiming visual acceptance. This command does not build, modify, install, deploy, or verify an interface.\"\n}\n",
+    "HIST-04": "{\n  \"query\": \"dense data table status results readability scanning batch\",\n  \"results\": [\n    {\n      \"catalog_id\": \"uupm:ux-guidelines:71\",\n      \"entry_type\": \"guideline\",\n      \"original_name\": \"Table Handling\",\n      \"description\": \"Tables can overflow on mobile\",\n      \"source_repo\": \"nextlevelbuilder/ui-ux-pro-max-skill\",\n      \"source_url\": \"https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/f2cc36555984fbfb08f1dca037da2467578f33d2/.claude/skills/ui-ux-pro-max/data/ux-guidelines.csv\",\n      \"source_ref\": \"f2cc36555984fbfb08f1dca037da2467578f33d2\",\n      \"source_path_or_key\": \".claude/skills/ui-ux-pro-max/data/ux-guidelines.csv#row=72\",\n      \"evidence_status\": \"source_inspected\",\n      \"source_license\": \"MIT repository; bundled font/icon/third-party assets separate\",\n      \"asset_license_status\": \"not_applicable\",\n      \"redistribution_status\": \"metadata_only\",\n      \"preview_reference\": null,\n      \"compatibility_restrictions\": [\n        \"Platform: Web\",\n        \"Avoid: Wide tables breaking layout\"\n      ],\n      \"platforms\": [\n        \"Web\"\n      ],\n      \"specialist_use\": \"audit\",\n      \"relevance_score\": 9.632336\n    },\n    {\n      \"catalog_id\": \"uupm:react-performance:31\",\n      \"entry_type\": \"guideline\",\n      \"original_name\": \"Batch DOM CSS\",\n      \"description\": \"Group CSS changes via classes or cssText to minimize reflows\",\n      \"source_repo\": \"nextlevelbuilder/ui-ux-pro-max-skill\",\n      \"source_url\": \"https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/f2cc36555984fbfb08f1dca037da2467578f33d2/.claude/skills/ui-ux-pro-max/data/react-performance.csv\",\n      \"source_ref\": \"f2cc36555984fbfb08f1dca037da2467578f33d2\",\n      \"source_path_or_key\": \".claude/skills/ui-ux-pro-max/data/react-performance.csv#row=32\",\n      \"evidence_status\": \"source_inspected\",\n      \"source_license\": \"MIT repository; bundled font/icon/third-party assets separate\",\n      \"asset_license_status\": \"not_applicable\",\n      \"redistribution_status\": \"metadata_only\",\n      \"preview_reference\": null,\n      \"compatibility_restrictions\": [\n        \"Platform: React/Next.js\",\n        \"Avoid: Change styles one property at a time\"\n      ],\n      \"platforms\": [\n        \"React/Next.js\"\n      ],\n      \"specialist_use\": \"audit\",\n      \"relevance_score\": 9.373668\n    },\n    {\n      \"catalog_id\": \"uupm:ux-guidelines:90\",\n      \"entry_type\": \"guideline\",\n      \"original_name\": \"No Results\",\n      \"description\": \"Dead ends frustrate users\",\n      \"source_repo\": \"nextlevelbuilder/ui-ux-pro-max-skill\",\n      \"source_url\": \"https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/f2cc36555984fbfb08f1dca037da2467578f33d2/.claude/skills/ui-ux-pro-max/data/ux-guidelines.csv\",\n      \"source_ref\": \"f2cc36555984fbfb08f1dca037da2467578f33d2\",\n      \"source_path_or_key\": \".claude/skills/ui-ux-pro-max/data/ux-guidelines.csv#row=91\",\n      \"evidence_status\": \"source_inspected\",\n      \"source_license\": \"MIT repository; bundled font/icon/third-party assets separate\",\n      \"asset_license_status\": \"not_applicable\",\n      \"redistribution_status\": \"metadata_only\",\n      \"preview_reference\": null,\n      \"compatibility_restrictions\": [\n        \"Platform: Web\",\n        \"Avoid: Blank screen or '0 results'\"\n      ],\n      \"platforms\": [\n        \"Web\"\n      ],\n      \"specialist_use\": \"audit\",\n      \"relevance_score\": 8.045798\n    },\n    {\n      \"catalog_id\": \"uupm:ux-guidelines:76\",\n      \"entry_type\": \"guideline\",\n      \"original_name\": \"Contrast Readability\",\n      \"description\": \"Body text needs good contrast\",\n      \"source_repo\": \"nextlevelbuilder/ui-ux-pro-max-skill\",\n      \"source_url\": \"https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/f2cc36555984fbfb08f1dca037da2467578f33d2/.claude/skills/ui-ux-pro-max/data/ux-guidelines.csv\",\n      \"source_ref\": \"f2cc36555984fbfb08f1dca037da2467578f33d2\",\n      \"source_path_or_key\": \".claude/skills/ui-ux-pro-max/data/ux-guidelines.csv#row=77\",\n      \"evidence_status\": \"source_inspected\",\n      \"source_license\": \"MIT repository; bundled font/icon/third-party assets separate\",\n      \"asset_license_status\": \"not_applicable\",\n      \"redistribution_status\": \"metadata_only\",\n      \"preview_reference\": null,\n      \"compatibility_restrictions\": [\n        \"Platform: All\",\n        \"Avoid: Gray text on gray background\"\n      ],\n      \"platforms\": [\n        \"All\"\n      ],\n      \"specialist_use\": \"audit\",\n      \"relevance_score\": 7.948215\n    },\n    {\n      \"catalog_id\": \"uupm:react-performance:34\",\n      \"entry_type\": \"guideline\",\n      \"original_name\": \"Cache Function Results\",\n      \"description\": \"Use module-level Map to cache repeated function results\",\n      \"source_repo\": \"nextlevelbuilder/ui-ux-pro-max-skill\",\n      \"source_url\": \"https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/f2cc36555984fbfb08f1dca037da2467578f33d2/.claude/skills/ui-ux-pro-max/data/react-performance.csv\",\n      \"source_ref\": \"f2cc36555984fbfb08f1dca037da2467578f33d2\",\n      \"source_path_or_key\": \".claude/skills/ui-ux-pro-max/data/react-performance.csv#row=35\",\n      \"evidence_status\": \"source_inspected\",\n      \"source_license\": \"MIT repository; bundled font/icon/third-party assets separate\",\n      \"asset_license_status\": \"not_applicable\",\n      \"redistribution_status\": \"metadata_only\",\n      \"preview_reference\": null,\n      \"compatibility_restrictions\": [\n        \"Platform: React/Next.js\",\n        \"Avoid: Recompute same values repeatedly\"\n      ],\n      \"platforms\": [\n        \"React/Next.js\"\n      ],\n      \"specialist_use\": \"audit\",\n      \"relevance_score\": 7.739499\n    }\n  ],\n  \"scope_note\": \"Catalog results are non-authoritative references. Prompt Agent must verify approved requirements, source provenance, Builder accessibility, license boundaries and the relevant AIPF authorization unit. This search performs no build, deployment, asset bundling or visual validation.\"\n}\n",
+    "HIST-05": "{\n  \"query\": \"data table\",\n  \"results\": [\n    {\n      \"catalog_id\": \"uupm:landing:comparison-table-cta\",\n      \"entry_type\": \"template\",\n      \"original_name\": \"Comparison Table + CTA\",\n      \"description\": \"Hero > Problem intro > Comparison table (product vs competitors) > Pricing (optional) > CTA\",\n      \"source_repo\": \"nextlevelbuilder/ui-ux-pro-max-skill\",\n      \"source_url\": \"https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/f2cc36555984fbfb08f1dca037da2467578f33d2/.claude/skills/ui-ux-pro-max/data/landing.csv\",\n      \"source_ref\": \"f2cc36555984fbfb08f1dca037da2467578f33d2\",\n      \"source_path_or_key\": \".claude/skills/ui-ux-pro-max/data/landing.csv#row=7\",\n      \"evidence_status\": \"source_inspected\",\n      \"source_license\": \"MIT repository; bundled font/icon/third-party assets separate\",\n      \"asset_license_status\": \"not_applicable\",\n      \"redistribution_status\": \"metadata_only\",\n      \"preview_reference\": null,\n      \"compatibility_restrictions\": [],\n      \"platforms\": [],\n      \"specialist_use\": \"build\",\n      \"relevance_score\": 10.25295\n    },\n    {\n      \"catalog_id\": \"uupm:landing:comparison-table-focus\",\n      \"entry_type\": \"template\",\n      \"original_name\": \"Comparison Table Focus\",\n      \"description\": \"Hero (problem statement) > Comparison matrix (you vs competitors) > Feature deep-dive > Winner CTA\",\n      \"source_repo\": \"nextlevelbuilder/ui-ux-pro-max-skill\",\n      \"source_url\": \"https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/f2cc36555984fbfb08f1dca037da2467578f33d2/.claude/skills/ui-ux-pro-max/data/landing.csv\",\n      \"source_ref\": \"f2cc36555984fbfb08f1dca037da2467578f33d2\",\n      \"source_path_or_key\": \".claude/skills/ui-ux-pro-max/data/landing.csv#row=14\",\n      \"evidence_status\": \"source_inspected\",\n      \"source_license\": \"MIT repository; bundled font/icon/third-party assets separate\",\n      \"asset_license_status\": \"not_applicable\",\n      \"redistribution_status\": \"metadata_only\",\n      \"preview_reference\": null,\n      \"compatibility_restrictions\": [],\n      \"platforms\": [],\n      \"specialist_use\": \"build\",\n      \"relevance_score\": 10.12396\n    },\n    {\n      \"catalog_id\": \"open-design:skills:app-table\",\n      \"entry_type\": \"design_knowledge\",\n      \"original_name\": \"app-table\",\n      \"description\": \"A list or table of records with search, filters, sort, selection, bulk actions and pagination, plus its empty, loading and no-results states, inside the app shell.\",\n      \"source_repo\": \"feimacode/open-design-agent-kit\",\n      \"source_url\": \"https://github.com/feimacode/open-design-agent-kit/blob/1b3832c3452720f028a96b1bdab805ecc1aa3213/packages/content/assets/open-design/skills/app-table/SKILL.md\",\n      \"source_ref\": \"1b3832c3452720f028a96b1bdab805ecc1aa3213\",\n      \"source_path_or_key\": \"packages/content/assets/open-design/skills/app-table/SKILL.md\",\n      \"evidence_status\": \"source_inspected\",\n      \"source_license\": \"MIT wrapper; vendored open-design content Apache-2.0; verify per entry\",\n      \"asset_license_status\": \"unresolved\",\n      \"redistribution_status\": \"reference_only\",\n      \"preview_reference\": null,\n      \"compatibility_restrictions\": [\n        \"Brand and example fidelity rights not established\"\n      ],\n      \"platforms\": [],\n      \"specialist_use\": \"build\",\n      \"relevance_score\": 10.040705\n    },\n    {\n      \"catalog_id\": \"uupm:phosphor-icon:table\",\n      \"entry_type\": \"design_knowledge\",\n      \"original_name\": \"table\",\n      \"description\": \"Phosphor icon Table; categories editor, finances, office.\",\n      \"source_repo\": \"nextlevelbuilder/ui-ux-pro-max-skill\",\n      \"source_url\": \"https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/f2cc36555984fbfb08f1dca037da2467578f33d2/.claude/skills/ui-ux-pro-max/data/phosphor-icons-upstream.json\",\n      \"source_ref\": \"f2cc36555984fbfb08f1dca037da2467578f33d2\",\n      \"source_path_or_key\": \".claude/skills/ui-ux-pro-max/data/phosphor-icons-upstream.json#icons[name=table]\",\n      \"evidence_status\": \"reported_by_upstream\",\n      \"source_license\": \"MIT upstream Phosphor Icons package (specific package revision check pending)\",\n      \"asset_license_status\": \"mixed\",\n      \"redistribution_status\": \"metadata_only\",\n      \"preview_reference\": null,\n      \"compatibility_restrictions\": [\n        \"React import availability depends on installed package version\",\n        \"Icon name and weights are guidance; no asset file included\"\n      ],\n      \"platforms\": [\n        \"web\",\n        \"react\"\n      ],\n      \"specialist_use\": \"build\",\n      \"relevance_score\": 9.970647\n    },\n    {\n      \"catalog_id\": \"open-design:templates:html-ppt-zhangzara-long-table\",\n      \"entry_type\": \"template\",\n      \"original_name\": \"html-ppt-zhangzara-long-table\",\n      \"description\": \"|\",\n      \"source_repo\": \"feimacode/open-design-agent-kit\",\n      \"source_url\": \"https://github.com/feimacode/open-design-agent-kit/blob/1b3832c3452720f028a96b1bdab805ecc1aa3213/packages/content/assets/open-design/design-templates/html-ppt-zhangzara-long-table/SKILL.md\",\n      \"source_ref\": \"1b3832c3452720f028a96b1bdab805ecc1aa3213\",\n      \"source_path_or_key\": \"packages/content/assets/open-design/design-templates/html-ppt-zhangzara-long-table/SKILL.md\",\n      \"evidence_status\": \"source_inspected\",\n      \"source_license\": \"MIT wrapper; vendored open-design content Apache-2.0; verify per entry\",\n      \"asset_license_status\": \"unresolved\",\n      \"redistribution_status\": \"reference_only\",\n      \"preview_reference\": null,\n      \"compatibility_restrictions\": [\n        \"Brand and example fidelity rights not established\"\n      ],\n      \"platforms\": [],\n      \"specialist_use\": \"build\",\n      \"relevance_score\": 9.84228\n    }\n  ],\n  \"scope_note\": \"Catalog results are non-authoritative references. Prompt Agent must verify approved requirements, source provenance, Builder accessibility, license boundaries and the relevant AIPF authorization unit. This search performs no build, deployment, asset bundling or visual validation.\"\n}\n",
+    "SYN-01": "{\n  \"task\": \"Refine the existing desktop help-desk console where support agents triage several hundred open tickets per shift: make queue rows quicker to scan, show ticket priority and SLA status clearly, and keep row actions reachable from the keyboard. Keep the current light theme and component library.\",\n  \"mode\": \"build\",\n  \"platform\": \"web\",\n  \"catalog_records_searched\": 5500,\n  \"selection_scope\": \"preserve_identity\",\n  \"task_signals\": {\n    \"interface_priority\": \"desktop\",\n    \"prohibited\": [],\n    \"preserved_identity\": [\n      \"direction\",\n      \"palette\",\n      \"typography\"\n    ],\n    \"requested_identity\": [],\n    \"not_sole_reliance\": []\n  },\n  \"references\": [\n    {\n      \"role\": \"usability_reference\",\n      \"catalog_id\": \"uupm:ux-guidelines:91\",\n      \"entry_type\": \"guideline\",\n      \"original_name\": \"Bulk Actions\",\n      \"description\": \"Editing one by one is tedious\",\n      \"source_repo\": \"nextlevelbuilder/ui-ux-pro-max-skill\",\n      \"source_ref\": \"f2cc36555984fbfb08f1dca037da2467578f33d2\",\n      \"source_url\": \"https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/f2cc36555984fbfb08f1dca037da2467578f33d2/.claude/skills/ui-ux-pro-max/data/ux-guidelines.csv\",\n      \"source_path_or_key\": \".claude/skills/ui-ux-pro-max/data/ux-guidelines.csv#row=92\",\n      \"evidence_status\": \"source_inspected\",\n      \"redistribution_status\": \"metadata_only\",\n      \"asset_license_status\": \"not_applicable\",\n      \"platforms\": [\n        \"Web\"\n      ],\n      \"compatibility_restrictions\": [\n        \"Platform: Web\",\n        \"Avoid: Single row actions only\"\n      ],\n      \"relevance_score\": 5.17784\n    },\n    {\n      \"role\": \"usability_reference\",\n      \"catalog_id\": \"uupm:ux-guidelines:41\",\n      \"entry_type\": \"guideline\",\n      \"original_name\": \"Keyboard Navigation\",\n      \"description\": \"Web users need complete keyboard navigation with visible focus on every operable control\",\n      \"source_repo\": \"nextlevelbuilder/ui-ux-pro-max-skill\",\n      \"source_ref\": \"f2cc36555984fbfb08f1dca037da2467578f33d2\",\n      \"source_url\": \"https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/f2cc36555984fbfb08f1dca037da2467578f33d2/.claude/skills/ui-ux-pro-max/data/ux-guidelines.csv\",\n      \"source_path_or_key\": \".claude/skills/ui-ux-pro-max/data/ux-guidelines.csv#row=42\",\n      \"evidence_status\": \"source_inspected\",\n      \"redistribution_status\": \"metadata_only\",\n      \"asset_license_status\": \"not_applicable\",\n      \"platforms\": [\n        \"Web\"\n      ],\n      \"compatibility_restrictions\": [\n        \"Platform: Web\",\n        \"Avoid: Keyboard traps or illogical tab order\"\n      ],\n      \"relevance_score\": 5.165446\n    },\n    {\n      \"role\": \"usability_reference\",\n      \"catalog_id\": \"uupm:ux-guidelines:61\",\n      \"entry_type\": \"guideline\",\n      \"original_name\": \"Submit Feedback\",\n      \"description\": \"Confirm form submission status\",\n      \"source_repo\": \"nextlevelbuilder/ui-ux-pro-max-skill\",\n      \"source_ref\": \"f2cc36555984fbfb08f1dca037da2467578f33d2\",\n      \"source_url\": \"https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/f2cc36555984fbfb08f1dca037da2467578f33d2/.claude/skills/ui-ux-pro-max/data/ux-guidelines.csv\",\n      \"source_path_or_key\": \".claude/skills/ui-ux-pro-max/data/ux-guidelines.csv#row=62\",\n      \"evidence_status\": \"source_inspected\",\n      \"redistribution_status\": \"metadata_only\",\n      \"asset_license_status\": \"not_applicable\",\n      \"platforms\": [\n        \"All\"\n      ],\n      \"compatibility_restrictions\": [\n        \"Platform: All\",\n        \"Avoid: No feedback after submit\"\n      ],\n      \"relevance_score\": 4.036932\n    }\n  ],\n  \"selection_method\": \"heuristic text matching; not design or legal approval\",\n  \"use_boundary\": \"Suggestions are optional and unapproved. Existing project identity, design system, behavior, and applicable AIPF authorization take priority. Do not copy third-party fonts, photos, icons, branded assets or code based on metadata. Confirm source rights and actual access. Inspect the rendered UI before claiming visual acceptance. This command does not build, modify, install, deploy, or verify an interface.\"\n}\n",
+    "SYN-02": "{\n  \"task\": \"Design a new control-room dashboard for an electricity grid operator showing live load, outage alarms and 24-hour demand forecasts on large desktop monitors. There is no existing brand to follow.\",\n  \"mode\": \"build\",\n  \"platform\": \"web\",\n  \"catalog_records_searched\": 5500,\n  \"selection_scope\": \"normal\",\n  \"task_signals\": {\n    \"interface_priority\": \"desktop\",\n    \"prohibited\": [],\n    \"preserved_identity\": [],\n    \"requested_identity\": [],\n    \"not_sole_reliance\": []\n  },\n  \"references\": [\n    {\n      \"role\": \"direction\",\n      \"catalog_id\": \"uupm:styles:executive-dashboard\",\n      \"entry_type\": \"style\",\n      \"original_name\": \"Executive Dashboard\",\n      \"description\": \"KPI value animations (count-up), trend arrow direction animations, metric card hover lift, alert pulse effect\",\n      \"source_repo\": \"nextlevelbuilder/ui-ux-pro-max-skill\",\n      \"source_ref\": \"f2cc36555984fbfb08f1dca037da2467578f33d2\",\n      \"source_url\": \"https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/f2cc36555984fbfb08f1dca037da2467578f33d2/.claude/skills/ui-ux-pro-max/data/styles.csv\",\n      \"source_path_or_key\": \".claude/skills/ui-ux-pro-max/data/styles.csv#row=31\",\n      \"evidence_status\": \"source_inspected\",\n      \"redistribution_status\": \"metadata_only\",\n      \"asset_license_status\": \"not_applicable\",\n      \"platforms\": [],\n      \"compatibility_restrictions\": [\n        \"Avoid for: Detailed analyst dashboards, technical deep-dives, operational monitoring\",\n        \"Accessibility note: risk:low|requires:contrast-text-4.5,keyboard,visible-focus,reduced-motion\",\n        \"Frameworks: recharts|chartjs|d3\"\n      ],\n      \"relevance_score\": 10.929195\n    },\n    {\n      \"role\": \"palette\",\n      \"catalog_id\": \"uupm:colors:95\",\n      \"entry_type\": \"palette\",\n      \"original_name\": \"Food Delivery / On-Demand\",\n      \"description\": \"Appetizing orange + trust blue\",\n      \"source_repo\": \"nextlevelbuilder/ui-ux-pro-max-skill\",\n      \"source_ref\": \"f2cc36555984fbfb08f1dca037da2467578f33d2\",\n      \"source_url\": \"https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/f2cc36555984fbfb08f1dca037da2467578f33d2/.claude/skills/ui-ux-pro-max/data/colors.csv\",\n      \"source_path_or_key\": \".claude/skills/ui-ux-pro-max/data/colors.csv#row=96\",\n      \"evidence_status\": \"source_inspected\",\n      \"redistribution_status\": \"metadata_only\",\n      \"asset_license_status\": \"not_applicable\",\n      \"platforms\": [],\n      \"compatibility_restrictions\": [],\n      \"relevance_score\": 9.29376,\n      \"source_tokens_excerpt\": {\n        \"Primary\": \"#EA580C\",\n        \"Secondary\": \"#F97316\",\n        \"Accent\": \"#2563EB\",\n        \"Background\": \"#FFF7ED\",\n        \"Foreground\": \"#0F172A\",\n        \"Card\": \"#FFFFFF\",\n        \"Card Foreground\": \"#0F172A\",\n        \"Muted Foreground\": \"#475569\",\n        \"Border\": \"#FCEAE1\",\n        \"Ring\": \"#EA580C\"\n      }\n    },\n    {\n      \"role\": \"typography\",\n      \"catalog_id\": \"uupm:typography:42\",\n      \"entry_type\": \"font_pairing\",\n      \"original_name\": \"Dashboard Data\",\n      \"description\": \"Fira family cohesion. Code for data, Sans for labels.\",\n      \"source_repo\": \"nextlevelbuilder/ui-ux-pro-max-skill\",\n      \"source_ref\": \"f2cc36555984fbfb08f1dca037da2467578f33d2\",\n      \"source_url\": \"https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/f2cc36555984fbfb08f1dca037da2467578f33d2/.claude/skills/ui-ux-pro-max/data/typography.csv\",\n      \"source_path_or_key\": \".claude/skills/ui-ux-pro-max/data/typography.csv#row=43\",\n      \"evidence_status\": \"source_inspected\",\n      \"redistribution_status\": \"metadata_only\",\n      \"asset_license_status\": \"mixed\",\n      \"platforms\": [],\n      \"compatibility_restrictions\": [],\n      \"relevance_score\": 7.50826\n    }\n  ],\n  \"selection_method\": \"heuristic text matching; not design or legal approval\",\n  \"use_boundary\": \"Suggestions are optional and unapproved. Existing project identity, design system, behavior, and applicable AIPF authorization take priority. Do not copy third-party fonts, photos, icons, branded assets or code based on metadata. Confirm source rights and actual access. Inspect the rendered UI before claiming visual acceptance. This command does not build, modify, install, deploy, or verify an interface.\"\n}\n",
+    "SYN-03": "{\n  \"task\": \"Build a mobile-first checkout for a grocery delivery web shop. Most customers order on phones with one hand, so prioritise thumb-reachable actions, large touch targets and quick address entry.\",\n  \"mode\": \"build\",\n  \"platform\": \"web\",\n  \"catalog_records_searched\": 5500,\n  \"selection_scope\": \"normal\",\n  \"task_signals\": {\n    \"interface_priority\": \"mobile\",\n    \"prohibited\": [],\n    \"preserved_identity\": [],\n    \"requested_identity\": [],\n    \"not_sole_reliance\": []\n  },\n  \"references\": [\n    {\n      \"role\": \"direction\",\n      \"catalog_id\": \"uupm:styles:flat-design-mobile-touch-first\",\n      \"entry_type\": \"style\",\n      \"original_name\": \"Flat Design Mobile (Touch-First)\",\n      \"description\": \"Immediate press feedback (scale 0.97, no delay), color section blocking (full-width contrasting View), zero elevation/shadow, solid icon containers (colored squares/circles), geometric low-opacity shape overlays, bottom tabs solid fill (no floating)\",\n      \"source_repo\": \"nextlevelbuilder/ui-ux-pro-max-skill\",\n      \"source_ref\": \"f2cc36555984fbfb08f1dca037da2467578f33d2\",\n      \"source_url\": \"https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/f2cc36555984fbfb08f1dca037da2467578f33d2/.claude/skills/ui-ux-pro-max/data/styles.csv\",\n      \"source_path_or_key\": \".claude/skills/ui-ux-pro-max/data/styles.csv#row=75\",\n      \"evidence_status\": \"source_inspected\",\n      \"redistribution_status\": \"metadata_only\",\n      \"asset_license_status\": \"not_applicable\",\n      \"platforms\": [],\n      \"compatibility_restrictions\": [\n        \"Avoid for: Ultra-premium contexts needing depth/shadow, dark-mode-first products, contexts where flat design reads as unfinished or sterile\",\n        \"Accessibility note: risk:low|requires:contrast-text-4.5,keyboard,visible-focus,reduced-motion\",\n        \"Frameworks: react-native|expo|nativewind|flutter|swiftui\"\n      ],\n      \"relevance_score\": 21.050228\n    },\n    {\n      \"role\": \"palette\",\n      \"catalog_id\": \"uupm:colors:174\",\n      \"entry_type\": \"palette\",\n      \"original_name\": \"Digital Signage / Kiosk\",\n      \"description\": \"High contrast dark + brand accent + large touch targets\",\n      \"source_repo\": \"nextlevelbuilder/ui-ux-pro-max-skill\",\n      \"source_ref\": \"f2cc36555984fbfb08f1dca037da2467578f33d2\",\n      \"source_url\": \"https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/f2cc36555984fbfb08f1dca037da2467578f33d2/.claude/skills/ui-ux-pro-max/data/colors.csv\",\n      \"source_path_or_key\": \".claude/skills/ui-ux-pro-max/data/colors.csv#row=175\",\n      \"evidence_status\": \"source_inspected\",\n      \"redistribution_status\": \"metadata_only\",\n      \"asset_license_status\": \"not_applicable\",\n      \"platforms\": [],\n      \"compatibility_restrictions\": [],\n      \"relevance_score\": 13.852273,\n      \"source_tokens_excerpt\": {\n        \"Primary\": \"#0F172A\",\n        \"Secondary\": \"#1E293B\",\n        \"Accent\": \"#EF4444\",\n        \"Background\": \"#020617\",\n        \"Foreground\": \"#F8FAFC\",\n        \"Card\": \"#0E1223\",\n        \"Card Foreground\": \"#F8FAFC\",\n        \"Muted Foreground\": \"#94A3B8\",\n        \"Border\": \"#334155\",\n        \"Ring\": \"#FFFFFF\"\n      }\n    },\n    {\n      \"role\": \"usability_reference\",\n      \"catalog_id\": \"uupm:ux-guidelines:64\",\n      \"entry_type\": \"guideline\",\n      \"original_name\": \"Mobile First\",\n      \"description\": \"Design for mobile then enhance for larger\",\n      \"source_repo\": \"nextlevelbuilder/ui-ux-pro-max-skill\",\n      \"source_ref\": \"f2cc36555984fbfb08f1dca037da2467578f33d2\",\n      \"source_url\": \"https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/f2cc36555984fbfb08f1dca037da2467578f33d2/.claude/skills/ui-ux-pro-max/data/ux-guidelines.csv\",\n      \"source_path_or_key\": \".claude/skills/ui-ux-pro-max/data/ux-guidelines.csv#row=65\",\n      \"evidence_status\": \"source_inspected\",\n      \"redistribution_status\": \"metadata_only\",\n      \"asset_license_status\": \"not_applicable\",\n      \"platforms\": [\n        \"Web\"\n      ],\n      \"compatibility_restrictions\": [\n        \"Platform: Web\",\n        \"Avoid: Desktop-first causing mobile issues\"\n      ],\n      \"relevance_score\": 13.220495\n    }\n  ],\n  \"selection_method\": \"heuristic text matching; not design or legal approval\",\n  \"use_boundary\": \"Suggestions are optional and unapproved. Existing project identity, design system, behavior, and applicable AIPF authorization take priority. Do not copy third-party fonts, photos, icons, branded assets or code based on metadata. Confirm source rights and actual access. Inspect the rendered UI before claiming visual acceptance. This command does not build, modify, install, deploy, or verify an interface.\"\n}\n",
+    "SYN-04": "{\n  \"task\": \"Audit the native iOS and Android settings screens for touch target size, dynamic type scaling and screen reader labels on icon-only buttons.\",\n  \"mode\": \"audit\",\n  \"platform\": \"mobile\",\n  \"catalog_records_searched\": 5500,\n  \"selection_scope\": \"normal\",\n  \"task_signals\": {\n    \"interface_priority\": \"mobile\",\n    \"prohibited\": [],\n    \"preserved_identity\": [],\n    \"requested_identity\": [],\n    \"not_sole_reliance\": []\n  },\n  \"references\": [\n    {\n      \"role\": \"check_reference\",\n      \"catalog_id\": \"uupm:app-interface:6\",\n      \"entry_type\": \"guideline\",\n      \"original_name\": \"Touch Target Size\",\n      \"description\": \"Native targets use 44pt on iOS and 48dp on Android; web WCAG 2.2 has a separate 24 by 24 CSS px minimum with exceptions\",\n      \"source_repo\": \"nextlevelbuilder/ui-ux-pro-max-skill\",\n      \"source_ref\": \"f2cc36555984fbfb08f1dca037da2467578f33d2\",\n      \"source_url\": \"https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/f2cc36555984fbfb08f1dca037da2467578f33d2/.claude/skills/ui-ux-pro-max/data/app-interface.csv\",\n      \"source_path_or_key\": \".claude/skills/ui-ux-pro-max/data/app-interface.csv#row=7\",\n      \"evidence_status\": \"source_inspected\",\n      \"redistribution_status\": \"metadata_only\",\n      \"asset_license_status\": \"not_applicable\",\n      \"platforms\": [\n        \"iOS/Android/React Native\"\n      ],\n      \"compatibility_restrictions\": [\n        \"Platform: iOS/Android/React Native\",\n        \"Avoid: Collapse iOS 44pt, Android 48dp, and web 24 CSS px into one cross-platform number\"\n      ],\n      \"relevance_score\": 28.598579\n    },\n    {\n      \"role\": \"check_reference\",\n      \"catalog_id\": \"uupm:ux-guidelines:22\",\n      \"entry_type\": \"guideline\",\n      \"original_name\": \"Touch Target Size\",\n      \"description\": \"Touch target guidance depends on platform and web context\",\n      \"source_repo\": \"nextlevelbuilder/ui-ux-pro-max-skill\",\n      \"source_ref\": \"f2cc36555984fbfb08f1dca037da2467578f33d2\",\n      \"source_url\": \"https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/f2cc36555984fbfb08f1dca037da2467578f33d2/.claude/skills/ui-ux-pro-max/data/ux-guidelines.csv\",\n      \"source_path_or_key\": \".claude/skills/ui-ux-pro-max/data/ux-guidelines.csv#row=23\",\n      \"evidence_status\": \"source_inspected\",\n      \"redistribution_status\": \"metadata_only\",\n      \"asset_license_status\": \"not_applicable\",\n      \"platforms\": [\n        \"Mobile\"\n      ],\n      \"compatibility_restrictions\": [\n        \"Platform: Mobile\",\n        \"Avoid: Treat one unit or minimum as universal across platforms\"\n      ],\n      \"relevance_score\": 17.706526\n    },\n    {\n      \"role\": \"check_reference\",\n      \"catalog_id\": \"uupm:app-interface:1\",\n      \"entry_type\": \"guideline\",\n      \"original_name\": \"Icon Button Labels\",\n      \"description\": \"Icon-only buttons must expose an accessible label\",\n      \"source_repo\": \"nextlevelbuilder/ui-ux-pro-max-skill\",\n      \"source_ref\": \"f2cc36555984fbfb08f1dca037da2467578f33d2\",\n      \"source_url\": \"https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/f2cc36555984fbfb08f1dca037da2467578f33d2/.claude/skills/ui-ux-pro-max/data/app-interface.csv\",\n      \"source_path_or_key\": \".claude/skills/ui-ux-pro-max/data/app-interface.csv#row=2\",\n      \"evidence_status\": \"source_inspected\",\n      \"redistribution_status\": \"metadata_only\",\n      \"asset_license_status\": \"not_applicable\",\n      \"platforms\": [\n        \"iOS/Android/React Native\"\n      ],\n      \"compatibility_restrictions\": [\n        \"Platform: iOS/Android/React Native\",\n        \"Avoid: Icon buttons without accessible names\"\n      ],\n      \"relevance_score\": 16.288273\n    }\n  ],\n  \"selection_method\": \"heuristic text matching; not design or legal approval\",\n  \"use_boundary\": \"Suggestions are optional and unapproved. Existing project identity, design system, behavior, and applicable AIPF authorization take priority. Do not copy third-party fonts, photos, icons, branded assets or code based on metadata. Confirm source rights and actual access. Inspect the rendered UI before claiming visual acceptance. This command does not build, modify, install, deploy, or verify an interface.\"\n}\n",
+    "SYN-05": "{\n  \"task\": \"Add a billing settings page to our existing SaaS admin using its established design-system tokens, components and Inter typography. Do not introduce new colours or fonts; every field needs a visible label and clear inline errors.\",\n  \"mode\": \"build\",\n  \"platform\": \"web\",\n  \"catalog_records_searched\": 5500,\n  \"selection_scope\": \"preserve_identity\",\n  \"task_signals\": {\n    \"interface_priority\": null,\n    \"prohibited\": [\n      \"colours\",\n      \"fonts\"\n    ],\n    \"preserved_identity\": [\n      \"direction\",\n      \"palette\",\n      \"typography\"\n    ],\n    \"requested_identity\": [],\n    \"not_sole_reliance\": []\n  },\n  \"references\": [\n    {\n      \"role\": \"usability_reference\",\n      \"catalog_id\": \"uupm:ux-guidelines:55\",\n      \"entry_type\": \"guideline\",\n      \"original_name\": \"Error Placement\",\n      \"description\": \"Each invalid field needs an inline error connected to that field\",\n      \"source_repo\": \"nextlevelbuilder/ui-ux-pro-max-skill\",\n      \"source_ref\": \"f2cc36555984fbfb08f1dca037da2467578f33d2\",\n      \"source_url\": \"https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/f2cc36555984fbfb08f1dca037da2467578f33d2/.claude/skills/ui-ux-pro-max/data/ux-guidelines.csv\",\n      \"source_path_or_key\": \".claude/skills/ui-ux-pro-max/data/ux-guidelines.csv#row=56\",\n      \"evidence_status\": \"source_inspected\",\n      \"redistribution_status\": \"metadata_only\",\n      \"asset_license_status\": \"not_applicable\",\n      \"platforms\": [\n        \"All\"\n      ],\n      \"compatibility_restrictions\": [\n        \"Platform: All\",\n        \"Avoid: Show only a top-level error without identifying each invalid field\"\n      ],\n      \"relevance_score\": 8.69659\n    },\n    {\n      \"role\": \"usability_reference\",\n      \"catalog_id\": \"uupm:ux-guidelines:109\",\n      \"entry_type\": \"guideline\",\n      \"original_name\": \"Focusable Error Summary\",\n      \"description\": \"An error summary for failed validation complements inline field errors and must be easy to find by keyboard and screen reader users\",\n      \"source_repo\": \"nextlevelbuilder/ui-ux-pro-max-skill\",\n      \"source_ref\": \"f2cc36555984fbfb08f1dca037da2467578f33d2\",\n      \"source_url\": \"https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/f2cc36555984fbfb08f1dca037da2467578f33d2/.claude/skills/ui-ux-pro-max/data/ux-guidelines.csv\",\n      \"source_path_or_key\": \".claude/skills/ui-ux-pro-max/data/ux-guidelines.csv#row=110\",\n      \"evidence_status\": \"source_inspected\",\n      \"redistribution_status\": \"metadata_only\",\n      \"asset_license_status\": \"not_applicable\",\n      \"platforms\": [\n        \"Web\"\n      ],\n      \"compatibility_restrictions\": [\n        \"Platform: Web\",\n        \"Avoid: Replace inline errors with a visual-only summary or move focus on every blur\"\n      ],\n      \"relevance_score\": 8.551662\n    },\n    {\n      \"role\": \"usability_reference\",\n      \"catalog_id\": \"uupm:ux-guidelines:56\",\n      \"entry_type\": \"guideline\",\n      \"original_name\": \"Inline Validation\",\n      \"description\": \"Validate as user types or on blur\",\n      \"source_repo\": \"nextlevelbuilder/ui-ux-pro-max-skill\",\n      \"source_ref\": \"f2cc36555984fbfb08f1dca037da2467578f33d2\",\n      \"source_url\": \"https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/f2cc36555984fbfb08f1dca037da2467578f33d2/.claude/skills/ui-ux-pro-max/data/ux-guidelines.csv\",\n      \"source_path_or_key\": \".claude/skills/ui-ux-pro-max/data/ux-guidelines.csv#row=57\",\n      \"evidence_status\": \"source_inspected\",\n      \"redistribution_status\": \"metadata_only\",\n      \"asset_license_status\": \"not_applicable\",\n      \"platforms\": [\n        \"All\"\n      ],\n      \"compatibility_restrictions\": [\n        \"Platform: All\",\n        \"Avoid: Validate only on submit\"\n      ],\n      \"relevance_score\": 6.666293\n    }\n  ],\n  \"selection_method\": \"heuristic text matching; not design or legal approval\",\n  \"use_boundary\": \"Suggestions are optional and unapproved. Existing project identity, design system, behavior, and applicable AIPF authorization take priority. Do not copy third-party fonts, photos, icons, branded assets or code based on metadata. Confirm source rights and actual access. Inspect the rendered UI before claiming visual acceptance. This command does not build, modify, install, deploy, or verify an interface.\"\n}\n",
+    "SYN-06": "{\n  \"task\": \"Create a visual identity for an independent bookshop's events website: warm, literary and editorial, with readable long-form event descriptions. No existing brand exists.\",\n  \"mode\": \"build\",\n  \"platform\": \"web\",\n  \"catalog_records_searched\": 5500,\n  \"selection_scope\": \"normal\",\n  \"task_signals\": {\n    \"interface_priority\": null,\n    \"prohibited\": [],\n    \"preserved_identity\": [],\n    \"requested_identity\": [\n      \"direction\",\n      \"palette\",\n      \"typography\"\n    ],\n    \"not_sole_reliance\": []\n  },\n  \"references\": [\n    {\n      \"role\": \"direction\",\n      \"catalog_id\": \"hallmark:theme:specimen\",\n      \"entry_type\": \"theme\",\n      \"original_name\": \"Specimen\",\n      \"description\": \"warm oat paper, warm near-black ink, razor-hairline Bodoni Moda over Geist, square 1px rules, one ink-blue signal that also draws the metric guides\",\n      \"source_repo\": \"Nutlope/hallmark\",\n      \"source_ref\": \"04977e15f3dfd6ee4b74c887dac3eb52665d6c92\",\n      \"source_url\": \"https://github.com/Nutlope/hallmark/blob/04977e15f3dfd6ee4b74c887dac3eb52665d6c92/skills/hallmark/references/themes/index.json\",\n      \"source_path_or_key\": \"skills/hallmark/references/themes/index.json#themes[slug=specimen]\",\n      \"evidence_status\": \"source_inspected\",\n      \"redistribution_status\": \"metadata_only\",\n      \"asset_license_status\": \"mixed\",\n      \"platforms\": [\n        \"web\"\n      ],\n      \"compatibility_restrictions\": [\n        \"Web-oriented theme; verify other platform applicability\",\n        \"Photo, preview and fonts not cleared for redistribution\"\n      ],\n      \"relevance_score\": 17.812584,\n      \"source_tokens_excerpt\": {\n        \"--color-paper\": \"oklch(96.5% 0.016 82)\",\n        \"--color-ink\": \"oklch(17% 0.012 60)\",\n        \"--color-accent\": \"oklch(45% 0.18 262)\",\n        \"--color-focus\": \"oklch(50% 0.18 262)\"\n      }\n    },\n    {\n      \"role\": \"palette\",\n      \"catalog_id\": \"uupm:colors:149\",\n      \"entry_type\": \"palette\",\n      \"original_name\": \"Local Events & Discovery\",\n      \"description\": \"Event orange + map blue\",\n      \"source_repo\": \"nextlevelbuilder/ui-ux-pro-max-skill\",\n      \"source_ref\": \"f2cc36555984fbfb08f1dca037da2467578f33d2\",\n      \"source_url\": \"https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/f2cc36555984fbfb08f1dca037da2467578f33d2/.claude/skills/ui-ux-pro-max/data/colors.csv\",\n      \"source_path_or_key\": \".claude/skills/ui-ux-pro-max/data/colors.csv#row=150\",\n      \"evidence_status\": \"source_inspected\",\n      \"redistribution_status\": \"metadata_only\",\n      \"asset_license_status\": \"not_applicable\",\n      \"platforms\": [],\n      \"compatibility_restrictions\": [],\n      \"relevance_score\": 12.851216,\n      \"source_tokens_excerpt\": {\n        \"Primary\": \"#EA580C\",\n        \"Secondary\": \"#F97316\",\n        \"Accent\": \"#2563EB\",\n        \"Background\": \"#FFF7ED\",\n        \"Foreground\": \"#0F172A\",\n        \"Card\": \"#FFFFFF\",\n        \"Card Foreground\": \"#0F172A\",\n        \"Muted Foreground\": \"#475569\",\n        \"Border\": \"#FCEAE1\",\n        \"Ring\": \"#EA580C\"\n      }\n    },\n    {\n      \"role\": \"usability_reference\",\n      \"catalog_id\": \"uupm:ux-guidelines:67\",\n      \"entry_type\": \"guideline\",\n      \"original_name\": \"Readable Font Size\",\n      \"description\": \"Text must be readable on all devices\",\n      \"source_repo\": \"nextlevelbuilder/ui-ux-pro-max-skill\",\n      \"source_ref\": \"f2cc36555984fbfb08f1dca037da2467578f33d2\",\n      \"source_url\": \"https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/f2cc36555984fbfb08f1dca037da2467578f33d2/.claude/skills/ui-ux-pro-max/data/ux-guidelines.csv\",\n      \"source_path_or_key\": \".claude/skills/ui-ux-pro-max/data/ux-guidelines.csv#row=68\",\n      \"evidence_status\": \"source_inspected\",\n      \"redistribution_status\": \"metadata_only\",\n      \"asset_license_status\": \"not_applicable\",\n      \"platforms\": [\n        \"All\"\n      ],\n      \"compatibility_restrictions\": [\n        \"Platform: All\",\n        \"Avoid: Tiny text on mobile\"\n      ],\n      \"relevance_score\": 7.223285\n    }\n  ],\n  \"selection_method\": \"heuristic text matching; not design or legal approval\",\n  \"use_boundary\": \"Suggestions are optional and unapproved. Existing project identity, design system, behavior, and applicable AIPF authorization take priority. Do not copy third-party fonts, photos, icons, branded assets or code based on metadata. Confirm source rights and actual access. Inspect the rendered UI before claiming visual acceptance. This command does not build, modify, install, deploy, or verify an interface.\"\n}\n",
+    "SYN-07": "{\n  \"task\": \"Critique the first-run onboarding screens of a meditation web app: does the calm aesthetic support comprehension, is the visual hierarchy clear, and is motion restrained?\",\n  \"mode\": \"critique\",\n  \"platform\": \"web\",\n  \"catalog_records_searched\": 5500,\n  \"selection_scope\": \"normal\",\n  \"task_signals\": {\n    \"interface_priority\": null,\n    \"prohibited\": [],\n    \"preserved_identity\": [],\n    \"requested_identity\": [],\n    \"not_sole_reliance\": []\n  },\n  \"references\": [\n    {\n      \"role\": \"usability_reference\",\n      \"catalog_id\": \"uupm:ux-guidelines:39\",\n      \"entry_type\": \"guideline\",\n      \"original_name\": \"Heading Hierarchy\",\n      \"description\": \"Screen readers use headings for navigation\",\n      \"source_repo\": \"nextlevelbuilder/ui-ux-pro-max-skill\",\n      \"source_ref\": \"f2cc36555984fbfb08f1dca037da2467578f33d2\",\n      \"source_url\": \"https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/f2cc36555984fbfb08f1dca037da2467578f33d2/.claude/skills/ui-ux-pro-max/data/ux-guidelines.csv\",\n      \"source_path_or_key\": \".claude/skills/ui-ux-pro-max/data/ux-guidelines.csv#row=40\",\n      \"evidence_status\": \"source_inspected\",\n      \"redistribution_status\": \"metadata_only\",\n      \"asset_license_status\": \"not_applicable\",\n      \"platforms\": [\n        \"Web\"\n      ],\n      \"compatibility_restrictions\": [\n        \"Platform: Web\",\n        \"Avoid: Skip heading levels or misuse for styling\"\n      ],\n      \"relevance_score\": 6.713237\n    },\n    {\n      \"role\": \"design_reference\",\n      \"catalog_id\": \"hallmark:theme:coral\",\n      \"entry_type\": \"theme\",\n      \"original_name\": \"Coral\",\n      \"description\": \"warm grey paper and a felt desk, cotton stationery lit from the left, General Sans throughout with Geist Mono figures, letterpress card controls, coral pressed into the stock for the one settled state\",\n      \"source_repo\": \"Nutlope/hallmark\",\n      \"source_ref\": \"04977e15f3dfd6ee4b74c887dac3eb52665d6c92\",\n      \"source_url\": \"https://github.com/Nutlope/hallmark/blob/04977e15f3dfd6ee4b74c887dac3eb52665d6c92/skills/hallmark/references/themes/index.json\",\n      \"source_path_or_key\": \"skills/hallmark/references/themes/index.json#themes[slug=coral]\",\n      \"evidence_status\": \"source_inspected\",\n      \"redistribution_status\": \"metadata_only\",\n      \"asset_license_status\": \"mixed\",\n      \"platforms\": [\n        \"web\"\n      ],\n      \"compatibility_restrictions\": [\n        \"Web-oriented theme; verify other platform applicability\",\n        \"Photo, preview and fonts not cleared for redistribution\"\n      ],\n      \"relevance_score\": 10.314556,\n      \"source_tokens_excerpt\": {\n        \"--color-paper\": \"oklch(97% 0.006 55)\",\n        \"--color-ink\": \"oklch(21% 0.012 38)\",\n        \"--color-accent\": \"oklch(74% 0.125 30)\",\n        \"--color-focus\": \"oklch(54% 0.17 30)\"\n      }\n    }\n  ],\n  \"selection_method\": \"heuristic text matching; not design or legal approval\",\n  \"use_boundary\": \"Suggestions are optional and unapproved. Existing project identity, design system, behavior, and applicable AIPF authorization take priority. Do not copy third-party fonts, photos, icons, branded assets or code based on metadata. Confirm source rights and actual access. Inspect the rendered UI before claiming visual acceptance. This command does not build, modify, install, deploy, or verify an interface.\"\n}\n",
+    "SYN-08": "{\n  \"task\": \"Audit a modal-heavy admin panel for focus trapping, escape to close, visible focus indicators, and disabled and loading button states.\",\n  \"mode\": \"audit\",\n  \"platform\": \"web\",\n  \"catalog_records_searched\": 5500,\n  \"selection_scope\": \"normal\",\n  \"task_signals\": {\n    \"interface_priority\": null,\n    \"prohibited\": [],\n    \"preserved_identity\": [],\n    \"requested_identity\": [],\n    \"not_sole_reliance\": []\n  },\n  \"references\": [\n    {\n      \"role\": \"check_reference\",\n      \"catalog_id\": \"uupm:ux-guidelines:31\",\n      \"entry_type\": \"guideline\",\n      \"original_name\": \"Disabled States\",\n      \"description\": \"Clearly indicate non-interactive elements\",\n      \"source_repo\": \"nextlevelbuilder/ui-ux-pro-max-skill\",\n      \"source_ref\": \"f2cc36555984fbfb08f1dca037da2467578f33d2\",\n      \"source_url\": \"https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/f2cc36555984fbfb08f1dca037da2467578f33d2/.claude/skills/ui-ux-pro-max/data/ux-guidelines.csv\",\n      \"source_path_or_key\": \".claude/skills/ui-ux-pro-max/data/ux-guidelines.csv#row=32\",\n      \"evidence_status\": \"source_inspected\",\n      \"redistribution_status\": \"metadata_only\",\n      \"asset_license_status\": \"not_applicable\",\n      \"platforms\": [\n        \"All\"\n      ],\n      \"compatibility_restrictions\": [\n        \"Platform: All\",\n        \"Avoid: Confuse disabled with normal state\"\n      ],\n      \"relevance_score\": 13.822037\n    },\n    {\n      \"role\": \"check_reference\",\n      \"catalog_id\": \"uupm:ux-guidelines:28\",\n      \"entry_type\": \"guideline\",\n      \"original_name\": \"Focus States\",\n      \"description\": \"Keyboard focus, including controls inside a modal, needs a visible indicator\",\n      \"source_repo\": \"nextlevelbuilder/ui-ux-pro-max-skill\",\n      \"source_ref\": \"f2cc36555984fbfb08f1dca037da2467578f33d2\",\n      \"source_url\": \"https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/f2cc36555984fbfb08f1dca037da2467578f33d2/.claude/skills/ui-ux-pro-max/data/ux-guidelines.csv\",\n      \"source_path_or_key\": \".claude/skills/ui-ux-pro-max/data/ux-guidelines.csv#row=29\",\n      \"evidence_status\": \"source_inspected\",\n      \"redistribution_status\": \"metadata_only\",\n      \"asset_license_status\": \"not_applicable\",\n      \"platforms\": [\n        \"All\"\n      ],\n      \"compatibility_restrictions\": [\n        \"Platform: All\",\n        \"Avoid: Remove focus outline without replacement\"\n      ],\n      \"relevance_score\": 13.513754\n    },\n    {\n      \"role\": \"check_reference\",\n      \"catalog_id\": \"uupm:ux-guidelines:78\",\n      \"entry_type\": \"guideline\",\n      \"original_name\": \"Loading Indicators\",\n      \"description\": \"Loading feedback should match the expected wait and avoid flashing for near-instant work\",\n      \"source_repo\": \"nextlevelbuilder/ui-ux-pro-max-skill\",\n      \"source_ref\": \"f2cc36555984fbfb08f1dca037da2467578f33d2\",\n      \"source_url\": \"https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/f2cc36555984fbfb08f1dca037da2467578f33d2/.claude/skills/ui-ux-pro-max/data/ux-guidelines.csv\",\n      \"source_path_or_key\": \".claude/skills/ui-ux-pro-max/data/ux-guidelines.csv#row=79\",\n      \"evidence_status\": \"source_inspected\",\n      \"redistribution_status\": \"metadata_only\",\n      \"asset_license_status\": \"not_applicable\",\n      \"platforms\": [\n        \"All\"\n      ],\n      \"compatibility_restrictions\": [\n        \"Platform: All\",\n        \"Avoid: Apply one timing threshold to every operation or leave long waits unexplained\"\n      ],\n      \"relevance_score\": 11.530373\n    }\n  ],\n  \"selection_method\": \"heuristic text matching; not design or legal approval\",\n  \"use_boundary\": \"Suggestions are optional and unapproved. Existing project identity, design system, behavior, and applicable AIPF authorization take priority. Do not copy third-party fonts, photos, icons, branded assets or code based on metadata. Confirm source rights and actual access. Inspect the rendered UI before claiming visual acceptance. This command does not build, modify, install, deploy, or verify an interface.\"\n}\n",
+    "SYN-09": "{\n  \"task\": \"Rename the CSV export column header from 'Checked' to 'Checked at' in the backend serializer.\",\n  \"mode\": \"build\",\n  \"platform\": \"web\",\n  \"catalog_records_searched\": 5500,\n  \"selection_scope\": \"non_visual_task\",\n  \"task_signals\": {\n    \"interface_priority\": null,\n    \"prohibited\": [],\n    \"preserved_identity\": [],\n    \"requested_identity\": [],\n    \"not_sole_reliance\": []\n  },\n  \"references\": [],\n  \"selection_method\": \"heuristic text matching; not design or legal approval\",\n  \"use_boundary\": \"Suggestions are optional and unapproved. Existing project identity, design system, behavior, and applicable AIPF authorization take priority. Do not copy third-party fonts, photos, icons, branded assets or code based on metadata. Confirm source rights and actual access. Inspect the rendered UI before claiming visual acceptance. This command does not build, modify, install, deploy, or verify an interface.\"\n}\n",
+    "SYN-10": "{\n  \"task\": \"Redesign the donation landing page for a children's hospital charity. Do not use dark mode, glassmorphism or decorative animation; prioritise legibility for older donors.\",\n  \"mode\": \"build\",\n  \"platform\": \"web\",\n  \"catalog_records_searched\": 5500,\n  \"selection_scope\": \"normal\",\n  \"task_signals\": {\n    \"interface_priority\": null,\n    \"prohibited\": [\n      \"dark mode\",\n      \"glassmorphism\",\n      \"decorative animation\"\n    ],\n    \"preserved_identity\": [],\n    \"requested_identity\": [],\n    \"not_sole_reliance\": []\n  },\n  \"references\": [\n    {\n      \"role\": \"palette\",\n      \"catalog_id\": \"uupm:colors:44\",\n      \"entry_type\": \"palette\",\n      \"original_name\": \"Non-profit/Charity\",\n      \"description\": \"Compassion blue + action orange [Accent adjusted from #F97316]\",\n      \"source_repo\": \"nextlevelbuilder/ui-ux-pro-max-skill\",\n      \"source_ref\": \"f2cc36555984fbfb08f1dca037da2467578f33d2\",\n      \"source_url\": \"https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/f2cc36555984fbfb08f1dca037da2467578f33d2/.claude/skills/ui-ux-pro-max/data/colors.csv\",\n      \"source_path_or_key\": \".claude/skills/ui-ux-pro-max/data/colors.csv#row=45\",\n      \"evidence_status\": \"source_inspected\",\n      \"redistribution_status\": \"metadata_only\",\n      \"asset_license_status\": \"not_applicable\",\n      \"platforms\": [],\n      \"compatibility_restrictions\": [],\n      \"relevance_score\": 8.840564,\n      \"source_tokens_excerpt\": {\n        \"Primary\": \"#0891B2\",\n        \"Secondary\": \"#22D3EE\",\n        \"Accent\": \"#EA580C\",\n        \"Background\": \"#ECFEFF\",\n        \"Foreground\": \"#164E63\",\n        \"Card\": \"#FFFFFF\",\n        \"Card Foreground\": \"#164E63\",\n        \"Muted Foreground\": \"#475569\",\n        \"Border\": \"#A5F3FC\",\n        \"Ring\": \"#0891B2\"\n      }\n    },\n    {\n      \"role\": \"typography\",\n      \"catalog_id\": \"uupm:typography:45\",\n      \"entry_type\": \"font_pairing\",\n      \"original_name\": \"Kids/Education\",\n      \"description\": \"Fun, playful fonts for children. Comic Neue is readable comic style.\",\n      \"source_repo\": \"nextlevelbuilder/ui-ux-pro-max-skill\",\n      \"source_ref\": \"f2cc36555984fbfb08f1dca037da2467578f33d2\",\n      \"source_url\": \"https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/f2cc36555984fbfb08f1dca037da2467578f33d2/.claude/skills/ui-ux-pro-max/data/typography.csv\",\n      \"source_path_or_key\": \".claude/skills/ui-ux-pro-max/data/typography.csv#row=46\",\n      \"evidence_status\": \"source_inspected\",\n      \"redistribution_status\": \"metadata_only\",\n      \"asset_license_status\": \"mixed\",\n      \"platforms\": [],\n      \"compatibility_restrictions\": [],\n      \"relevance_score\": 3.747086\n    }\n  ],\n  \"selection_method\": \"heuristic text matching; not design or legal approval\",\n  \"use_boundary\": \"Suggestions are optional and unapproved. Existing project identity, design system, behavior, and applicable AIPF authorization take priority. Do not copy third-party fonts, photos, icons, branded assets or code based on metadata. Confirm source rights and actual access. Inspect the rendered UI before claiming visual acceptance. This command does not build, modify, install, deploy, or verify an interface.\"\n}\n",
+    "SYN-11": "{\n  \"task\": \"Review the desktop trading blotter's order table for scan speed, numeric alignment and whether status colours can be told apart without relying on colour alone.\",\n  \"mode\": \"critique\",\n  \"platform\": \"web\",\n  \"catalog_records_searched\": 5500,\n  \"selection_scope\": \"normal\",\n  \"task_signals\": {\n    \"interface_priority\": \"desktop\",\n    \"prohibited\": [],\n    \"preserved_identity\": [],\n    \"requested_identity\": [],\n    \"not_sole_reliance\": [\n      \"colour\"\n    ]\n  },\n  \"references\": [\n    {\n      \"role\": \"usability_reference\",\n      \"catalog_id\": \"uupm:ux-guidelines:37\",\n      \"entry_type\": \"guideline\",\n      \"original_name\": \"Color Only\",\n      \"description\": \"Don't convey information by color alone\",\n      \"source_repo\": \"nextlevelbuilder/ui-ux-pro-max-skill\",\n      \"source_ref\": \"f2cc36555984fbfb08f1dca037da2467578f33d2\",\n      \"source_url\": \"https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/f2cc36555984fbfb08f1dca037da2467578f33d2/.claude/skills/ui-ux-pro-max/data/ux-guidelines.csv\",\n      \"source_path_or_key\": \".claude/skills/ui-ux-pro-max/data/ux-guidelines.csv#row=38\",\n      \"evidence_status\": \"source_inspected\",\n      \"redistribution_status\": \"metadata_only\",\n      \"asset_license_status\": \"not_applicable\",\n      \"platforms\": [\n        \"All\"\n      ],\n      \"compatibility_restrictions\": [\n        \"Platform: All\",\n        \"Avoid: Red/green only for error/success\"\n      ],\n      \"relevance_score\": 11.754181\n    },\n    {\n      \"role\": \"usability_reference\",\n      \"catalog_id\": \"uupm:ux-guidelines:71\",\n      \"entry_type\": \"guideline\",\n      \"original_name\": \"Table Handling\",\n      \"description\": \"Tables can overflow on mobile\",\n      \"source_repo\": \"nextlevelbuilder/ui-ux-pro-max-skill\",\n      \"source_ref\": \"f2cc36555984fbfb08f1dca037da2467578f33d2\",\n      \"source_url\": \"https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/f2cc36555984fbfb08f1dca037da2467578f33d2/.claude/skills/ui-ux-pro-max/data/ux-guidelines.csv\",\n      \"source_path_or_key\": \".claude/skills/ui-ux-pro-max/data/ux-guidelines.csv#row=72\",\n      \"evidence_status\": \"source_inspected\",\n      \"redistribution_status\": \"metadata_only\",\n      \"asset_license_status\": \"not_applicable\",\n      \"platforms\": [\n        \"Web\"\n      ],\n      \"compatibility_restrictions\": [\n        \"Platform: Web\",\n        \"Avoid: Wide tables breaking layout\"\n      ],\n      \"relevance_score\": 8.344267\n    },\n    {\n      \"role\": \"usability_reference\",\n      \"catalog_id\": \"uupm:ux-guidelines:36\",\n      \"entry_type\": \"guideline\",\n      \"original_name\": \"Color Contrast\",\n      \"description\": \"Text must be readable against background\",\n      \"source_repo\": \"nextlevelbuilder/ui-ux-pro-max-skill\",\n      \"source_ref\": \"f2cc36555984fbfb08f1dca037da2467578f33d2\",\n      \"source_url\": \"https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/f2cc36555984fbfb08f1dca037da2467578f33d2/.claude/skills/ui-ux-pro-max/data/ux-guidelines.csv\",\n      \"source_path_or_key\": \".claude/skills/ui-ux-pro-max/data/ux-guidelines.csv#row=37\",\n      \"evidence_status\": \"source_inspected\",\n      \"redistribution_status\": \"metadata_only\",\n      \"asset_license_status\": \"not_applicable\",\n      \"platforms\": [\n        \"All\"\n      ],\n      \"compatibility_restrictions\": [\n        \"Platform: All\",\n        \"Avoid: Low contrast text\"\n      ],\n      \"relevance_score\": 7.298659\n    }\n  ],\n  \"selection_method\": \"heuristic text matching; not design or legal approval\",\n  \"use_boundary\": \"Suggestions are optional and unapproved. Existing project identity, design system, behavior, and applicable AIPF authorization take priority. Do not copy third-party fonts, photos, icons, branded assets or code based on metadata. Confirm source rights and actual access. Inspect the rendered UI before claiming visual acceptance. This command does not build, modify, install, deploy, or verify an interface.\"\n}\n",
+    "SYN-12": "{\n  \"query\": \"keyboard row selection table\",\n  \"results\": [\n    {\n      \"catalog_id\": \"uupm:ux-guidelines:71\",\n      \"entry_type\": \"guideline\",\n      \"original_name\": \"Table Handling\",\n      \"description\": \"Tables can overflow on mobile\",\n      \"source_repo\": \"nextlevelbuilder/ui-ux-pro-max-skill\",\n      \"source_url\": \"https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/f2cc36555984fbfb08f1dca037da2467578f33d2/.claude/skills/ui-ux-pro-max/data/ux-guidelines.csv\",\n      \"source_ref\": \"f2cc36555984fbfb08f1dca037da2467578f33d2\",\n      \"source_path_or_key\": \".claude/skills/ui-ux-pro-max/data/ux-guidelines.csv#row=72\",\n      \"evidence_status\": \"source_inspected\",\n      \"source_license\": \"MIT repository; bundled font/icon/third-party assets separate\",\n      \"asset_license_status\": \"not_applicable\",\n      \"redistribution_status\": \"metadata_only\",\n      \"preview_reference\": null,\n      \"compatibility_restrictions\": [\n        \"Platform: Web\",\n        \"Avoid: Wide tables breaking layout\"\n      ],\n      \"platforms\": [\n        \"Web\"\n      ],\n      \"specialist_use\": \"audit\",\n      \"relevance_score\": 9.613222\n    },\n    {\n      \"catalog_id\": \"uupm:ux-guidelines:41\",\n      \"entry_type\": \"guideline\",\n      \"original_name\": \"Keyboard Navigation\",\n      \"description\": \"Web users need complete keyboard navigation with visible focus on every operable control\",\n      \"source_repo\": \"nextlevelbuilder/ui-ux-pro-max-skill\",\n      \"source_url\": \"https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/f2cc36555984fbfb08f1dca037da2467578f33d2/.claude/skills/ui-ux-pro-max/data/ux-guidelines.csv\",\n      \"source_ref\": \"f2cc36555984fbfb08f1dca037da2467578f33d2\",\n      \"source_path_or_key\": \".claude/skills/ui-ux-pro-max/data/ux-guidelines.csv#row=42\",\n      \"evidence_status\": \"source_inspected\",\n      \"source_license\": \"MIT repository; bundled font/icon/third-party assets separate\",\n      \"asset_license_status\": \"not_applicable\",\n      \"redistribution_status\": \"metadata_only\",\n      \"preview_reference\": null,\n      \"compatibility_restrictions\": [\n        \"Platform: Web\",\n        \"Avoid: Keyboard traps or illogical tab order\"\n      ],\n      \"platforms\": [\n        \"Web\"\n      ],\n      \"specialist_use\": \"audit\",\n      \"relevance_score\": 5.811853\n    },\n    {\n      \"catalog_id\": \"uupm:app-interface:17\",\n      \"entry_type\": \"guideline\",\n      \"original_name\": \"Keyboard Type\",\n      \"description\": \"Use appropriate keyboardType and returnKeyType\",\n      \"source_repo\": \"nextlevelbuilder/ui-ux-pro-max-skill\",\n      \"source_url\": \"https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/f2cc36555984fbfb08f1dca037da2467578f33d2/.claude/skills/ui-ux-pro-max/data/app-interface.csv\",\n      \"source_ref\": \"f2cc36555984fbfb08f1dca037da2467578f33d2\",\n      \"source_path_or_key\": \".claude/skills/ui-ux-pro-max/data/app-interface.csv#row=18\",\n      \"evidence_status\": \"source_inspected\",\n      \"source_license\": \"MIT repository; bundled font/icon/third-party assets separate\",\n      \"asset_license_status\": \"not_applicable\",\n      \"redistribution_status\": \"metadata_only\",\n      \"preview_reference\": null,\n      \"compatibility_restrictions\": [\n        \"Platform: iOS/Android/React Native\",\n        \"Avoid: Use default keyboard for all inputs\"\n      ],\n      \"platforms\": [\n        \"iOS/Android/React Native\"\n      ],\n      \"specialist_use\": \"audit\",\n      \"relevance_score\": 5.783203\n    },\n    {\n      \"catalog_id\": \"uupm:ux-guidelines:91\",\n      \"entry_type\": \"guideline\",\n      \"original_name\": \"Bulk Actions\",\n      \"description\": \"Editing one by one is tedious\",\n      \"source_repo\": \"nextlevelbuilder/ui-ux-pro-max-skill\",\n      \"source_url\": \"https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/f2cc36555984fbfb08f1dca037da2467578f33d2/.claude/skills/ui-ux-pro-max/data/ux-guidelines.csv\",\n      \"source_ref\": \"f2cc36555984fbfb08f1dca037da2467578f33d2\",\n      \"source_path_or_key\": \".claude/skills/ui-ux-pro-max/data/ux-guidelines.csv#row=92\",\n      \"evidence_status\": \"source_inspected\",\n      \"source_license\": \"MIT repository; bundled font/icon/third-party assets separate\",\n      \"asset_license_status\": \"not_applicable\",\n      \"redistribution_status\": \"metadata_only\",\n      \"preview_reference\": null,\n      \"compatibility_restrictions\": [\n        \"Platform: Web\",\n        \"Avoid: Single row actions only\"\n      ],\n      \"platforms\": [\n        \"Web\"\n      ],\n      \"specialist_use\": \"audit\",\n      \"relevance_score\": 4.816013\n    },\n    {\n      \"catalog_id\": \"uupm:ux-guidelines:63\",\n      \"entry_type\": \"guideline\",\n      \"original_name\": \"Mobile Keyboards\",\n      \"description\": \"Show appropriate keyboard for input type\",\n      \"source_repo\": \"nextlevelbuilder/ui-ux-pro-max-skill\",\n      \"source_url\": \"https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/f2cc36555984fbfb08f1dca037da2467578f33d2/.claude/skills/ui-ux-pro-max/data/ux-guidelines.csv\",\n      \"source_ref\": \"f2cc36555984fbfb08f1dca037da2467578f33d2\",\n      \"source_path_or_key\": \".claude/skills/ui-ux-pro-max/data/ux-guidelines.csv#row=64\",\n      \"evidence_status\": \"source_inspected\",\n      \"source_license\": \"MIT repository; bundled font/icon/third-party assets separate\",\n      \"asset_license_status\": \"not_applicable\",\n      \"redistribution_status\": \"metadata_only\",\n      \"preview_reference\": null,\n      \"compatibility_restrictions\": [\n        \"Platform: Mobile\",\n        \"Avoid: Default keyboard for all inputs\"\n      ],\n      \"platforms\": [\n        \"Mobile\"\n      ],\n      \"specialist_use\": \"audit\",\n      \"relevance_score\": 4.351451\n    }\n  ],\n  \"scope_note\": \"Catalog results are non-authoritative references. Prompt Agent must verify approved requirements, source provenance, Builder accessibility, license boundaries and the relevant AIPF authorization unit. This search performs no build, deployment, asset bundling or visual validation.\"\n}\n"
+  }
+}

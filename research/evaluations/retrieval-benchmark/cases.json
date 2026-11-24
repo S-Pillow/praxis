@@ -1,0 +1,512 @@
+{
+  "benchmark": "aipf-ui-ux-retrieval",
+  "fixture_version": 1,
+  "frozen_on": "2026-11-24",
+  "baseline_revision": "481bb188453b14108890ef0b803249759c5363f4",
+  "rubric": {
+    "0": "irrelevant or unusable",
+    "1": "tangentially relevant",
+    "2": "relevant and potentially useful",
+    "3": "directly actionable for the requested task"
+  },
+  "judgment_notes": [
+    "Judgments list acceptable records; several records can satisfy the same need, so no single ID is required.",
+    "A returned record that is not judged here is reported as unjudged; it is never silently scored as relevant.",
+    "Grades are evaluator judgments by the same agent that built the benchmark; this is not an independent evaluation.",
+    "Constraint conflicts are recorded independently of relevance; provenance and licence fields are reported from the output independently of both.",
+    "Historical judgments come from the retained pilot assessments. Synthetic judgments were assigned from catalog record inspection before any synthetic query was executed."
+  ],
+  "conflict_rules": {
+    "mobile_first_direction": {
+      "reason": "Recommends a mobile-first design direction, contradicting an explicitly desktop-first request",
+      "ids": ["uupm:ux-guidelines:64"],
+      "name_regex": "(?i)mobile[- ]first"
+    },
+    "mobile_specific_direction": {
+      "reason": "Visual direction written for mobile apps, contradicting a desktop-focused interface",
+      "entry_types": ["style", "theme", "design_system"],
+      "name_regex": "(?i)\\bmobile\\b"
+    },
+    "replacement_identity": {
+      "reason": "Proposes a replacement visual identity (theme, style, design system, palette or typography) where the request requires preserving the existing identity",
+      "entry_types": ["theme", "style", "design_system", "palette", "font_pairing", "font_family"]
+    },
+    "dark_ground": {
+      "reason": "Dark-ground visual direction where dark mode is explicitly excluded",
+      "entry_types": ["theme", "style", "design_system", "palette"],
+      "text_regex": "(?i)\\bdark\\b|midnight|near-black ground|graphite ground|black paper|violet-black ground|coffee-ground black|deep void"
+    },
+    "glassmorphism": {
+      "reason": "Glass or translucency direction where glassmorphism is explicitly excluded",
+      "entry_types": ["theme", "style", "design_system", "palette"],
+      "text_regex": "(?i)glass"
+    },
+    "decorative_motion_preset": {
+      "reason": "Motion preset where decorative animation is explicitly excluded",
+      "entry_types": ["motion_preset"]
+    },
+    "motion_led_direction": {
+      "reason": "Motion-led visual direction where decorative animation is explicitly excluded",
+      "entry_types": ["style", "theme", "design_system"],
+      "name_regex": "(?i)kinetic|parallax|motion|animat"
+    }
+  },
+  "cases": [
+    {
+      "id": "HIST-01",
+      "origin": "historical",
+      "split": "historical",
+      "role": "primary",
+      "tool": "recommend",
+      "query": "Critique the existing URL Activity Scanner results interface for batch readability, information hierarchy, accessibility and responsive usability while preserving its technical dark design identity",
+      "args": ["--mode", "critique", "--platform", "web"],
+      "mode": "critique",
+      "platform": "web",
+      "historical_command": "python3 scripts/recommend_design.py \"Critique the existing URL Activity Scanner results interface for batch readability, information hierarchy, accessibility and responsive usability while preserving its technical dark design identity\" --mode critique --platform web",
+      "retained_output": "historical/HIST-01.json",
+      "constraints": ["existing application", "preserve technical dark identity", "critique (judgment), not build", "web"],
+      "intent": "Design critique of an existing batch results page",
+      "interface_purpose": "operate: technical users review up to 100 scan results",
+      "expect_empty": false,
+      "empty_acceptable": false,
+      "conflict_rules": ["replacement_identity"],
+      "judgments": {
+        "3": ["uupm:ux-guidelines:111"],
+        "2": ["uupm:ux-guidelines:71", "uupm:ux-guidelines:36", "uupm:ux-guidelines:76", "uupm:ux-guidelines:39", "uupm:ux-guidelines:37", "uupm:ux-guidelines:28", "uupm:styles:data-dense-dashboard"],
+        "1": ["uupm:ux-guidelines:90", "hallmark:theme:midnight"],
+        "0": []
+      },
+      "evidence": [
+        "UIUX-PILOT-01-BASELINE/specialist/recommend-command.txt (sha256 e470b7dece23efdd…)",
+        "UIUX-PILOT-01-BASELINE/specialist/recommend-output.raw.txt (sha256 7bcc7125b4037b70…)",
+        "UIUX-PILOT-01-BASELINE/specialist/assessment.md (sha256 40375e4a12bbbaff…): ux-guidelines:90 relevance low; Midnight low-to-moderate (focus colour only) with material identity conflict, rejected",
+        "UIUX-PILOT-01-BASELINE/critique/critique.md: measured defects included mid-word URL breaks (A4), contrast failures, focus loss and 15,242 px batch height"
+      ],
+      "ambiguity": "Midnight's focus-token idea was weakly useful while the theme as a whole conflicted; graded 1 for relevance and flagged separately as a conflict. Records graded 2-3 here were not returned historically; their grades are evaluator judgments from the critique's measured defects."
+    },
+    {
+      "id": "HIST-02",
+      "origin": "historical",
+      "split": "historical",
+      "role": "primary",
+      "tool": "recommend",
+      "query": "Improve the existing desktop-first URL Activity Scanner results experience for technical users reviewing batches of up to 100 URLs. Prioritize information hierarchy, dense readable results, status summaries, keyboard accessibility, contrast, export accessibility and responsive usability while preserving the existing dark technical identity.",
+      "args": ["--mode", "build", "--platform", "web"],
+      "mode": "build",
+      "platform": "web",
+      "historical_command": "python3 scripts/recommend_design.py \"Improve the existing desktop-first URL Activity Scanner results experience for technical users reviewing batches of up to 100 URLs. Prioritize information hierarchy, dense readable results, status summaries, keyboard accessibility, contrast, export accessibility and responsive usability while preserving the existing dark technical identity.\" --mode build --platform web",
+      "retained_output": "historical/HIST-02.json",
+      "constraints": ["existing application", "desktop-first web interface (about 98% of scans on PCs)", "mobile must still work", "preserve dark technical identity", "batches up to 100"],
+      "intent": "Bounded build improvement of a dense results page",
+      "interface_purpose": "operate: dense technical batch review",
+      "platform_semantics": "--platform web is correct; desktop-first is a presentation priority within a web application and must not be read as a mobile-first request",
+      "expect_empty": false,
+      "empty_acceptable": false,
+      "conflict_rules": ["mobile_first_direction", "mobile_specific_direction", "replacement_identity"],
+      "judgments": {
+        "3": ["uupm:ux-guidelines:41", "uupm:ux-guidelines:100", "uupm:ux-guidelines:111", "uupm:ux-guidelines:36"],
+        "2": ["uupm:ux-guidelines:71", "uupm:ux-guidelines:37", "uupm:ux-guidelines:28", "uupm:ux-guidelines:76", "uupm:ux-guidelines:102", "uupm:ux-guidelines:10", "uupm:styles:data-dense-dashboard", "open-design:skills:app-table"],
+        "1": ["uupm:ux-guidelines:64", "uupm:ux-guidelines:86", "uupm:ux-guidelines:66"],
+        "0": []
+      },
+      "evidence": [
+        "UIUX-PILOT-02/specialist/build-command.txt (sha256 9b3fb4adbefe842c…)",
+        "UIUX-PILOT-02/specialist/build-output.raw.txt (sha256 9c52ab2c2e713bd0…)",
+        "UIUX-PILOT-02/specialist/assessment.md (sha256 51d65cd81a42af88…): Mobile First conflicts with owner direction and was rejected; only its caution was kept as a mobile verification check",
+        "UIUX-PILOT-02/critique/after-evaluation.md: focus never obscured by sticky toolbar, overflow-wrap fix, contrast fixes"
+      ],
+      "ambiguity": "Mobile First is graded 1 (its caution became a verification check) and is also a conflict. Data-Dense Dashboard is relevant for density but is a style record, so it is also flagged as a replacement-identity conflict."
+    },
+    {
+      "id": "HIST-03",
+      "origin": "historical",
+      "split": "historical",
+      "role": "primary",
+      "tool": "recommend",
+      "query": "Audit the improved URL Activity Scanner results interface for keyboard accessibility, focus recovery, contrast, readable technical data, batch summary accuracy, desktop and mobile usability, result-key navigation and CSV export accessibility.",
+      "args": ["--mode", "audit", "--platform", "web"],
+      "mode": "audit",
+      "platform": "web",
+      "historical_command": "python3 scripts/recommend_design.py \"Audit the improved URL Activity Scanner results interface for keyboard accessibility, focus recovery, contrast, readable technical data, batch summary accuracy, desktop and mobile usability, result-key navigation and CSV export accessibility.\" --mode audit --platform web",
+      "retained_output": "historical/HIST-03.json",
+      "constraints": ["technical audit (observable checks)", "web", "desktop and mobile"],
+      "intent": "Technical UI audit of an implemented results page",
+      "interface_purpose": "operate",
+      "expect_empty": false,
+      "empty_acceptable": false,
+      "conflict_rules": [],
+      "judgments": {
+        "3": ["uupm:ux-guidelines:41", "uupm:ux-guidelines:28", "uupm:ux-guidelines:100", "uupm:ux-guidelines:36"],
+        "2": ["uupm:ux-guidelines:102", "uupm:ux-guidelines:37", "uupm:ux-guidelines:111", "uupm:ux-guidelines:71", "uupm:ux-guidelines:66", "uupm:ux-guidelines:104", "uupm:ux-guidelines:40", "uupm:ux-guidelines:42", "uupm:ux-guidelines:76"],
+        "1": [],
+        "0": []
+      },
+      "evidence": [
+        "UIUX-PILOT-02/specialist/audit-command.txt (sha256 68489a0e07e5dd9e…)",
+        "UIUX-PILOT-02/specialist/audit-output.raw.txt (sha256 d98e7a360cc0e9c3…)",
+        "UIUX-PILOT-02/specialist/assessment.md: Keyboard Navigation relevance high as a checklist item, applied to the running preview; no code change"
+      ],
+      "ambiguity": "Positive regression case. Additional grade-3 records were not returned historically and are evaluator judgments."
+    },
+    {
+      "id": "HIST-04",
+      "origin": "historical",
+      "split": "historical",
+      "role": "follow_up",
+      "follows": "HIST-01",
+      "tool": "search",
+      "query": "dense data table status results readability scanning batch",
+      "args": ["--specialist-use", "critique", "--limit", "5"],
+      "mode": "critique",
+      "platform": null,
+      "historical_command": "python3 scripts/search_catalog.py \"dense data table status results readability scanning batch\" --specialist-use critique --limit 5",
+      "retained_output": "historical/HIST-04.json",
+      "constraints": ["targeted follow-up after HIST-01", "critique"],
+      "intent": "Find batch or data-table readability guidance missing from the primary shortlist",
+      "interface_purpose": "operate",
+      "expect_empty": false,
+      "empty_acceptable": false,
+      "conflict_rules": [],
+      "judgments": {
+        "3": ["uupm:ux-guidelines:71"],
+        "2": ["uupm:styles:data-dense-dashboard", "open-design:skills:app-table", "uupm:ux-guidelines:76", "uupm:ux-guidelines:111"],
+        "1": ["uupm:styles:real-time-monitoring", "uupm:ux-guidelines:90"],
+        "0": ["uupm:react-performance:31", "uupm:react-performance:34"]
+      },
+      "evidence": [
+        "UIUX-PILOT-01-BASELINE/specialist/followup-command.txt (sha256 1ec8f93c836e35c3…)",
+        "UIUX-PILOT-01-BASELINE/specialist/followup-output.raw.txt (sha256 a7d285affabf7d8b…): 0 results",
+        "UIUX-PILOT-01-BASELINE/specialist/assessment.md: follow-up returned nothing for batch or data-table readability"
+      ],
+      "ambiguity": "Empty is judged unacceptable because the catalog contains relevant records (Table Handling, Data-Dense Dashboard, app-table) that the critique filter excludes; only 2 of 5,500 records carry specialist_use=critique."
+    },
+    {
+      "id": "HIST-05",
+      "origin": "historical",
+      "split": "historical",
+      "role": "follow_up",
+      "follows": "HIST-02",
+      "tool": "search",
+      "query": "data table",
+      "args": ["--specialist-use", "build", "--limit", "5"],
+      "mode": "build",
+      "platform": null,
+      "historical_command": "python3 scripts/search_catalog.py \"data table\" --specialist-use build --limit 5",
+      "retained_output": "historical/HIST-05.json",
+      "constraints": ["targeted follow-up after HIST-02", "filters, sort and selection out of scope"],
+      "intent": "Find data-table presentation guidance for dense result rows",
+      "interface_purpose": "operate",
+      "expect_empty": false,
+      "empty_acceptable": false,
+      "conflict_rules": [],
+      "judgments": {
+        "3": [],
+        "2": ["uupm:styles:data-dense-dashboard"],
+        "1": ["open-design:skills:app-table"],
+        "0": ["uupm:landing:comparison-table-cta", "uupm:landing:comparison-table-focus", "uupm:phosphor-icon:table", "open-design:templates:html-ppt-zhangzara-long-table"]
+      },
+      "evidence": [
+        "UIUX-PILOT-02/specialist/build-followup-command.txt (sha256 dd9e39f1df0eb856…)",
+        "UIUX-PILOT-02/specialist/build-followup-output.raw.txt (sha256 1278b758b5d9b8ed…): 5 results",
+        "UIUX-PILOT-02/specialist/assessment.md: four results not relevant; app-table confirmed planned state coverage, no decision attributable"
+      ],
+      "ambiguity": "app-table graded 1 per the retained assessment (it confirmed coverage but its filters/sort/selection were excluded)."
+    },
+    {
+      "id": "SYN-01",
+      "origin": "synthetic",
+      "split": "development",
+      "role": "primary",
+      "tool": "recommend",
+      "query": "Refine the existing desktop help-desk console where support agents triage several hundred open tickets per shift: make queue rows quicker to scan, show ticket priority and SLA status clearly, and keep row actions reachable from the keyboard. Keep the current light theme and component library.",
+      "args": ["--mode", "build", "--platform", "web"],
+      "mode": "build",
+      "platform": "web",
+      "constraints": ["existing product", "desktop operational interface", "preserve light theme and component library", "keyboard-reachable row actions"],
+      "intent": "Bounded improvement of a dense desktop work queue",
+      "interface_purpose": "operate",
+      "expect_empty": false,
+      "empty_acceptable": false,
+      "conflict_rules": ["mobile_first_direction", "mobile_specific_direction", "replacement_identity"],
+      "judgments": {
+        "3": ["uupm:ux-guidelines:41", "uupm:ux-guidelines:37", "uupm:ux-guidelines:28"],
+        "2": ["uupm:ux-guidelines:71", "uupm:ux-guidelines:91", "uupm:ux-guidelines:84", "uupm:ux-guidelines:100", "open-design:skills:app-table", "uupm:styles:data-dense-dashboard"],
+        "1": ["uupm:ux-guidelines:86"],
+        "0": []
+      },
+      "evidence": ["Catalog inspection of guideline names and descriptions (ux-guidelines 28, 37, 41, 71, 84, 91, 100) and open-design:skills:app-table"],
+      "ambiguity": "Contrasts with HIST-02 using different domain wording; the word 'desktop' alone may attract Mobile First through its 'Avoid: Desktop-first' text."
+    },
+    {
+      "id": "SYN-02",
+      "origin": "synthetic",
+      "split": "development",
+      "role": "primary",
+      "tool": "recommend",
+      "query": "Design a new control-room dashboard for an electricity grid operator showing live load, outage alarms and 24-hour demand forecasts on large desktop monitors. There is no existing brand to follow.",
+      "args": ["--mode", "build", "--platform", "web"],
+      "mode": "build",
+      "platform": "web",
+      "constraints": ["new interface", "no existing identity", "large desktop monitors", "live data"],
+      "intent": "New dense data-heavy monitoring dashboard",
+      "interface_purpose": "operate",
+      "expect_empty": false,
+      "empty_acceptable": false,
+      "conflict_rules": ["mobile_first_direction", "mobile_specific_direction"],
+      "judgments": {
+        "3": ["uupm:styles:real-time-monitoring", "uupm:styles:data-dense-dashboard", "uupm:charts:23", "uupm:charts:10"],
+        "2": ["hallmark:theme:console", "open-design:design-systems:dashboard", "uupm:colors:24", "uupm:colors:188", "uupm:colors:90", "uupm:typography:42", "uupm:ux-guidelines:37", "uupm:charts:8", "uupm:charts:18"],
+        "1": ["uupm:colors:6", "uupm:colors:7", "uupm:styles:executive-dashboard", "uupm:styles:predictive-analytics"],
+        "0": []
+      },
+      "evidence": ["Catalog inspection of dashboard, monitoring and chart records (styles, palettes, chart_type, font_pairing)"],
+      "ambiguity": "Several palettes could fit an energy operator; none is uniquely correct."
+    },
+    {
+      "id": "SYN-03",
+      "origin": "synthetic",
+      "split": "development",
+      "role": "primary",
+      "tool": "recommend",
+      "query": "Build a mobile-first checkout for a grocery delivery web shop. Most customers order on phones with one hand, so prioritise thumb-reachable actions, large touch targets and quick address entry.",
+      "args": ["--mode", "build", "--platform", "web"],
+      "mode": "build",
+      "platform": "web",
+      "constraints": ["explicitly mobile-first", "web", "one-handed phone use", "form entry"],
+      "intent": "Contrasting case: mobile-first guidance is legitimate here",
+      "interface_purpose": "operate",
+      "expect_empty": false,
+      "empty_acceptable": false,
+      "conflict_rules": [],
+      "judgments": {
+        "3": ["uupm:ux-guidelines:64", "uupm:ux-guidelines:66", "uupm:ux-guidelines:22", "uupm:ux-guidelines:58", "uupm:ux-guidelines:57", "uupm:ux-guidelines:63"],
+        "2": ["uupm:ux-guidelines:23", "uupm:ux-guidelines:56", "uupm:ux-guidelines:43", "uupm:ux-guidelines:54", "uupm:colors:106", "uupm:colors:3"],
+        "1": ["uupm:styles:shopify-polaris"],
+        "0": []
+      },
+      "evidence": ["Catalog inspection of Mobile First, touch, input and autofill guidelines and e-commerce/grocery palettes"],
+      "ambiguity": "ux-guidelines:22 and :63 carry platform 'Mobile' and are excluded by --platform web, although the request is a web shop; this is a known platform-label limitation, not a reason to drop them from expectations."
+    },
+    {
+      "id": "SYN-04",
+      "origin": "synthetic",
+      "split": "held_out",
+      "role": "primary",
+      "tool": "recommend",
+      "query": "Audit the native iOS and Android settings screens for touch target size, dynamic type scaling and screen reader labels on icon-only buttons.",
+      "args": ["--mode", "audit", "--platform", "mobile"],
+      "mode": "audit",
+      "platform": "mobile",
+      "constraints": ["native mobile app", "technical audit"],
+      "intent": "Native mobile accessibility audit",
+      "interface_purpose": "operate",
+      "expect_empty": false,
+      "empty_acceptable": false,
+      "conflict_rules": [],
+      "judgments": {
+        "3": ["uupm:app-interface:6", "uupm:app-interface:27", "uupm:app-interface:1", "uupm:ux-guidelines:22"],
+        "2": ["uupm:app-interface:3", "uupm:app-interface:7", "uupm:ux-guidelines:40", "uupm:ux-guidelines:67", "uupm:ux-guidelines:42"],
+        "1": ["uupm:ux-guidelines:63"],
+        "0": []
+      },
+      "evidence": ["Catalog inspection of app-interface guidelines (platforms 'iOS/Android/React Native') and ux-guidelines with platforms 'Mobile' or 'All'"],
+      "ambiguity": "The most actionable records are labelled 'iOS/Android/React Native', which --platform mobile does not match."
+    },
+    {
+      "id": "SYN-05",
+      "origin": "synthetic",
+      "split": "development",
+      "role": "primary",
+      "tool": "recommend",
+      "query": "Add a billing settings page to our existing SaaS admin using its established design-system tokens, components and Inter typography. Do not introduce new colours or fonts; every field needs a visible label and clear inline errors.",
+      "args": ["--mode", "build", "--platform", "web"],
+      "mode": "build",
+      "platform": "web",
+      "constraints": ["existing design system must be preserved", "no new colours or fonts", "form accessibility"],
+      "intent": "Design-system preservation while building a form",
+      "interface_purpose": "operate",
+      "expect_empty": false,
+      "empty_acceptable": true,
+      "conflict_rules": ["replacement_identity"],
+      "judgments": {
+        "3": ["uupm:ux-guidelines:43", "uupm:ux-guidelines:54", "uupm:ux-guidelines:55", "uupm:ux-guidelines:109"],
+        "2": ["uupm:ux-guidelines:56", "uupm:ux-guidelines:59", "uupm:ux-guidelines:57", "uupm:ux-guidelines:58", "uupm:ux-guidelines:44"],
+        "1": [],
+        "0": []
+      },
+      "evidence": ["Catalog inspection of form, label and error guidelines"],
+      "ambiguity": "An empty shortlist is acceptable because the project design system governs; form guidance would still be useful."
+    },
+    {
+      "id": "SYN-06",
+      "origin": "synthetic",
+      "split": "development",
+      "role": "primary",
+      "tool": "recommend",
+      "query": "Create a visual identity for an independent bookshop's events website: warm, literary and editorial, with readable long-form event descriptions. No existing brand exists.",
+      "args": ["--mode", "build", "--platform", "web"],
+      "mode": "build",
+      "platform": "web",
+      "constraints": ["new identity", "warm, literary, editorial", "long-form readability"],
+      "intent": "New visual design without an existing identity",
+      "interface_purpose": "read",
+      "expect_empty": false,
+      "empty_acceptable": false,
+      "conflict_rules": [],
+      "judgments": {
+        "3": ["hallmark:theme:editorial", "open-design:design-systems:warm-editorial", "uupm:typography:4", "uupm:typography:14"],
+        "2": ["hallmark:theme:specimen", "hallmark:theme:newsprint", "open-design:design-systems:editorial", "uupm:styles:editorial-grid-magazine", "uupm:colors:67", "uupm:typography:35", "uupm:ux-guidelines:72", "uupm:ux-guidelines:73"],
+        "1": ["hallmark:theme:halftone", "uupm:colors:162"],
+        "0": []
+      },
+      "evidence": ["Catalog inspection of editorial themes, design systems, font pairings and magazine palette"],
+      "ambiguity": "Aesthetic fit is subjective; several editorial directions are acceptable."
+    },
+    {
+      "id": "SYN-07",
+      "origin": "synthetic",
+      "split": "held_out",
+      "role": "primary",
+      "tool": "recommend",
+      "query": "Critique the first-run onboarding screens of a meditation web app: does the calm aesthetic support comprehension, is the visual hierarchy clear, and is motion restrained?",
+      "args": ["--mode", "critique", "--platform", "web"],
+      "mode": "critique",
+      "platform": "web",
+      "constraints": ["critique (judgment)", "existing calm aesthetic", "web"],
+      "intent": "Design critique of onboarding",
+      "interface_purpose": "experience",
+      "expect_empty": false,
+      "empty_acceptable": false,
+      "conflict_rules": [],
+      "judgments": {
+        "3": ["uupm:ux-guidelines:39", "uupm:ux-guidelines:7", "uupm:ux-guidelines:9", "open-design:skills:flow-onboarding"],
+        "2": ["uupm:ux-guidelines:77", "uupm:ux-guidelines:99", "uupm:ux-guidelines:81", "hallmark:knowledge:review-finish", "uupm:colors:98", "uupm:styles:organic-biophilic"],
+        "1": ["uupm:typography:8", "uupm:colors:22"],
+        "0": []
+      },
+      "evidence": ["Catalog inspection of hierarchy, motion and onboarding records and calm palettes"],
+      "ambiguity": "Critique references to calm palettes are comparison points, not replacements."
+    },
+    {
+      "id": "SYN-08",
+      "origin": "synthetic",
+      "split": "development",
+      "role": "primary",
+      "tool": "recommend",
+      "query": "Audit a modal-heavy admin panel for focus trapping, escape to close, visible focus indicators, and disabled and loading button states.",
+      "args": ["--mode", "audit", "--platform", "web"],
+      "mode": "audit",
+      "platform": "web",
+      "constraints": ["technical audit", "keyboard and interaction states", "web"],
+      "intent": "Keyboard accessibility and interaction-state audit",
+      "interface_purpose": "operate",
+      "expect_empty": false,
+      "empty_acceptable": false,
+      "conflict_rules": [],
+      "judgments": {
+        "3": ["uupm:ux-guidelines:28", "uupm:ux-guidelines:41", "uupm:ux-guidelines:31", "uupm:ux-guidelines:32", "uupm:ux-guidelines:100", "uupm:ux-guidelines:102"],
+        "2": ["uupm:app-interface:11", "uupm:ux-guidelines:35", "uupm:ux-guidelines:40", "uupm:ux-guidelines:10"],
+        "1": ["uupm:ux-guidelines:119"],
+        "0": []
+      },
+      "evidence": ["Catalog inspection of focus, keyboard, disabled, loading and modal guidelines"],
+      "ambiguity": "uupm:app-interface:11 (Modal Escape) is labelled for native platforms, so web filtering excludes it."
+    },
+    {
+      "id": "SYN-09",
+      "origin": "synthetic",
+      "split": "development",
+      "role": "primary",
+      "tool": "recommend",
+      "query": "Rename the CSV export column header from 'Checked' to 'Checked at' in the backend serializer.",
+      "args": ["--mode", "build", "--platform", "web"],
+      "mode": "build",
+      "platform": "web",
+      "constraints": ["non-visual backend text change"],
+      "intent": "Abstention case: no design reference is appropriate",
+      "interface_purpose": "none",
+      "expect_empty": true,
+      "empty_acceptable": true,
+      "conflict_rules": [],
+      "judgments": {"3": [], "2": [], "1": [], "0": []},
+      "evidence": ["AGENTS.md: do not invoke catalog retrieval for non-UI work or trivial text edits without a concrete benefit"],
+      "ambiguity": "In practice the skill should not be invoked; the case tests what the lookup does if it is."
+    },
+    {
+      "id": "SYN-10",
+      "origin": "synthetic",
+      "split": "development",
+      "role": "primary",
+      "tool": "recommend",
+      "query": "Redesign the donation landing page for a children's hospital charity. Do not use dark mode, glassmorphism or decorative animation; prioritise legibility for older donors.",
+      "args": ["--mode", "build", "--platform", "web"],
+      "mode": "build",
+      "platform": "web",
+      "constraints": ["redesign permitted", "no dark mode", "no glassmorphism", "no decorative animation", "legibility for older readers"],
+      "intent": "Prohibited-characteristics case",
+      "interface_purpose": "experience",
+      "expect_empty": false,
+      "empty_acceptable": false,
+      "conflict_rules": ["dark_ground", "glassmorphism", "decorative_motion_preset", "motion_led_direction"],
+      "judgments": {
+        "3": ["uupm:colors:44", "uupm:ux-guidelines:67", "uupm:ux-guidelines:36", "uupm:styles:accessible-and-ethical"],
+        "2": ["uupm:colors:57", "uupm:typography:16", "uupm:ux-guidelines:9", "uupm:ux-guidelines:76", "uupm:styles:inclusive-design", "hallmark:theme:ink"],
+        "1": ["uupm:colors:8"],
+        "0": []
+      },
+      "evidence": ["Catalog inspection of charity, senior-care and accessibility records; conflict rules checked against catalog text"],
+      "ambiguity": "Negated terms ('glassmorphism', 'dark', 'animation') are lexically present in the query, which may attract exactly the prohibited records."
+    },
+    {
+      "id": "SYN-11",
+      "origin": "synthetic",
+      "split": "held_out",
+      "role": "primary",
+      "tool": "recommend",
+      "query": "Review the desktop trading blotter's order table for scan speed, numeric alignment and whether status colours can be told apart without relying on colour alone.",
+      "args": ["--mode", "critique", "--platform", "web"],
+      "mode": "critique",
+      "platform": "web",
+      "constraints": ["critique (judgment)", "desktop", "dense numeric table"],
+      "intent": "Critique of a dense numeric desktop table",
+      "interface_purpose": "operate",
+      "expect_empty": false,
+      "empty_acceptable": false,
+      "conflict_rules": ["mobile_first_direction", "mobile_specific_direction"],
+      "judgments": {
+        "3": ["uupm:ux-guidelines:86", "uupm:ux-guidelines:37"],
+        "2": ["uupm:ux-guidelines:71", "uupm:ux-guidelines:36", "open-design:design-systems:trading-terminal", "uupm:styles:data-dense-dashboard", "uupm:typography:42"],
+        "1": ["uupm:styles:financial-dashboard", "uupm:colors:6"],
+        "0": []
+      },
+      "evidence": ["Catalog inspection of number formatting, colour-only, table and trading records"],
+      "ambiguity": "'Review' is used instead of 'critique' in the query text; mode is critique."
+    },
+    {
+      "id": "SYN-12",
+      "origin": "synthetic",
+      "split": "development",
+      "role": "follow_up",
+      "follows": "SYN-01",
+      "tool": "search",
+      "query": "keyboard row selection table",
+      "args": ["--specialist-use", "audit", "--limit", "5"],
+      "mode": "audit",
+      "platform": null,
+      "constraints": ["targeted follow-up", "keyboard interaction in tables"],
+      "intent": "Targeted follow-up for keyboard row actions",
+      "interface_purpose": "operate",
+      "expect_empty": false,
+      "empty_acceptable": false,
+      "conflict_rules": [],
+      "judgments": {
+        "3": ["uupm:ux-guidelines:41"],
+        "2": ["uupm:ux-guidelines:71", "uupm:ux-guidelines:91", "uupm:ux-guidelines:28"],
+        "1": [],
+        "0": []
+      },
+      "evidence": ["Catalog inspection of keyboard, table and bulk-action guidelines"],
+      "ambiguity": "Few catalog records address keyboard row selection directly."
+    }
+  ]
+}

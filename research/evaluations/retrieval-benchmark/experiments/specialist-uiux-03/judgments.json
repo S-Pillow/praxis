@@ -1,0 +1,34 @@
+{
+  "label": "post_hoc_uiux03",
+  "description": "Relevance grades for records returned by the SPECIALIST-UIUX-03 candidate that neither the frozen judgments in cases.json, post-hoc-judgments.json nor the SPECIALIST-UIUX-02 experiment judgments cover. Assigned by the Builder Agent after inspecting each catalog record and after seeing the candidate output, so they are weaker evidence than frozen judgments. In SPECIALIST-UIUX-03 all 17 cases are development and regression evidence, including the formerly reserved SYN-04, SYN-07 and SYN-11. The SYN-11 entry was returned by a pre-freeze iteration before the colour/colours query alias, not by the frozen candidate; it is retained as recorded. Grades of 0 are given only where the record content does not fit the task. Conflicts are not judged here; they come from the frozen conflict rules.",
+  "judged_on": "2026-11-24",
+  "judged_after": {
+    "cases_sha256": "6b6dda63eac336f2ee6078550f82f3175d0a1e440fd8a666a8de324b0d6038d2",
+    "post_hoc_sha256": "573f4da10fe2dd72c0abb6fd2f4508b179f3db76ea4586f0090d1a4d73684f1d",
+    "uiux02_judgments_sha256": "20588e0269eeb9a93a3abd1116b675f5a2c6450a5046ace15199f7970fad8755"
+  },
+  "rubric": "0 irrelevant, 1 tangential, 2 relevant, 3 directly actionable",
+  "judgments": {
+    "SYN-01": {
+      "uupm:ux-guidelines:61": {
+        "grade": 0,
+        "phase": "development",
+        "rationale": "Confirms form submission status; matched 'status' but the task concerns scanning ticket queues, showing priority and SLA status, and keyboard-reachable row actions, not form submission."
+      }
+    },
+    "SYN-06": {
+      "uupm:ux-guidelines:67": {
+        "grade": 2,
+        "phase": "development",
+        "rationale": "Readable text size directly supports the requested readable long-form event descriptions, though it is generic rather than editorial."
+      }
+    },
+    "SYN-11": {
+      "uupm:ux-guidelines:14": {
+        "grade": 0,
+        "phase": "development",
+        "rationale": "Animation easing matched only the word 'speed'; the task concerns scan speed of a static order table, numeric alignment and colour-independent status."
+      }
+    }
+  }
+}

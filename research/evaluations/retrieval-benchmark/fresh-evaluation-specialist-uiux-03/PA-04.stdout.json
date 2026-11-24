@@ -1,0 +1,72 @@
+{
+  "task": "Critique the visual identity of a new editorial website and suggest suitable typography or style alternatives.",
+  "mode": "critique",
+  "platform": "web",
+  "catalog_records_searched": 5500,
+  "selection_scope": "normal",
+  "task_signals": {
+    "interface_priority": null,
+    "prohibited": [],
+    "preserved_identity": [],
+    "requested_identity": [
+      "direction",
+      "palette",
+      "typography"
+    ],
+    "not_sole_reliance": []
+  },
+  "references": [
+    {
+      "role": "usability_reference",
+      "catalog_id": "uupm:ux-guidelines:38",
+      "entry_type": "guideline",
+      "original_name": "Alt Text",
+      "description": "Images need text alternatives",
+      "source_repo": "nextlevelbuilder/ui-ux-pro-max-skill",
+      "source_ref": "f2cc36555984fbfb08f1dca037da2467578f33d2",
+      "source_url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/f2cc36555984fbfb08f1dca037da2467578f33d2/.claude/skills/ui-ux-pro-max/data/ux-guidelines.csv",
+      "source_path_or_key": ".claude/skills/ui-ux-pro-max/data/ux-guidelines.csv#row=39",
+      "evidence_status": "source_inspected",
+      "redistribution_status": "metadata_only",
+      "asset_license_status": "not_applicable",
+      "platforms": [
+        "All"
+      ],
+      "compatibility_restrictions": [
+        "Platform: All",
+        "Avoid: Empty or missing alt attributes"
+      ],
+      "relevance_score": 4.595978
+    },
+    {
+      "role": "design_reference",
+      "catalog_id": "hallmark:theme:studio",
+      "entry_type": "theme",
+      "original_name": "Studio",
+      "description": "cool studio-white proof paper with an ink dot grid and grain, blue-black ink, Hedvig Letters Serif heads over Geist, crop marks on every printed piece, orange construction guides, the work photographed in true colour, one cadmium-orange signal",
+      "source_repo": "Nutlope/hallmark",
+      "source_ref": "04977e15f3dfd6ee4b74c887dac3eb52665d6c92",
+      "source_url": "https://github.com/Nutlope/hallmark/blob/04977e15f3dfd6ee4b74c887dac3eb52665d6c92/skills/hallmark/references/themes/index.json",
+      "source_path_or_key": "skills/hallmark/references/themes/index.json#themes[slug=studio]",
+      "evidence_status": "source_inspected",
+      "redistribution_status": "metadata_only",
+      "asset_license_status": "mixed",
+      "platforms": [
+        "web"
+      ],
+      "compatibility_restrictions": [
+        "Web-oriented theme; verify other platform applicability",
+        "Photo, preview and fonts not cleared for redistribution"
+      ],
+      "relevance_score": 12.106218,
+      "source_tokens_excerpt": {
+        "--color-paper": "oklch(97.2% 0.006 215)",
+        "--color-ink": "oklch(16% 0.032 250)",
+        "--color-accent": "oklch(68% 0.172 50)",
+        "--color-focus": "oklch(52% 0.15 48)"
+      }
+    }
+  ],
+  "selection_method": "heuristic text matching; not design or legal approval",
+  "use_boundary": "Suggestions are optional and unapproved. Existing project identity, design system, behavior, and applicable AIPF authorization take priority. Do not copy third-party fonts, photos, icons, branded assets or code based on metadata. Confirm source rights and actual access. Inspect the rendered UI before claiming visual acceptance. This command does not build, modify, install, deploy, or verify an interface."
+}

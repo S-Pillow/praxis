@@ -13,6 +13,27 @@ python scripts/recommend_design.py "Audit keyboard focus and navigation" --mode 
 
 The output is a small set of source-linked **candidates**, not automatic design approval. It includes evidence, license restrictions and a short exact-token excerpt where available; it does not create files or execute a build. The existing `search_catalog.py` remains the deeper, read-only search tool.
 
+**Selection behaviour (SPECIALIST-UIUX-02, released in v0.3).** The shortlist reads explicit constraints in the request; `task_signals` in the output shows what it detected.
+- Only a record's name, type, keywords and description count as matching evidence. `compatibility_restrictions` ("Avoid: …", "Avoid for: …") are returned unchanged but never scored.
+- A stated interface priority ("desktop-first", or desktop or mobile mentioned alone) excludes records that advocate the opposite priority or discourage the stated one. This is separate from `--platform`: a web interface can be desktop-first or mobile-first.
+- Explicitly prohibited items ("do not use dark mode or glassmorphism") are removed from the query and exclude matching theme, style, palette, font and motion records.
+- An explicit instruction to keep an identity ("keep the current theme", "do not introduce new colours or fonts") suppresses replacement direction, palette or typography unless that part is explicitly requested. When every identity role is suppressed, `selection_scope` is `preserve_identity` and the shortlist contains usability guidelines.
+- Audit and `preserve_identity` shortlists add further guidelines up to `--limit` when each scores at least half of the best match.
+- Platform labels are normalized ("iOS/Android/React Native" counts as mobile). Framework-labelled guidance ("React/Next.js") requires the framework to be named in the request.
+- Clearly non-visual work (backend cues and no interface cues) returns no references, with `selection_scope: non_visual_task`. A missing catalog or empty request is an error, never an empty result.
+
+**Refinements (SPECIALIST-UIUX-03, released in v0.3).**
+- A limit on exclusive reliance ("without relying on colour alone", "don't rely solely on color", "no colour-only indicators") is not a prohibition. Colour stays in the query and palettes stay eligible; `task_signals.not_sole_reliance` lists such items. Genuine prohibitions ("do not use red") still apply.
+- A critique includes a theme or style reference only when the request asks about visual direction (style, aesthetic, theme, brand, identity, palette, typography and similar), and only when the reference shares at least two query terms. Other critiques return guidelines and fill up to `--limit` as audits do.
+- The delivery-platform word "web" is not matching evidence; platform fit comes from `--platform`.
+- "help" and "support" count only next to an interface noun ("help center", "support chat", "inline help"), not as domain words or verbs ("help-desk", "support agents", "browsers that support").
+- A word that appears only inside a hyphenated compound ("first-run", "long-form") counts only for records containing the whole phrase. "desktop-first" and "mobile-first" are interpreted as interface priorities.
+- The British spelling "colour" matches the catalog's "color". The plural "colours" maps to "colors", which matches only plural catalog text.
+
+**Preservation versus prohibition (SPECIALIST-UIUX-04, released in v0.3).** A negated change ("without changing its established appearance", "do not alter the current theme") protects the existing identity and prohibits nothing. A prohibition implies preservation only when it names a bare identity part ("no new colours or fonts"). A qualified prohibition ("avoid saturated accent colors") constrains a new design and leaves the palette eligible. A preservation instruction in the same sentence no longer cancels a prohibition ("avoid glassmorphism and keep the current palette"). Preserve and request cues apply to their own part of a sentence ("keep the palette and choose a new font pairing").
+
+Benchmark evidence and limits: `research/evaluations/2026-11-24-specialist-uiux-02-retrieval-experiment.md` and `research/evaluations/2026-11-24-specialist-uiux-03-refinement.md`.
+
 ### Manual targeted search (optional)
 
 Run from the repository root:
@@ -24,7 +45,7 @@ python scripts/search_catalog.py "riso" --limit 5 --include-tokens
 python scripts/search_catalog.py "navigation accessibility" --specialist-use audit
 ```
 
-Outputs JSON including original source ID, pinned commit, original location, license/redistribution status, and compatibility restrictions. `--include-tokens` returns exact imported source values where present; omit it for a concise shortlist.
+Outputs JSON including original source ID, pinned commit, original location, license/redistribution status, and compatibility restrictions. Ranking is unchanged for manual search (including the Design Index). `--specialist-use critique` also admits audit-tagged guidelines, because only two records are tagged `critique`. `--include-tokens` returns exact imported source values where present; omit it for a concise shortlist.
 
 **AIPF Prompt Agent / Builder Agent:**
 - The Prompt Agent chooses an authorized unit, approved direction and relevant catalog findings.
