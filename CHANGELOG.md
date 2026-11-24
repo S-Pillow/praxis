@@ -8,9 +8,13 @@ Retrieval-quality release of the agent shortlist (`scripts/recommend_design.py`)
 
 - **Restrictions are not evidence.** "Avoid: …" and "Avoid for: …" text is returned unchanged but never scored. A stated desktop-first or mobile-first priority excludes records that advocate the opposite priority, independent of `--platform`.
 - **Explicit constraints.** Prohibited items ("do not use dark mode or glassmorphism") are removed from the query and exclude matching identity records. A limit on exclusive reliance ("without relying on colour alone") is not a prohibition.
-- **Preservation versus redesign.** "Keep the current theme" or "without changing its established appearance" protects the existing identity, and the shortlist then holds usability guidelines (`selection_scope: preserve_identity`). A prohibition implies preservation only when it names a bare identity part ("no new colours or fonts"). A qualified prohibition ("avoid saturated accent colors") constrains a new design. Explicit redesign requests stay available.
+- **Preservation versus redesign.** "Keep the current theme", "without changing its established appearance" or "do not alter the look and feel" protects the existing identity, and the shortlist then holds usability guidelines (`selection_scope: preserve_identity`).
+  - A prohibition implies preservation only when it names a bare identity part ("no new colours or fonts"). A qualified prohibition ("avoid saturated accent colors") constrains a new design.
+  - A preservation instruction no longer cancels a prohibition in the same sentence.
+  - Preserve and request cues apply to their own part of a sentence ("keep the palette and choose a new font pairing").
+  - Explicit redesign requests stay available.
 - **Critique.** A theme or style reference is offered only for visual-direction critiques, and it must share at least two query terms. Usability and operational critiques return guidelines.
-- **Lexical noise.** Grammatical words, the platform word "web", "help" and "support" outside interface contexts, and words that occur only inside hyphenated compounds no longer drive matches. "colour" matches "color".
+- **Lexical noise.** Grammatical words, the platform word "web", "help" and "support" outside interface contexts, and words that occur only inside hyphenated compounds no longer drive matches. The British "colour" matches "color".
 - **Eligibility and abstention.**
   - Native platform labels count as mobile.
   - Framework guidance requires the framework to be named.
@@ -37,7 +41,7 @@ All evidence is in `research/evaluations/`. The figures below are development an
   | Conflicting results | 9 of 39 | 0 of 50 |
 
   The expected abstention (SYN-09) is now correct.
-- **Fresh evaluation:** seven withheld Prompt Agent queries, run once against the frozen UIUX-03 candidate (`retrieval-benchmark/fresh-evaluation-specialist-uiux-03/`). Two preservation-versus-prohibition defects (PA-02, PA-05) were corrected for v0.3. The rerun is in `retrieval-benchmark/experiments/specialist-uiux-04/correction-results.json`. Only PA-02 and PA-05 changed, and none of the 17 benchmark cases changed.
+- **Fresh evaluation:** seven withheld Prompt Agent queries, run once against the frozen UIUX-03 candidate (`retrieval-benchmark/fresh-evaluation-specialist-uiux-03/`). Two preservation-versus-prohibition defects (PA-02, PA-05) were corrected for v0.3, along with related phrasings found in PR review. The rerun is in `retrieval-benchmark/experiments/specialist-uiux-04/correction-results.json`. Only PA-02 and PA-05 changed, and none of the 17 benchmark cases changed.
 - Reports:
   - `2026-11-24-url-activity-scanner-uiux-pilot.md`
   - `2026-11-24-specialist-uiux-02-retrieval-experiment.md`
@@ -54,6 +58,7 @@ All evidence is in `research/evaluations/`. The figures below are development an
   - a repair task whose palette matched the backend word "database" (PA-07).
 - A negated phrase can absorb trailing words ("avoid neon colours in this new fitness app" also prohibits "fitness").
 - A protected identity word can still act as matching evidence. In PA-05, Focus Appearance matched on "appearance".
+- The plural "colours" maps to "colors" and does not match the singular "color" in catalog names. A request that uses only "colours" can miss Color Contrast and Color Only.
 - Manual search ranking is unchanged, so the HIST-05 follow-up search remains weak.
 - Retrieval quality is not proof of better rendered design.
 

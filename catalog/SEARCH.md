@@ -28,9 +28,9 @@ The output is a small set of source-linked **candidates**, not automatic design 
 - The delivery-platform word "web" is not matching evidence; platform fit comes from `--platform`.
 - "help" and "support" count only next to an interface noun ("help center", "support chat", "inline help"), not as domain words or verbs ("help-desk", "support agents", "browsers that support").
 - A word that appears only inside a hyphenated compound ("first-run", "long-form") counts only for records containing the whole phrase. "desktop-first" and "mobile-first" are interpreted as interface priorities.
-- British spellings "colour" and "colours" match the catalog's American spelling.
+- The British spelling "colour" matches the catalog's "color". The plural "colours" maps to "colors", which matches only plural catalog text.
 
-**Preservation versus prohibition (SPECIALIST-UIUX-04, released in v0.3).** "Without changing its established appearance" protects the existing identity instead of prohibiting the words "established appearance". A prohibition implies preservation only when it names a bare identity part ("no new colours or fonts"); a qualified prohibition ("avoid saturated accent colors") constrains a new design and leaves the palette eligible.
+**Preservation versus prohibition (SPECIALIST-UIUX-04, released in v0.3).** A negated change ("without changing its established appearance", "do not alter the current theme") protects the existing identity and prohibits nothing. A prohibition implies preservation only when it names a bare identity part ("no new colours or fonts"). A qualified prohibition ("avoid saturated accent colors") constrains a new design and leaves the palette eligible. A preservation instruction in the same sentence no longer cancels a prohibition ("avoid glassmorphism and keep the current palette"). Preserve and request cues apply to their own part of a sentence ("keep the palette and choose a new font pairing").
 
 Benchmark evidence and limits: `research/evaluations/2026-11-24-specialist-uiux-02-retrieval-experiment.md` and `research/evaluations/2026-11-24-specialist-uiux-03-refinement.md`.
 

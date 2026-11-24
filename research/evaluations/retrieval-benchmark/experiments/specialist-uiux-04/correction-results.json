@@ -3,7 +3,7 @@
   "evidence_status": "Regression evidence for the preservation-versus-prohibition correction. These seven Prompt Agent queries were seen before the correction, so they are no longer held-out evidence. The original fresh evaluation is preserved unchanged in fresh-evaluation-specialist-uiux-03/.",
   "base_candidate_commit": "cd3ef156086bf0b7e518fd5e38e1135c1d8a74cf",
   "retrieval_scripts_sha256": {
-    "recommend": "2e077446344c7eb942bb4520a76179c0b21e783c02b7b8bc73b66b2f79bfe7a0",
+    "recommend": "5fd8f759b971c7d7c1501064225aa7464c9388621a73a89a88178c0a6c79019e",
     "search": "f3a5c885cb510f55769d94999f93a2c0a7752bf45f52050aa3c2397808a0c128"
   },
   "corrected_cases": [
@@ -758,5 +758,6 @@
         "use_boundary": "Suggestions are optional and unapproved. Existing project identity, design system, behavior, and applicable AIPF authorization take priority. Do not copy third-party fonts, photos, icons, branded assets or code based on metadata. Confirm source rights and actual access. Inspect the rendered UI before claiming visual acceptance. This command does not build, modify, install, deploy, or verify an interface."
       }
     }
-  ]
+  ],
+  "review_corrections": "After PR review, the same mechanism was corrected for: a prohibition sharing its scope with a preservation instruction; negated changes ('without changing its look and feel', 'the existing appearance'); passive preservation cues; and per-part preservation versus request. No benchmark case changed."
 }

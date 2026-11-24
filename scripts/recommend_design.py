@@ -96,6 +96,14 @@ def norm(term):
 
 
 EXCLUSIVE_RELIANCE = re.compile(r'\b(?:alone|only|solely|exclusively|sole)\b')
+EXISTING_REFERENCE = re.compile(r'\b(?:existing|current|established)\b')
+LOOK_AND_FEEL = re.compile(r'\blook and feel\b')
+CHANGE_VERBS = r'(?:change|changing|alter|altering|modify|modifying|replace|replacing|touch|touching)'
+PART_CHANGE = re.compile(rf'^{CHANGE_VERBS}\b')
+PART_PRESERVE = re.compile(r'^(?:keep|keeping|preserve|preserving|retain|retaining|maintain|maintaining)\b')
+PART_PROHIBIT = re.compile(r'^(?:use|using|introduce|introducing|add|adding|apply|applying|include|including)\b')
+NEGATED_CHANGE = re.compile(
+    rf"\b(?:without|do not|don't|does not|must not|should not|never|not|avoid|avoiding)\s+(?:\w+\s+)?{CHANGE_VERBS}\b")
 
 
 def negation_scopes(text):
@@ -107,13 +115,21 @@ def negation_scopes(text):
     brand") is neither.
     """
     prohibited, reliance = [], []
-    for match in NEGATION.finditer(text.lower()):
-        scope = match.group('scope')
-        if re.search(r'\b(?:existing|current|established)\b', scope):
-            continue
-        for part in re.split(r',|\bor\b|\bnor\b|\band\b', scope):
-            if EXCLUSIVE_RELIANCE.match(part.strip()):
-                # "do not use glassmorphism, only flat surfaces": a stated alternative, not negated.
+    for match in NEGATION.finditer(LOOK_AND_FEEL.sub('look_and_feel', text.lower())):
+        preserving = False
+        for part in re.split(r',|\bor\b|\bnor\b|\band\b', match.group('scope')):
+            part = part.strip()
+            if PART_PRESERVE.match(part):
+                # "avoid glassmorphism and keep the current palette": the rest is not negated.
+                break
+            if PART_CHANGE.match(part):
+                # "without changing its look and feel" protects what follows; it prohibits nothing.
+                preserving = True
+                continue
+            if PART_PROHIBIT.match(part):
+                preserving = False
+            if preserving or EXISTING_REFERENCE.search(part) or EXCLUSIVE_RELIANCE.match(part):
+                # Something absent ("no existing brand") or a stated alternative ("only flat surfaces").
                 continue
             words = [t for t in terms(part) if t not in FILLER and t not in NEGATED_FILLER
                      and len(t) > 2 and not EXCLUSIVE_RELIANCE.fullmatch(t)]
@@ -140,13 +156,14 @@ def interface_priority(text):
 IDENTITY_GROUPS = ('direction', 'palette', 'typography')
 # Words naming part of a visual identity, mapped to the build groups they cover.
 IDENTITY_OBJECTS = (
-    (re.compile(r'\b(?:identity|brand|branding|theme|design[- ]system|tokens|aesthetic|look and feel|appearance)\b'),
+    (re.compile(r'\b(?:identity|brand|branding|theme|design[- ]system|tokens|aesthetic|look and feel|look_and_feel|appearance)\b'),
      IDENTITY_GROUPS),
     (re.compile(r'\b(?:style|styling|component library|components)\b'), ('direction',)),
     (re.compile(r'\b(?:palette|colou?rs?)\b'), ('palette',)),
     (re.compile(r'\b(?:fonts?|typography|typefaces?)\b'), ('typography',)),
 )
-PRESERVE_CUES = re.compile(r'\b(?:keep|keeping|preserve|preserving|retain|retaining|maintain|maintaining|'
+PRESERVE_CUES = re.compile(r'\b(?:keep|keeping|kept|preserve|preserving|preserved|retain|retaining|retained|'
+                           r'maintain|maintaining|maintained|'
                            r'reuse|reusing|established|unchanged)\b')
 REQUEST_CUES = re.compile(r'\b(?:create|design|choose|pick|propose|suggest|new|redesign|rebrand|restyle|refresh)\b')
 CLAUSE_SPLIT = re.compile(r'[.;!?]|\bwhile\b|\bbut\b')
@@ -175,14 +192,25 @@ def identity_intent(task, prohibited):
     introduce new colours"); merely improving an existing UI is not enough.
     """
     preserved, requested = set(), set()
-    for clause in CLAUSE_SPLIT.split(task.lower()):
-        named = identity_groups(clause)
-        if not named:
-            continue
-        if PRESERVE_CUES.search(clause):
-            preserved.update(named)
-        elif REQUEST_CUES.search(clause) and not NEGATION.search(clause):
-            requested.update(named)
+    for clause in CLAUSE_SPLIT.split(LOOK_AND_FEEL.sub('look_and_feel', task.lower())):
+        # A cue covers its own part of the clause and uncued neighbours: "keep the palette and
+        # choose a new font pairing" preserves the palette but requests typography.
+        parts = re.split(r',|\band\b', clause)
+        modes = []
+        for part in parts:
+            if PRESERVE_CUES.search(part) or NEGATED_CHANGE.search(part):
+                modes.append('preserve')
+            elif REQUEST_CUES.search(part) and not NEGATION.search(part):
+                modes.append('request')
+            else:
+                modes.append(modes[-1] if modes else None)
+        first = next((m for m in modes if m), None)
+        for part, mode in zip(parts, modes):
+            mode = mode or first
+            if mode == 'preserve':
+                preserved.update(identity_groups(part))
+            elif mode == 'request':
+                requested.update(identity_groups(part))
     for item in prohibited:
         # "no new colours" protects the palette; "avoid saturated accent colours" constrains a new one.
         text = ' '.join(item)

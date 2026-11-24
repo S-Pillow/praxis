@@ -49,6 +49,37 @@ class PreservationVersusProhibitionTests(unittest.TestCase):
         self.assertEqual(analyse_task('Avoid changing the established brand.')['prohibited'], [])
         self.assertEqual(analyse_task('Avoid changing the established brand.')['preserved'], set(IDENTITY_GROUPS))
 
+    def test_prohibition_survives_a_preservation_instruction_in_scope(self):
+        task = 'Build a dashboard. Avoid glassmorphism and keep the current palette.'
+        signals = analyse_task(task)
+        self.assertEqual(signals['prohibited'], [('glassmorphism',)])
+        self.assertEqual(signals['preserved'], {'palette'})
+        data = recommend(task, self.rows, platform='web')
+        for ref in data['references']:
+            self.assertFalse(conflicts_with_task(self.index[ref['catalog_id']], signals), ref['catalog_id'])
+
+    def test_negated_change_preserves_without_prohibiting(self):
+        for task in ('Refine the settings page without changing its look and feel.',
+                     'Refine the settings page without changing the existing appearance.',
+                     'Do not alter the current theme.',
+                     'Its brand colours and fonts must be preserved; improve the table layout.'):
+            with self.subTest(task=task):
+                signals = analyse_task(task)
+                self.assertEqual(signals['prohibited'], [])
+                self.assertEqual(signals['preserved'], set(IDENTITY_GROUPS))
+
+    def test_preservation_and_request_apply_to_their_own_parts(self):
+        signals = analyse_task('Keep our current palette and choose a new font pairing for the editorial blog.')
+        self.assertEqual(signals['preserved'], {'palette'})
+        self.assertEqual(signals['requested'], {'typography'})
+        data = recommend('Keep our current palette and choose a new font pairing for the editorial blog.',
+                         self.rows, platform='web')
+        self.assertIn('typography', self.roles(data))
+        self.assertNotIn('palette', self.roles(data))
+        self.assertEqual(analyse_task('Keep the current light theme and component library.')['preserved'],
+                         set(IDENTITY_GROUPS))
+        self.assertEqual(analyse_task('Redesign the look and feel of the app.')['requested'], set(IDENTITY_GROUPS))
+
     def test_redesign_and_genuine_prohibition_remain_distinct(self):
         redesign = analyse_task('Redesign the dashboard with a new appearance and a fresh palette.')
         self.assertEqual(redesign['requested'], set(IDENTITY_GROUPS))

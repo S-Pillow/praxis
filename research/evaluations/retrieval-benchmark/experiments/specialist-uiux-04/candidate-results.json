@@ -4,7 +4,7 @@
   "post_hoc_sha256": "573f4da10fe2dd72c0abb6fd2f4508b179f3db76ea4586f0090d1a4d73684f1d",
   "environment": {
     "repository": {
-      "head": "cd3ef156086bf0b7e518fd5e38e1135c1d8a74cf",
+      "head": "9f59eea73bae4c79b93742713baadb1f12254823",
       "retrieval_and_catalog_modified": true
     },
     "catalog": {
@@ -14,7 +14,7 @@
     },
     "python": "3.12.3",
     "retrieval_scripts_sha256": {
-      "recommend": "2e077446344c7eb942bb4520a76179c0b21e783c02b7b8bc73b66b2f79bfe7a0",
+      "recommend": "5fd8f759b971c7d7c1501064225aa7464c9388621a73a89a88178c0a6c79019e",
       "search": "f3a5c885cb510f55769d94999f93a2c0a7752bf45f52050aa3c2397808a0c128"
     },
     "implementation": "working-tree"
