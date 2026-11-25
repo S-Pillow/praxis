@@ -25,3 +25,7 @@ Review Parity remains a separate experimental initiative and a possible source o
 - Preserve earlier QA research and Review Parity experimental evidence without treating unfinished comparative research as either a success or failure of the proposed Praxis integration.
 
 The [PRD roadmap](../PRD.md#6-specialist-expansion-roadmap) is the current product planning reference. No change to standalone AIPF, v1.0.0 release contents, runtime registration or existing acceptance requirements is implied.
+
+## Research and planning consolidation — 2026-11-25
+
+The completed discovery and build-plan research led to an original progressive guide/decision-card design and a shared external capability index. Free-for-Dev is discovery-only; material provider facts are verified at point of recommendation. Interfere and Claude Ship remain optional candidate references, not integrations. See [PRD v1.2](../PRD.md) and [build plan](../ARCHITECTURE-SPECIALIST-BUILD-PLAN.md). This final planning copy does not claim implementation approval, completed tests or publication of v1.1.0.

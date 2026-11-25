@@ -277,6 +277,14 @@ The next specialist will focus on software architecture and engineering design. 
 
 The specialist should help choose the simplest suitable approach, not prescribe fashionable patterns, frameworks or additional layers by default. Expertise remains available for direct execution as well as separate-agent workflows, including critique of existing systems and verification of material design decisions.
 
+### What the architecture specialist will contribute
+
+- **Architecture intelligence:** context-sensitive patterns, quality attributes, tradeoffs, interfaces and maintainability.
+- **Technology and service intelligence:** local, self-hosted, existing and hosted options; current official verification of material pricing, terms and limits rather than copying free-tier directories.
+- **Engineering capability intelligence:** source-linked discovery of useful external tools, including observability and review automation. No provider integration is required or enabled.
+
+The planned v1.1.0 scope uses original progressive guides and decision cards, plus a shared capability index. It will not require a vector database, new cloud service, separate Builder installation or mandatory lookup engine. See the [detailed PRD](docs/PRD.md) and [architecture specialist build plan](docs/ARCHITECTURE-SPECIALIST-BUILD-PLAN.md). These capabilities are planned, not available in v1.0.0.
+
 ### Cross-cutting capability: Review Parity
 
 Review Parity is a separate experimental initiative whose mechanisms may eventually support all Praxis specialists. Its proposed role is engineering assurance: deterministic evidence verification, source and scope integrity, finding reconciliation and release-evidence auditing. It would complement AIPF and specialist judgment, not replace either or grant independent approval authority.

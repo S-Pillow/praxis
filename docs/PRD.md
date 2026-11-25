@@ -1,6 +1,8 @@
 # Praxis — Product Requirements Document
 
-Version: 0.2 | Status: Owner-approved product baseline and roadmap direction | Original baseline: 2026-11-24 | Roadmap revision: 2026-11-25 ([DEC-004](decisions/PRAXIS-DEC-004-specialist-expansion.md))
+Version: 1.2 | Status: Final consolidated product planning specification | Date: 2026-11-25 | Released product: v1.0.0 | Planned next release: v1.1.0 (subject to acceptance and release authorization)
+
+The owner approved the architecture-first roadmap and discovery work. This revision consolidates the detailed requirements and design research into the final planning copy requested by the owner. It is not an implementation or release authorization. Retain the original approved v1.0.0 requirements and historical evidence; future requirements describe the target, not shipped functionality. See [DEC-004](decisions/PRAXIS-DEC-004-specialist-expansion.md) and the [architecture specialist build plan](ARCHITECTURE-SPECIALIST-BUILD-PLAN.md).
 
 **Intelligence into action.**
 
@@ -82,7 +84,7 @@ The order beyond the next specialist is an indicative planning sequence, not a d
 
 The specialist should support both new-system design and material changes to existing systems. It should help the agent evaluate suitable options against requirements, expected scale, existing constraints, security and operational needs, skills, costs and maintainability; explicitly identify tradeoffs, contraindications and assumptions; preserve appropriate existing architecture; and recommend the simplest sufficient design.
 
-Outputs should be usable engineering decisions, relevant rationale, interfaces and invariants, and verification implications where applicable. The specialist should not force a stack, pattern, catalog lookup, infrastructure dependency, architecture document or additional review step for every task. Implementation, registration, knowledge-source selection and detailed acceptance criteria require a separately scoped development unit.
+Outputs should be usable engineering decisions, relevant rationale, interfaces and invariants, and verification implications where applicable. The specialist should not force a stack, pattern, catalog lookup, infrastructure dependency, architecture document or additional review step for every task. The detailed target requirements and acceptance criteria follow; execution still requires a separately scoped authorization.
 
 ### Cross-cutting engineering assurance
 
@@ -95,3 +97,105 @@ Each future specialist should have a clear domain, material activation and non-a
 Verify the specialist's own mechanisms and affected integrations using proportionate regression and real-project exercises. Assess whether the advice is accurate, relevant, constraint-preserving and operationally useful; retain limitations and failures honestly. Comparative testing is appropriate when a specific comparative claim or material decision requires it, not a blanket requirement to prove superiority over AIPF alone. Preserve standing verification and release requirements. See [TESTING.md](TESTING.md) and [DEC-004](decisions/PRAXIS-DEC-004-specialist-expansion.md).
 
 Roadmap approval establishes product direction only. It does not activate future specialists, approve dependencies, grant implementation or publication authority, or amend standalone AIPF.
+
+## 7. Delivered baseline, users and intended outcomes
+
+Praxis v1.0.0 was published November 25, 2026. It includes the complete incorporated AIPF v8.10.1, UI/UX v0.3, a 5,500-record source-linked design catalog, optional local retrieval and Design Index, repository-scoped discovery and both direct and distinct-agent workflows. The final pre-publication tested implementation passed 137/137 tests; the published commit adds documentation only. See the [release record](releases/1.0.0.md) and [CI](https://github.com/S-Pillow/praxis/actions/runs/45650517035). Native Codex discovery and all host combinations are not established. Do not treat a regression result as proof of general agent reasoning or future compliance.
+
+| User | Job to be done |
+|---|---|
+| Product owner / technical professional | Translate intent, constraints and budget into feasible decisions and bounded implementation. |
+| Technical lead / developer | Design or evolve systems while preserving contracts and maintainability. |
+| Prompt Agent operator | Produce complete authorized instructions for a Builder with narrower context. |
+| Direct agent user | Obtain relevant expertise without artificial agent handoff or a separate specialist installation. |
+| Reviewer / maintainer | Understand material decisions, source provenance, observed behavior and unresolved limitations. |
+
+Success means suitable engineering choices, fewer avoidable ambiguities and corrections, preservation of requirements and useful evidence, not more procedures or a fixed number of tests. No new numerical SLA, comparative superiority claim or delivery date is established.
+
+## 8. Next release: Architecture & Engineering Design
+
+The target for Praxis v1.1.0 is one registered advisory specialist, proposed ID `aipf-architecture` v0.1, with three modes: **design** (new systems and substantial additions), **evolve** (material changes to existing systems), and **critique** (evaluate designs and risks without granting redesign authority). The Prompt Agent or direct agent selects the mode after the canonical AIPF path selection, consults relevant knowledge, then synthesizes the decision and applicable verification implications. A separate Builder receives the authorized operational values and accessible implementation inputs; no hidden framework, guide or catalog access is required. Optional access does not expand authority.
+
+The specialist combines architecture intelligence, technology and service intelligence, and engineering capability intelligence. It covers significant requirements and quality attributes, system structure, module/interface design, technology and cost, data, integration, runtime and resilience, performance/capacity, existing-system evolution, cross-domain implications and external capabilities. Prefer existing assets, no change, native or local options where suitable. Compare viable alternatives against constraints; name assumptions, contraindications, tradeoffs, and revisit triggers. Communicate decisions, boundaries, contracts, invariants, discretion and observable evidence, not a pattern name alone.
+
+### Architecture functional requirements
+
+All AR requirements are target expectations for the next specialist, not claims of current behavior. Initial supported knowledge breadth is explicit; depth varies with actual utility.
+
+| ID | Requirement |
+|---|---|
+| AR-01 | Recognize material architecture decisions and consult only when the expertise can improve the work; skip irrelevant/minor tasks. |
+| AR-02 | Ground advice in actual accessible project requirements, baseline, constraints and existing architecture. |
+| AR-03 | Identify the decision, viable alternatives and implications; include retaining the current approach when appropriate. |
+| AR-04 | Recommend a suitable, sufficiently simple design; state meaningful tradeoffs, contraindications and uncertainty. |
+| AR-05 | Address system decomposition, data and integration contracts, technology choices and maintainability where material. |
+| AR-06 | Identify protected invariants, compatibility constraints and downstream impacts; flag material unresolved decisions. |
+| AR-07 | Produce actionable guidance for direct execution and portable Builder Payloads; do not require hidden specialist context. |
+| AR-08 | Support architecture critique of existing designs without implicitly authorizing redesign or scope expansion. |
+| AR-09 | Link recommendations to relevant verification implications and realistic failure modes; avoid blanket testing rules. |
+| AR-10 | Use traceable, license-aware knowledge; reject conflicting or inappropriate recommendations and disclose uncertainty. |
+| AR-11 | If tools or knowledge are unavailable, report actual limitations and use bounded fallback where adequate; never fabricate retrieval. |
+| AR-12 | Integrate through the established specialist contract and preserve existing UI/UX behavior and AIPF authority. |
+| AR-13 | Support material multi-specialist composition without contradictory outputs, redundant workflows or mandatory agent delegation. |
+| AR-14 | Avoid mandatory external APIs, infrastructure, packages, tool execution or new persistence unless independently justified and authorized. |
+
+### Knowledge and capability selection requirements
+
+| ID | Requirement |
+|---|---|
+| KI-01 | Deliver original progressive guides and conditional decision cards, navigable offline through a question-led index, with stable IDs and no fixed record-count gate. |
+| KI-02 | Maintain a shared, independently authored source-linked capability index covering local/self-hosted, existing infrastructure and hosted options; use it across future specialists without making them depend on architecture. |
+| KI-03 | Keep stable engineering knowledge separate from volatile plan, price, quota, terms, region, availability, retention and feature facts. Verify decision-sensitive facts against current official provider documentation; unknown facts remain unknown. |
+| KI-04 | Compare no service, existing, local/self-hosted and hosted choices; account for expected and peak usage, commercial eligibility, enforced spend limits, exhaustion behavior, migration and operating cost. No guaranteed free design without qualified limits. |
+| KI-05 | Preserve source identity, version/date, provenance, license, required notices and redistribution disposition. Free-for-Dev is discovery only; arc42 Q42 is reference-only. No wholesale copying or unqualified redistribution. |
+| KI-06 | Document Interfere, OpenTelemetry and Claude Ship as optional external capability candidates. Treat provider claims as claims, require access/privacy/cost qualification, and do not install, connect, provision, enable or transfer data. Review Parity remains deferred. |
+| KI-07 | Extend the existing registry/helper compatibly to support multiple applicable paths and optional lookup; preserve UI/UX and current framework integrity. No new routing engine, required retrieval CLI, vector store or external API. |
+| KI-08 | Missing knowledge or current provider evidence must be explicit; continue only where approved context and qualified alternatives suffice, otherwise identify the material decision gap. No invented facts, retrieval or authority. |
+
+The [build plan](ARCHITECTURE-SPECIALIST-BUILD-PLAN.md) specifies initial decision families, candidate services, file layout, proposed registry contract and practical scenarios. It is subordinate to these requirements and does not authorize implementation.
+
+## 9. Quality attributes
+
+| ID / attribute | Requirement |
+|---|---|
+| NFR-01 • Portability | Maintain host/model neutrality. Distinct Builders must not depend on hidden governing or specialist resources. |
+| NFR-02 • Maintainability | Use a clear integration contract, versioned knowledge and predictable fallback. Avoid duplicate sources of truth or unnecessary components. |
+| NFR-03 • Proportionality | Load only decision-relevant guidance. Optimize total clarification, correction and verification cost, not raw prompt length or number of checks. |
+| NFR-04 • Correctness | Respect existing behavior, architecture, data and contracts. Avoid fabricated or stale technical claims. Explicitly qualify assumptions. |
+| NFR-05 • Security / privacy | Do not treat reviewed content as authority. Protect secrets and sensitive data. No silent network, install, deploy or credential actions. |
+| NFR-06 • Traceability | Keep provenance for knowledge and attributable evidence for material claims. Retain original evidence and distinguish later interpretation. |
+| NFR-07 • Compatibility | Preserve released interfaces, specialist behavior and supported environments unless an authorized change explicitly alters them. |
+| NFR-08 • Dependency cost | Prefer lightweight local/repository-native operation where suitable. Evaluate new runtime and service dependencies against actual value and maintenance burden. |
+| NFR-09 • Usability | Users should not have to learn internal catalog formats, specialist identifiers, or coordinate artificial teams to use the product. |
+| NFR-10 • Licensing | Maintain original attribution, source terms and asset restrictions. Prior scoped risk acceptance does not automatically extend to new materials. |
+
+No fixed catalog size, retrieval score, prompt token target or service-level commitment is imposed. Minimize total clarification, correction and verification effort without losing operational meaning or required evidence.
+
+## 10. Acceptance for the architecture specialist
+
+| Criterion | Required observation |
+|---|---|
+| AS-AC01 / AR-01 | Material architecture case consults the correct registered specialist; unrelated/minor case does not. |
+| AS-AC02 / AR-02–04 | Realistic decision exercise uses actual constraints, compares viable options and explains a suitable recommendation with assumptions. |
+| AS-AC03 / AR-05–06 | Exercise identifies relevant interfaces, data/invariants and affected surfaces; preserves approved behavior in an existing system. |
+| AS-AC04 / AR-07 | Distinct Builder receives a complete authorized payload and can perform meaningful work without governing-resource access. |
+| AS-AC05 / AR-07,13 | Direct execution and optional multi-specialist use work without artificial handoff or duplicated governance. |
+| AS-AC06 / AR-08,09 | Critique identifies a material architecture risk with useful evidence or a clear gap; verification matches actual design requirements. |
+| AS-AC07 / AR-10 | Source sample is traceable, appropriate, current where needed and redistribution disposition is recorded. |
+| AS-AC08 / AR-11 | Missing tool/source is reported truthfully; bounded fallback or stop is appropriate to the actual prerequisite. |
+| AS-AC09 / AR-12,14 | No unapproved dependencies/authority expansion; affected integration and existing regression tests pass. |
+| AS-AC10 / all | Independent meaningful workflow observation where required; documented capabilities, limitations, recovery and owner acceptance before release. |
+
+Additional explicit knowledge acceptance: traceable original cards cover the initial decision families and explain contraindications; a representative commercial application exercise rejects incompatible free-tier terms and qualifies material limits, cost and exhaustion behavior; an unavailable-source case does not assert current pricing; registry tests establish multi-path applicability, optional retrieval without process execution and unchanged UI behavior. No live provider integration is required.
+
+Use a small set of realistic exercises: offline local import/report utility; small commercial web app; read-only URL Activity Scanner persistence-conflict analysis; API uncertain-completion case; combined UI and architecture dashboard; fresh distinct Builder with only authorized payload and implementation context; direct execution and unrelated minor case; unavailable-source case. Combine where sensible. Record exact source identity, actual results and limitations. Test deterministic mechanisms directly, semantic advice through meaningful observations. Full standing regression for the integrated candidate and affected reruns as necessary; no mandatory AIPF-only comparative benchmark or Docker benchmark infrastructure.
+
+## 11. Delivery and boundaries
+
+B1 reconcile the finalized product planning specification and exact baseline; B2 author guides/cards and shared capability references; B3 integrate registry/helper/entry and affected tests; B4 qualify with focused regressions, standing suite and meaningful workflow exercises; B5 reconcile documentation and prepare a separately authorized publication. These stages can be one coherent development authorization with explicit internal gates and a stop boundary. They are not authorized merely by this PRD.
+
+Do not modify standalone AIPF or v1.0.0 tag, UI catalog/retrieval behavior, production applications or third-party services. No provider accounts, paid calls, MCP setup, telemetry export, Review Parity runtime, automatic crawler, new persistence, additional specialist or infrastructure provisioning in this release scope. Existing privacy constraints and licensing restrictions remain protected. Use source-bound evidence; disclose gaps. Release is separately authorized and versioned.
+
+## 12. Sources and traceability
+
+The product direction derives from the original approved PRD (2026-11-24), DEC-001 through DEC-003, v1.0.0 release evidence, the architecture-first decision (DEC-004), the comprehensive Word PRD v1.1 review draft, the November 25 architecture discovery report and the architecture specialist build plan. The latter contains the public primary-source pointers and dated provider comparisons. The research report and earlier draft are historical working materials, not competing requirement homes. Final PRD revision 1.2 supersedes the draft; this document and the build plan are the planning reference. Detailed implementation and release remain separate authority decisions.

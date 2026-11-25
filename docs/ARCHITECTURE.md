@@ -69,6 +69,10 @@ For future integration, specialize in domain knowledge and practical engineering
 
 Potential Review Parity-derived assurance belongs in the cross-cutting verification/evidence capability rather than an independent domain specialist or new approval authority. Its integration is deferred and subject to separate qualification. These are forward-looking design principles under [DEC-004](decisions/PRAXIS-DEC-004-specialist-expansion.md), not implemented architecture.
 
+### Planned v1.1.0 integration
+
+Architecture design/evolve/critique consults original progressive guides in `skills/architecture/` and shared source-linked capability records in `knowledge/capabilities/`. The latter is independent of a particular specialist; stable guidance and volatile provider facts have distinct maintenance expectations. The proposed registry reader accepts a multi-path applicability field (`chapters_any: [11,12]` for architecture), retains legacy singular `chapter`, and supports omitted retrieval scripts without executing a process. Existing UI tasks, lookup protocol and output semantics are preserved. AIPF retains canonical routing, and agent-selected task materiality—not chapter presence alone—controls specialist activation. No provider client, external API, or new orchestration runtime is introduced. See the [build plan](ARCHITECTURE-SPECIALIST-BUILD-PLAN.md) and [PRD](PRD.md).
+
 ## 5. Proposed repository layout
 
 ```text
