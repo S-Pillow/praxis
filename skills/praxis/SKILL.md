@@ -1,0 +1,36 @@
+---
+name: praxis
+description: Integrated AIPF development framework with task-specific specialist expertise. Use when the user or authorized project selects the Praxis; do not automatically govern unrelated work.
+---
+
+# Praxis — integrated entry point
+
+Use this entry point when Praxis is selected for a Prompt Agent or direct executing agent. If assigned a distinct Builder Payload, execute that payload without loading Praxis as a prerequisite; optional access does not change your role or authority. The Prompt Agent loading and consultation procedure below is not a Builder prerequisite. Resolve all resource paths relative to the Praxis checkout, not the target application. The Praxis is the selected development tool; the standalone AIPF plugin is not required. No tool access or task selection grants execution authority.
+
+## Load the framework
+
+The complete, unchanged AIPF v8.10.1 is in `framework/references/`. Its source and byte identity are recorded in `framework/projection-manifest.json`. The framework is authoritative; this entry point and specialist registry are integration guidance, not competing governance. When recording framework identity, distinguish `source_sha256` (canonical DOCX), `projection_full_markdown_sha256` (full Markdown projection), and the SHA-256 of the actual `framework/projection-manifest.json` file. Never label one as another; compute the manifest digest from its bytes if required. Do not claim to have hashed an unavailable original artifact.
+
+For a Prompt Agent or direct executing agent on first use, context reset, or stale core:
+1. Read `framework/references/overview.md` and `framework/references/how-to-use.md`.
+2. Read `framework/references/core/sections-1-4.md` and `framework/references/core/sections-5-10.md` in full.
+3. Apply Section 8 Path Selector. Read every selected chapter and activated companion/wrapper in `framework/references/paths/`, including Chapter 14 for relevant user-facing work. Load applicable referenced Part 3 dependencies in `framework/references/shared/` (preflight, project-control-record, blocks-b1-b5, templates-t1-t8). Follow the canonical precedence and loading rules.
+4. On later authorization units in a reliable context, follow the canonical minimum-load route: reread Sections 5–10, current preflight/control-record, and affected chapters/dependencies; reuse still-valid state.
+
+Use the approved PRD or other governing project requirements, as applicable. For new or major work, establish sufficient requirements and owner decisions before implementation; do not invent requirements or require a new PRD for every correction. The PRD belongs to the project, not this Praxis. Do not treat a PRD as unrestricted execution authorization.
+
+## Consult relevant specialist expertise
+
+After selecting the applicable AIPF paths and understanding the task, read `skills/specialists.json`. Match actual material work, not a chapter number in isolation. Use each available relevant specialist at the point where its expertise improves the current decision or execution. No user command, separate specialist selection, extra approval or handoff is required merely to consult expertise. When the task changes, reevaluate the relevant specialist and mode. Do not invent specialists or treat unused ones as dependencies.
+
+For material UI/UX work governed by Chapter 14, load `skills/aipf-ui-ux/SKILL.md` (v0.3) before making material design decisions. This is the Chapter 14 integration point; it supplements the existing chapter without changing its classifications, protected behavior, design direction or acceptance rules. Use build for creation/improvement, critique for rendered design/usability judgment, audit for technical UI checks. During PRD/design planning use the relevant actual task and approved constraints, then incorporate selected guidance into design direction and the operational Builder Payload, or direct implementation. The Prompt Agent distills selected expertise into the authorized payload; the Builder need not consult the specialist. Reconsultation by the Prompt Agent requires a concrete benefit. Minor copy corrections and unrelated backend work do not automatically trigger retrieval. Never use a specialist recommendation to change approved scope, identity, behavior, licensing or acceptance requirements.
+
+If the checkout and Python are accessible, the agent performs the existing specialist lookup from the Praxis root, following the specialist's own bounded retrieval procedure. `scripts/praxis_context.py` is an optional read-only integration helper to resolve the registered specialist and perform that same lookup using an **agent-selected** material task and already-selected AIPF chapters. It is not an alternate AIPF Path Selector or a semantic classifier. Do not require the user to invoke it. Load the specialist instructions before using its results. If retrieval or the specialist is unavailable, continue from verified approved requirements and available craft where sufficient; report the actual limitation, never fabricate findings. A missing required framework dependency is not a specialist fallback: stop affected governed work until the canonical dependency is accessible.
+
+## Agent roles
+
+Prompt Agent: retain AIPF orchestration and owner-approved intent, choose relevant specialist guidance, synthesize operationally complete instructions, reconcile observed evidence. For a distinct Builder, read `skills/praxis/references/builder-payload.md` when preparing or reviewing a payload; apply the canonical T1 derivation and issuance gate. In a two-agent workflow, transport only the authorized Builder Payload. Include all necessary governing and specialist values without requiring Praxis, AIPF, catalogs or PRD access. A verified accessible implementation baseline may be referenced under Chapter 21. The distinct Builder does not select the next authorization unit or require hidden framework reasoning to execute.
+
+Distinct Builder: use the current payload and its verified accessible implementation inputs to implement and verify only the authorized scope. Access to Praxis, AIPF, specialists, catalogs or PRD is permitted but optional; it is not a prerequisite and confers no routing or subsequent authorization authority. If required operational meaning is missing or conflicts, stop the affected work and report it. Return actual observations and stop. If no distinct Builder exists, use direct AIPF execution: no artificial transport, handoff or independent-review claim.
+
+No separate runtime, server, global installation, or plugin activation is needed for repository-based use. Actual agent discovery depends on the host; explicitly load this entry point when automatic discovery is unavailable. If the Praxis cannot be accessed, do not claim it was loaded.

@@ -1,4 +1,6 @@
-# AIPF Specialist Suite — skills
+# Praxis — skills
+
+For integrated governed development, select [Praxis](praxis/SKILL.md). Its framework selects the path before consulting the specialist below. The original UI/UX skill remains independently usable.
 
 ## UI/UX specialist (v0.3)
 

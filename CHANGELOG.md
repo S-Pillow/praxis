@@ -1,5 +1,22 @@
 # Changelog
 
+## Unreleased — Praxis v1.0.0 release preparation
+
+Initial integrated Praxis product release, based on the accepted QUALITY-01 implementation. The product version is independent of AIPF v8.10.1 and the retained UI/UX v0.3 component identity.
+
+- Unified entry, incorporated canonical framework, context-aware specialist registry and support for direct and distinct-agent execution.
+- Portable Builder Payload guidance, quality-first synthesis and permanent scenario regressions.
+- Cross-platform portability corrections, evidence attribution and independent workflow validation.
+- Accepted QUALITY-01 baseline: 134 regression tests passed on Linux and Windows; VALIDATION-05 operator acceptance with notes. Native Codex discovery and remote CI execution are unverified.
+- Repository renamed to `S-Pillow/praxis`; Apache-2.0 approved for original Praxis and AIPF materials. Public-release review, merge, tag and publication remain separate actions.
+
+- Public-release safeguards: manual read-only enrichment verification, no bot commits to main, explicit source attribution and upstream content-manifest provenance.
+
+### QUALITY-01 corrections
+
+- Correct specialist discovery YAML and CI path coverage, Catalog Explorer keyboard/search/mobile behavior, Saved search matching, commerce/color aliases and focused accessibility correction wording.
+- Strengthen specialist retrieval budget, exact design-token contrast checks and framework identity labels. Prior v0.3 evidence remains historical; no release claimed.
+
 ## v0.3 — UI/UX Specialist
 
 Retrieval-quality release of the agent shortlist (`scripts/recommend_design.py`). The specialist procedure, governance boundaries, catalog (5,500 records) and manual search ranking are unchanged. AIPF v8.10.1 remains authoritative.
@@ -58,7 +75,7 @@ All evidence is in `research/evaluations/`. The figures below are development an
   - a repair task whose palette matched the backend word "database" (PA-07).
 - A negated phrase can absorb trailing words ("avoid neon colours in this new fitness app" also prohibits "fitness").
 - A protected identity word can still act as matching evidence. In PA-05, Focus Appearance matched on "appearance".
-- The plural "colours" maps to "colors" and does not match the singular "color" in catalog names. A request that uses only "colours" can miss Color Contrast and Color Only.
+- At v0.3, the plural "colours" mapped to "colors" and could miss singular catalog terms. Addressed in the accepted QUALITY-01 candidate; the original v0.3 limitation remains historical.
 - Manual search ranking is unchanged, so the HIST-05 follow-up search remains weak.
 - Retrieval quality is not proof of better rendered design.
 

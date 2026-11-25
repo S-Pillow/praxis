@@ -1,0 +1,142 @@
+{
+  "framework_version": "8.10.1",
+  "source_filename": "Neutral_AIPF_v8_10_1.docx",
+  "source_sha256": "8e66028c8ebf60ea87180be1c23933273d8a597c425d3a1595ae81d9a720b8e6",
+  "projection_command": "pandoc -f docx -t gfm --wrap=none",
+  "projection_full_markdown_sha256": "b11dfa2c12deb4d5b90833af4f10a02b5daf5e26d143469560b896fe9c85e0fd",
+  "files": [
+    {
+      "path": "overview.md",
+      "first_line": 1,
+      "last_line": 10,
+      "sha256": "f6a073876b56761864c1ba3351058729257ab20c8bd6123b9632bdad23c2f89d"
+    },
+    {
+      "path": "how-to-use.md",
+      "first_line": 11,
+      "last_line": 22,
+      "sha256": "18947f4d68523823f6742a0c27c371b57dc20b02b27fc268dcc889ddc8212275"
+    },
+    {
+      "path": "maintenance.md",
+      "first_line": 23,
+      "last_line": 38,
+      "sha256": "5ef6a53683367d36aac4c27d14fde6d0c359cb40aa37fb5b9cca378b17d3d50b"
+    },
+    {
+      "path": "core/sections-1-4.md",
+      "first_line": 39,
+      "last_line": 187,
+      "sha256": "60028e146b091165b309298efc984c27d35e423f9803ca4d0f96c2117eb12c82"
+    },
+    {
+      "path": "core/sections-5-10.md",
+      "first_line": 188,
+      "last_line": 569,
+      "sha256": "93f178acf1357947e8764dbf02cb1d9b0ebb96a4eda35f531ac4231a4f802b3e"
+    },
+    {
+      "path": "paths/11-new-application.md",
+      "first_line": 570,
+      "last_line": 593,
+      "sha256": "8c9a007d6121740cb2f47cb810125fbcc6832966a18d25155e3b1658655697a0"
+    },
+    {
+      "path": "paths/12-existing-application.md",
+      "first_line": 594,
+      "last_line": 619,
+      "sha256": "d8e08d7be5cfb85c944660b877052655de6b5f16de9473331becebbc3ed4aa4c"
+    },
+    {
+      "path": "paths/13-documentation.md",
+      "first_line": 620,
+      "last_line": 674,
+      "sha256": "8ca7805356eb8a34b2f16b0447b656c1e24fcffd29f6b8a6687809bd87d76f48"
+    },
+    {
+      "path": "paths/14-ui.md",
+      "first_line": 675,
+      "last_line": 820,
+      "sha256": "2cc29dae4cb241d8a6cc4eec8a633d24aff3a962ca5011f786fb81ad7651dbb0"
+    },
+    {
+      "path": "paths/15-evidence-integrity.md",
+      "first_line": 821,
+      "last_line": 879,
+      "sha256": "3d1e7427559a1aa993b0929669109bcec7f19347a7d615cfd51c59825ca96eb1"
+    },
+    {
+      "path": "paths/16-desktop-packaged.md",
+      "first_line": 880,
+      "last_line": 915,
+      "sha256": "2c1884be9573ebb3080b7c3ba2f0b089ccdc36fb50c97080deddd2801ecb20b4"
+    },
+    {
+      "path": "paths/17-update-delivery.md",
+      "first_line": 916,
+      "last_line": 950,
+      "sha256": "32f1f27b6f857304aa6e3cc2e5029f36dc369635d7bb6c9a9b24f088ea6af85c"
+    },
+    {
+      "path": "paths/18-hosted-live.md",
+      "first_line": 951,
+      "last_line": 1015,
+      "sha256": "9cb162235fb36be8eaf056e715c7a8246df06d5b4efd736e490d7cafa0054cf4"
+    },
+    {
+      "path": "paths/19-executor-remote-build.md",
+      "first_line": 1016,
+      "last_line": 1043,
+      "sha256": "fe410d646d5ceef4e13c60cb3aaf371f1feba125136f0ff5e91671f687688663"
+    },
+    {
+      "path": "paths/20-release-reconciliation.md",
+      "first_line": 1044,
+      "last_line": 1095,
+      "sha256": "15bf88779d013236abec2529456b9c617f6acda2b99ed0e8a0c958ab41689433"
+    },
+    {
+      "path": "paths/21-orchestration-capability.md",
+      "first_line": 1096,
+      "last_line": 1235,
+      "sha256": "8f59e3f5d5d7b7704aea1c0d70723bf2a2b22dcfdbb4ea221aafd58836359f05"
+    },
+    {
+      "path": "shared/preflight.md",
+      "first_line": 1236,
+      "last_line": 1261,
+      "sha256": "7059f8bbd84a3bc32a19aedf577e87fa0d64e1867450b1bd06059cb06b97f810"
+    },
+    {
+      "path": "shared/project-control-record.md",
+      "first_line": 1262,
+      "last_line": 1285,
+      "sha256": "12d09d1782ba5f893aa9e1a5f05fc3e33167df07f398c3507917db4463adba3e"
+    },
+    {
+      "path": "shared/blocks-b1-b5.md",
+      "first_line": 1286,
+      "last_line": 1326,
+      "sha256": "62aadc846c018d428c26d51b377df581e91e56fdd523ac173176a7ceea764734"
+    },
+    {
+      "path": "shared/templates-t1-t8.md",
+      "first_line": 1327,
+      "last_line": 1374,
+      "sha256": "a2998399d245cfcb5dea7c863494db0c7d3ae3b353a3d87bacbe2d571eaebe30"
+    },
+    {
+      "path": "bottom-line.md",
+      "first_line": 1375,
+      "last_line": 1382,
+      "sha256": "a8c8fdfd3d305e0e37ca1d38cc940f065900c06baa1fdfd3f4fd16df55a89f43"
+    },
+    {
+      "path": "changelog.md",
+      "first_line": 1383,
+      "last_line": 1433,
+      "sha256": "10db3c57130851b8edc8bc61e224a6a252b9c453fc489b543e622c9a756a3da7"
+    }
+  ],
+  "note": "Lossless contiguous partition of verified canonical Markdown projection; no normative amendments."
+}

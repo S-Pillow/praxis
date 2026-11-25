@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "specialists": [
+    {
+      "id": "aipf-ui-ux",
+      "version": "0.3",
+      "chapter": 14,
+      "skill": "skills/aipf-ui-ux/SKILL.md",
+      "retrieval_script": "scripts/recommend_design.py",
+      "tasks": {
+        "ui-build": "build",
+        "ui-critique": "critique",
+        "ui-audit": "audit"
+      },
+      "purpose": "Practical UI/UX design, improvement, visual critique and technical UI audit",
+      "authority": "Advisory; AIPF, approved requirements and current authorization govern",
+      "domain": "UI/UX",
+      "activation": "Material user-facing UI design, improvement, critique or technical audit after canonical Chapter 14 routing; not unrelated coding or trivial edits.",
+      "knowledge_sources": [
+        "catalog/entries/",
+        "catalog/SEARCH.md"
+      ],
+      "tools": [
+        "scripts/recommend_design.py",
+        "scripts/search_catalog.py"
+      ],
+      "output": "Source-linked candidate references and applied guidance; distinguish observations from recommendations and respect licensing.",
+      "fallback": "Use approved project context and available craft when sufficient; disclose unavailable guidance or retrieval; never fabricate references."
+    }
+  ]
+}

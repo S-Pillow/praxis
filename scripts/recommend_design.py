@@ -41,16 +41,17 @@ UI_CUES = re.compile(r'\b(?:ui|ux|interface|page|screen|layout|visual|view|style
                      r'typography|button|form|table|dashboard|component|modal|navigation|accessib\w*|'
                      r'keyboard|focus|contrast|responsive|mobile|desktop|onboarding|checkout|landing|'
                      r'website|icon|chart|menu|design|critique|frontend|front-end|display)\b')
-ALIASES = {'finance': 'financial', 'fintech': 'financial', 'ecommerce': 'e-commerce',
-           'shop': 'ecommerce', 'docs': 'documentation', 'a11y': 'accessibility',
-           'colour': 'color', 'colours': 'colors'}
+ALIASES = {'finance': 'financial', 'fintech': 'financial', 'ecommerce': 'commerce',
+           'shop': 'commerce', 'docs': 'documentation', 'a11y': 'accessibility',
+           'colour': 'color', 'colours': 'color', 'colors': 'color'}
 AUDIT_CUES = frozenset({'accessible', 'accessibility', 'keyboard', 'focus',
                         'contrast', 'navigation', 'mobile', 'touch', 'readability',
                         'readable', 'legibility', 'wcag'})
 # Narrow accessibility corrections should not recommend a replacement visual identity.
 FOCUSED_ACCESSIBILITY_CUES = frozenset({'keyboard', 'focus', 'wcag', 'accessibility', 'a11y', 'screenreader'})
-CORRECTION_CUES = frozenset({'improve', 'fix', 'repair', 'correct', 'ensure', 'check', 'audit'})
-NEW_DESIGN_CUES = frozenset({'build', 'create', 'make', 'redesign', 'new'})
+CORRECTION_CUES = frozenset({'improve', 'fix', 'repair', 'correct', 'ensure', 'check', 'audit', 'make', 'update'})
+NEW_DESIGN_CUES = frozenset({'build', 'create', 'redesign', 'new'})
+MAKE_NEW = re.compile(r'\bmake\s+(?:a|an|another)\b')
 EXPLICIT_STYLE_CUES = frozenset({'palette', 'theme', 'typography', 'font', 'branding', 'rebrand', 'restyle'})
 GROUPS = {
     'build': (
@@ -232,7 +233,7 @@ def compound_only_terms(task):
     Such parts only count for records containing the whole phrase; interface
     priorities ("desktop-first") are interpreted separately.
     """
-    low = str(task).lower()
+    low = str(task).lower().replace('e-commerce', 'ecommerce')
     compounds = [m.group(0) for m in re.finditer(r'\b[a-z0-9]+(?:-[a-z0-9]+)+\b', low)
                  if not any(rx.fullmatch(m.group(0)) for rx in PRIORITY_FIRST.values())]
     standalone = re.sub(r'\b[a-z0-9]+(?:-[a-z0-9]+)+\b', ' ', low)
@@ -277,6 +278,7 @@ def query_terms(task, signals=None):
     """Avoid inferring a style from generic compliments alone."""
     signals = signals or {}
     text = PRIORITY_FIRST['desktop'].sub('desktop', str(task).lower())
+    text = re.sub(r'\be-commerce\b', 'ecommerce', text)
     excluded = {t for item in signals.get('prohibited', ()) for t in item}
     excluded |= PLATFORM_CONTEXT
     excluded |= AMBIGUOUS_TERMS - set(signals.get('ambiguous_kept', AMBIGUOUS_TERMS))
@@ -287,10 +289,11 @@ def query_terms(task, signals=None):
     return list(dict.fromkeys(found))
 
 
-def contextual_fields(signals):
+def contextual_fields(signals, words=()):
     """Positive fields, crediting compound-only query parts only where the record has the phrase."""
     compounds = signals.get('compounds') or {}
-    if not compounds:
+    alias_terms = set(words) & {'commerce', 'color'}
+    if not compounds and not alias_terms:
         return positive_fields
 
     def fields(entry):
@@ -300,7 +303,11 @@ def contextual_fields(signals):
         for phrase, only in compounds.items():
             if f' {phrase} ' not in text:
                 drop |= only
-        return [t for t in tokens if t not in drop] if drop else tokens
+        tokens = [t for t in tokens if t not in drop] if drop else tokens
+        # Apply only the requested alias families to positive catalog evidence.
+        aliases = {'shop': 'commerce', 'ecommerce': 'commerce',
+                   'colour': 'color', 'colours': 'color', 'colors': 'color'}
+        return [aliases[t] if aliases.get(t) in alias_terms else t for t in tokens]
     return fields
 
 
@@ -416,6 +423,7 @@ def recommend(task, entries, mode='build', platform=None, limit=3):
         and task_words.intersection(FOCUSED_ACCESSIBILITY_CUES)
         and task_words.intersection(CORRECTION_CUES)
         and not task_words.intersection(NEW_DESIGN_CUES)
+        and not MAKE_NEW.search(lowered)
         and not task_words.intersection(EXPLICIT_STYLE_CUES)
     )
     preserved = signals['preserved']
@@ -443,7 +451,7 @@ def recommend(task, entries, mode='build', platform=None, limit=3):
         # Guideline-only shortlists fill the budget with further strong guidelines.
         fill = (not focused_a11y_fix and len(groups) == 1
                 and groups[0][0] in ('usability_reference', 'check_reference'))
-        fields = contextual_fields(signals)
+        fields = contextual_fields(signals, words)
         for role, types in groups:
             if role == 'usability_reference':
                 uses = {'audit', 'critique', 'multiple'}

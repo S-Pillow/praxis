@@ -68,9 +68,10 @@ def search(query='', category='', ids=None, limit=12, offset=0):
     if ids is not None:
         # Saved references have an explicit stable user order, no recommendations.
         chosen_ids = dict.fromkeys(part for part in ids.split(',') if part in INDEX)
-        chosen = (INDEX[key] for key in chosen_ids)
-        matched = [x for x in chosen if (not category or x['entry_type'] == category)
-                   and (not query or query.casefold() in (x['original_name'] + ' ' + x['description']).casefold())]
+        eligible = set(ranked_ids(query, category)) if query else None
+        matched = [INDEX[key] for key in chosen_ids
+                   if (not category or INDEX[key]['entry_type'] == category)
+                   and (eligible is None or key in eligible)]
         page = matched[offset:offset + limit]
         total_matches = len(matched)
     elif query:

@@ -1,6 +1,6 @@
 ---
 name: aipf-ui-ux
-description: Use for material UI/UX tasks in this repository: create, improve, critique, or audit web/mobile/desktop interfaces using the AIPF UI/UX specialist and optional source-linked design catalog lookup. Do not use for unrelated coding.
+description: "Use for material UI/UX tasks in this repository: create, improve, critique, or audit web/mobile/desktop interfaces using the AIPF UI/UX specialist and optional source-linked design catalog lookup. Do not use for unrelated coding."
 ---
 
 # Repository-discoverable AIPF UI/UX specialist (v0.3)

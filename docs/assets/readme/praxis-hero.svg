@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300" role="img" aria-labelledby="title desc">
+  <title id="title">Praxis — Intelligence into action</title>
+  <desc id="desc">A dark navy banner with the Praxis wordmark and three connected nodes representing governance, expertise and execution.</desc>
+  <rect width="1200" height="300" rx="16" fill="#111D2B"/>
+  <path d="M775 150H1110M850 94V206M1010 94V206" stroke="#31485A" stroke-width="2" fill="none"/>
+  <path d="M770 150L850 94L930 150L1010 206L1090 150" stroke="#79D8B8" stroke-width="3" fill="none" stroke-linejoin="round"/>
+  <g fill="#111D2B" stroke="#79D8B8" stroke-width="3"><circle cx="850" cy="94" r="12"/><circle cx="930" cy="150" r="12"/><circle cx="1010" cy="206" r="12"/></g>
+  <g font-family="system-ui, sans-serif"><text x="62" y="60" fill="#A0DCC8" font-size="15" font-weight="600" letter-spacing="3">FORGEFORWARD / AI DEVELOPMENT INTELLIGENCE</text><text x="58" y="143" fill="#FFFFFF" font-size="86" font-weight="700" letter-spacing="-3">Praxis</text><text x="64" y="192" fill="#A0DCC8" font-size="31" font-weight="500">Intelligence into action.</text><text x="64" y="247" fill="#C8D5E1" font-size="18">Governance · Specialist expertise · Disciplined execution</text></g>
+</svg>
