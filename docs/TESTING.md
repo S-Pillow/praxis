@@ -46,3 +46,9 @@ For a fresh material UI payload, compare the actual initial/follow-up retrieval 
 ## Enrichment workflow safeguards
 
 `tests/test_enrichment_workflows.py` checks manual-only dispatch, read-only contents permission, disabled credential persistence, pinned upstream checkout, regeneration and drift checks, absence of Git commit/push steps, and CI path coverage. These static checks do not establish hosted GitHub execution; run a manual dispatch in a separately authorized private integration state to observe actual regeneration and drift.
+
+## Future specialist qualification
+
+The [expansion decision](decisions/PRAXIS-DEC-004-specialist-expansion.md) prioritizes additive expertise and practical usefulness. When a future specialist is implemented, preserve the standing scenario strategy and add only affected regression and qualification cases: relevant and irrelevant activation, domain accuracy, context and constraint preservation, appropriate fallback, and useful synthesis in direct and separate-agent workflows. For material architecture advice, include a realistic decision or implementation exercise and counterexamples where a proposed pattern adds unnecessary complexity or violates an existing constraint.
+
+Test deterministic mechanisms directly and verify semantic judgment through appropriate real-project observations. Distinguish mechanism conformance, usefulness observations and comparative effectiveness claims. A comparative AIPF-only benchmark is not a general specialist admission gate; use comparative evidence when an actual decision or claim requires it. No reduction in required product regression, authority, evidence quality, independent verification or release acceptance is implied. The roadmap itself introduces no executable functionality or new test suite.

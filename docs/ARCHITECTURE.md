@@ -23,7 +23,7 @@ flowchart TD
   H --> V
 ```
 
-These are logical capabilities, not separate servers or mandatory running services. Security, QA and other specialists are future possibilities, not current deliverables.
+These are logical capabilities, not separate servers or mandatory running services. UI/UX remains the only registered specialist in v1.0.0. The subsequent [specialist roadmap](PRD.md#6-specialist-expansion-roadmap) prioritizes Software Architecture & Engineering Design next; the other specialists and cross-cutting assurance are future directions, not current deliverables.
 
 ## 2. Responsibilities and boundaries
 
@@ -64,6 +64,10 @@ The user need not separately invoke AIPF, the UI/UX specialist or retrieval scri
 | Fallback behavior | Handle unavailable capabilities |
 
 Future specialists should primarily be added by implementing and registering them. Governing integration may evolve when necessary. The first implementation registers UI/UX only; no placeholder specialists are required. Missing specialist capabilities must be reported transparently, with a suitable bounded fallback where feasible. Missing required governance cannot be silently bypassed.
+
+For future integration, specialize in domain knowledge and practical engineering judgment rather than adding parallel governance. The Prompt Agent (or direct executing agent) selects and synthesizes relevant advice into concrete decisions, constraints, implementation guidance and verification implications. No mandatory specialist access, additional agent, retrieval engine or catalog is presumed for the Builder. Existing architecture and appropriate implementation discretion remain protected.
+
+Potential Review Parity-derived assurance belongs in the cross-cutting verification/evidence capability rather than an independent domain specialist or new approval authority. Its integration is deferred and subject to separate qualification. These are forward-looking design principles under [DEC-004](decisions/PRAXIS-DEC-004-specialist-expansion.md), not implemented architecture.
 
 ## 5. Proposed repository layout
 

@@ -2,7 +2,7 @@
 
 Version: 0.1 | Product planning approved: 2026-11-24
 
-**Historical planning checkpoint.** For the later QUALITY-01 / VALIDATION-05 acceptance and v1.0.0 preparation, see [current release evidence](releases/1.0.0.md). The original roadmap and earlier state below are retained as historical evidence.
+**Historical planning checkpoint.** For the later QUALITY-01 / VALIDATION-05 acceptance and v1.0.0 preparation, see [current release evidence](releases/1.0.0.md). The original roadmap and earlier state below are retained as historical evidence. For current expansion priorities, see [PRD section 6](PRD.md#6-specialist-expansion-roadmap) and [DEC-004](decisions/PRAXIS-DEC-004-specialist-expansion.md); the historical phase statuses below are not current release gates.
 
 ## 1. Approved baseline
 
@@ -69,4 +69,6 @@ Product definition: approved. CORE-01 incorporated the verified v0.3 baseline. C
 - [DEC-002 — Builder Context Independence](decisions/PRAXIS-DEC-002-builder-context-independence.md): optional Builder access is not a workflow prerequisite or authority; supersedes the earlier exclusive-access interpretation.
 - [DEC-003 — Quality-first prompt synthesis](decisions/PRAXIS-DEC-003-quality-first-prompts.md): minimize unnecessary tokens only after preserving product quality and operational meaning. See the [testing strategy](TESTING.md) for regression evaluation.
 
-Current release gates: independent portable Builder execution, final source-bound rendered evidence and external-asset boundary verification, impact-triggered regression and owner release authorization. No new runtime infrastructure or specialist work.
+- [DEC-004 — Specialist expansion](decisions/PRAXIS-DEC-004-specialist-expansion.md): subsequent roadmap decision (2026-11-25). Architecture & Engineering Design is the next planned specialist; QA research remains valuable. Review Parity is a potential cross-cutting assurance capability, not a released feature.
+
+Historical release gates at this planning checkpoint: independent portable Builder execution, final source-bound rendered evidence and external-asset boundary verification, impact-triggered regression and owner release authorization. No new runtime infrastructure or specialist work was authorized at this checkpoint. See the published [v1.0.0 release record](releases/1.0.0.md) for subsequent disposition.

@@ -261,23 +261,31 @@ The [testing guide](docs/TESTING.md) covers optional browser checks with availab
 
 ## Where Praxis goes next
 
-UI/UX is the only registered specialist in the first release. The next direction is to extend Praxis with focused engineering expertise while keeping AIPF as the governing framework.
+The goal is to give an agent the expertise of a multidisciplinary engineering team without requiring a separate agent for every discipline. AIPF provides the governing methodology; specialists contribute the domain knowledge and practical techniques that help the agent make better decisions.
+
+The next specialist will focus on software architecture and engineering design. Choosing an appropriate system structure, technology stack, data model and integration approach early can prevent avoidable complexity later. In a separate-agent workflow, the Prompt Agent uses that expertise to shape the authorized Builder Payload. The Builder receives the decisions, constraints and implementation guidance it needs without having to load the specialist itself.
 
 ### Proposed specialist roadmap
 
 | Specialist | Status | Focus |
 | --- | --- | --- |
 | **UI/UX & Design Intelligence** | Available in v1.0.0 | Design systems, visual design, usability and accessibility |
-| **QA & Engineering Quality** | Next planned specialist | Risk-based testing, systematic debugging, regression quality and effective verification |
-| **Security & Privacy** | Future | Secure coding, threat modeling and vulnerability analysis |
-| **Software Architecture** | Future | Architectural patterns, maintainability and technical tradeoffs |
-| **DevOps & Reliability** | Future | Deployment, infrastructure, observability and operational resilience |
+| **Software Architecture & Engineering Design** | Next planned specialist | System design, technology selection, data and integration patterns, architectural tradeoffs and maintainability |
+| **Security & Privacy** | Future | Threat modeling, trust boundaries, secure design and data protection |
+| **QA & Engineering Quality** | Future | Risk-based test design, systematic diagnosis, regression quality and effective verification |
+| **DevOps & Reliability** | Future | Deployment strategies, infrastructure, observability and operational resilience |
+
+The specialist should help choose the simplest suitable approach, not prescribe fashionable patterns, frameworks or additional layers by default. Expertise remains available for direct execution as well as separate-agent workflows, including critique of existing systems and verification of material design decisions.
 
 ### Cross-cutting capability: Review Parity
 
-A possible future integration of Review Parity would bring deterministic evidence verification, review integrity and release assurance to all specialists. The goal is to complement AI judgment with verifiable facts about scope, source state, test results and evidence freshness, without adding unnecessary review ceremony.
+Review Parity is a separate experimental initiative whose mechanisms may eventually support all Praxis specialists. Its proposed role is engineering assurance: deterministic evidence verification, source and scope integrity, finding reconciliation and release-evidence auditing. It would complement AIPF and specialist judgment, not replace either or grant independent approval authority.
 
-These are proposed directions, not released features or commitments to delivery dates. A packaged plugin is also a possible future addition. The standalone AIPF framework remains separate and unchanged; Praxis incorporates v8.10.1 without changing its version or authority.
+We intend to build useful capabilities, verify their behavior and evaluate them on meaningful projects. More process, more tests or a larger catalog are not objectives in themselves.
+
+The roadmap describes direction, not released functionality or delivery commitments. UI/UX remains the only registered specialist today. A packaged plugin is also a possible future addition. The standalone AIPF framework remains separate and unchanged; Praxis incorporates v8.10.1 without changing its version or authority.
+
+See the [product roadmap and specialist principles](docs/PRD.md#6-specialist-expansion-roadmap) and [expansion decision](docs/decisions/PRAXIS-DEC-004-specialist-expansion.md).
 
 ## License and provenance
 
