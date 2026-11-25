@@ -1,0 +1,48 @@
+# Praxis regression strategy
+
+[PRAXIS-DEC-001](decisions/PRAXIS-DEC-001-scenario-regression.md) is owner approved and applies permanently to Praxis, not the standalone AIPF standard.
+
+Run `python -m unittest discover -s tests -v` from the repository root. Run on supported Linux and Windows environments before release; do not treat a local pass as proof of cross-platform compatibility. No elevated symlink privileges should be required for pinned benchmark replay. Replay copies the catalog bytes into temporary isolated workspaces. The benchmark transport uses UTF-8, canonical LF stdout/stderr text and repository-relative POSIX judgment paths; no frozen fixture, retrieval script or comparison assertion is changed. Platform newline normalization is not a byte-identical claim about the original pipe. Raw failure logs remain separate evidence.
+
+## Scenario corpus and evidence
+
+`tests/fixtures/praxis_scenarios.json` retains the 14 natural-language requests, manually selected chapters, expected helper dispositions and decision notes from PRAXIS-SELFTEST-01, together with the five historical fault descriptions. Original evidence remains separately identified by source ZIP SHA. `tests/test_praxis_scenarios.py` exercises helper decisions for the 13 applicable cases, real lookups for four material UI cases, negative activation, invalid input and missing capability cases. The brainstorming bypass is a reasoning-only case. Existing `test_praxis_context.py` tests path recheck and missing specialist/corrupt framework. These tests do not select chapters from natural language and cannot demonstrate agent reasoning or runtime authorization compliance.
+
+For affected changes, review the applicable scenario requests without feeding the agent the expected chapters or specialist classifications. Compare its actual routing, consulted files, tool activity, evidence and authorization decisions with the retained expectation, using the canonical AIPF rules to adjudicate discrepancies. Exercise overlap, minor/unrelated work, missing capabilities, invalid inputs, stop boundaries, direct and distinct-agent execution. Extend cases when governing integrations or specialists change. Distinguish self-authored walkthroughs, executable helper tests and independent fresh-session observations. Retain expected/observed behavior, source identity, commands, exit codes, evidence attribution and unresolved checks. No automatic pass from self-test agreement and no mandatory repeated retrieval research.
+
+## Independent validation and release
+
+Keep validation of actual agent discovery, application of governance, role boundaries and rendered runtime evidence separate from helper tests. Use an isolated disposable target, a named capable observer and explicit allowed actions. No external asset dependency when network assets are forbidden. Record scope violations and reconcile before acceptance; never treat an intermediate screenshot as final source-bound runtime verification. Carry valid prior evidence forward only when the corrected state cannot affect the claim. CORRECTION-01 passed 118 tests on Linux and Windows (Windows assigned-observer handoff; not locally reproduced). Carry this evidence only for unaffected behavior. This paragraph records the CORRECTION-01 checkpoint, not the current release state. The prior external-asset boundary violation remains historical evidence; later affected behavior was exercised separately. See [v1.0.0 release preparation](releases/1.0.0.md) for current acceptance and remaining qualifications. No release is authorized by this document.
+
+## Prompt-quality regression
+
+Use [the payload synthesis reference](../skills/praxis/references/builder-payload.md) and [DEC-003](decisions/PRAXIS-DEC-003-quality-first-prompts.md). `tests/fixtures/praxis_prompt_scenarios.json` defines representative prompt-generation scenarios with positive and negative expectations. Review a fresh generated payload without revealing the expected outcomes first. Evaluate hard gates before scoring; the weighted rubric is diagnostic, not a release waiver. For the no-governing-context case, use a Builder with only the payload and authorized target access. For the optional-access case, verify the same scope and no new authority; actual access need not be prohibited. In direct mode do not generate a self-handoff. Do not use illustrative examples as actual authorization.
+
+Record the exact request, accepted baseline/access assumptions, generated payload (or stop/decision), missing or redundant fields, gate outcomes, rubric dimensions, actual execution and evidence where applicable. Compare equivalent tasks with the same tokenizer and configuration if available; otherwise identify word/character/byte counts as proxies, not token counts. Record clarification/correction cost when observed. Static tests establish scenario coverage and documentation consistency, not agent reasoning or successful implementation.
+
+Retain P09 as a proportionality regression: VALIDATION-03 succeeded but its generated Compact payload repeated material instructions across separate headings and requested noncanonical outcome labels. The linked path-sanitized historical example is evidence for review, not an authorization; its original and derived checksums and transformation are recorded in the scenario. Assess a fresh payload against the same operational requirements, not a fixed word/token budget. Consolidation must not omit applicable controls; verify canonical handoff outcomes and that optional access is not universally prohibited. The original successful execution evidence remains distinct from the wording finding.
+
+### Evaluation rubric
+
+First check canonical issuance readiness, operational independence, complete required authority and requirements, material ambiguity/conflict, feasible acceptance/evidence and stop/closure. Any unmet required control is a hard failure (or blocked when its prerequisite is unresolved); no weighted score overrides it. For eligible payloads, grade each dimension 0–4: 0 absent/contradictory, 1 major deficiencies, 2 material improvement needed, 3 adequate with minor issues, 4 clear and sufficient with no material defect. Weighted score = sum(weight × grade/4). Record the reason, not just the number; no automatic release threshold. Token efficiency grades removable redundancy, not brevity at the cost of meaning or quality. Actual end-to-end outcomes take precedence over self-rated wording.
+
+| Dimension | Weight | Review question |
+|---|---:|---|
+| Operational completeness | 25 | Can the Builder perform the intended work with available inputs and no guessing? |
+| Clarity and lack of ambiguity | 20 | Are requirements, alternatives and conditional actions distinguishable? |
+| Scope and authority precision | 20 | Are allowed actions, protected behavior and forbidden effects exact? |
+| Token efficiency | 15 | Is any content removable without losing meaning or product quality? |
+| Builder portability | 10 | Are governing values distilled and implementation references accessible? |
+| Verification and stop conditions | 10 | Are criteria observable and closure/stop behavior explicit? |
+
+## QUALITY-01 regression additions
+
+`tests/test_quality_corrections.py` covers the confirmed discovery and CI contracts, UI event/label/positioning source contracts, full-catalog commerce and color aliases, focused accessibility intent versus new design, Saved search parity/order/paging, contrast calculations/CLI and the prompt quality scenarios P10–P12. The tests do not assert native Codex activation, GitHub workflow execution or future agent compliance. The existing release benchmark retains every frozen behavioral assertion, including raw stdout; the working-tree comparison pins the intentionally changed recommender SHA separately. Original release fixtures and manual search ranking remain unchanged.
+
+For affected Catalog Explorer changes, run `python tests/browser/catalog_quality.py --chromium <existing-chromium-executable>` when Playwright and Chromium are already available. This optional development check loads the exact local HTML/CSS/JS with a synthetic API response; it exercises actual key events, filter state, accessible navigation names and badge containment at 320/390/720/1280 CSS px. It is not a new runtime or default test-suite dependency. Separately exercise the actual local server in an available browser and preserve observed results for release.
+
+For a fresh material UI payload, compare the actual initial/follow-up retrieval command count to the specialist budget; review the prescribed color pairs for all applicable states against binding thresholds, record actual calculations, and verify final rendered values with a capable observer. `python scripts/check_contrast.py '#EA580C' '#FFFFFF' --minimum 4.5` is an example failing pair (exit 1); passing pairs exit 0, invalid inputs exit 2. The helper checks opaque six-digit sRGB hex only, not arbitrary CSS or rendered accessibility. Verify framework artifact labels against manifest metadata and its actual bytes. The VALIDATION-04 original report and independent FAIL reconciliation remain historical evidence; the prompt quality controls require fresh-session validation rather than a static text-test pass.
+
+## Enrichment workflow safeguards
+
+`tests/test_enrichment_workflows.py` checks manual-only dispatch, read-only contents permission, disabled credential persistence, pinned upstream checkout, regeneration and drift checks, absence of Git commit/push steps, and CI path coverage. These static checks do not establish hosted GitHub execution; run a manual dispatch in a separately authorized private integration state to observe actual regeneration and drift.

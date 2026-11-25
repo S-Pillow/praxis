@@ -15,6 +15,7 @@ import argparse
 import hashlib
 import json
 import math
+import os
 import pathlib
 import platform
 import re
@@ -96,10 +97,17 @@ class Implementation:
         if self.source is not None:
             self._tmp = tempfile.TemporaryDirectory(prefix="retrieval-impl-")
             work = pathlib.Path(self._tmp.name)
-            (work / "scripts").mkdir()
-            for script, _ in TOOLS.values():
-                shutil.copyfile(self.source / pathlib.Path(script).name, work / script)
-            (work / "catalog").symlink_to(self.root / "catalog", target_is_directory=True)
+            try:
+                (work / "scripts").mkdir()
+                for script, _ in TOOLS.values():
+                    shutil.copyfile(self.source / pathlib.Path(script).name, work / script)
+                # Copy the same catalog bytes into the isolated replay workspace.
+                # Directory symlinks require additional privileges on some Windows hosts.
+                shutil.copytree(self.root / "catalog", work / "catalog")
+            except BaseException:
+                self._tmp.cleanup()
+                self._tmp = None
+                raise
             self.workdir = work
         return self
 
@@ -119,12 +127,16 @@ def build_argv(case, python=sys.executable):
 
 def run_command(case, root=ROOT, python=sys.executable, timeout=120):
     argv = build_argv(case, python)
-    proc = subprocess.run(argv, cwd=root, capture_output=True, timeout=timeout)
+    # JSON CLI transport is UTF-8 on every host, including redirected Windows pipes.
+    # Normalize only physical CRLF line endings to the frozen LF transcript convention;
+    # escaped JSON content, scores, paths inside results, and comparisons are unchanged.
+    env = {**os.environ, "PYTHONIOENCODING": "utf-8"}
+    proc = subprocess.run(argv, cwd=root, capture_output=True, timeout=timeout, env=env)
     return {
         "argv": ["python3", *argv[1:]],
         "exit_code": proc.returncode,
-        "stdout": proc.stdout.decode("utf-8", errors="replace"),
-        "stderr": proc.stderr.decode("utf-8", errors="replace"),
+        "stdout": proc.stdout.decode("utf-8").replace("\r\n", "\n"),
+        "stderr": proc.stderr.decode("utf-8").replace("\r\n", "\n"),
     }
 
 
@@ -364,7 +376,7 @@ def run_benchmark(cases_path=CASES, post_hoc_path=POST_HOC, splits=SPLITS, runne
     }
     if extra_judgments:
         result["additional_judgments"] = [
-            {"label": label, "path": str(pathlib.Path(path).resolve().relative_to(root)), "sha256": sha256_file(path)}
+            {"label": label, "path": pathlib.Path(path).resolve().relative_to(root).as_posix(), "sha256": sha256_file(path)}
             for (label, _), path in zip(judgment_sets[-len(extra_judgments):], extra_judgments)
         ]
     if raw_stdout:

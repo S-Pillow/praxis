@@ -1,0 +1,14 @@
+Praxis — Intelligence into action
+Copyright 2026 Steven Pillow
+
+Includes the AI Prompt-First Development Framework (AIPF) v8.10.1.
+Original Praxis and incorporated AIPF materials are licensed under Apache-2.0.
+Third-party materials retain their applicable original terms. See THIRD_PARTY_NOTICES.md,
+licenses/, and the source-linked catalog records for provenance and restrictions.
+No trademark rights are granted beyond the license terms.
+
+Open Design design-system extracts are normalized from Open Design Agent Kit
+(Copyright 2026 Iven Xu) and upstream Open Design (Copyright 2026 Open Design
+contributors); adapted iOS material is attributed to Muhammed Eliwat; independent aesthetic
+concepts are attributed to Bergside/typeui.sh. See
+THIRD_PARTY_NOTICES.md and licenses/ for the exact applicable notices and limits.

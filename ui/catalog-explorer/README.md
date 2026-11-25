@@ -1,12 +1,12 @@
 # The Design Index — local catalog browser
 
-**Status:** local research tool in the Specialist Suite repository; not deployed or installed as a service.
+**Status:** local research tool in the Praxis repository; not deployed or installed as a service.
 
-The Design Index uses the Specialist Suite's **existing** catalog and search script. It shows all 5,500 source-linked entries via search, category filters and **Show more references** pagination, with original source links, available design tokens, and locally saved references. It creates no new catalog, database, dependencies, or AIPF rules.
+The Design Index uses the **existing** Praxis catalog and search script. It shows all 5,500 source-linked entries via search, category filters and **Show more references** pagination, with original source links, available design tokens, and locally saved references. It creates no new catalog, database, dependencies, or AIPF rules.
 
 ## Open it
 
-In a checkout of `S-Pillow/aipf-specialist-suite` containing these files, run:
+In a pinned Praxis checkout containing these files, run:
 
 ```bash
 python ui/catalog-explorer/server.py --port 8765
@@ -34,6 +34,6 @@ From the repository root:
 python -m unittest discover -s tests -v
 ```
 
-`tests/test_catalog_explorer.py` verifies all 5,500 IDs can be reached through pagination, category filtering covers all catalog entry types, search and saved references behave, real source metadata and tokens remain intact, and local HTTP routes serve correctly. The existing GitHub Actions catalog-validation workflow runs those tests on the draft pull request.
+`tests/test_catalog_explorer.py` verifies all 5,500 IDs can be reached through pagination, category filtering covers all catalog entry types, search and saved references behave, real source metadata and tokens remain intact, and local HTTP routes serve correctly. The GitHub Actions catalog-validation workflow is configured to run the test suite on matching changes; remote workflow execution for the accepted candidate remains unverified.
 
 Automated tests prove the tested functionality only. Responsive screenshots and browser behavior should be inspected using an actual running copy on desktop and mobile. No design-quality advantage over AIPF alone or a different model has been established.

@@ -260,7 +260,15 @@ class RetrievalBenchmarkBaselineTests(unittest.TestCase):
     def test_working_tree_reproduces_release_results(self):
         run = json.loads(self.run_cli("--judgments", str(EXPERIMENT_JUDGMENTS),
                                       "--judgments", str(REFINEMENT_JUDGMENTS)))
-        self.assertEqual(reproduction_differences(load_json(RELEASE_RESULT), run), [])
+        expected = load_json(RELEASE_RESULT)
+        # QUALITY-01 intentionally changes the recommender source, not this frozen
+        # benchmark's outputs. Pin the reviewed replacement identity explicitly;
+        # retain every original behavioral comparison, including raw stdout.
+        self.assertEqual(expected["environment"]["retrieval_scripts_sha256"]["recommend"],
+                         "c054c1adf6fa24be6723c8f344942ef0157df00fe42d86a3daef736bc288ab53")
+        expected["environment"]["retrieval_scripts_sha256"]["recommend"] = (
+            "0e7301d41d98556b4a54e564a8e1389352eba7a3b43c09fe6c8521d87a7706b3")
+        self.assertEqual(reproduction_differences(expected, run), [])
 
     def test_reproduction_check_detects_changed_results(self):
         baseline = load_json(BASELINE)

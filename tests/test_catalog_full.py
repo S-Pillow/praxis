@@ -11,7 +11,7 @@ from collections import Counter
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 CATALOG = ROOT / "catalog" / "entries"
-SCHEMA = json.loads((ROOT / "catalog/schema/entry.schema.json").read_text())
+SCHEMA = json.loads((ROOT / "catalog/schema/entry.schema.json").read_text(encoding="utf-8"))
 PINNED = {
     "Nutlope/hallmark": "04977e15f3dfd6ee4b74c887dac3eb52665d6c92",
     "nextlevelbuilder/ui-ux-pro-max-skill": "f2cc36555984fbfb08f1dca037da2467578f33d2",
@@ -99,7 +99,7 @@ class PopulatedCatalogTests(unittest.TestCase):
         self.assertFalse(list((ROOT / "catalog").rglob("*.svg")), "bundled SVG not reviewed")
 
     def test_overlaps_preserve_both_source_entries(self):
-        rel = json.loads((ROOT / "catalog/relations/overlaps.json").read_text())
+        rel = json.loads((ROOT / "catalog/relations/overlaps.json").read_text(encoding="utf-8"))
         for r in rel:
             self.assertIn(r["left_id"], self.by_id)
             self.assertIn(r["right_id"], self.by_id)
@@ -108,8 +108,8 @@ class PopulatedCatalogTests(unittest.TestCase):
             self.assertIn(r["review_status"], ["unreviewed", "source_compared", "candidate_explained"])
 
     def test_license_manifest_is_not_claimed_as_independent_verification(self):
-        h = json.loads((ROOT / "catalog/provenance/hallmark-photo-manifest.json").read_text())
-        m = json.loads((ROOT / "catalog/provenance/mengto-illustration-assets.json").read_text())
+        h = json.loads((ROOT / "catalog/provenance/hallmark-photo-manifest.json").read_text(encoding="utf-8"))
+        m = json.loads((ROOT / "catalog/provenance/mengto-illustration-assets.json").read_text(encoding="utf-8"))
         self.assertEqual(len(h["items"]), 755)
         self.assertEqual(len(m["assets"]), 42)
         self.assertTrue(all(x["redistribution"] == "BLOCKED" for x in h["items"]))

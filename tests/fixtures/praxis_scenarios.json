@@ -1,0 +1,191 @@
+{
+  "origin": "PRAXIS-SELFTEST-01",
+  "source_zip_sha256": "eb34227cb6fc9a90be0dd0c0bff44aff14a060ff1be4b663e583958099a43ea4",
+  "method": "Same-agent scenario walkthrough; manually derived routes, not a natural-language classifier test or independent agent session. Commands exercise specialist helper only. No application execution or external services.",
+  "scenarios": [
+    {
+      "id": "S01",
+      "request": "Create a new local browser-based appointment calendar using fictional sample appointments, keyboard navigation, and a clean desktop-first interface. No booking backend, network, or release.",
+      "chapters": [
+        11,
+        14
+      ],
+      "task": "ui-build",
+      "expected": "consult",
+      "decision": "Managed; establish requirements and creation scope before edits; local rendered and keyboard checks; no release."
+    },
+    {
+      "id": "S02",
+      "request": "In our existing local app, change the button label from Submit to Save. Same exact action, known baseline, established copy pattern, reversible source edit and deterministic test; no release.",
+      "chapters": [
+        12,
+        14
+      ],
+      "task": "minor-ui",
+      "expected": "not_needed",
+      "decision": "Compact eligible given confirmed facts; copy/label correction, same behavior; no redesign."
+    },
+    {
+      "id": "S03",
+      "request": "Fix the typo in the existing repository README only. Known root and accepted baseline, no published docs or release; confirm saved diff.",
+      "chapters": [
+        12,
+        13
+      ],
+      "task": "non-ui",
+      "expected": "not_needed",
+      "decision": "Compact eligible if all other conditions are confirmed; docs-only diff and durable source closure; no build."
+    },
+    {
+      "id": "S04",
+      "request": "Add a database migration to the existing local service changing customer records to support multiple email addresses. The data retention and rollback policy are not decided.",
+      "chapters": [
+        12
+      ],
+      "task": "non-ui",
+      "expected": "not_needed",
+      "decision": "Managed; stop dependent mutation pending retention and recovery decisions; schema change excludes Compact."
+    },
+    {
+      "id": "S05",
+      "request": "Correct the existing URL scanner classification so an inconclusive DNS response cannot become a confirmed finding. Preserve UI, CSV schema and all other status meanings. Local source only.",
+      "chapters": [
+        12,
+        15
+      ],
+      "task": "non-ui",
+      "expected": "not_needed",
+      "decision": "Managed unless Compact eligibility is established; verify clean, malformed and inconclusive inputs; no UI design or deployment."
+    },
+    {
+      "id": "S06",
+      "request": "Build and release the existing Windows desktop application from its approved source through remote CI, and download and test the installer on Windows. Do not change its interface or add updating.",
+      "chapters": [
+        12,
+        16,
+        19,
+        20
+      ],
+      "task": "non-ui",
+      "expected": "not_needed",
+      "decision": "Managed packaged release; exact build provenance, target artifact verification and named Windows observer; no updater."
+    },
+    {
+      "id": "S07",
+      "request": "Add an offline rule-pack updater to the existing desktop product; operators import signed rule packages after release. Do not distribute a new application release yet. Signature trust source and rollback are undecided.",
+      "chapters": [
+        12,
+        16,
+        17
+      ],
+      "task": "non-ui",
+      "expected": "not_needed",
+      "decision": "Managed; stop dependent work until update model is approved; test rejection, compatibility and recovery in installed artifact when authorized."
+    },
+    {
+      "id": "S08",
+      "request": "Fix the incorrect citation date on our existing no-code hosted public site. Save automatically publishes. I authorize inspecting and preparing the correction only, not publishing.",
+      "chapters": [
+        12,
+        18,
+        13,
+        20,
+        21
+      ],
+      "task": "non-ui",
+      "expected": "not_needed",
+      "decision": "Urgent-corrective only if actual trust defect requires hotfix; inspect/draft only; save/publish blocked; platform capability controls, no two-agent orchestration."
+    },
+    {
+      "id": "S09",
+      "request": "Our existing live web service release report says deployed version 2.4. The runtime identifies 2.3. Check which is true without changing production.",
+      "chapters": [
+        12,
+        18,
+        20
+      ],
+      "task": "non-ui",
+      "expected": "not_needed",
+      "decision": "Reconcile ground state read-only; if material conflict persists BLOCKED/reconciliation, not release PASS; no implicit deploy."
+    },
+    {
+      "id": "S10",
+      "request": "Use a distinct Builder to substantially redesign the existing local customer-support dashboard while preserving ticket actions, brand colors and data contract. Builder cannot read our PRD.",
+      "chapters": [
+        12,
+        14,
+        21
+      ],
+      "task": "ui-build",
+      "expected": "consult",
+      "decision": "Managed; distill exact approved behavior and brand values into payload; if values unknown block issuance; Builder has no later authorization."
+    },
+    {
+      "id": "S11",
+      "request": "Add a headless CSV export of existing raw inventory rows to the local application. No scores, summaries, findings or classification; no update mechanism.",
+      "chapters": [
+        12
+      ],
+      "task": "non-ui",
+      "expected": "not_needed",
+      "decision": "T7 exchange contract, not Ch15 or 17; new output contract requires Managed; validate fields, escaping and record parity."
+    },
+    {
+      "id": "S12",
+      "request": "Review the existing local dashboard for readability, information hierarchy and usability, keeping established visual identity. Report only.",
+      "chapters": [
+        12,
+        14
+      ],
+      "task": "ui-critique",
+      "expected": "consult",
+      "decision": "Read-only critique; inspect rendered surface where available; do not claim observations or modify files."
+    },
+    {
+      "id": "S13",
+      "request": "Audit the existing local dashboard for keyboard focus, semantic labels and contrast. No redesign or edits.",
+      "chapters": [
+        12,
+        14
+      ],
+      "task": "ui-audit",
+      "expected": "consult",
+      "decision": "Read-only technical audit; distinguish source review from observed keyboard/contrast results; no mutation."
+    },
+    {
+      "id": "S14",
+      "request": "Brainstorm possible product names without opening or changing any project files.",
+      "chapters": [],
+      "task": "non-ui",
+      "expected": "bypass",
+      "decision": "Section 10 brainstorming bypass; no chapter/helper required; no implementation authorization."
+    }
+  ],
+  "faults": [
+    {
+      "name": "Material UI task missing chapter 14",
+      "original_expected": "exit 2, recheck_framework_path",
+      "original_exit": 2
+    },
+    {
+      "name": "Missing selected governing chapter",
+      "original_expected": "exit 2, integrity error",
+      "original_exit": 2
+    },
+    {
+      "name": "Missing specialist instructions",
+      "original_expected": "specialist_unavailable",
+      "original_exit": 0
+    },
+    {
+      "name": "Missing catalog",
+      "original_expected": "lookup_status unavailable",
+      "original_exit": 0
+    },
+    {
+      "name": "Unknown task identifier",
+      "original_expected": "diagnostic preferred; unknown task should not silently bypass",
+      "original_exit": 0
+    }
+  ]
+}

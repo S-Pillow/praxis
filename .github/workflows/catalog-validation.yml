@@ -7,18 +7,26 @@ on:
       - 'catalog/**'
       - 'ui/**'
       - 'skills/**'
+      - 'scripts/**'
+      - 'framework/**'
       - '.agents/**'
       - 'AGENTS.md'
       - 'tests/**'
       - '.github/workflows/catalog-validation.yml'
+      - '.github/workflows/enrich-*.yml'
   push:
     branches: [main]
     paths:
       - 'catalog/**'
       - 'ui/**'
       - 'skills/**'
+      - 'scripts/**'
+      - 'framework/**'
+      - '.agents/**'
+      - 'AGENTS.md'
       - 'tests/**'
       - '.github/workflows/catalog-validation.yml'
+      - '.github/workflows/enrich-*.yml'
 jobs:
   validate:
     runs-on: ubuntu-latest
@@ -27,6 +35,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - name: Configure Python
         uses: actions/setup-python@v5
         with:
