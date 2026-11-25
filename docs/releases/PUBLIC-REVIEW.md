@@ -2,6 +2,8 @@
 
 Praxis v1.0.0 is a release candidate, not a published release. The owner approved Apache-2.0 for original Praxis and incorporated AIPF materials, and the repository rename is complete. Public distribution is intended; the visibility change and release transitions remain separate actions. See [third-party notices](../../THIRD_PARTY_NOTICES.md) for the license boundaries.
 
+On 2026-11-25 the owner accepted the scoped residual redistribution risk documented in the [Open Design provenance resolution](../../research/licensing/open-design-provenance-resolution.md), preserving original license terms, notices and reference-only/unresolved asset restrictions. This does not establish blanket third-party rights or authorize public visibility. R4 has been privately merged and both PR and main CI passed 136/136; the final checkout correction requires its own evidence.
+
 Before public access:
 
 1. Review the exact candidate and all Git history and refs that will become accessible, including PR/issue conversations, attachments, releases and workflow artifacts where applicable. Resolve unintended disclosures, not merely files visible on the default branch.

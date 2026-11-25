@@ -1,0 +1,6 @@
+# Preserve canonical bytes for framework integrity and frozen retrieval evidence.
+framework/references/** text eol=lf
+catalog/entries/*.json text eol=lf
+research/evaluations/retrieval-benchmark/** text eol=lf
+scripts/recommend_design.py text eol=lf
+scripts/search_catalog.py text eol=lf
