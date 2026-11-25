@@ -1,14 +1,23 @@
-# Public-release review
+# Public-release review — closed for v1.0.0 publication
 
-Praxis v1.0.0 is a release candidate, not a published release. The owner approved Apache-2.0 for original Praxis and incorporated AIPF materials, and the repository rename is complete. Public distribution is intended; the visibility change and release transitions remain separate actions. See [third-party notices](../../THIRD_PARTY_NOTICES.md) for the license boundaries.
+**Status:** closed. Owner authorized public release of Praxis v1.0.0 on 2026-11-25. Verified implementation: `4009f436ad3cff02a34749988e6e4da25000e248` (tree `668f876d1c82e9cdb41d3afdbe061a3531adc86e`); final regression **137/137** passed.
 
-On 2026-11-25 the owner accepted the scoped residual redistribution risk documented in the [Open Design provenance resolution](../../research/licensing/open-design-provenance-resolution.md), preserving original license terms, notices and reference-only/unresolved asset restrictions. This does not establish blanket third-party rights or authorize public visibility. R4 has been privately merged and both PR and main CI passed 136/136; the final checkout correction requires its own evidence.
+Apache-2.0 applies to original Praxis and incorporated AIPF materials. Third-party boundaries remain in [THIRD_PARTY_NOTICES.md](../../THIRD_PARTY_NOTICES.md), `licenses/`, and catalog provenance fields. The owner accepted the documented residual redistribution risk in [Open Design provenance resolution](../../research/licensing/open-design-provenance-resolution.md), preserving original terms, notices and reference-only / unresolved asset restrictions. That acceptance is **not** blanket third-party clearance.
 
-Before public access:
+## Disclosure reconciliation (since PRAXIS-PUBLIC-02)
 
-1. Review the exact candidate and all Git history and refs that will become accessible, including PR/issue conversations, attachments, releases and workflow artifacts where applicable. Resolve unintended disclosures, not merely files visible on the default branch.
-2. Review source-derived catalog extracts (not just binary assets), applicable license terms and notices, and any upstream or brand-specific restrictions. Preserve source identity and existing historical test evidence. Do not claim blanket redistribution clearance from repository-level license labels.
-3. Review cross-project research and any private references with the owner. The public-facing DEC-001 copy omits a personal local path while retaining the historical report identity and outcome.
-4. Verify the final candidate, repository state, integration changes and relevant automatic workflow effects. Only then request explicit approval for public visibility and the release. A source candidate or owner approval of a license does not mean a public release has occurred.
+Repository history is preserved; no rewriting was performed for publication.
 
-The underlying original validation archives remain outside the product repository. No private operator logs or unreviewed evidence archives should be added to the public release by inference.
+| Item | Disposition |
+| --- | --- |
+| Personal author email on six historical commits | Retained in history; previously identified in the public-release audit. |
+| Employer-associated author email on integrate commit `1e532a6397a5645be50e6d5bc90fc1de83678a76` | Introduced after that audit; retained in history with the exact R4 tree. No rewrite. |
+| URL Activity Scanner research and cross-project references | Owner-approved inclusion; no credentials in-repo; operational narrative retained as research record. |
+| Open issues / merged PRs / Actions history | Become public with the repository; no secret-bearing artifacts retained in the Actions artifact listing at last review. |
+| Catalog extracts (ODAK tokens, Hallmark Studio grain data-URI, MengTo / UUPM / Impeccable metadata) | Unchanged; notices and `metadata_only` / `reference_only` / unresolved asset statuses remain authoritative. |
+
+Private validation archives and operator paths stay outside this repository.
+
+## Post-publication expectations
+
+Pin consumers to tag `v1.0.0`. Do not treat catalog metadata as permission to redistribute third-party fonts, photos, icons or other assets. Further visibility or licensing changes require a new owner decision.

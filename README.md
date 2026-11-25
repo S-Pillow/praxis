@@ -95,7 +95,7 @@ There is a tradeoff here. A short prompt is attractive, but leaving out a requir
 
 ### 1. Get Praxis
 
-Once v1.0.0 is published, run these commands to get a local copy and check out the release. Until then, the private repository contains a release candidate and the tag is not yet available:
+Clone the public repository and check out the published release:
 
 ```bash
 git clone https://github.com/S-Pillow/praxis.git
@@ -103,7 +103,7 @@ cd praxis
 git checkout v1.0.0
 ```
 
-Already have a local checkout? After publication, run `git checkout v1.0.0` from its root (fetch the tags first with `git fetch --tags` if needed). Pin the release you intend to use rather than assuming the latest branch is the reviewed version.
+Already have a local checkout? Run `git fetch --tags` then `git checkout v1.0.0` from its root. Pin the release you intend to use rather than assuming the latest branch is the reviewed version.
 
 You don't need an API key, global plugin installation or a running Praxis service. Python 3 is required for the executable catalog tools and tests; reading the framework and skills doesn't require it. CI uses Python 3.12.
 

@@ -1,18 +1,17 @@
 # Changelog
 
-## Unreleased — Praxis v1.0.0 release preparation
+## v1.0.0 — Praxis
 
 Initial integrated Praxis product release, based on the accepted QUALITY-01 implementation. The product version is independent of AIPF v8.10.1 and the retained UI/UX v0.3 component identity.
 
 - Unified entry, incorporated canonical framework, context-aware specialist registry and support for direct and distinct-agent execution.
 - Portable Builder Payload guidance, quality-first synthesis and permanent scenario regressions.
 - Cross-platform portability corrections, evidence attribution and independent workflow validation.
-- Accepted QUALITY-01 baseline: 134 regression tests passed on Linux and Windows; VALIDATION-05 operator acceptance with notes. Native Codex discovery is unverified; later R4 PR and main CI both passed 136/136.
-- Repository renamed to `S-Pillow/praxis`; Apache-2.0 approved for original Praxis and AIPF materials. R4 integrated and merged privately; tag and publication remain separate actions.
-
+- Accepted QUALITY-01 baseline: 134 regression tests passed on Linux and Windows; VALIDATION-05 operator acceptance with notes. Native Codex discovery is unverified; R4 PR and main CI passed 136/136; final verified tip regression **137/137**.
+- Repository renamed to `S-Pillow/praxis`; Apache-2.0 for original Praxis and AIPF materials; residual third-party redistribution risk accepted with notices and asset restrictions intact.
 - Public-release safeguards: manual read-only enrichment verification, no bot commits to main, explicit source attribution and upstream content-manifest provenance.
-
 - Final release correction: enforce canonical LF checkout bytes for framework references and frozen retrieval evidence, with a Git CRLF checkout regression. No framework version or catalog content changes.
+- Published 2026-11-25: public repository, protected `main`, tag `v1.0.0`. Verified implementation commit `4009f436ad3cff02a34749988e6e4da25000e248`.
 
 ### QUALITY-01 corrections
 
