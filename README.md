@@ -261,7 +261,23 @@ The [testing guide](docs/TESTING.md) covers optional browser checks with availab
 
 ## Where Praxis goes next
 
-UI/UX is the only registered specialist in this first release. More specialists and a packaged plugin are possible future additions, not features you can use today. The standalone AIPF framework remains separate and unchanged; Praxis incorporates v8.10.1 without changing its version or authority.
+UI/UX is the only registered specialist in the first release. The next direction is to extend Praxis with focused engineering expertise while keeping AIPF as the governing framework.
+
+### Proposed specialist roadmap
+
+| Specialist | Status | Focus |
+| --- | --- | --- |
+| **UI/UX & Design Intelligence** | Available in v1.0.0 | Design systems, visual design, usability and accessibility |
+| **QA & Engineering Quality** | Next planned specialist | Risk-based testing, systematic debugging, regression quality and effective verification |
+| **Security & Privacy** | Future | Secure coding, threat modeling and vulnerability analysis |
+| **Software Architecture** | Future | Architectural patterns, maintainability and technical tradeoffs |
+| **DevOps & Reliability** | Future | Deployment, infrastructure, observability and operational resilience |
+
+### Cross-cutting capability: Review Parity
+
+A possible future integration of Review Parity would bring deterministic evidence verification, review integrity and release assurance to all specialists. The goal is to complement AI judgment with verifiable facts about scope, source state, test results and evidence freshness, without adding unnecessary review ceremony.
+
+These are proposed directions, not released features or commitments to delivery dates. A packaged plugin is also a possible future addition. The standalone AIPF framework remains separate and unchanged; Praxis incorporates v8.10.1 without changing its version or authority.
 
 ## License and provenance
 
