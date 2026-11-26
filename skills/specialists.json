@@ -85,6 +85,40 @@
       "tools": [],
       "output": "Conditional controls, alternatives, trust/data invariants, positive/negative verification and source-bound findings with evidence limits.",
       "fallback": "Disclose unavailable guidance or facts; continue only with sufficient verified approved context, otherwise identify decision or observation gap."
+    },
+    {
+      "id": "aipf-qa-engineering-quality",
+      "version": "0.1",
+      "chapters_any": [
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "skill": "skills/qa-engineering-quality/SKILL.md",
+      "tasks": {
+        "qa-plan": "plan",
+        "qa-diagnose": "diagnose",
+        "qa-review": "review"
+      },
+      "purpose": "Context-grounded test design, diagnosis, regression, test effectiveness and engineering-quality critique",
+      "authority": "Advisory; AIPF, approved requirements and current authorization govern",
+      "domain": "QA & Engineering Quality",
+      "activation": "Material verification strategy, failure diagnosis, test effectiveness or engineering-quality review after canonical AIPF routing; not chapter presence, routine tests or trivial unrelated changes alone.",
+      "knowledge_sources": [
+        "skills/qa-engineering-quality/INDEX.md",
+        "knowledge/capabilities/INDEX.md"
+      ],
+      "tools": [],
+      "output": "Risk-selected methods and observables, causal diagnosis, source-bound findings and evidence limits with relevant alternatives.",
+      "fallback": "Disclose unavailable guidance, tool, source or observer; proceed only with sufficient verified approved context and qualified alternatives, otherwise identify material decision or observation gap."
     }
   ]
 }

@@ -61,6 +61,12 @@ First alternatives: Use local tests and existing CI/review before adding a produ
 
 - [CAP-B01 — GitHub Actions](engineering-quality.md#cap-b01)
 - [CAP-B02 — Claude Ship](engineering-quality.md#cap-b02)
+- [CAP-B03 — Playwright](engineering-quality.md#cap-b03)
+- [CAP-B04 — Hypothesis](engineering-quality.md#cap-b04)
+- [CAP-B05 — Stryker](engineering-quality.md#cap-b05)
+- [CAP-B06 — Pact](engineering-quality.md#cap-b06)
+- [CAP-B07 — EvalView](engineering-quality.md#cap-b07)
+- [CAP-B08 — Promptfoo](engineering-quality.md#cap-b08)
 
 ## Other discovery candidates
 Netlify, Render, Clerk, Firebase, QStash, Postmark, deSEC, UptimeRobot, Grafana Cloud, GitLab CI and other S3-compatible stores are names from the approved shortlist only. No factual provider record, license or approval asserted. Locate and qualify official sources if a real use case warrants adding one. No full Free-for-Dev import.

@@ -14,3 +14,7 @@ Stable capability-selection reasoning is maintained separately from volatile pri
 ## Security & Privacy development records
 
 Four CAP-S records use original selection guidance and pinned reference-only observations; see [security source register](../../skills/security-privacy/SOURCES.md) for exact provenance and limitations. No operational provider, runtime, privacy, pricing or execution qualification implied. Existing twenty capability records/IDs retained. Other candidates are discovery only; apply QUALIFICATION.md at point of use.
+
+## QA & Engineering Quality development records
+
+Six additive CAP-B03–B08 discovery records, with source identity/rights/limitations in [QA SOURCES](../../skills/qa-engineering-quality/SOURCES.md) and its linked pinned register. Existing 24 records unchanged; no tool selected, installed or connected, no new runtime. Other candidates and deferred cross-specialist leads remain research only. Apply existing QUALIFICATION.md at point of use.

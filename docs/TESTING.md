@@ -62,3 +62,9 @@ The finalized [Architecture acceptance requirements](PRD.md#10-acceptance-for-th
 ## Security & Privacy v0.1 qualification
 
 `python -m unittest discover -s tests -p test_security_privacy_specialist.py -v` checks the three modes, applicability, unavailable resources, no subprocess, legacy behavior, source/card links and framework integrity. Full 163-test standing suite passed on both platforms at the accepted B4 source. Semantic and independent exercises are distinct from deterministic checks. See [PRD Section 13](PRD.md#13-security-and-privacy-specialist) and [qualification](releases/1.2.0.md). No live audit or certification is established.
+
+## QA & Engineering Quality v0.1 qualification
+
+The [approved QA requirements](PRD.md#14-qa--engineering-quality-specialist) and [B1 authorization record](../research/qa-engineering-quality/B1-APPROVAL-BASELINE.md) specify QA-AC01–18 and QD01–12. Run `python -m unittest discover -s tests -p test_qa_engineering_quality_specialist.py -v` for focused additive registry, helper, knowledge/source and capability preservation checks; run the complete standing suite on Linux and native Windows at exact candidate. Static tests establish mechanisms and coverage/navigation, not material agent judgment, actual user interaction, test efficacy or independent Builder execution. Keep direct synthetic tests, rendered browser observation, actual distinct Builder/reviewer evidence, source critique and evaluation observations separate; preserve original failure and correction, state/env/source identities and gaps. Missing required observer remains pending under AIPF; no release authorized by tests.
+
+The corrected B4 candidate passed 173/173 Linux and native Windows tests, with distinct Builder, defect-sensitive reviewer and representative actual behavioral observations separately reconciled. See [v1.3.0 release record](releases/1.3.0.md). Release-bound tree verification is separate from B4.

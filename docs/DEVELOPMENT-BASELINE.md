@@ -73,4 +73,4 @@ Product definition: approved. CORE-01 incorporated the verified v0.3 baseline. C
 
 Historical release gates at this planning checkpoint: independent portable Builder execution, final source-bound rendered evidence and external-asset boundary verification, impact-triggered regression and owner release authorization. No new runtime infrastructure or specialist work was authorized at this checkpoint. See the published [v1.0.0 release record](releases/1.0.0.md) for subsequent disposition.
 
-For the current consolidated requirements, see [PRD v1.3](PRD.md) and [architecture specialist build plan](ARCHITECTURE-SPECIALIST-BUILD-PLAN.md). Historical phase status and release evidence are unchanged. The architecture specialist is qualified for v1.1.0; see [release qualification](releases/1.1.0.md).
+For the current consolidated requirements, see [PRD v1.4](PRD.md) and [architecture specialist build plan](ARCHITECTURE-SPECIALIST-BUILD-PLAN.md). Historical phase status and release evidence are unchanged. The architecture specialist is qualified for v1.1.0; see [release qualification](releases/1.1.0.md).
