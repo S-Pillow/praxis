@@ -23,7 +23,7 @@ flowchart TD
   H --> V
 ```
 
-These are logical capabilities, not separate servers or mandatory running services. UI/UX remains the only registered specialist in v1.0.0. The subsequent [specialist roadmap](PRD.md#6-specialist-expansion-roadmap) prioritizes Software Architecture & Engineering Design next; the other specialists and cross-cutting assurance are future directions, not current deliverables.
+These are logical capabilities, not separate servers or mandatory running services. UI/UX was the only registered specialist in v1.0.0. The v1.1.0 source adds Software Architecture & Engineering Design; the other specialists and cross-cutting assurance in the [specialist roadmap](PRD.md#6-specialist-expansion-roadmap) remain future directions, not current deliverables.
 
 ## 2. Responsibilities and boundaries
 
@@ -63,13 +63,13 @@ The user need not separately invoke AIPF, the UI/UX specialist or retrieval scri
 | Output expectations | Useful guidance and evidence |
 | Fallback behavior | Handle unavailable capabilities |
 
-Future specialists should primarily be added by implementing and registering them. Governing integration may evolve when necessary. Released v1.0.0 registers UI/UX only; the v1.1.0 development checkout adds architecture v0.1, qualified locally at B4; [pre-release validation remains pending](releases/1.1.0-pre-release.md). No placeholder specialists are required. Missing specialist capabilities must be reported transparently, with a suitable bounded fallback where feasible. Missing required governance cannot be silently bypassed.
+Future specialists should primarily be added by implementing and registering them. Governing integration may evolve when necessary. The v1.1.0 source registers UI/UX and architecture v0.1; see [release qualification](releases/1.1.0.md). No placeholder specialists are required. Missing specialist capabilities must be reported transparently, with a suitable bounded fallback where feasible. Missing required governance cannot be silently bypassed.
 
 For future integration, specialize in domain knowledge and practical engineering judgment rather than adding parallel governance. The Prompt Agent (or direct executing agent) selects and synthesizes relevant advice into concrete decisions, constraints, implementation guidance and verification implications. No mandatory specialist access, additional agent, retrieval engine or catalog is presumed for the Builder. Existing architecture and appropriate implementation discretion remain protected.
 
 Potential Review Parity-derived assurance belongs in the cross-cutting verification/evidence capability rather than an independent domain specialist or new approval authority. Its integration is deferred and subject to separate qualification. These are forward-looking design principles under [DEC-004](decisions/PRAXIS-DEC-004-specialist-expansion.md), not implemented architecture.
 
-### Implemented v1.1.0 candidate integration
+### Implemented v1.1.0 integration
 
 Architecture design/evolve/critique consults original progressive guides in `skills/architecture/` and shared source-linked capability records in `knowledge/capabilities/`. The latter is independent of a particular specialist; stable guidance and volatile provider facts have distinct maintenance expectations. The candidate registry reader accepts a multi-path applicability field (`chapters_any: [11,12]` for architecture), retains legacy singular `chapter`, and supports omitted retrieval scripts without executing a process. Existing UI tasks, lookup protocol and output semantics are preserved. AIPF retains canonical routing, and agent-selected task materiality—not chapter presence alone—controls specialist activation. No provider client, external API, or new orchestration runtime is introduced. See the [build plan](ARCHITECTURE-SPECIALIST-BUILD-PLAN.md) and [PRD](PRD.md).
 

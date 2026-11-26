@@ -2,7 +2,7 @@
 
 Version: 0.1 | Product planning approved: 2026-11-24
 
-**Historical planning checkpoint.** For the later QUALITY-01 / VALIDATION-05 acceptance and v1.0.0 preparation, see [current release evidence](releases/1.0.0.md). The original roadmap and earlier state below are retained as historical evidence. For current expansion priorities, see [PRD section 6](PRD.md#6-specialist-expansion-roadmap) and [DEC-004](decisions/PRAXIS-DEC-004-specialist-expansion.md); the historical phase statuses below are not current release gates.
+**Historical planning checkpoint.** For the later QUALITY-01 / VALIDATION-05 acceptance and v1.0.0 preparation, see [historical v1.0.0 release evidence](releases/1.0.0.md). The original roadmap and earlier state below are retained as historical evidence. For current expansion priorities, see [PRD section 6](PRD.md#6-specialist-expansion-roadmap) and [DEC-004](decisions/PRAXIS-DEC-004-specialist-expansion.md); the historical phase statuses below are not current release gates.
 
 ## 1. Approved baseline
 
@@ -73,4 +73,4 @@ Product definition: approved. CORE-01 incorporated the verified v0.3 baseline. C
 
 Historical release gates at this planning checkpoint: independent portable Builder execution, final source-bound rendered evidence and external-asset boundary verification, impact-triggered regression and owner release authorization. No new runtime infrastructure or specialist work was authorized at this checkpoint. See the published [v1.0.0 release record](releases/1.0.0.md) for subsequent disposition.
 
-For the current final expansion planning copy, see [PRD v1.2](PRD.md) and [architecture specialist build plan](ARCHITECTURE-SPECIALIST-BUILD-PLAN.md). Historical phase status and release evidence are unchanged; the v1.1.0 development candidate completed local B4 qualification; [pre-release gates remain open](releases/1.1.0-pre-release.md). v1.0.0 is the released baseline.
+For the current final expansion planning copy, see [PRD v1.2](PRD.md) and [architecture specialist build plan](ARCHITECTURE-SPECIALIST-BUILD-PLAN.md). Historical phase status and release evidence are unchanged. The architecture specialist is qualified for v1.1.0; see [release qualification](releases/1.1.0.md).

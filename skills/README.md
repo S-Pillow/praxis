@@ -26,4 +26,4 @@ These checks validate file discovery layout and executable retrieval, **not** wh
 
 ## Architecture v0.1 (development candidate)
 
-Use the integrated Praxis entry for material architecture decisions after canonical routing. See [architecture skill](architecture/SKILL.md), [decision index](architecture/INDEX.md) and the independent [capability index](../knowledge/capabilities/INDEX.md). No standalone installation or lookup command is required. Local B4 qualification is complete; [pre-release validation and release authorization remain pending](../docs/releases/1.1.0-pre-release.md).
+Use the integrated Praxis entry for material architecture decisions after canonical routing. See [architecture skill](architecture/SKILL.md), [decision index](architecture/INDEX.md) and the independent [capability index](../knowledge/capabilities/INDEX.md). No standalone installation or lookup command is required. Architecture v0.1 is qualified for v1.1.0; see [release qualification](../docs/releases/1.1.0.md).

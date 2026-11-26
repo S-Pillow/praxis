@@ -15,7 +15,7 @@ Select Praxis, not the separate standalone AIPF plugin. Load `skills/praxis/SKIL
 | New system or material design decision | 11 or 12 | Architecture design |
 | Structural change or review | 12 | Architecture evolve or critique |
 
-The agent selects paths and materiality under AIPF; the table is not a replacement Path Selector. The registry maps task type to a specialist and its existing mode. For future specialists extend the registry, entry guidance and integration tests together; do not register unavailable modules or allow them to introduce new authority. Released v1.0.0 registers UI/UX v0.3 only. The v1.1.0 development checkout adds architecture v0.1, qualified locally at B4; [pre-release validation remains pending](docs/releases/1.1.0-pre-release.md).
+The agent selects paths and materiality under AIPF; the table is not a replacement Path Selector. The registry maps task type to a specialist and its existing mode. For future specialists extend the registry, entry guidance and integration tests together; do not register unavailable modules or allow them to introduce new authority. The v1.1.0 source registers UI/UX v0.3 and architecture v0.1; see [release qualification](docs/releases/1.1.0.md).
 
 The optional read-only helper is for agents, not a user workflow:
 

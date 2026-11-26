@@ -1,11 +1,11 @@
 # Changelog
 
-## Unreleased — v1.1.0 pre-release candidate
+## v1.1.0 — Architecture & Engineering Design
 
 - Architecture v0.1: design, evolve and critique; progressive local decision guides.
 - Shared, independent capability discovery and point-of-use qualification guidance.
 - Additive any-path registry and optional lookup; existing UI contract retained.
-- Local B4 qualification: 154 standing tests on Linux; independent disposable Builder exercise passed after correction (25 separate tests). See [pre-release evidence and limitations](docs/releases/1.1.0-pre-release.md). Windows, shared CI and owner release acceptance remain open. Not published.
+- B5 qualification: 155/155 standing tests passed on hosted Linux and native Windows on the accepted implementation tree; independent disposable Builder exercise passed after correction (25 separate tests). Owner accepted the candidate and authorized integration and publication. See [release qualification and limitations](docs/releases/1.1.0.md) for source identities and publication reconciliation.
 
 ## v1.0.0 — Praxis
 
