@@ -51,6 +51,40 @@
       "tools": [],
       "output": "Suitable options including no change, tradeoffs, assumptions, implementation constraints and verification implications, source-linked when material.",
       "fallback": "Disclose missing guides or facts; use verified project context and qualified alternatives only where sufficient, otherwise identify the material decision gap."
+    },
+    {
+      "id": "aipf-security-privacy",
+      "version": "0.1",
+      "chapters_any": [
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "skill": "skills/security-privacy/SKILL.md",
+      "tasks": {
+        "security-design": "design",
+        "security-harden": "harden",
+        "security-review": "review"
+      },
+      "purpose": "Context-grounded defensive security and privacy design, hardening and source assessment",
+      "authority": "Advisory; AIPF, approved requirements and current authorization govern",
+      "domain": "Security & Privacy",
+      "activation": "Material security/privacy intent or trust/data boundary change after canonical AIPF routing; not chapter presence or minor unrelated work.",
+      "knowledge_sources": [
+        "skills/security-privacy/INDEX.md",
+        "knowledge/capabilities/INDEX.md"
+      ],
+      "tools": [],
+      "output": "Conditional controls, alternatives, trust/data invariants, positive/negative verification and source-bound findings with evidence limits.",
+      "fallback": "Disclose unavailable guidance or facts; continue only with sufficient verified approved context, otherwise identify decision or observation gap."
     }
   ]
 }

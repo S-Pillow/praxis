@@ -44,3 +44,7 @@ The canonical source is `Neutral_AIPF_v8_10_1.docx` with SHA-256 `8e66028c8ebf60
 ## Architecture consultation (development candidate)
 
 For a material architecture task, consult `skills/architecture/SKILL.md` and its index directly. An optional helper example is `python scripts/praxis_context.py --task architecture-design --chapter 11 --request "Design a local import and reporting utility"`. Use the actual selected chapter and mode. `lookup_status: not_applicable` means no lookup process, not proof of consultation. No Python is required to read the guides. The independently usable [capability index](knowledge/capabilities/INDEX.md) is not an approved dependency list.
+
+## Security & Privacy consultation (development candidate)
+
+For material security or privacy work, consult `skills/security-privacy/SKILL.md` after canonical routing and use design, harden or review. Example: `python scripts/praxis_context.py --task security-design --chapter 12 --chapter 15 --request "Design resource isolation for an authorized shared feature"`. Use the actual selected paths. No lookup subprocess; no guide consultation or security assurance inferred from helper output. Source-review boundaries, Builder independence and AIPF authority remain binding.

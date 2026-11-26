@@ -10,3 +10,7 @@ Original records in this directory are independently authored Praxis guidance, w
 - Interfere, OpenTelemetry and Claude Ship are reference candidates per approved build plan. Provider claims are claims; pricing, access, privacy, actual capability, authority and operational behavior remain unqualified. Review Parity deferred, no protocol or helper added.
 
 Stable capability-selection reasoning is maintained separately from volatile prices, quotas, terms, regions, availability, retention and feature claims. The latter must be verified at point of use when decisive. No guarantee of a free architecture. Missing source or unknown limits are explicit decision gaps when material. See [QUALIFICATION.md](QUALIFICATION.md).
+
+## Security & Privacy development records
+
+Four CAP-S records use original selection guidance and pinned reference-only observations; see [security source register](../../skills/security-privacy/SOURCES.md) for exact provenance and limitations. No operational provider, runtime, privacy, pricing or execution qualification implied. Existing twenty capability records/IDs retained. Other candidates are discovery only; apply QUALIFICATION.md at point of use.
