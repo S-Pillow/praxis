@@ -24,6 +24,10 @@ Codex discovers skills from `.agents/skills` in the repository hierarchy. This r
 
 These checks validate file discovery layout and executable retrieval, **not** whether a live Codex runtime selected and used the skill. That final activation test requires a Codex session with this checkout open.
 
-## Architecture v0.1 (development candidate)
+## Architecture v0.1
 
 Use the integrated Praxis entry for material architecture decisions after canonical routing. See [architecture skill](architecture/SKILL.md), [decision index](architecture/INDEX.md) and the independent [capability index](../knowledge/capabilities/INDEX.md). No standalone installation or lookup command is required. Architecture v0.1 is qualified for v1.1.0; see [release qualification](../docs/releases/1.1.0.md).
+
+## Security & Privacy v0.1
+
+Use integrated Praxis after canonical routing for material security/privacy design, harden or review. See [skill](security-privacy/SKILL.md), [index](security-privacy/INDEX.md) and [sources](security-privacy/SOURCES.md). No mandatory tool or standalone installation; source review confers no live execution authority. See [qualification](../docs/releases/1.2.0.md).

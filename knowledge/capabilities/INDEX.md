@@ -64,3 +64,14 @@ First alternatives: Use local tests and existing CI/review before adding a produ
 
 ## Other discovery candidates
 Netlify, Render, Clerk, Firebase, QStash, Postmark, deSEC, UptimeRobot, Grafana Cloud, GitLab CI and other S3-compatible stores are names from the approved shortlist only. No factual provider record, license or approval asserted. Locate and qualify official sources if a real use case warrants adding one. No full Free-for-Dev import.
+
+## [Security and privacy capabilities](security-privacy.md)
+
+First alternatives: manual scoped review, existing tools, no collection, approved local processing and small reviewed correction. No installation or scanning implied.
+
+- [CAP-S01 — Safe Anything](security-privacy.md#cap-s01)
+- [CAP-S02 — DevToys](security-privacy.md#cap-s02)
+- [CAP-S03 — Umami](security-privacy.md#cap-s03)
+- [CAP-S04 — OpenRewrite](security-privacy.md#cap-s04)
+
+Other security candidates (OSV-Scanner, Semgrep, Gitleaks, GitHub security features, CycloneDX / Dependency-Track and aeo.js) remain discovery only pending concrete need and exact version, rights, data and coverage qualification. See [security source register](../../skills/security-privacy/SOURCES.md).

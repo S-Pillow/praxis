@@ -1,5 +1,12 @@
 # Changelog
 
+## v1.2.0 — Security & Privacy
+
+- Security & Privacy v0.1: material design, harden and review; nine progressive guides, 36 original decision cards.
+- Four discovery-only capability records; 24 shared records total. No mandatory scanner, runtime, integration or separate governance.
+- B4 accepted implementation `c6393f6`: 163/163 standing tests on Linux and native Windows. Independent Builder v2 22/22 reproduced and 14/14 reviewer checks after four v1 findings. Owner accepted and authorized B5.
+- Consolidate product and specialist requirements into [PRD v1.3](docs/PRD.md), preserving IDs, historical revisions and future QA/DevOps boundaries. See [qualification and release record](docs/releases/1.2.0.md) for exact identities and limits.
+
 ## v1.1.0 — Architecture & Engineering Design
 
 - Architecture v0.1: design, evolve and critique; progressive local decision guides.
