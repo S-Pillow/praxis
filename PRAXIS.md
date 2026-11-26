@@ -15,7 +15,7 @@ Select Praxis, not the separate standalone AIPF plugin. Load `skills/praxis/SKIL
 | New system or material design decision | 11 or 12 | Architecture design |
 | Structural change or review | 12 | Architecture evolve or critique |
 
-The agent selects paths and materiality under AIPF; the table is not a replacement Path Selector. The registry maps task type to a specialist and its existing mode. For future specialists extend the registry, entry guidance and integration tests together; do not register unavailable modules or allow them to introduce new authority. The v1.1.0 source registers UI/UX v0.3 and architecture v0.1; see [release qualification](docs/releases/1.1.0.md).
+The agent selects paths and materiality under AIPF; the table is not a replacement Path Selector. The registry maps task type to a specialist and its existing mode. For future specialists extend the registry, entry guidance and integration tests together; do not register unavailable modules or allow them to introduce new authority. The v1.2.0 source registers UI/UX v0.3, Architecture v0.1 and Security & Privacy v0.1; see [release qualification](docs/releases/1.2.0.md).
 
 The optional read-only helper is for agents, not a user workflow:
 
@@ -41,10 +41,10 @@ Run `python -m unittest discover -s tests -v` from the full Praxis repository. T
 
 The canonical source is `Neutral_AIPF_v8_10_1.docx` with SHA-256 `8e66028c8ebf60ea87180be1c23933273d8a597c425d3a1595ae81d9a720b8e6`. The complete Markdown projection SHA-256 is `b11dfa2c12deb4d5b90833af4f10a02b5daf5e26d143469560b896fe9c85e0fd`; this is not the manifest-file digest. The actual `framework/projection-manifest.json` SHA-256 at the QUALITY-01 baseline is `f1c49a23f9157d3358e474c374e95cdb7cf65591504b79d498a202d44c1c58e1`. The manifest lists all contiguous partitions; none introduces normative changes.
 
-## Architecture consultation (development candidate)
+## Architecture consultation (v0.1)
 
 For a material architecture task, consult `skills/architecture/SKILL.md` and its index directly. An optional helper example is `python scripts/praxis_context.py --task architecture-design --chapter 11 --request "Design a local import and reporting utility"`. Use the actual selected chapter and mode. `lookup_status: not_applicable` means no lookup process, not proof of consultation. No Python is required to read the guides. The independently usable [capability index](knowledge/capabilities/INDEX.md) is not an approved dependency list.
 
-## Security & Privacy consultation (development candidate)
+## Security & Privacy consultation (v0.1)
 
 For material security or privacy work, consult `skills/security-privacy/SKILL.md` after canonical routing and use design, harden or review. Example: `python scripts/praxis_context.py --task security-design --chapter 12 --chapter 15 --request "Design resource isolation for an authorized shared feature"`. Use the actual selected paths. No lookup subprocess; no guide consultation or security assurance inferred from helper output. Source-review boundaries, Builder independence and AIPF authority remain binding.

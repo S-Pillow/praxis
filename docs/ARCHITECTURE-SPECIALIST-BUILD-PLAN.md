@@ -182,7 +182,7 @@ Approve proposed architecture scope, modes and file-based knowledge model; appro
 
 Access date for new web observations: 2026-11-25. Earlier detailed research source register remains in the discovery report, section 11. New primary links below support the examples; links are not redistribution licenses.
 
-- P1: [PRD v1.2](PRD.md) — consolidated AR-01–14, KI-01–08, NFR-01–10 and AS-AC01–10; target requirements, not implementation authority.
+- P1: [Historical PRD v1.2](https://github.com/S-Pillow/praxis/blob/c6393f6174e8d83e6760cf64bfbe889710d8919d/docs/PRD.md) — consolidated AR-01–14, KI-01–08, NFR-01–10 and AS-AC01–10; target requirements, not implementation authority.
 - P2: `Praxis_Architecture_Specialist_Discovery_2026-11-25.md` — research basis, pinned skill candidates and licenses, guidance and integration analysis.
 - P3: [Praxis registry](https://github.com/S-Pillow/praxis/blob/66138bd1c1249d004d94e9e4877eb55a2e7cd955/skills/specialists.json), [context helper](https://github.com/S-Pillow/praxis/blob/66138bd1c1249d004d94e9e4877eb55a2e7cd955/scripts/praxis_context.py), [roadmap PR #14](https://github.com/S-Pillow/praxis/pull/14); baseline rechecked via GitHub, no changes made.
 - F1: [Free-for-Dev](https://free-for.dev/), [actual repository README](https://github.com/ripienaar/free-for-dev) and repository metadata (`license: null`). Public list discovery only; selected entries inspected, not every entry qualified.
