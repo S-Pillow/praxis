@@ -247,7 +247,7 @@ The [testing guide](docs/TESTING.md) covers optional browser checks with availab
 
 | Domain | Start here |
 | --- | --- |
-| Product requirements | [PRD](docs/PRD.md) |
+| Product requirements | [Product PRD v1.2](docs/PRD.md) · [Security & Privacy proposed PRD](docs/SECURITY-PRIVACY-PRD.md) |
 | Logical architecture | [Architecture](docs/ARCHITECTURE.md) |
 | Historical approved baseline | [Development baseline](docs/DEVELOPMENT-BASELINE.md) |
 | Usage | [Praxis workflow](PRAXIS.md) · [Unified entry](skills/praxis/SKILL.md) |
@@ -273,7 +273,7 @@ The v1.1.0 source adds advisory software architecture and engineering design to 
 | --- | --- | --- |
 | **UI/UX & Design Intelligence** | Available in v1.0.0 | Design systems, visual design, usability and accessibility |
 | **Software Architecture & Engineering Design** | v0.1, qualified for v1.1.0 | System design, technology selection, data and integration patterns, architectural tradeoffs and maintainability |
-| **Security & Privacy** | Future | Threat modeling, trust boundaries, secure design and data protection |
+| **Security & Privacy** | Next planned — [proposed PRD](docs/SECURITY-PRIVACY-PRD.md) | Threat modeling, trust boundaries, secure design and data protection |
 | **QA & Engineering Quality** | Future | Risk-based test design, systematic diagnosis, regression quality and effective verification |
 | **DevOps & Reliability** | Future | Deployment strategies, infrastructure, observability and operational resilience |
 

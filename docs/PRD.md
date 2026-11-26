@@ -62,6 +62,8 @@ See [architecture](ARCHITECTURE.md) and [development baseline](DEVELOPMENT-BASEL
 
 ## 6. Specialist expansion roadmap
 
+**Current planning update (2026-11-25):** Architecture & Engineering Design v0.1 is released in Praxis v1.1.0; see [release qualification](releases/1.1.0.md). The next planning priority is Security & Privacy. Its [proposed specialist PRD](SECURITY-PRIVACY-PRD.md) supplements this v1.2 product/architecture baseline and awaits owner approval. The original architecture-first planning text and requirements below are retained as historical evidence, not current release status. No implementation or release authority follows from this update.
+
 The next planned specialist is **Software Architecture & Engineering Design**. This supersedes the earlier QA-first planning preference; it does not invalidate the QA research or change the accepted v1.0.0 requirements and evidence.
 
 ### Product direction

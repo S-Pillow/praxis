@@ -23,7 +23,7 @@ flowchart TD
   H --> V
 ```
 
-These are logical capabilities, not separate servers or mandatory running services. UI/UX was the only registered specialist in v1.0.0. The v1.1.0 source adds Software Architecture & Engineering Design; the other specialists and cross-cutting assurance in the [specialist roadmap](PRD.md#6-specialist-expansion-roadmap) remain future directions, not current deliverables.
+These are logical capabilities, not separate servers or mandatory running services. UI/UX was the only registered specialist in v1.0.0. The v1.1.0 source adds Software Architecture & Engineering Design; the next proposed specialist is [Security & Privacy](SECURITY-PRIVACY-PRD.md). Its integration is not implemented or authorized. The other specialists and cross-cutting assurance in the [specialist roadmap](PRD.md#6-specialist-expansion-roadmap) remain future directions, not current deliverables.
 
 ## 2. Responsibilities and boundaries
 
