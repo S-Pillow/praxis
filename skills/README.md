@@ -31,3 +31,7 @@ Use the integrated Praxis entry for material architecture decisions after canoni
 ## Security & Privacy v0.1
 
 Use integrated Praxis after canonical routing for material security/privacy design, harden or review. See [skill](security-privacy/SKILL.md), [index](security-privacy/INDEX.md) and [sources](security-privacy/SOURCES.md). No mandatory tool or standalone installation; source review confers no live execution authority. See [qualification](../docs/releases/1.2.0.md).
+
+## QA & Engineering Quality v0.1 (development candidate)
+
+[Skill](qa-engineering-quality/SKILL.md) · [question index](qa-engineering-quality/INDEX.md) · [sources](qa-engineering-quality/SOURCES.md). Material plan/diagnose/review after canonical routing; no executable lookup or separate dependency. Compose actual tests and oracles with relevant UI/UX, Architecture and Security. No acceptance authority or mandatory test platform; candidate qualification pending.

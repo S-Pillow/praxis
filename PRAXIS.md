@@ -15,7 +15,7 @@ Select Praxis, not the separate standalone AIPF plugin. Load `skills/praxis/SKIL
 | New system or material design decision | 11 or 12 | Architecture design |
 | Structural change or review | 12 | Architecture evolve or critique |
 
-The agent selects paths and materiality under AIPF; the table is not a replacement Path Selector. The registry maps task type to a specialist and its existing mode. For future specialists extend the registry, entry guidance and integration tests together; do not register unavailable modules or allow them to introduce new authority. The v1.2.0 source registers UI/UX v0.3, Architecture v0.1 and Security & Privacy v0.1; see [release qualification](docs/releases/1.2.0.md).
+The agent selects paths and materiality under AIPF; the table is not a replacement Path Selector. The registry maps task type to a specialist and its existing mode. For future specialists extend the registry, entry guidance and integration tests together; do not register unavailable modules or allow them to introduce new authority. The released v1.2.0 baseline registers UI/UX v0.3, Architecture v0.1 and Security & Privacy v0.1; see [release qualification](docs/releases/1.2.0.md). The v1.3.0 development candidate adds QA & Engineering Quality v0.1, pending qualification.
 
 The optional read-only helper is for agents, not a user workflow:
 
@@ -48,3 +48,7 @@ For a material architecture task, consult `skills/architecture/SKILL.md` and its
 ## Security & Privacy consultation (v0.1)
 
 For material security or privacy work, consult `skills/security-privacy/SKILL.md` after canonical routing and use design, harden or review. Example: `python scripts/praxis_context.py --task security-design --chapter 12 --chapter 15 --request "Design resource isolation for an authorized shared feature"`. Use the actual selected paths. No lookup subprocess; no guide consultation or security assurance inferred from helper output. Source-review boundaries, Builder independence and AIPF authority remain binding.
+
+## QA & Engineering Quality consultation (v0.1 development candidate)
+
+After canonical path selection, consult [QA](skills/qa-engineering-quality/SKILL.md) for material planning, diagnosis or review; use its [question index](skills/qa-engineering-quality/INDEX.md). Example: `python scripts/praxis_context.py --task qa-diagnose --chapter 12 --request "Reproduce a stale result"`. The helper resolves only the explicit task and chapter; no QA subprocess or lookup. Actual semantic activation and evidence remain separate. Tests can pass while defects remain; select risk-relevant independent oracles, preserve original failure/correction and unaffected behavior. Verify only within authorization; direct agent has no self-handoff, distinct Builder receives complete T1 with accessible implementation inputs. See [approved temporary QA PRD](docs/QA-ENGINEERING-QUALITY-PRD.md) and [B1 authorization record](research/qa-engineering-quality/B1-APPROVAL-BASELINE.md). No release claim.
