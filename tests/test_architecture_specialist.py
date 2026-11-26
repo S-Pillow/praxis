@@ -102,21 +102,21 @@ class ArchitectureMechanismTests(unittest.TestCase):
 
 class ArchitectureKnowledgeTests(unittest.TestCase):
     def test_registry_paths(self):
-        registry=json.loads(REGISTRY.read_text())
+        registry=json.loads(REGISTRY.read_text(encoding="utf-8"))
         a=next(s for s in registry['specialists'] if s['id']=='aipf-architecture')
         self.assertNotIn('retrieval_script',a)
         for p in [a['skill'],*a['knowledge_sources']]: self.assertTrue((ROOT/p).is_file(),p)
 
     def check_links(self,folder,local_only=True):
         for f in folder.rglob('*.md'):
-            for dest in re.findall(r'\]\(([^)]+)\)',f.read_text()):
+            for dest in re.findall(r'\]\(([^)]+)\)',f.read_text(encoding="utf-8")):
                 if '://' in dest: continue
                 path,_,frag=dest.partition('#'); target=(f.parent/path).resolve() if path else f
                 if local_only and not any(target.is_relative_to(base) for base in (ARCH,CAP)):
                     continue  # actual project-source links checked on full checkout below
                 self.assertTrue(target.is_file(),(f,dest))
                 if frag:
-                    headings=re.findall(r'^#+\s+(.+)$',target.read_text(),re.M)
+                    headings=re.findall(r'^#+\s+(.+)$',target.read_text(encoding="utf-8"),re.M)
                     self.assertIn(frag,[re.sub(r'[^\w -]','',s.lower()).replace(' ','-') for s in headings],(f,dest))
 
     def test_internal_navigation(self): self.check_links(ARCH); self.check_links(CAP)
@@ -124,24 +124,24 @@ class ArchitectureKnowledgeTests(unittest.TestCase):
     def test_cards_index_unique_and_complete(self):
         ids=[]
         for f in (ARCH/'references').glob('*.md'):
-            t=f.read_text(); cards=re.split(r'^## (A\d+)\n',t,flags=re.M)
+            t=f.read_text(encoding="utf-8"); cards=re.split(r'^## (A\d+)\n',t,flags=re.M)
             for id,body in zip(cards[1::2],cards[2::2]):
                 ids.append(id)
                 for field in ('Decision','Use when','Disqualifiers / stop','Alternatives and consequences','Implementation implications','Verification / revisit','Provenance','Maintenance'):
                     self.assertIn('**'+field+':**',body,(id,field))
         self.assertTrue(ids); self.assertEqual(len(ids),len(set(ids)))
-        self.assertEqual(set(ids),set(re.findall(r'\[(A\d+) —', (ARCH/'INDEX.md').read_text())))
+        self.assertEqual(set(ids),set(re.findall(r'\[(A\d+) —', (ARCH/'INDEX.md').read_text(encoding="utf-8"))))
 
     def test_capability_index_unique_and_complete(self):
         ids=[]
         for f in CAP.glob('*.md'):
-            cards=re.split(r'^## (CAP-[A-Z]\d+)\n',f.read_text(),flags=re.M)
+            cards=re.split(r'^## (CAP-[A-Z]\d+)\n',f.read_text(encoding="utf-8"),flags=re.M)
             for id,body in zip(cards[1::2],cards[2::2]):
                 ids.append(id)
                 for field in ('Name','Tags','Candidate use','Constraints to check','Official documentation pointer(s)','Pricing / terms / licensing pointer(s)','Observation / verification state','Origin and redistribution'):
                     self.assertIn('**'+field+':**',body,(id,field))
         self.assertTrue(ids); self.assertEqual(len(ids),len(set(ids)))
-        self.assertEqual(set(ids),set(re.findall(r'\[(CAP-[A-Z]\d+) —',(CAP/'INDEX.md').read_text())))
+        self.assertEqual(set(ids),set(re.findall(r'\[(CAP-[A-Z]\d+) —',(CAP/'INDEX.md').read_text(encoding="utf-8"))))
 
 class ArchitectureIntegratedTests(unittest.TestCase):
     def test_project_source_navigation(self):
