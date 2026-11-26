@@ -1,10 +1,55 @@
 # Praxis — Security & Privacy Specialist
 
-Product Requirements Document | v1.0 | 25 November 2026
+Product Requirements Document | v1.1 | 25 November 2026
 
 **Status:** Proposed for product-owner review. Planning and documentation authorized; implementation, integration, testing against live systems and release are not authorized. Proposed component version: 0.1; proposed next product release: v1.2.0, subject to later owner approval. Governing framework: AIPF v8.10.1.
 
-**Baseline:** Praxis v1.1.0, commit `37b98b9a21f14c609e4ed656cc47bb08d7133819`, tree `b634d72d89aa07e2411061e9a5d9493d81048b92`. This specialist-specific PRD supplements the product PRD v1.2 (`docs/PRD.md`) and its accepted architecture requirements; it does not replace historical acceptance records. Source register in section 10 derives from Research Checkpoint 01, dated 2026-11-25.
+**Baseline:** Praxis v1.1.0, commit `37b98b9a21f14c609e4ed656cc47bb08d7133819`, tree `b634d72d89aa07e2411061e9a5d9493d81048b92`. This specialist-specific PRD supplements the product PRD v1.2 (`docs/PRD.md`) and its accepted architecture requirements; it does not replace historical acceptance records. Source register in section 10 derives from Research Checkpoint 01, dated 2026-11-25. Revision 1.1 expands the specialist-specific v1.0 specification after comparison with the consolidated 28-page product PRD v1.2; the earlier requirements and historical release evidence remain in force. This revision is proposed, not approved.
+
+## 0. Document control and inherited product baseline
+
+| Item | Controlled meaning |
+| --- | --- |
+| Product | Praxis — Intelligence into action; vendor-neutral engineering decision support powered by AIPF. |
+| Document | Security & Privacy Specialist PRD v1.1; supersedes proposed v1.0 of this specialist document, not the product PRD v1.2. |
+| Current delivered state | v1.1.0: UI/UX v0.3 and Architecture & Engineering Design v0.1; AIPF v8.10.1. |
+| Proposed target | Security & Privacy v0.1, proposed Praxis v1.2.0. No implementation or release approval. |
+| Requirements authority | [Product PRD v1.2](PRD.md) for inherited PR/AR/KI/NFR and acceptance baseline; this PRD for the proposed SP/SK/SN and AC01–14 scope; AIPF governs execution. |
+| Historical evidence | [v1.0.0](releases/1.0.0.md), [v1.1.0](releases/1.1.0.md), [architecture build plan](ARCHITECTURE-SPECIALIST-BUILD-PLAN.md). |
+| Review status | Proposed: owner may approve, request revisions, narrow scope, or defer. A qualified candidate, accepted candidate and published version are different states. |
+
+### Delivered capabilities and evidence to preserve
+
+| Capability | Released baseline and qualification |
+| --- | --- |
+| Integrated entry | One repository entry with embedded AIPF projection; no separate framework installation or required orchestration service. |
+| UI/UX | Three established modes; 5,500 source-linked design records, read-only search/recommendation and existing output contracts. |
+| Architecture | Three established modes; 11 guides, 33 decision cards, 20 shared capability records in 10 families; independent capability index. |
+| Registry and helper | Legacy singular chapter and additive chapters_any; optional retrieval; truthful unavailable/not-applicable states; no process execution for architecture lookup. |
+| Qualification | 155/155 on Linux and native Windows on final prospective merge; 25/25 separate corrected independent Builder exercise; 155/155 post-merge Linux. [Final PR CI](https://github.com/S-Pillow/praxis/actions/runs/45727998534), [main CI](https://github.com/S-Pillow/praxis/actions/runs/45728139370). |
+| Shared source and recovery | Protected main at baseline above; [published v1.1.0](https://github.com/S-Pillow/praxis/releases/tag/v1.1.0); v1.0.0 retained. No release asset/runtime package test or universal host discovery claim. |
+
+Do not rerun historical exercises just to increase test counts. Carry evidence only while controlling source, configuration and environment remain relevant; prove preserved behavior and test the integrated candidate. Prior UI asset restrictions and rights decisions do not automatically cover new source materials. Independent workflow results establish meaningful portability, not a comparative performance claim.
+
+### Inherited functional and quality requirements
+
+The original product requirements PR-01–14 are retained by reference in their authoritative product PRD. The following is a scope crosswalk, not a rewritten requirement home. Architecture AR-01–14, architecture knowledge KI-01–08 and AS-AC01–10 remain qualified at their prior surface; changes that could affect them require affected regression and the standing suite. New acceptance IDs in this document apply to Security & Privacy only.
+
+| Product requirement family | Application in this proposal |
+| --- | --- |
+| PR-01–03: unified entry, included AIPF, accessible approved context | Preserve entry and projection; reviewed content and tool access never confer authority (SP-01,12,14). |
+| PR-04–06: materiality-driven activation, UI/UX, knowledge/retrieval | Add only material security consultation; preserve existing modes/outputs; disclose unavailable knowledge (SP-01,11,14; SK-01,07). |
+| PR-07–09: direct and distinct execution, evidence | No self-handoff; portable T1 payload; attributable review and correction (SP-10,12; AC09,11). |
+| PR-10–11: extensibility and discovery | Compatible registration and explicit host fallback; no placeholder skill (SP-13,14). |
+| PR-12: packaged plugin exploration | Future; no package or host-specific requirement. |
+| PR-13: engineering specialist expansion | Security & Privacy is next proposed; preserve Architecture delivery and original direction decision. |
+| PR-14: cross-cutting assurance | Review Parity remains deferred; findings are advisory and source-linked, not an independent approval mechanism. |
+
+All ten product NFRs remain inherited: portability, maintainability, proportionality, correctness, security/privacy, traceability, compatibility, dependency cost, usability and licensing. SN-01–07 are additional specialist-specific constraints, not a replacement. In particular, ordinary users should not learn specialist IDs, query syntax or chapter numbering, and a longer prompt or larger security inventory is not a success metric. Optimize the total decision, clarification, implementation, correction and verification effort.
+
+### Navigation and precedence
+
+Sections 1–3 define product outcomes, scope and requirements; 4–6 define knowledge, evidence and optional capabilities; 7–9 specify integration, acceptance and delivery; 10 is the source register; 11 records the stop boundary. All planning detail below is prospective except explicitly identified baseline/source observations. In a conflict with the accepted product PRD or governing AIPF, resolve the actual scope and owner decision before changing requirements. Do not silently rewrite an accepted invariant.
 
 ## 1. Product vision and outcomes
 
@@ -42,6 +87,32 @@ The initial component covers material security and privacy decisions in new and 
 Activation requires a material security/privacy question or boundary change after canonical AIPF routing. Examples: new identity/session flow, resource authorization, untrusted file or URL handling, sensitive storage, telemetry/export, credential lifecycle, dependency selection, agent permissions or a requested security critique. Routine cosmetic edits, ordinary formatting and unrelated minor fixes do not activate it solely because a chapter applies. Existing specialist consultation remains available; one agent synthesizes recommendations rather than creating competing approvals.
 
 A full audit, live probing, target-controlled execution, dependency installation, persistent audit outputs, credential use, access changes or external data transfer requires separately established authority and capability under AIPF. A request for guidance is not an audit authorization. Security work must remain defensive and scoped to authorized targets; use synthetic inputs and dummy identities for exercises. If execution safety cannot be enforced, do not execute and identify the precise evidence gap.
+
+### Activation examples and proportionality
+
+| Request or change | Consultation and boundary |
+| --- | --- |
+| New offline single-user report generator | Design if files, sensitive data or network decisions are material; no mandatory login, service or persistent audit log. Architecture chooses storage; Security defines data and path constraints. |
+| Add team sharing or administrative export | Design/evolve with Architecture and Security; define principal, resource, membership, revocation, export scope and negative tests before implementation. UI/UX clarifies sharing state without becoming the authorization control. |
+| Existing API rejects valid users after a permission change | Harden: diagnose actual role/ownership/session behavior; do not weaken checks or redesign identity without evidence/authority. |
+| User asks to assess an uploaded repository | Review source within approved scope. Clarify target/action/allowed evidence if material; do not infer permission to run code or contact its deployment. |
+| New scanner or MCP integration | Design/review data transfers, trust and permissions; select no tool/existing/local alternative if adequate. No installation or connector activation from recommendation alone. |
+| Rename a variable, format prose, adjust purely cosmetic style | No security activation unless the edit affects a real boundary (for example, disclosure or a privacy-sensitive UI affordance). Existing specialist routing stays intact. |
+
+### Decision and output contract
+
+Start from actual intent, existing source and environment, asset sensitivity and actor/resource relationship, relevant trust boundary, externally visible behavior, operational capacity, legal/contract constraints supplied by the owner and what can actually be observed. Distinguish known facts, assumptions and owner decisions. Ask only decision-changing questions; do not assume a multi-tenant or regulated environment when none is established.
+
+| Step | Useful output |
+| --- | --- |
+| Frame | What security/privacy decision is material; what behavior and data must remain unchanged; what is explicitly out of scope. |
+| Establish context | Assets, actors, flows, trust/privilege boundaries and actual existing controls; note unavailable implementation facts. |
+| Compare | Retain/no new collection or service, existing control, suitable local or managed alternative; identify applicability, usability, cost and failure tradeoffs. |
+| Recommend | Explain simplest sufficient option, preconditions, contraindications and material unresolved choices. For hardening, identify the smallest effective delta. |
+| Translate | Concrete invariants and permitted operations, interfaces/configuration assumptions and meaningful implementation discretion; negative as well as positive verification. |
+| Reconcile | State evidence strength, observed behavior, residual uncertainty, owner decision or safe stop; no invented proof or automatic approval. |
+
+Example (illustrative, not a test result): a CSV reporting utility for private local records does not need an account service or remote analytics. Choose local processing, user-selected input, bounded parsing, explicit output location, no implicit network/retention, and sanitized error messages. Verify accepted inputs, rejection without partial effects, repeated execution, preserved input and absence of forbidden writes/transfers within the observable test scope. Encryption at rest depends on the actual threat and storage environment; do not invent a custom scheme. The Builder may choose helpers and file layout within the stated constraints.
 
 ### Explicit exclusions for the first release
 
@@ -87,6 +158,53 @@ Use a small progressive guide set and original, source-linked decision records. 
 | Deployment & abuse resistance | Secure defaults, configuration, network boundaries, availability/resource limits, admission controls, error/log redaction and security event handling. |
 | Assessment & remediation | Scope and coverage, source evidence, existing mitigations, finding classification, independent verification when required, minimal correction, regression and residual risk. |
 
+### Initial decision-card inventory — build coverage, not a card-count quota
+
+These 36 proposed decision questions make the nine-guide plan concrete. IDs are planning identifiers; B1 may consolidate or split records when there is a demonstrated reason, retaining a mapping so no decision coverage disappears. Each row identifies useful output and a verification or contraindication. No source text is incorporated verbatim. Source codes refer to section 10; exact primary clauses and rights remain B1/B2 work.
+
+| ID / decision | Intended guidance and evidence |
+| --- | --- |
+| SD01 • Asset, actor and data-flow model | Identify protected resources, principals, sensitive flows, entry points and trust transitions; validate against actual context, not a generic diagram. PS-02. |
+| SD02 • Threat and privacy risk lens | Choose STRIDE, LINDDUN or targeted abuse cases where useful; distinguish harm to people from system compromise. PS-02,04. |
+| SD03 • Existing controls and residual risk | Identify controlling mitigation, defense in depth and owner risk decisions; avoid redesign where current control suffices. SR-06,07. |
+| SD04 • Security requirements and trust contract | Convert risks into explicit allow/deny invariants, abuse cases and relevant observations; do not confuse a checklist with verification. PS-01,02. |
+| SD05 • Identity need and trust source | Local/no-account, existing or approved identity service; identify identity proof and recovery constraints before proposing new accounts. PS-01. |
+| SD06 • Authentication and credential lifecycle | Prefer vetted mechanisms, appropriate MFA/recovery/rate limits based on risk, test successful and failed login and revoked access. PS-01. |
+| SD07 • Session and token lifecycle | Establish issuance, validation, audience/scope, expiry, rotation/revocation and safe storage; distinguish browser and machine credentials. PS-01. |
+| SD08 • Resource and tenant authorization | Enforce server-side principal/resource/action permission, default deny where appropriate, test cross-tenant/role access and revoked membership. PS-01. |
+| SD09 • Input and output contracts | Validate types, sizes and semantics at actual boundary; parameterized operations, context-aware rendering and safe error messages; test invalid and benign inputs. PS-01. |
+| SD10 • Files, paths and uploads | Approved root, ownership, limits, parsing, storage and content type; safe reject/cleanup; avoid untrusted code execution and path assumptions. SR-07, PS-01. |
+| SD11 • URLs, outbound requests and callbacks | Define allowed destination/service trust, redirect behavior, request authentication, replay and resource limits; verify bounded synthetic cases. SR-07, PS-01. |
+| SD12 • Protocol, client and integration boundaries | CORS/CSRF, webhooks, serialization, message identity, cache and client-side state where applicable; do not treat UI hiding as enforcement. SR-06, PS-01. |
+| SD13 • Secrets discovery, storage and access | Classify secrets, use references and approved storage, prevent exposure in source, logs, fixtures and agent context; no real values in evidence. PS-01,03. |
+| SD14 • Key/credential rotation and recovery | Ownership, least privilege, revocation, rotation, expiration and recovery; define response without unauthorized credential changes. PS-01,06. |
+| SD15 • Vetted crypto and transport | Match threat to vetted libraries/protocols and key lifecycle; distinguish password hashing, integrity and encryption; no bespoke crypto or unsupported numeric mandates. PS-01. |
+| SD16 • Sensitive storage and backups | Map data-at-rest protection, access, backup/restore and failure tradeoffs; prove intended scope rather than promise encryption solves all risks. PS-01,04. |
+| SD17 • Purpose, minimization and collection | Establish necessary fields/recipients and no-collection alternative; distinguish data subject harm, consent/notice needs and unresolved legal obligations. PS-04. |
+| SD18 • Identifiers, analytics and session replay | Distinguish cookieless, pseudonymous and anonymous; examine event fields, correlation, masking, payloads and optional features. SR-04. |
+| SD19 • Retention, deletion, export and derived data | Define authorized lifecycle across primary store, caches, logs, backups, exports and processors; specify verifiable deletion scope and exceptions. PS-04, SR-06. |
+| SD20 • Local processing and external disclosure | Compare local versus cloud transformation; assess clipboard, extension trust, logs and public artifacts; verify actual disclosure boundary. SR-03,08. |
+| SD21 • Dependency selection and provenance | Existing/no dependency first; inspect origin, version, lockfile, maintainership, rights and install/runtime permissions. PS-03. |
+| SD22 • Advisory applicability and freshness | Distinguish version match, affected feature, reachable behavior, mitigation and unknown facts; absence of advisory is not assurance. SR-02, PS-03. |
+| SD23 • SBOM and build/release integrity | Inventory exact artifact components, CI least privilege, provenance and update verification where material; no blanket SBOM compliance claim. PS-03,07. |
+| SD24 • Targeted remediation and rollback | Verify recipe/patch applicability, license, preview and preserve contracts; test affected behavior and retain previous known-good state. SR-05, PS-03. |
+| SD25 • Untrusted model/repository content | Treat prompts, tool responses, retrieved files and generated values as data; separate governing authority and real user consent. SR-01,06,07; PS-05. |
+| SD26 • Agent tools, MCP and delegated access | Qualify permissions, side effects, resource/data scope, dependency trust and independent authorization; no implicit privilege expansion. SR-02, PS-05. |
+| SD27 • Sensitive context and output | Minimize prompt/context disclosure, redact reports, validate model/tool output before use; test refusal to follow untrusted instructions. PS-05. |
+| SD28 • Isolation and artifact trust | Separate authorized read-only inspection from sandboxed execution; scratch-only output and trusted promotion; report unobservable checks. SR-06. |
+| SD29 • Secure runtime and configuration | Select secure defaults, approved roles, network ingress/egress and environment-specific configuration; avoid hidden infrastructure changes. PS-06. |
+| SD30 • Resource and abuse limits | Identify admission, payload, queue, concurrency and quota boundaries; select graceful failure and tests with synthetic local load only. PS-01,06. |
+| SD31 • Security events and operational signals | Identify actionable events, access, redaction, retention, release correlation and incident-owner escalation; no telemetry by default. PS-04,06. |
+| SD32 • Change and recovery readiness | Config drift, restore, revocation and recovery of security controls; coordinate with Architecture and future DevOps without implementing their scope. PS-03,06. |
+| SD33 • Scope, coverage and evidence plan | Map reviewed surfaces, revision/configuration, authorized observers and exclusions; never infer comprehensive audit coverage from source listing. SR-06. |
+| SD34 • Finding classification and refutation | Evidence trace, affected principal/resource, existing mitigation, bounded outcome, disposition and counterevidence; no speculative severity. SR-06. |
+| SD35 • Remediation and security regression | Smallest correction, preservation of intended behavior, negative/positive checks and independent verification when required; retain unresolved facts. SR-05,06,07. |
+| SD36 • Responsible disclosure and residual risk | Restrict private findings, use owner-approved reporting channels, preserve uncertainty and track recheck conditions; no public disclosure or legal certification. PS-03,04. |
+
+### Curation workflow and selection decisions
+
+Use the initial source register and source-level discovery map. Extract decision questions rather than copy catalogs or enforce an external skill's workflow. Compare primary sources when recommendations differ; choose applicability over numeric presets. For each included guide, review positive examples, contraindications, context and a safe check. For rights, distinguish the repository license from file-level licensing, code dependencies, linked training materials, images, standards and vendor terms. If reuse rights remain unclear, retain a source pointer or original synthesis only. Do not treat permission to link as permission to reproduce. Reject material with no practical decision value, unsupported assurances, mandatory third-party tooling or conflicting governance. Index only curated records that exist; no phantom entries. Preserve dated facts and recheck on meaningful source/terms changes rather than a blanket refresh schedule.
+
 ### Knowledge and source requirements
 
 | ID | Requirement |
@@ -123,6 +241,23 @@ For material findings, retain an ID/fingerprint, source revision, target/configu
 
 A scoped review is source-read-only by default. Actual execution of untrusted target code requires an authorized isolated environment with no external network, sanitized environment, read-only source/toolchain, scratch-only writes and bounded resources. Use dummy accounts and data, never live targets or real secrets; record inability to observe if required controls are missing. No automatic finding publication, broad scans or retention of sensitive artifacts. Independent verification is real, named and observable, not simulated by relabeling the same agent.
 
+### Coverage and evidence lifecycle
+
+Use a lightweight review record where the review is consequential; simple guidance may need only a decision and stated limits. A proposed record is a conceptual contract, not a requirement to add JSON storage, validators or a new review runtime. Reviewers identify checked and unchecked surfaces, actual observed inputs, source/configuration identity, required controls, what was not executable, and which evidence would change the verdict. Consolidate duplicate candidates by root cause and preserve a stable finding identity if classification changes. Keep evidence and derived summaries aligned after correction; an earlier warning may be rejected, unresolved, corrected and revalidated, not simply deleted to obtain a clean report.
+
+| Field group | Required information when material |
+| --- | --- |
+| Scope and authority | Authorized target/revision, purpose, explicit excluded systems/actions, data-handling boundary. |
+| Finding identity | Stable ID, affected principal/resource, control and source trace; separate root cause from multiple symptoms. |
+| Observation | Actual source/tool/operator evidence, source/config identity and attributable observer; observed result vs inference. |
+| Counterevidence | Existing guard, assumptions, negative evidence, environment limitations; exact unresolved dependency if any. |
+| Disposition | Confirmed, needs validation, rejected or hardening; bounded impact and rationale, severity only where justified. |
+| Correction and continuity | Minimum suitable change, preserved invariant, regression/recovery evidence, owner and recheck trigger. |
+
+Example: a scanner flags a database query construction. Source inspection shows an approved parameterized execution path and test evidence confirms untrusted values remain data. Record the actual check and reject the candidate where that control governs the reported path; if an alternate execution path remains unknown, preserve a separate unresolved concern. If an unrelated defense could be strengthened, report it as hardening. Do not use a scanner warning, test green status or absence of other warnings as a whole-system conclusion.
+
+A full audit workflow is an optional future engagement pattern, not a first-release mandatory mode. Source-only review is still meaningful when runtime isolation or a separate verifier is absent. Required independent verification must be performed by an actual distinct observer or appropriate independent method under AIPF; otherwise report the observation as pending. The security specialist does not create its own audit approval, risk acceptance or release authority.
+
 ## 6. Shared capability intelligence
 
 Use the existing `knowledge/capabilities/` index and `QUALIFICATION.md`. Candidate records are discovery aids, not approved dependencies. The proposed list is intentionally selective and may be pruned if a record adds no decision value. Qualify official documentation and terms for the exact version, deployment, plan and relevant rights before inclusion; actual executions require separate approval.
@@ -141,6 +276,33 @@ Use the existing `knowledge/capabilities/` index and `QUALIFICATION.md`. Candida
 
 Every qualified record should include the problem solved, supported environment, local/no-tool alternative, version/evidence, data entering/leaving the boundary, permissions, cost/limits where material, license, false-positive/false-negative or other constraints, failure/exit behavior, and authorized-use caveat. Prefer no new service when sufficient. No runtime dependency, account, credential, scanner integration, MCP activation or data export is part of this build.
 
+### Capability selection matrix and cost/data assessment
+
+Use the existing capability index before considering new records. Each candidate below remains unqualified for operational use unless explicitly supported by the stated source observation. Product selection, configuration and execution are outside this PRD authorization. Do not turn a catalog into an install list.
+
+| Decision family | First alternatives | Decision-critical questions |
+| --- | --- | --- |
+| Static source analysis | Manual scoped review; existing lint/CI; local Safe Anything or Semgrep | Language and rule coverage, source transfer, ignored/generated files, result sensitivity, rule rights, false positives/negatives. |
+| Dependency advisories | Existing lockfile/native audit; OSV-Scanner or repository-native features | Offline database freshness, metadata transfer, ecosystems, transitive paths, reachability, update/rollback. |
+| Secrets | Existing commit review or approved local scanner; Gitleaks/Safe Anything | History versus current tree, redaction, exclusions, false positives and safe credential-response ownership. |
+| Inventory | Existing lockfile/build manifest; CycloneDX; Dependency-Track only if needed | Exact artifact coverage, identifiers, transitive dependencies, access to SBOM, retention and operating burden. |
+| Remediation | Small reviewed patch; existing migration tooling; OpenRewrite | Recipe applicability/terms, preview, no mass changes by default, tests and recovery. |
+| Analytics/privacy | No analytics, aggregate existing metrics, local processing; Umami if qualified | Purpose, event identifiers, replay, masking, access, retention/deletion, recipients, self-host/cloud and costs. |
+| Local developer data | Standard library or existing local utility; DevToys | Sensitive input, clipboard, log persistence, update/extension trust, offline behavior. |
+| Public artifact disclosure | Existing generated site checks; aeo.js if already justified | Generated text/metadata/indexes, intended public content, access protection, rights/version. |
+
+For a candidate with costs or external calls, specify plan/edition, commercial eligibility, data residency/processor and retention, units/limits, expected and peak usage, failure or exhaustion, hard spend control and operational exit. Price-free or open-source does not mean zero cost, no disclosure or legal permission for all usage. Compare existing approved alternatives and confirm whether a materially required fact is knowable without installation or transfer. If not, explicitly leave the candidate unqualified; no speculative estimate substitutes for a required hard cap or legal/data-processing decision.
+
+Concrete source-observed distinctions for the first release:
+
+- Safe Anything documents a pattern-first engine, skipped paths/file sizes and no general data-flow guarantee. Its offline option omits the OSV dependency query, not just telemetry; record reduced coverage rather than assert equivalent offline results. The documented outbound metadata is package names, ecosystem and versions, not source contents. Runtime redaction/network behavior remains unobserved.
+- Umami is a privacy-oriented architecture reference; inspected schema fields include distinct IDs, session links, event/query fields and replay configuration. A requirement forbidding linkable identifiers cannot be satisfied by a cookieless label. Compare no tracking, aggregate-only local counts and an explicitly approved event model. Do not infer a vulnerability from schema presence.
+- DevToys documents local utilities and a privacy policy; extension terms explicitly introduce third-party trust. Qualify specific utility/extension data flows rather than promising the full application never communicates externally.
+- OpenRewrite core root license and individual parser/recipe terms differ. Qualify exact component, code rights, project/environment compatibility and reviewed diff; the commercial platform is a separate decision.
+- aeo.js generated content is a disclosure surface, not a security control. No code reuse while license/revision is unverified. It may remain reference-only if no meaningful capability record is justified.
+
+No new scanner runs are required to qualify the advisory specialist's baseline. If a chosen record depends on a runtime claim that cannot be established from available authoritative documentation, record the limitation and obtain separate bounded execution authorization before asserting it. Use synthetic output to test finding interpretation without pretending it is a scan.
+
 ## 7. Integration and nonfunctional requirements
 
 ### Logical design
@@ -148,6 +310,36 @@ Every qualified record should include the problem solved, supported environment,
 Use the existing Praxis entry, registry and helper; AIPF chooses the applicable path first, the agent identifies material security/privacy intent, and optional specialist consultation returns advice. The agent reconciles domain contributions into one authorized execution decision or payload. Architecture owns structure and tradeoffs; Security owns risk, controls and privacy; UI/UX owns interaction/accessibility, including comprehensible privacy choices; QA owns broader behavioral verification; DevOps owns broader operational delivery; Review Parity remains deferred. Domain boundaries are advisory, not exclusive; cross-domain issues should be synthesized, not duplicated.
 
 Proposed paths: `skills/security-privacy/SKILL.md`, `INDEX.md`, `SOURCES.md`, nine progressive guides, additive `knowledge/capabilities/` entries, `skills/specialists.json` registration, narrowly affected entry/helper/tests/docs. Exact path naming and applicability representation are B1 design decisions. Security can be relevant across more than Chapters 11/12; do not restrict it solely to one application type or introduce a new AIPF chapter. Determine the smallest compatible representation after inspecting the existing registry/helper and canonical routing; no unconditional activation by chapter alone. Existing UI singular `chapter` and architecture `chapters_any`, optional lookup semantics and serialized legacy outputs must remain compatible.
+
+### Proposed integration surfaces and compatibility gates
+
+| Surface | Expected implementation boundary (B1 to confirm) |
+| --- | --- |
+| `skills/security-privacy/` | One authoritative skill, index, sources and nine progressive guides; source-linked decision IDs, mode guidance, truthful fallback. |
+| `knowledge/capabilities/` | Extend existing index/sources and relevant family files, preserving all 20 existing records and their identities; new security categories only if justified. |
+| `skills/specialists.json` | Add one real entry for three material task IDs; preserve existing schema and entries. Confirm appropriate canonical path applicability rather than presume Chapter 11/12 only. |
+| `skills/praxis/SKILL.md` and discovery | Integrate materiality selection and synthesis; existing adapters and canonical path selection remain controlling. No new host dependency or mandatory specialist loading by Builder. |
+| `scripts/praxis_context.py` | Reuse registry semantics where possible. If an additive compatibility change is necessary, prove existing status/output equivalence, unsupported/invalid mode behavior and no process invocation for a no-tool specialist. |
+| CI, tests and docs | Focused routing, source/ID/link, fallback and preservation tests; verify workflow path coverage for actual changed locations. Keep native Linux/Windows regression and historical fixtures. No unapproved network/tool installation. |
+
+Exact released code should be inspected at B1 before fixing registry chapter representation or helper deltas; this is proposed architecture, not a claim of tested integration. Preserve the existing product and framework paths, full catalog/rights, search and recommendation scripts, published tags, tests and historical evidence unless separately authorized. Where a shared interface changes, compare legacy serialized results, not just new tests. Where a candidate has no retrieval script, a request for optional lookup must return an accurate not-applicable/unavailable result as appropriate to the established contract and perform no process or network action.
+
+### Role and portability contract
+
+| Responsibility | Direct mode | Distinct Builder mode |
+| --- | --- | --- |
+| Intent and scope | One executing agent applies AIPF and owner-approved context. | Prompt Agent derives authorized unit and retains reasoning; owner decisions remain explicit. |
+| Domain advice | Load only relevant security/architecture/UI guidance. | Prompt Agent selects and reconciles relevant knowledge; Builder need not load it. |
+| Implementation | Act within confirmed target, authority and safety boundary. | Current T1 payload contains target, accessible inputs, requirements, permitted/forbidden effects, constraints, negative tests, evidence and stop. |
+| Validation | Observe actual evidence; independent observer where required. | Builder reports actual changes/results, no invented tests; Prompt Agent independently reconciles, arranges required observations and decides disposition within authority. |
+
+For example, a Builder tasked with a disposable ownership-checked local resource function receives the dummy actor/resource contract, authorized read/update behavior, default-deny and error rules, forbidden networking or real data, tests for owner/non-owner/unknown actor and stop condition. It does not need the PRD, source register or specialist guide. Avoid prescribing every internal helper when the invariant is sufficient. Distinct Builder access to optional governing resources cannot expand permissions. A direct agent executes without a manufactured self-handoff.
+
+Security & Privacy has no authority to force technology choices over Architecture or mandate a user-facing design over UI/UX. If a proposed convenience weakens a material resource check, preserve the boundary and consider simpler safe UX. If privacy requirements preclude analytics, Architecture must not add an event store by default. Where the owner must choose an intended tradeoff, disclose the conflict and stop only dependent work. Future QA and DevOps will share verification and operational knowledge; Review Parity remains a separate potential assurance mechanism. No proof receipt, automated approval, audit platform or generalized workflow extension is added here.
+
+### Performance and usability expectations
+
+Security consultation should be discoverable through natural language, not require manual catalog browsing or an explicit command for every task. Keep the initial entry concise; read only decision-relevant guides. A longer checklist is not a measure of security. Favor the fewest tools and least access that establish needed evidence, while preserving correctness, coverage and risk-appropriate review. No promised latency, token savings or detection-rate improvement without an explicit measurement plan and actual observations.
 
 | ID | Quality constraint |
 | --- | --- |
@@ -186,6 +378,31 @@ Combine scenarios where sensible, without substituting one kind of evidence for 
 
 Evidence types: deterministic tests for mechanisms, observed semantic decisions for advisory quality, source references for claims, actual independent handoff for portability, and hosted CI on exact release-bound source for cross-platform regression. Record commands, raw exit/status, environment, commit/tree, observer and limitations. Do not count disposable exercise tests as product regression tests. No mandatory comparative benchmark or new audit infrastructure.
 
+### Detailed qualification matrix
+
+This matrix elaborates the existing AC01–14 gates rather than adding an unrelated benchmark. B1 selects 2–3 combined practical exercises plus focused deterministic/negative checks as needed, keeping every criterion traceable. Proposed scenarios use disposable data, source-only inspection and explicit capabilities. No production access, real user data or scanner installation is required.
+
+| Case and requirement mapping | Required observable result and failure condition |
+| --- | --- |
+| Q01 — Material activation (AC01/02; SP-01,14) | All three proposed modes resolve for appropriate canonical paths; formatting or irrelevant chapter presence does not activate. Unavailable guide/tool reports truthful fallback. Fail on placeholder registration, fabricated lookup, unexpected subprocess, changed UI/Architecture output. |
+| Q02 — New minimal design (AC03; SP-02,03,09) | Given actual constraints, compare no-account/no service, existing and suitable control options; map principal/resource boundaries, state tradeoff and test. Fail on unjustified new service, missing authorization decision or claims unsupported by inputs. |
+| Q03 — Resource isolation (AC04; SP-03,04,05) | Disposable two-actor resource fixture: authorized action succeeds, other actor and unknown actor denied without data leak or write; appropriate credential/session failure cases when present. Test boundary rather than UI visibility. |
+| Q04 — Safe inputs and regression (AC05; SP-04,09,10) | Actual source trace or local fixture identifies an invalid input/control issue; bounded correction rejects invalid and preserves valid operations, error/cleanup behavior and prior data. Source review alone cannot claim runtime success. |
+| Q05 — Privacy-first dashboard (AC06/12; SP-06,09,13) | Compare no analytics, minimal local counts and permitted analytics option; identify IDs, replay/log/export, retention/deletion/backup, recipient and usability. Reject incompatible collection; reconcile Architecture and UI choices. Verify selected synthetic behavior where implemented. |
+| Q06 — Supply-chain evidence (AC07/10; SP-07,11) | Synthetic inventory/advisory records distinguish exact version match, applicability, mitigation and missing freshness. Local/existing alternatives and bounded remediation diff/test plan; no external advisory request unless authorized. Fail on blanket security/compliance or free-use claim. |
+| Q07 — Agent/tool boundary (AC08; SP-08) | Treat untrusted fixture instructions as data; demonstrate no unauthorized tool call, context disclosure, credential access or state change. Missing OS sandbox produces source-only result, not fabricated execution. |
+| Q08 — Finding lifecycle (AC09; SP-10) | Source-linked examples produce confirmed, unresolved, rejected and hardening dispositions with counterevidence; duplicate root cause reconciled, no inflated severity or coverage. Independent confirmation where required or explicit unresolved gate. |
+| Q09 — Qualified optional capability (AC10; SP-11; SK-03–07) | Trace a selected source to exact release/docs/rights and data transfer/cost/coverage limitations; verify meaningful alternatives. Unknown or incompatible provider facts result in unselected candidate, not inferred capability. |
+| Q10 — Independent Builder (AC11; SP-12) | Fresh Builder receives only bounded payload and accessible target/fixture; actual meaningful implementation, authored tests and independent reviewer checks with original/corrected source retained; no governing-resource dependency. |
+| Q11 — Direct/composed consultation (AC11/12; SP-12,13) | Direct agent uses relevant existing and new expertise, reconciles privacy/UX/architecture decisions and produces one coherent bounded output; no self-transport or overlapping approval. |
+| Q12 — Integrated release candidate (AC13/14; SP-14; all SK/SN) | Run standing and new tests, verify exact source identity, protected trees and legacy outputs, trace every requirement to observed or carried evidence, preserve limits and recovery. Native Windows and hosted Linux before release; failure blocks affected transition. |
+
+Use existing-system read-only critique to establish whether an agent can preserve accepted behavior while identifying a specific boundary and recommending verifiable remediation; do not claim a third-party vulnerability from a hypothetical fixture. Direct semantic observation is separate from deterministic helper output. For the independent Builder, use a fresh agent where required and available, not an imitation of independence. If the initial handoff fails, retain original code/results and request a targeted correction. Carry unaffected prior observations only where source/controls remain relevant.
+
+### Practical metrics and comparison boundary
+
+Track meaningful metrics: requirements with sufficient evidence or an explicit gap; preserved legacy behavior; positive/negative routing and fallback outcomes; actual negative and positive application checks; distinct-Builder portability and corrections; source/rights and link integrity; test terminal status per platform. Count test cases separately from advisory observations. Test count, card count, number of warnings or a perfect checklist is not a measure of overall security. Any comparative claim about security effectiveness, false-negative rates, agent quality, time or token savings needs a separately justified evaluation with a defined dataset, baselines and observation limits; it is not mandatory for this candidate.
+
 ## 9. Delivery, milestones and risk
 
 The following B1–B5 sequence is a proposed delivery plan aligned to the prior Architecture build; it is not additional AIPF governance and does not grant execution authority.
@@ -197,6 +414,26 @@ The following B1–B5 sequence is a proposed delivery plan aligned to the prior 
 | B3 – Integration | Add compatible registry/entry/help changes, relevant tests, direct and portable output behavior; preserve existing specialists and AIPF. Exit: deterministic focused integration passes. |
 | B4 – Candidate qualification | Run full regression, meaningful practical and independent Builder exercises, reconcile every requirement and limitation; preserve exact candidate and evidence. Stop at qualified candidate. |
 | B5 – Delivery and release | Separate owner authorization: pre-release documentation, protected PR, native Linux/Windows CI, source reconciliation, owner acceptance, merge and publication only when explicitly authorized. |
+
+### Stage-level deliverables and stop conditions
+
+| Stage | Required outputs, evidence and boundary |
+| --- | --- |
+| B1 | Approved revision and exact released/planning base; inspect current registry/helper/CI and canonical integration path; map SP/SK/SN to acceptance, decide guide/record granularity and rights treatment. Resolve decision-blocking inputs before dependent implementation. No implied later phase authority. |
+| B2 | Original guide/index/source register and selected independent capability records, sample source/claim/rights verification; unique IDs and links, actual decision coverage, transparent unknowns, no wholesale import or executable tool prerequisite. Stop on material rights/authority conflict. |
+| B3 | Compatible integration with existing entries/outputs, missing-tool behavior, composed advice and focused deterministic tests; inspect changed paths against B1 allowed/forbidden surfaces. Do not add broad orchestration or external provider actions. |
+| B4 | Exact candidate source manifest and tree, focused and full standing regression, meaningful direct and distinct-Builder observations, source-only existing-system critique and synthetic privacy/finding cases. Retain raw outcomes, corrections, owner/observer attribution and requirement-level ledger. Stop at qualified candidate; do not merge or publish. |
+| B5 | Separate authorization for preparation, cross-platform CI and final source/docs/rights reconciliation. Owner acceptance and explicit integration/publication authority before consequential transitions. Verify merged identity, tag and release; preserve recovery anchor. |
+
+Expected verification ownership: executing agent observes exact local source/tests and direct guidance; named separate Builder returns independent implementation where required; reviewer observes returned artifacts and additional checks; hosted CI observes native Windows/Linux; product owner accepts material risk and release. If a necessary environment or independent observer is unavailable, mark the affected gate blocked or unresolved, not passed. Retain private evidence outside the public repository unless publication is authorized and sanitized. Record exact source identities and relevant result links, not a stale green report. Recovery before integration is isolated candidate/branch and retained baseline; after release, prior verified tag remains selectable. Revert or replace only under later authorization.
+
+### Decisions still to establish in B1
+
+- Determine the smallest compatible cross-path applicability representation and any helper change after inspecting actual released source; retain existing interface semantics.
+- Confirm precise card/file organization, source clauses and rights; use original synthesis/reference-only and preserve the planning inventory mapping if consolidated.
+- Select only decision-useful optional capability records; verify exact versions, local/offline/hosted and cost/data/license constraints. No tool installation or service integration follows.
+- Choose practical fixtures and independent observation method based on actual capability; clarify if any required observation cannot be performed. Keep known limitations and release gates separate.
+- Confirm documentation updates and publication artifact scope at B5, not during B1–B4. Version labels remain proposals until owner approval.
 
 ### Principal risks and mitigation
 
@@ -259,6 +496,23 @@ The following official references were inspected during initial discovery, not e
 | SP-01, SP-12–14 | Product PRD v1.2; v1.1.0 integration and qualification | AIPF v8.10.1 (sole governing authority) |
 
 **Verification stamp:** source discovery observed 2026-11-25; this PRD consolidates that evidence. No runtime scanner behavior, exhaustive upstream rights check or live privacy/security verification was performed. Current vendor facts, aeo.js immutable revision/license and unqualified candidate tool terms remain open before any dependent use.
+
+### Completeness reconciliation against the consolidated product PRD v1.2
+
+The 28-page product PRD combined general product context, established v1.0.0 requirements, Architecture Specialist requirements, knowledge/capability design, review-parity research and delivery details. The original 11-page Security & Privacy PRD covered a narrower subject; this expanded revision supplies comparable specialist-level depth without copying accepted architecture requirements into a competing home. Both Markdown and Word carry the full expanded specialist requirements. The product PRD and historical build plan remain linked in GitHub.
+
+| Prior consolidated coverage | Where addressed here |
+| --- | --- |
+| Document control, product vision, users and jobs, baseline and product principles | Sections 0–2; inherited core PR/NFR crosswalk, released v1.1.0 evidence and status distinctions. |
+| Execution models, integration architecture, specialist roadmap | Sections 0, 2 and 7; direct/distinct roles, concrete surface contract, materiality and compatibility. |
+| Domain scope, decisions and outputs, progressive knowledge design, retrieval | Sections 2–4; explicit decision procedure, 36 candidate decision topics, record contract and source selection. |
+| Functional, knowledge and quality requirements | Sections 3, 4 and 7; existing SP-01–14, SK-01–08 and SN-01–07 preserved, inherited product controls explicit. |
+| Capability records, service selection and costs | Section 6; decision-family alternatives, source-observed limitations, network/data/cost/rights and operating constraints. |
+| Review Parity and other external engineering capabilities | Sections 5–7; source-bound evidence and independent verification, cross-cutting runtime remains deferred. |
+| Acceptance, practical scenarios, metrics and comparative claims | Section 8; AC01–14 preserved, explicit Q01–12 checks, evidence types and comparison boundary. |
+| Build, risks, unresolved decisions, traceability, final authority | Sections 9–11; B1–B5 deliverables, risk/rights gaps, source register, rollback and release authority. |
+
+This is coverage reconciliation, not proof that all potential security topics or upstream files have been inspected. No implementation, scanner execution, new primary-source verification or legal clearance is inferred from this expansion. The original research observation date remains unchanged. The revised document is ready for requirements review, not candidate acceptance.
 
 ## 11. Final planning boundary
 
