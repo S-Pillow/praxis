@@ -26,6 +26,31 @@
       ],
       "output": "Source-linked candidate references and applied guidance; distinguish observations from recommendations and respect licensing.",
       "fallback": "Use approved project context and available craft when sufficient; disclose unavailable guidance or retrieval; never fabricate references."
+    },
+    {
+      "id": "aipf-architecture",
+      "version": "0.1",
+      "chapters_any": [
+        11,
+        12
+      ],
+      "skill": "skills/architecture/SKILL.md",
+      "tasks": {
+        "architecture-design": "design",
+        "architecture-evolve": "evolve",
+        "architecture-critique": "critique"
+      },
+      "purpose": "Context-grounded software architecture and engineering design decisions, evolution and critique",
+      "authority": "Advisory; AIPF, approved requirements and current authorization govern",
+      "domain": "Software Architecture & Engineering Design",
+      "activation": "Material architecture decision, structural diagnosis, change to boundaries/data/contracts, or technology evaluation after canonical AIPF routing; not incidental code edits or chapter presence alone.",
+      "knowledge_sources": [
+        "skills/architecture/INDEX.md",
+        "knowledge/capabilities/INDEX.md"
+      ],
+      "tools": [],
+      "output": "Suitable options including no change, tradeoffs, assumptions, implementation constraints and verification implications, source-linked when material.",
+      "fallback": "Disclose missing guides or facts; use verified project context and qualified alternatives only where sufficient, otherwise identify the material decision gap."
     }
   ]
 }

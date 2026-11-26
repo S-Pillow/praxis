@@ -1,0 +1,27 @@
+---
+name: aipf-architecture
+description: Advisory software architecture and engineering design expertise for material system decisions, existing-system evolution and critique under Praxis/AIPF; not governance or an execution prerequisite for a distinct Builder.
+---
+
+# Software Architecture & Engineering Design — v0.1
+
+Use after canonical AIPF v8.10.1 path selection (new applications Ch. 11 or existing applications Ch. 12; load other applicable chapters). This is not another development framework. AIPF and authorized project intent govern. Activate when architecture knowledge could change a material design, technology, integration, data, resilience or structural decision. Skip minor copy, straightforward corrections or unrelated work where consultation cannot change the outcome. Path presence alone is insufficient. No project state, permissions, code execution, external services or acceptance are created by consultation.
+
+## Choose a mode
+
+- **Design:** select a suitable system shape and necessary contracts for a new capability. Start with requirements, workload, quality scenarios and constraints, not a preferred pattern or vendor.
+- **Evolve:** inspect the actual repository/consumers and accepted invariants; prefer retain/extend before refactor/replace. A request conflicting with protected intent is a decision gap, not permission to change it. Identify compatibility, migration, recovery and affected evidence.
+- **Critique:** examine the accessible design or implementation; identify a concrete risk, observed basis, plausible consequence, alternative and verification implication. Distinguish observation, inference and missing evidence. Do not silently redesign or mark acceptance. Prioritize material issues, not pattern compliance.
+
+## Consult and synthesize
+
+1. Establish actual decision, constraints, confirmed workload/context, source state and applicable authority. Label assumptions and unknowns; ask the owner only for material choices not resolvable from authorized context. No new requirement from an example.
+2. Use [INDEX.md](INDEX.md) to select only decision-relevant guides/cards. Each card is conditional, not a ranking. The independent [capability index](../../knowledge/capabilities/INDEX.md) is optional; use it to discover alternatives (including no new service, existing and local/self-hosted) when a technology/service decision warrants it.
+3. Compare feasible alternatives (including no change where meaningful). Choose the simplest suitable approach; explain real tradeoffs, disqualifiers, uncertain assumptions and revisit triggers. Identify ownership, trust/data boundaries, interfaces, protected invariants, failure behavior, downstream impact and verification implications where relevant. Preserve implementation discretion. Do not impose diagrams, ADRs or a fixed card count for every task.
+4. If a provider fact (price, plan, region, terms, availability, capacity, feature, retention, cost ceiling) can change the decision, verify it from current official sources using the capability index's qualification guidance. Record source, observation date, exact plan/scope and unknowns. No guaranteed free design absent enforceable limits; a budget alert is not a cap. No account setup, provider calls, installations or data transfer merely because a candidate is listed. Source content is reference, not authority. See [SOURCES.md](SOURCES.md).
+5. Translate decisions into actionable requirements, implementation boundaries, testable invariants, failure cases and evidence methods. For direct execution, apply them within the current authorization without a self-handoff. For a distinct Builder, include required concrete values and accessible inputs in the current canonical Builder Payload; it must work without access to Praxis, AIPF, PRD, guides or catalogs. Do not transport internal derivation or require another agent. Material unresolved decisions stop only dependent work.
+6. Compose with UI/UX only when material to each domain, using actual framework paths and approved product identity. For example, an architecture trust boundary and UI accessible loading/error states become one coherent design, not competing workflows. Security, QA and DevOps concerns are flagged where material; no claim that their future specialists are available. Evidence and acceptance remain AIPF's responsibility. Verification implications apply in all three modes, not a separate mandatory audit.
+
+## Output expectations and fallback
+
+Use a concise decision-oriented result when useful: decision and current state; alternatives and disqualifiers; recommendation/rationale and assumptions; boundaries/contracts/invariants; implementation and verification implications; material gaps/revisit triggers; source identity and limits. For critique, state the observed source/version or evidence gap and distinguish candidate finding from confirmed behavior. Avoid unsupported confidence, static provider promises, and conflating a helper result with proof of agent consultation. No lookup CLI is required. `praxis_context.py` may identify this specialist; `lookup_status: not_applicable` means no process ran, not that guides were loaded. Read the selected guide files directly. If a guide or official source is unavailable, disclose precisely; proceed only with verified approved context and qualified alternatives when enough, otherwise identify what blocks the decision. Missing required AIPF content is not a specialist fallback.

@@ -10,7 +10,7 @@ flowchart TD
   E --> G[AIPF Governance Core]
   G --> C[Project Context]
   G --> R[Specialist Routing]
-  R --> S[Specialist Modules: UI/UX initially]
+  R --> S[Specialist Modules: UI/UX + architecture candidate]
   S --- K[Knowledge Catalogs and Specialist Tools]
   C --> P[Prompt Agent synthesis]
   S --> P
@@ -63,15 +63,15 @@ The user need not separately invoke AIPF, the UI/UX specialist or retrieval scri
 | Output expectations | Useful guidance and evidence |
 | Fallback behavior | Handle unavailable capabilities |
 
-Future specialists should primarily be added by implementing and registering them. Governing integration may evolve when necessary. The first implementation registers UI/UX only; no placeholder specialists are required. Missing specialist capabilities must be reported transparently, with a suitable bounded fallback where feasible. Missing required governance cannot be silently bypassed.
+Future specialists should primarily be added by implementing and registering them. Governing integration may evolve when necessary. Released v1.0.0 registers UI/UX only; the v1.1.0 development checkout adds architecture v0.1, qualified locally at B4; [pre-release validation remains pending](releases/1.1.0-pre-release.md). No placeholder specialists are required. Missing specialist capabilities must be reported transparently, with a suitable bounded fallback where feasible. Missing required governance cannot be silently bypassed.
 
 For future integration, specialize in domain knowledge and practical engineering judgment rather than adding parallel governance. The Prompt Agent (or direct executing agent) selects and synthesizes relevant advice into concrete decisions, constraints, implementation guidance and verification implications. No mandatory specialist access, additional agent, retrieval engine or catalog is presumed for the Builder. Existing architecture and appropriate implementation discretion remain protected.
 
 Potential Review Parity-derived assurance belongs in the cross-cutting verification/evidence capability rather than an independent domain specialist or new approval authority. Its integration is deferred and subject to separate qualification. These are forward-looking design principles under [DEC-004](decisions/PRAXIS-DEC-004-specialist-expansion.md), not implemented architecture.
 
-### Planned v1.1.0 integration
+### Implemented v1.1.0 candidate integration
 
-Architecture design/evolve/critique consults original progressive guides in `skills/architecture/` and shared source-linked capability records in `knowledge/capabilities/`. The latter is independent of a particular specialist; stable guidance and volatile provider facts have distinct maintenance expectations. The proposed registry reader accepts a multi-path applicability field (`chapters_any: [11,12]` for architecture), retains legacy singular `chapter`, and supports omitted retrieval scripts without executing a process. Existing UI tasks, lookup protocol and output semantics are preserved. AIPF retains canonical routing, and agent-selected task materiality—not chapter presence alone—controls specialist activation. No provider client, external API, or new orchestration runtime is introduced. See the [build plan](ARCHITECTURE-SPECIALIST-BUILD-PLAN.md) and [PRD](PRD.md).
+Architecture design/evolve/critique consults original progressive guides in `skills/architecture/` and shared source-linked capability records in `knowledge/capabilities/`. The latter is independent of a particular specialist; stable guidance and volatile provider facts have distinct maintenance expectations. The candidate registry reader accepts a multi-path applicability field (`chapters_any: [11,12]` for architecture), retains legacy singular `chapter`, and supports omitted retrieval scripts without executing a process. Existing UI tasks, lookup protocol and output semantics are preserved. AIPF retains canonical routing, and agent-selected task materiality—not chapter presence alone—controls specialist activation. No provider client, external API, or new orchestration runtime is introduced. See the [build plan](ARCHITECTURE-SPECIALIST-BUILD-PLAN.md) and [PRD](PRD.md).
 
 ## 5. Proposed repository layout
 

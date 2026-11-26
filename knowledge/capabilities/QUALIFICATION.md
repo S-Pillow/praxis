@@ -1,0 +1,16 @@
+# Point-of-use capability qualification
+
+This is domain knowledge, not an independent authorization or mandatory process. Use proportional depth when an external capability can materially improve a decision.
+
+1. Establish approved behavior, workloads (typical and peak), data/trust boundaries, commercial status, hard budget, environment, existing infrastructure and required availability. Identify what would change the decision.
+2. Compare no new service, existing, local/self-hosted and hosted candidates. Eliminate incompatible choices. A source listing is discovery, not authority or verification.
+3. Verify decisive facts directly against current official documentation/terms for the exact product, account/plan, region and version. Separate stable guidance from dated observations. Record official URL/title, version/date of source if available, observation date and scope, claim and unknowns; do not replace inaccessible facts with estimates. Provider statements are not observed runtime performance. Recheck data handling, commercial eligibility, retention, export, migration, technical/runtime constraints, licensing and access as relevant.
+4. Identify billable units, per-account/project limits, typical and peak consumption, resets, minimums, idle/pausing, burst and exhaustion behavior, overage/egress and operational/exit cost. Estimate using explicit assumptions and verified billing basis. For fixed or zero budget, establish enforceable cap or hard stop and its actual scope; budget alerts are not enforced limits. Do not claim guaranteed free operation when any material terms or cost controls are unknown. No paid test calls or provision actions from this guidance.
+5. Select only a qualified option or state the material decision gap. Design degraded/failure behavior and verification at boundaries (without paid or live operations unless authorized). Include plan-specific constraints, permitted data flows and accessible configuration inputs in any operational implementation payload; exclude credentials and hidden context.
+6. Preserve current project authorization and evidence ownership: do not enable accounts, integrations, APIs/MCP, automatic fixes, approvals, secrets, telemetry export or billing on discovery. Distinguish confirmed evidence from candidate, inference and unsupported claims. Record revisit trigger when actual workload, provider terms/plan, region or environment changes.
+
+## Conditional worksheet (use only material fields)
+
+Decision and constraints; actual alternatives; provider/version/plan/scope; verified fact and official pointer/date; unknown/disqualifying fact; expected/peak consumption and billing basis; exhaustion/cap evidence; commercial/rights/privacy/access disposition; recommendation and assumptions; implementation boundaries; observable verification/recovery; revisit trigger. Preserve owner decision separately.
+
+Example: small commercial web application, zero incremental operating budget. A personal-only plan is disqualified even if usage fits. An existing approved host with adequate capacity may be preferable. A hosted free tier with unknown exhaustion behavior cannot establish a hard zero-spend guarantee; return qualified alternatives or a decision gap rather than selecting it. If offline is required, reject remote service unless requirements explicitly change.

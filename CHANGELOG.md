@@ -1,5 +1,12 @@
 # Changelog
 
+## Unreleased — v1.1.0 pre-release candidate
+
+- Architecture v0.1: design, evolve and critique; progressive local decision guides.
+- Shared, independent capability discovery and point-of-use qualification guidance.
+- Additive any-path registry and optional lookup; existing UI contract retained.
+- Local B4 qualification: 154 standing tests on Linux; independent disposable Builder exercise passed after correction (25 separate tests). See [pre-release evidence and limitations](docs/releases/1.1.0-pre-release.md). Windows, shared CI and owner release acceptance remain open. Not published.
+
 ## v1.0.0 — Praxis
 
 Initial integrated Praxis product release, based on the accepted QUALITY-01 implementation. The product version is independent of AIPF v8.10.1 and the retained UI/UX v0.3 component identity.

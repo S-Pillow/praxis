@@ -232,6 +232,8 @@ The [testing guide](docs/TESTING.md) covers optional browser checks with availab
 | `framework/` | Complete unchanged AIPF v8.10.1 projection and identity manifest |
 | `skills/praxis/` | Unified entry and payload synthesis guidance |
 | `skills/aipf-ui-ux/` | Registered UI/UX specialist |
+| `skills/architecture/` | Architecture v0.1 development candidate |
+| `knowledge/capabilities/` | Independent service/technology discovery and qualification guidance |
 | `skills/specialists.json` | Specialist registry |
 | `.agents/skills/` | Repository-scoped discovery adapters |
 | `catalog/` | Source-linked records, schema, field mapping and search contract |
@@ -263,27 +265,27 @@ The [testing guide](docs/TESTING.md) covers optional browser checks with availab
 
 The goal is to give an agent the expertise of a multidisciplinary engineering team without requiring a separate agent for every discipline. AIPF provides the governing methodology; specialists contribute the domain knowledge and practical techniques that help the agent make better decisions.
 
-The next specialist will focus on software architecture and engineering design. Choosing an appropriate system structure, technology stack, data model and integration approach early can prevent avoidable complexity later. In a separate-agent workflow, the Prompt Agent uses that expertise to shape the authorized Builder Payload. The Builder receives the decisions, constraints and implementation guidance it needs without having to load the specialist itself.
+The v1.1.0 development candidate adds advisory software architecture and engineering design; v1.0.0 remains the released product. Choosing an appropriate system structure, technology stack, data model and integration approach early can prevent avoidable complexity later. In a separate-agent workflow, the Prompt Agent uses that expertise to shape the authorized Builder Payload. The Builder receives the decisions, constraints and implementation guidance it needs without having to load the specialist itself.
 
 ### Proposed specialist roadmap
 
 | Specialist | Status | Focus |
 | --- | --- | --- |
 | **UI/UX & Design Intelligence** | Available in v1.0.0 | Design systems, visual design, usability and accessibility |
-| **Software Architecture & Engineering Design** | Next planned specialist | System design, technology selection, data and integration patterns, architectural tradeoffs and maintainability |
+| **Software Architecture & Engineering Design** | v0.1 B4-qualified candidate; pre-release validation pending | System design, technology selection, data and integration patterns, architectural tradeoffs and maintainability |
 | **Security & Privacy** | Future | Threat modeling, trust boundaries, secure design and data protection |
 | **QA & Engineering Quality** | Future | Risk-based test design, systematic diagnosis, regression quality and effective verification |
 | **DevOps & Reliability** | Future | Deployment strategies, infrastructure, observability and operational resilience |
 
 The specialist should help choose the simplest suitable approach, not prescribe fashionable patterns, frameworks or additional layers by default. Expertise remains available for direct execution as well as separate-agent workflows, including critique of existing systems and verification of material design decisions.
 
-### What the architecture specialist will contribute
+### What the architecture specialist contributes in the candidate
 
 - **Architecture intelligence:** context-sensitive patterns, quality attributes, tradeoffs, interfaces and maintainability.
 - **Technology and service intelligence:** local, self-hosted, existing and hosted options; current official verification of material pricing, terms and limits rather than copying free-tier directories.
 - **Engineering capability intelligence:** source-linked discovery of useful external tools, including observability and review automation. No provider integration is required or enabled.
 
-The planned v1.1.0 scope uses original progressive guides and decision cards, plus a shared capability index. It will not require a vector database, new cloud service, separate Builder installation or mandatory lookup engine. See the [detailed PRD](docs/PRD.md) and [architecture specialist build plan](docs/ARCHITECTURE-SPECIALIST-BUILD-PLAN.md). These capabilities are planned, not available in v1.0.0.
+The v1.1.0 candidate includes 33 original decision cards across 11 progressive guides, plus 20 shared capability records. It does not require a vector database, new cloud service, separate Builder installation or mandatory lookup engine. See the [detailed PRD](docs/PRD.md) and [architecture specialist build plan](docs/ARCHITECTURE-SPECIALIST-BUILD-PLAN.md). These capabilities are implemented in the development candidate, not available in the published v1.0.0. See the [v1.1.0 pre-release record](docs/releases/1.1.0-pre-release.md) for evidence and remaining gates.
 
 ### Cross-cutting capability: Review Parity
 
@@ -291,7 +293,7 @@ Review Parity is a separate experimental initiative whose mechanisms may eventua
 
 We intend to build useful capabilities, verify their behavior and evaluate them on meaningful projects. More process, more tests or a larger catalog are not objectives in themselves.
 
-The roadmap describes direction, not released functionality or delivery commitments. UI/UX remains the only registered specialist today. A packaged plugin is also a possible future addition. The standalone AIPF framework remains separate and unchanged; Praxis incorporates v8.10.1 without changing its version or authority.
+The roadmap describes direction, not released functionality or delivery commitments. UI/UX remains the only registered specialist in released v1.0.0; the development checkout adds architecture v0.1, qualified locally at B4; release gates remain pending. A packaged plugin is also a possible future addition. The standalone AIPF framework remains separate and unchanged; Praxis incorporates v8.10.1 without changing its version or authority.
 
 See the [product roadmap and specialist principles](docs/PRD.md#6-specialist-expansion-roadmap) and [expansion decision](docs/decisions/PRAXIS-DEC-004-specialist-expansion.md).
 
