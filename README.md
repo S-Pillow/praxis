@@ -96,7 +96,7 @@ Praxis has **four registered specialists in the v1.3.0 source**. They are comple
 | [Security & Privacy](skills/security-privacy/SKILL.md) | 0.1 | design · harden · review | Are trust boundaries, resources and data protected? |
 | [QA & Engineering Quality](skills/qa-engineering-quality/SKILL.md) | 0.1 | plan · diagnose · review | Does the solution behave correctly, and what establishes that? |
 
-### UI/UX & Design Intelligence
+### UI/UX specialist (v0.3) — Design Intelligence
 
 Consult for material user-facing design, interface improvement, visual/usability critique and technical UI audit. Use existing brand and behavior constraints before selecting new references.
 
@@ -109,7 +109,7 @@ Consult for material user-facing design, interface improvement, visual/usability
 
 [Skill](skills/aipf-ui-ux/SKILL.md) · [Search contract](catalog/SEARCH.md) · [Design Index](ui/catalog-explorer/README.md)
 
-### Software Architecture & Engineering Design
+### Architecture specialist (v0.1) — Engineering Design
 
 Consult for material new-system design, existing-system evolution and structural critique. Select the simplest suitable approach rather than imposing a preferred framework or pattern.
 
@@ -122,7 +122,7 @@ Consult for material new-system design, existing-system evolution and structural
 
 [Skill](skills/architecture/SKILL.md) · [Decision index](skills/architecture/INDEX.md) · [Sources](skills/architecture/SOURCES.md) · [Requirements](docs/PRD.md#8-architecture--engineering-design)
 
-### Security & Privacy
+### Security & Privacy specialist (v0.1)
 
 Consult for material secure design, hardening and source assessment. Derive controls from actual assets, actors, threats, resources, data flows and purpose—not a universal checklist.
 
@@ -135,7 +135,7 @@ Consult for material secure design, hardening and source assessment. Derive cont
 
 [Skill](skills/security-privacy/SKILL.md) · [Decision index](skills/security-privacy/INDEX.md) · [Sources](skills/security-privacy/SOURCES.md) · [Requirements](docs/PRD.md#13-security-and-privacy-specialist)
 
-### QA & Engineering Quality
+### QA & Engineering Quality specialist (v0.1)
 
 Consult for material test strategy, diagnosis, regression and engineering-quality review. Verify meaningful behavior and the effectiveness of the tests themselves, not just whether a test command turns green.
 
