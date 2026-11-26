@@ -37,3 +37,17 @@ class EnrichmentWorkflowTests(unittest.TestCase):
             self.assertIn("- '.github/workflows/enrich-*.yml'", section)
         self.assertIn('persist-credentials: false', text)
         self.assertNotIn('contents: write', text)
+
+
+    def test_windows_pr_validation_preserves_linux_job(self):
+        text = (WORKFLOWS / 'catalog-validation.yml').read_text(encoding='utf-8')
+        linux, windows = text.split('  validate-windows:\n', 1)
+        self.assertIn('  validate:\n    runs-on: ubuntu-latest', linux)
+        self.assertIn("if: github.event_name == 'pull_request' || github.event_name == 'workflow_dispatch'", windows)
+        self.assertIn('runs-on: windows-latest', windows)
+        self.assertIn("python-version: '3.12'", windows)
+        self.assertIn('contents: read', windows)
+        self.assertIn('persist-credentials: false', windows)
+        self.assertIn('python -m unittest discover -s tests -v', windows)
+        self.assertNotIn('continue-on-error:', windows)
+        self.assertNotIn('contents: write', windows)

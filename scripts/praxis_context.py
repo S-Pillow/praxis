@@ -28,6 +28,21 @@ def verify_framework(root=ROOT):
     return manifest['framework_version']
 
 
+def applicable_chapters(specialist):
+    """Legacy singular chapter, or a nonempty list of alternative canonical paths."""
+    if 'chapter' in specialist:
+        if 'chapters_any' in specialist:
+            raise ValueError('Ambiguous specialist chapter contract')
+        paths = [specialist['chapter']]
+    else:
+        paths = specialist.get('chapters_any')
+        if not isinstance(paths, list):
+            raise ValueError('Specialist requires chapter or chapters_any')
+    if not paths or any(type(p) is not int or p not in range(11, 22) for p in paths):
+        raise ValueError('Invalid specialist chapter contract')
+    return set(paths)
+
+
 def resolve(task, chapters, root=ROOT):
     version = verify_framework(root)
     registry = json.loads((root / 'skills/specialists.json').read_text(encoding="utf-8"))
@@ -40,23 +55,33 @@ def resolve(task, chapters, root=ROOT):
               'authority': 'advisory_only', 'specialists': []}
     if not matches:
         return dict(result, status='not_needed')
-    if any(s['chapter'] not in chapters for s in matches):
+    if any(not applicable_chapters(s).intersection(chapters) for s in matches):
         return dict(result, status='recheck_framework_path')
     for s in matches:
-        accessible = (root / s['skill']).is_file() and (root / s['retrieval_script']).is_file()
-        result['specialists'].append({'id': s['id'], 'version': s['version'], 'skill': s['skill'],
-            'mode': s['tasks'][task], 'retrieval_script': s['retrieval_script'],
-            'status': 'available' if accessible else 'unavailable'})
+        # A declared legacy lookup remains part of that specialist's availability
+        # contract. An omitted lookup is valid for file-based guidance.
+        accessible = (root / s['skill']).is_file()
+        if 'retrieval_script' in s:
+            accessible = accessible and (root / s['retrieval_script']).is_file()
+        entry = {'id': s['id'], 'version': s['version'], 'skill': s['skill'],
+                 'mode': s['tasks'][task]}
+        if 'retrieval_script' in s:
+            entry['retrieval_script'] = s['retrieval_script']
+        entry['status'] = 'available' if accessible else 'unavailable'
+        result['specialists'].append(entry)
     return dict(result, status='consult' if all(s['status']=='available' for s in result['specialists']) else 'specialist_unavailable')
 
 
 def retrieve(result, request, platform=None, root=ROOT):
-    """Run original specialist CLI unchanged; never imply approval or fabricate results."""
+    """Run a declared legacy lookup unchanged; report absent lookup without execution."""
     if not request.strip():
         raise ValueError('A nonblank actual task is required')
     if result['status'] != 'consult':
         return result
     for s in result['specialists']:
+        if 'retrieval_script' not in s:
+            s['lookup_status'] = 'not_applicable'
+            continue
         command = [sys.executable, str(root / s['retrieval_script']), request, '--mode', s['mode']]
         if platform:
             command.extend(['--platform', platform])

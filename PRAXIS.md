@@ -11,9 +11,11 @@ Select Praxis, not the separate standalone AIPF plugin. Load `skills/praxis/SKIL
 | Material visual/usability review | 14 + applicable companions | UI/UX critique |
 | Technical interface accessibility checks | 14 + applicable companions | UI/UX audit |
 | Minor text-only correction | 12 + 14 where applicable | None unless concrete benefit |
-| Backend-only repair | 12 | None |
+| Routine backend-only repair | 12 | None unless a material architecture decision is involved |
+| New system or material design decision | 11 or 12 | Architecture design |
+| Structural change or review | 12 | Architecture evolve or critique |
 
-The agent selects paths and materiality under AIPF; the table is not a replacement Path Selector. The registry maps task type to a specialist and its existing mode. For future specialists extend the registry, entry guidance and integration tests together; do not register unavailable modules or allow them to introduce new authority. The current integration only registers UI/UX v0.3.
+The agent selects paths and materiality under AIPF; the table is not a replacement Path Selector. The registry maps task type to a specialist and its existing mode. For future specialists extend the registry, entry guidance and integration tests together; do not register unavailable modules or allow them to introduce new authority. The v1.1.0 source registers UI/UX v0.3 and architecture v0.1; see [release qualification](docs/releases/1.1.0.md).
 
 The optional read-only helper is for agents, not a user workflow:
 
@@ -38,3 +40,7 @@ See [standing scenario regression strategy](docs/TESTING.md).
 Run `python -m unittest discover -s tests -v` from the full Praxis repository. The integration tests cover complete canonical-projection integrity, routing to the existing specialist, skipping nonmaterial tasks, separate critique and audit modes, missing path, unavailable specialist, failed lookup, the existing live local Python catalog command, and entry-point/role instructions. A helper test is not a live host activation test; independent Prompt Agent and Builder testing remains separate from repository-level regression verification.
 
 The canonical source is `Neutral_AIPF_v8_10_1.docx` with SHA-256 `8e66028c8ebf60ea87180be1c23933273d8a597c425d3a1595ae81d9a720b8e6`. The complete Markdown projection SHA-256 is `b11dfa2c12deb4d5b90833af4f10a02b5daf5e26d143469560b896fe9c85e0fd`; this is not the manifest-file digest. The actual `framework/projection-manifest.json` SHA-256 at the QUALITY-01 baseline is `f1c49a23f9157d3358e474c374e95cdb7cf65591504b79d498a202d44c1c58e1`. The manifest lists all contiguous partitions; none introduces normative changes.
+
+## Architecture consultation (development candidate)
+
+For a material architecture task, consult `skills/architecture/SKILL.md` and its index directly. An optional helper example is `python scripts/praxis_context.py --task architecture-design --chapter 11 --request "Design a local import and reporting utility"`. Use the actual selected chapter and mode. `lookup_status: not_applicable` means no lookup process, not proof of consultation. No Python is required to read the guides. The independently usable [capability index](knowledge/capabilities/INDEX.md) is not an approved dependency list.

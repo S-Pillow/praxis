@@ -1,5 +1,12 @@
 # Changelog
 
+## v1.1.0 — Architecture & Engineering Design
+
+- Architecture v0.1: design, evolve and critique; progressive local decision guides.
+- Shared, independent capability discovery and point-of-use qualification guidance.
+- Additive any-path registry and optional lookup; existing UI contract retained.
+- B5 qualification: 155/155 standing tests passed on hosted Linux and native Windows on the accepted implementation tree; independent disposable Builder exercise passed after correction (25 separate tests). Owner accepted the candidate and authorized integration and publication. See [release qualification and limitations](docs/releases/1.1.0.md) for source identities and publication reconciliation.
+
 ## v1.0.0 — Praxis
 
 Initial integrated Praxis product release, based on the accepted QUALITY-01 implementation. The product version is independent of AIPF v8.10.1 and the retained UI/UX v0.3 component identity.

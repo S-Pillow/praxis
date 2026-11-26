@@ -7,6 +7,7 @@ on:
       - 'catalog/**'
       - 'ui/**'
       - 'skills/**'
+      - 'knowledge/**'
       - 'scripts/**'
       - 'framework/**'
       - '.agents/**'
@@ -20,6 +21,7 @@ on:
       - 'catalog/**'
       - 'ui/**'
       - 'skills/**'
+      - 'knowledge/**'
       - 'scripts/**'
       - 'framework/**'
       - '.agents/**'
@@ -42,4 +44,20 @@ jobs:
         with:
           python-version: '3.12'
       - name: Validate imported catalog
+        run: python -m unittest discover -s tests -v
+  validate-windows:
+    if: github.event_name == 'pull_request' || github.event_name == 'workflow_dispatch'
+    runs-on: windows-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Configure Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate imported catalog and specialists
         run: python -m unittest discover -s tests -v
