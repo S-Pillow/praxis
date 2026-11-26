@@ -1,5 +1,12 @@
 # Changelog
 
+## v1.3.0 — QA & Engineering Quality
+
+- QA v0.1: plan, diagnose and review; 12 guide families, 37 original decision cards, six discovery-only records (30 total).
+- Additive test, diagnosis, test-effectiveness, failure/recovery, data and AI/agent evaluation guidance; no mandatory runtime, scanner or service.
+- Corrected B4 candidate `b36e6f5`: 173/173 on Linux and native Windows; distinct Builder 19/19 reported and reproduced, nine independent reviewer tests, bounded behavioral observation and 42 requirements/18 acceptance criteria reconciled. Owner accepted and authorized B5.
+- Consolidate QA requirements into [PRD v1.4](docs/PRD.md), preserving stable identifiers, original history, 33 QA source identifiers and 14 deferred cross-specialist leads. [Release qualification and limitations](docs/releases/1.3.0.md).
+
 ## v1.2.0 — Security & Privacy
 
 - Security & Privacy v0.1: material design, harden and review; nine progressive guides, 36 original decision cards.

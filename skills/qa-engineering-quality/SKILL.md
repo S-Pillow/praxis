@@ -3,7 +3,7 @@ name: aipf-qa-engineering-quality
 description: Advisory material test planning, diagnosis, regression and engineering-quality review within Praxis/AIPF; no mandatory runner or independent approval.
 ---
 
-# QA & Engineering Quality Specialist — v0.1 development candidate
+# QA & Engineering Quality Specialist — v0.1
 
 Use after canonical AIPF v8.10.1 routing for material verification, diagnosis or quality decisions across applicable Chapters 11–21. Path presence or routine tests alone do not activate QA. Skip trivial unrelated edits absent concrete benefit. AIPF, approved requirements and action-scoped authority govern; this specialist adds techniques, not governance, acceptance authority or a test runtime.
 

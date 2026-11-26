@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-  <img alt="Praxis source v1.2.0" src="https://img.shields.io/badge/Praxis-v1.2.0-18364a?style=flat-square" />
+  <img alt="Praxis source v1.3.0" src="https://img.shields.io/badge/Praxis-v1.3.0-18364a?style=flat-square" />
   <img alt="AIPF v8.10.1" src="https://img.shields.io/badge/AIPF-v8.10.1-006b59?style=flat-square" />
   <img alt="UI/UX specialist v0.3" src="https://img.shields.io/badge/UI%2FUX-v0.3-18364a?style=flat-square" />
   <img alt="5,500 catalog records" src="https://img.shields.io/badge/Catalog-5%2C500-006b59?style=flat-square" />
@@ -95,15 +95,15 @@ There is a tradeoff here. A short prompt is attractive, but leaving out a requir
 
 ### 1. Get Praxis
 
-Clone the public repository and check out the desired published tag from the [release list](https://github.com/S-Pillow/praxis/releases). For v1.2.0, once the tag is available:
+Clone the public repository and check out the desired published tag from the [release list](https://github.com/S-Pillow/praxis/releases). For v1.3.0, once the tag is available:
 
 ```bash
 git clone https://github.com/S-Pillow/praxis.git
 cd praxis
-git checkout v1.2.0
+git checkout v1.3.0
 ```
 
-Already have a local checkout? Run `git fetch --tags` then `git checkout v1.2.0` from its root. Pin the release you intend to use rather than assuming the latest branch is the reviewed version.
+Already have a local checkout? Run `git fetch --tags` then `git checkout v1.3.0` from its root. Pin the release you intend to use rather than assuming the latest branch is the reviewed version.
 
 You don't need an API key, global plugin installation or a running Praxis service. Python 3 is required for the executable catalog tools and tests; reading the framework and skills doesn't require it. CI uses Python 3.12.
 
@@ -218,6 +218,8 @@ These results belong to the tested source and environment. They don't guarantee 
 
 The accepted Security & Privacy implementation at `c6393f6` passed 163/163 on hosted Linux and native Windows in [B4 CI](https://github.com/S-Pillow/praxis/actions/runs/45758697505). Separate synthetic independent Builder v2 tests reproduced 22/22 and 14/14 additional reviewer methods after four v1 findings were corrected. These observations are not a general security, host discovery or agent reliability guarantee. See [qualification and release record](docs/releases/1.2.0.md).
 
+The accepted QA candidate at `b36e6f5` passed 173/173 on Linux and native Windows in [B4 CI](https://github.com/S-Pillow/praxis/actions/runs/45847126856), after correcting an additive capability-schema defect. Distinct synthetic Builder 19/19 reported on Windows, reproduced 19/19 on Linux; nine additional reviewer checks passed and detected a deliberately defective receipt variant missed by the Builder suite. Eight shared-context behavioral observations support representative consultation, not universal host or model reliability. See [v1.3.0 qualification and limits](docs/releases/1.3.0.md).
+
 To run the regression suite yourself, use:
 
 ```bash
@@ -236,6 +238,7 @@ The [testing guide](docs/TESTING.md) covers optional browser checks with availab
 | `skills/aipf-ui-ux/` | Registered UI/UX specialist |
 | `skills/architecture/` | Architecture v0.1 |
 | `skills/security-privacy/` | Security & Privacy v0.1 |
+| `skills/qa-engineering-quality/` | QA & Engineering Quality v0.1 |
 | `knowledge/capabilities/` | Independent service/technology discovery and qualification guidance |
 | `skills/specialists.json` | Specialist registry |
 | `.agents/skills/` | Repository-scoped discovery adapters |
@@ -250,7 +253,7 @@ The [testing guide](docs/TESTING.md) covers optional browser checks with availab
 
 | Domain | Start here |
 | --- | --- |
-| Product requirements | [Consolidated product PRD v1.3](docs/PRD.md) · [Security & Privacy section](docs/PRD.md#13-security-and-privacy-specialist) |
+| Product requirements | [Consolidated product PRD v1.4](docs/PRD.md) · [Security & Privacy section](docs/PRD.md#13-security-and-privacy-specialist) · [QA section](docs/PRD.md#14-qa--engineering-quality-specialist) |
 | Logical architecture | [Architecture](docs/ARCHITECTURE.md) |
 | Historical approved baseline | [Development baseline](docs/DEVELOPMENT-BASELINE.md) |
 | Usage | [Praxis workflow](PRAXIS.md) · [Unified entry](skills/praxis/SKILL.md) |
@@ -261,7 +264,7 @@ The [testing guide](docs/TESTING.md) covers optional browser checks with availab
 | Builder portability | [Context independence](docs/decisions/PRAXIS-DEC-002-builder-context-independence.md) |
 | Prompt quality | [Quality-first decision](docs/decisions/PRAXIS-DEC-003-quality-first-prompts.md) |
 | Version history | [Changelog](CHANGELOG.md) |
-| Release evidence | [v1.2.0 release record](docs/releases/1.2.0.md) · [v1.1.0 release record](docs/releases/1.1.0.md) · [v1.0.0 historical record](docs/releases/1.0.0.md) |
+| Release evidence | [v1.3.0 release record](docs/releases/1.3.0.md) · [v1.2.0 release record](docs/releases/1.2.0.md) · [v1.1.0 release record](docs/releases/1.1.0.md) · [v1.0.0 historical record](docs/releases/1.0.0.md) |
 | Repository participation | [Contributing](CONTRIBUTING.md) · [Security reporting](SECURITY.md) · [Third-party notices](THIRD_PARTY_NOTICES.md) |
 
 ## Where Praxis goes next
@@ -276,8 +279,8 @@ The v1.1.0 source adds advisory software architecture and engineering design to 
 | --- | --- | --- |
 | **UI/UX & Design Intelligence** | Available in v1.0.0 | Design systems, visual design, usability and accessibility |
 | **Software Architecture & Engineering Design** | v0.1, qualified for v1.1.0 | System design, technology selection, data and integration patterns, architectural tradeoffs and maintainability |
-| **Security & Privacy** | v0.1, accepted for v1.2.0 — [requirements](docs/PRD.md#13-security-and-privacy-specialist) | Threat modeling, trust boundaries, secure design and data protection |
-| **QA & Engineering Quality** | Future | Risk-based test design, systematic diagnosis, regression quality and effective verification |
+| **Security & Privacy** | v0.1, released in v1.2.0 — [requirements](docs/PRD.md#13-security-and-privacy-specialist) | Threat modeling, trust boundaries, secure design and data protection |
+| **QA & Engineering Quality** | v0.1, accepted for v1.3.0 — [requirements](docs/PRD.md#14-qa--engineering-quality-specialist) | Risk-based test design, systematic diagnosis, regression quality and effective verification |
 | **DevOps & Reliability** | Future | Deployment strategies, infrastructure, observability and operational resilience |
 
 The specialist should help choose the simplest suitable approach, not prescribe fashionable patterns, frameworks or additional layers by default. Expertise remains available for direct execution as well as separate-agent workflows, including critique of existing systems and verification of material design decisions.
@@ -294,13 +297,17 @@ The v1.1.0 source includes 33 original decision cards across 11 progressive guid
 
 Security & Privacy v0.1 provides design, harden and review modes for material trust/data decisions after AIPF routing. Nine progressive guides contain 36 original decision cards; four discovery-only records extend the shared capability index to 24. No new runtime dependency, mandatory scanner, lookup, provider integration or independent approval mechanism. Source review is not live audit authority. See [skill](skills/security-privacy/SKILL.md), [index](skills/security-privacy/INDEX.md) and [requirements](docs/PRD.md#13-security-and-privacy-specialist).
 
+### What the QA & Engineering Quality specialist contributes
+
+QA v0.1 provides plan, diagnose and review modes for material verification and quality decisions. Twelve progressive guide families contain 37 original decision cards; six discovery-only additions extend the shared capability index to 30 records. It addresses test oracles, meaningful negative checks, differential verification, failure/recovery, test effectiveness, data and AI/agent quality. No required runner, external tool, dependency or independent acceptance authority. See [skill](skills/qa-engineering-quality/SKILL.md), [index](skills/qa-engineering-quality/INDEX.md) and [requirements](docs/PRD.md#14-qa--engineering-quality-specialist).
+
 ### Cross-cutting capability: Review Parity
 
 Review Parity is a separate experimental initiative whose mechanisms may eventually support all Praxis specialists. Its proposed role is engineering assurance: deterministic evidence verification, source and scope integrity, finding reconciliation and release-evidence auditing. It would complement AIPF and specialist judgment, not replace either or grant independent approval authority.
 
 We intend to build useful capabilities, verify their behavior and evaluate them on meaningful projects. More process, more tests or a larger catalog are not objectives in themselves.
 
-The roadmap describes direction, not delivery commitments. UI/UX was the only registered specialist in v1.0.0; v1.1.0 adds Architecture v0.1; v1.2.0 source adds Security & Privacy v0.1. QA, DevOps and Review Parity remain unimplemented. A packaged plugin is also a possible future addition. The standalone AIPF framework remains separate and unchanged; Praxis incorporates v8.10.1 without changing its version or authority.
+The roadmap describes direction, not delivery commitments. UI/UX was the only registered specialist in v1.0.0; v1.1.0 adds Architecture v0.1; v1.2.0 source adds Security & Privacy v0.1. v1.3.0 source adds QA & Engineering Quality v0.1. DevOps and Review Parity remain unimplemented. A packaged plugin is also a possible future addition. The standalone AIPF framework remains separate and unchanged; Praxis incorporates v8.10.1 without changing its version or authority.
 
 See the [product roadmap and specialist principles](docs/PRD.md#6-specialist-expansion-roadmap) and [expansion decision](docs/decisions/PRAXIS-DEC-004-specialist-expansion.md).
 

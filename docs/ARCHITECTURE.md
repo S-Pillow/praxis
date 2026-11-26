@@ -10,7 +10,7 @@ flowchart TD
   E --> G[AIPF Governance Core]
   G --> C[Project Context]
   G --> R[Specialist Routing]
-  R --> S[Specialist Modules: UI/UX + Architecture + Security & Privacy]
+  R --> S[Specialist Modules: UI/UX + Architecture + Security & Privacy + QA]
   S --- K[Knowledge Catalogs and Specialist Tools]
   C --> P[Prompt Agent synthesis]
   S --> P
@@ -23,7 +23,7 @@ flowchart TD
   H --> V
 ```
 
-These are logical capabilities, not separate servers or mandatory running services. UI/UX was the only registered specialist in v1.0.0. The v1.1.0 source adds Software Architecture & Engineering Design; v1.2.0 source adds [Security & Privacy](PRD.md#13-security-and-privacy-specialist). The other specialists and cross-cutting assurance in the [specialist roadmap](PRD.md#6-specialist-expansion-roadmap) remain future directions, not current deliverables.
+These are logical capabilities, not separate servers or mandatory running services. UI/UX was the only registered specialist in v1.0.0. The v1.1.0 source adds Software Architecture & Engineering Design; v1.2.0 source adds [Security & Privacy](PRD.md#13-security-and-privacy-specialist). The v1.3.0 source adds [QA & Engineering Quality](PRD.md#14-qa--engineering-quality-specialist). DevOps and cross-cutting assurance in the [specialist roadmap](PRD.md#6-specialist-expansion-roadmap) remain future directions, not current deliverables.
 
 ## 2. Responsibilities and boundaries
 
@@ -63,7 +63,7 @@ The user need not separately invoke AIPF, the UI/UX specialist or retrieval scri
 | Output expectations | Useful guidance and evidence |
 | Fallback behavior | Handle unavailable capabilities |
 
-Future specialists should primarily be added by implementing and registering them. Governing integration may evolve when necessary. The v1.2.0 source registers UI/UX v0.3, Architecture v0.1 and Security & Privacy v0.1; see [release qualification](releases/1.2.0.md). No placeholder specialists are required. Missing specialist capabilities must be reported transparently, with a suitable bounded fallback where feasible. Missing required governance cannot be silently bypassed.
+Future specialists should primarily be added by implementing and registering them. Governing integration may evolve when necessary. The v1.3.0 source registers UI/UX v0.3, Architecture v0.1, Security & Privacy v0.1 and QA & Engineering Quality v0.1; see [release qualification](releases/1.3.0.md). No placeholder specialists are required. Missing specialist capabilities must be reported transparently, with a suitable bounded fallback where feasible. Missing required governance cannot be silently bypassed.
 
 For future integration, specialize in domain knowledge and practical engineering judgment rather than adding parallel governance. The Prompt Agent (or direct executing agent) selects and synthesizes relevant advice into concrete decisions, constraints, implementation guidance and verification implications. No mandatory specialist access, additional agent, retrieval engine or catalog is presumed for the Builder. Existing architecture and appropriate implementation discretion remain protected.
 
@@ -76,6 +76,10 @@ Architecture design/evolve/critique consults original progressive guides in `ski
 ### Implemented v1.2.0 integration
 
 Security & Privacy consults `skills/security-privacy/` for material design, hardening and source review. The additive registry lists Chapters 11–21 without a retrieval script or executable tools; chapter presence is not semantic activation. Advice combines with Architecture and UI/UX into existing decisions/payloads. No new scanner, execution mechanism, service or authorization authority. The shared capability index remains independent. Requirements: [PRD Section 13](PRD.md#13-security-and-privacy-specialist).
+
+### Implemented v1.3.0 integration
+
+QA consults `skills/qa-engineering-quality/` for material plan, diagnose and review. Existing registry and helper are unchanged in mechanism; no lookup, service, dependency or additional authority. QA supplies verification oracles and diagnosis in coherent direct work or portable T1 with relevant UI/UX, Architecture and Security advice. Requirements: [PRD Section 14](PRD.md#14-qa--engineering-quality-specialist).
 
 ## 5. Proposed repository layout
 
