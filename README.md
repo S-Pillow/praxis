@@ -3,99 +3,53 @@
 </p>
 
 <p align="center">
-  <strong>Praxis</strong> helps AI agents turn project requirements into work you can verify.
+  <strong>A unified AI-assisted development system: from requirements and engineering decisions to implementation and verified results.</strong>
 </p>
 
 <p align="center">
-  <img alt="Praxis source v1.3.0" src="https://img.shields.io/badge/Praxis-v1.3.0-18364a?style=flat-square" />
-  <img alt="AIPF v8.10.1" src="https://img.shields.io/badge/AIPF-v8.10.1-006b59?style=flat-square" />
-  <img alt="UI/UX specialist v0.3" src="https://img.shields.io/badge/UI%2FUX-v0.3-18364a?style=flat-square" />
-  <img alt="5,500 catalog records" src="https://img.shields.io/badge/Catalog-5%2C500-006b59?style=flat-square" />
-  <img alt="134 regression tests on Linux and Windows at QUALITY-01" src="https://img.shields.io/badge/QUALITY--01-134%20tests%20per%20OS-28765e?style=flat-square" />
+  <a href="https://github.com/S-Pillow/praxis/releases"><img alt="Praxis source v1.3.0" src="https://img.shields.io/badge/Praxis-v1.3.0-18364a?style=flat-square" /></a>
+  <a href="framework/README.md"><img alt="AIPF v8.10.1" src="https://img.shields.io/badge/AIPF-v8.10.1-006b59?style=flat-square" /></a>
+  <a href="skills/README.md"><img alt="Four registered specialists" src="https://img.shields.io/badge/Specialists-4-18364a?style=flat-square" /></a>
+  <a href="docs/releases/1.3.0.md"><img alt="173 tests passed per OS at the accepted B4 candidate" src="https://img.shields.io/badge/B4%20regression-173%20per%20OS-28765e?style=flat-square" /></a>
+  <a href="LICENSE"><img alt="Apache 2.0 for original materials" src="https://img.shields.io/badge/Original%20materials-Apache--2.0-18364a?style=flat-square" /></a>
+</p>
+
+<p align="center">
+  <a href="#quick-start">Quick start</a> ·
+  <a href="#specialists">Specialists</a> ·
+  <a href="#how-praxis-works">How it works</a> ·
+  <a href="#knowledge-and-capabilities">Knowledge</a> ·
+  <a href="#verification-and-evidence">Evidence</a> ·
+  <a href="#documentation">Documentation</a>
 </p>
 
 ---
 
-## Why Praxis exists
+## What is Praxis?
 
-Getting an AI to write code is rarely the hardest part of building software with one. Keeping the work aligned with what you actually asked for is harder. An agent can fix a bug, change something unrelated, run a few tests and tell you everything works. Unless you know exactly what changed and what those tests covered, that last claim isn't particularly useful.
+AI coding assistants can generate code, but generating code is only one part of engineering a dependable product. The harder questions are often what should be built, which approach fits, what must remain unchanged, whether the result actually works, and what evidence is sufficient to accept it.
 
-Praxis is ForgeForward's approach to that problem. It combines the [**AI Prompt-First Development Framework (AIPF) v8.10.1**](https://stevenpillow.com/aipf), specialist guidance and a source-linked knowledge catalog in a single repository. Give an agent access to Praxis and your project, and it can work out which development rules apply, what expertise it needs and how to verify the result.
+**Praxis combines structured development governance, task-specific engineering expertise, source-linked knowledge and disciplined verification in one repository.** It is ForgeForward's approach to helping the AI assistant you already use work through those questions, rather than treating every request as an isolated coding prompt.
 
-AIPF is a framework we developed to establish what an agent is authorized to do, how it should verify its work and when it must stop. If you haven't come across it before, start with the [AIPF introduction on my website](https://stevenpillow.com/aipf). The full v8.10.1 framework is included in Praxis, so you don't need a separate AIPF installation.
+Praxis is not a new model, IDE, hosted agent platform, or collection of mandatory autonomous agents. It is a repository-based system that a compatible assistant can read and apply to the project at hand. It supports planning, new development, existing-system changes, diagnosis and review. It does not require a Praxis API key, global installation or running service.
 
-It isn't another AI model or a hosted service. You keep using your coding assistant. Praxis gives it a consistent way to work.
+### What it brings together
 
-One agent can handle the entire task, or a Prompt Agent can prepare instructions for a separate Builder. Both approaches are supported. The second is particularly useful when the tool doing the implementation has less access to project context than the agent planning the work.
+| Layer | Contribution |
+| --- | --- |
+| **Governance** | The complete, unchanged [AI Prompt-First Development Framework (AIPF) v8.10.1](framework/README.md) establishes scope, authorization, applicable paths, verification and stop conditions. |
+| **Specialist intelligence** | Four registered disciplines supply practical, conditional engineering judgment when their expertise can improve the current task. |
+| **Knowledge** | Original decision guides, source-linked design references and independent technology/service capability records support informed choices. |
+| **Execution** | Work directly with one agent, or have a Prompt Agent derive an operationally complete payload for a separate Builder. |
+| **Evidence** | Distinguish source inspection, actual execution, independent observations and unresolved gaps; reconcile results before acceptance or release. |
 
-## What this looks like in practice
+AIPF remains independently maintained and can be used without Praxis. Praxis incorporates it unchanged, adds domain expertise, and integrates those contributions into a single workflow. It does not replace project requirements or introduce a competing authority.
 
-Suppose you're improving keyboard navigation in an existing dashboard. You want the controls to work properly, not a new color scheme or a redesigned application. Praxis uses the existing project requirements and AIPF to establish that boundary. The UI/UX specialist can then help with focus visibility, accessible control names and keyboard behavior without treating the task as an invitation to redesign the interface.
+Learn about the standalone framework at [stevenpillow.com/aipf](https://stevenpillow.com/aipf).
 
-A database-only correction doesn't need that specialist. Neither does every small wording change. Loading more guidance isn't inherently useful; it needs to improve the work at hand.
+## Quick start
 
-That distinction matters. During development, we found that requests beginning with “make” or “update” could trigger new-theme recommendations even when the request was strictly about accessibility. We corrected the retrieval logic and added regression cases for both focused corrections and genuine new-design requests.
-
-## Rules worth keeping
-
-- **Access is not permission.** An agent that can edit a repository or deploy an application still needs authorization to do so.
-- **Requirements are not an open-ended work order.** A PRD may describe an entire product. The current task defines what the agent may change now.
-- **Specialist advice stays inside the approved scope.** A design reference doesn't override an established brand, required behavior or AIPF rule.
-- **A reference is not a license.** Finding a font, photograph or icon in the catalog doesn't establish permission to redistribute it.
-- **Tests prove what they test.** A passing suite cannot establish that a rendered interface is readable or that keyboard navigation works unless those behaviors were actually checked.
-- **Finishing implementation is not permission to release.** Acceptance, publication and deployment are separate decisions where applicable.
-
-## How Praxis works
-
-```mermaid
-flowchart TD
-  U["User / product owner: task and intent"] --> E["Select Praxis unified entry"]
-  E --> G["Incorporated AIPF v8.10.1: select paths"]
-  C["Approved project context: requirements, PRD, baseline"] --> G
-  G --> S{"Material specialist expertise useful?"}
-  S -->|Yes| L["Load relevant registered specialist"]
-  K["Source-linked catalog and optional tools"] -. "bounded retrieval if useful" .-> L
-  L --> P["Synthesize applicable intent, guidance and constraints"]
-  S -->|No| P
-  C --> P
-  P --> A{"Current authorization and preflight satisfied?"}
-  A -->|No| H["Stop affected work / resolve prerequisite"]
-  A -->|Yes| X{"Execution model"}
-  X -->|Direct| D["Execute authorized work in same agent"]
-  X -->|Distinct agents| T["Issue canonical portable Builder Payload"]
-  T --> B["Builder executes with accessible implementation inputs"]
-  B --> R["Return actual handoff and stop"]
-  D --> V["Verify and reconcile evidence"]
-  R --> V
-  V --> Q{"Acceptance and required observations satisfied?"}
-  Q -->|No| F["Record outcome; correction or observer decision"]
-  Q -->|Yes| O["Accepted scope; stop or obtain next authorization"]
-  O -. "separate approval when applicable" .-> Z["Release transition and verification"]
-```
-
-AIPF comes first. The agent selects the applicable development paths, consults specialists when the task warrants it, and checks that the work is authorized and ready. If required governance is missing, the affected work stops. Missing optional specialist knowledge can have a documented fallback when the approved project context is sufficient.
-
-The diagram is an overview; the incorporated AIPF Path Selector and issuance rules govern the actual decisions.
-
-### One agent or two?
-
-| | Direct execution | Separate Prompt Agent and Builder |
-| --- | --- | --- |
-| Loads Praxis and selects paths | Executing agent | Prompt Agent |
-| Consults specialist guidance | Executing agent | Prompt Agent |
-| Implements | Same agent | Builder, using the authorized payload and accessible target files |
-| Verifies | Executing agent and any required observers | Builder checks, Prompt Agent reconciliation and any required observers |
-| Stops | At the authorized boundary | Builder returns its handoff and stops; Prompt Agent reconciles before further work |
-
-The Builder doesn't need its own copy of Praxis, AIPF, the catalog or the PRD. It can have access to those resources, but the workflow must not depend on it. The Prompt Agent needs to carry the relevant requirements, decisions, constraints and acceptance checks into the Builder Payload. The Builder still needs access to the application and the tools required to change it.
-
-There is a tradeoff here. A short prompt is attractive, but leaving out a requirement can cost more than the tokens saved. We prioritize correctness and operational completeness, then remove repetition that doesn't help execution. A direct agent doesn't need to manufacture a handoff to itself.
-
-## Getting started
-
-### 1. Get Praxis
-
-Clone the public repository and check out the desired published tag from the [release list](https://github.com/S-Pillow/praxis/releases). For v1.3.0, once the tag is available:
+### 1. Obtain a pinned version
 
 ```bash
 git clone https://github.com/S-Pillow/praxis.git
@@ -103,214 +57,289 @@ cd praxis
 git checkout v1.3.0
 ```
 
-Already have a local checkout? Run `git fetch --tags` then `git checkout v1.3.0` from its root. Pin the release you intend to use rather than assuming the latest branch is the reviewed version.
+Use the v1.3.0 tag once it is published, or select an existing published tag from the [release list](https://github.com/S-Pillow/praxis/releases). For an existing checkout, run `git fetch --tags` first. Pinning a reviewed release makes the framework, guidance and evidence reproducible; a moving branch is not the same thing as a released version.
 
-You don't need an API key, global plugin installation or a running Praxis service. Python 3 is required for the executable catalog tools and tests; reading the framework and skills doesn't require it. CI uses Python 3.12.
+### 2. Give your assistant access to Praxis and your project
 
-### 2. Tell your agent what to load
+Ask it to load [`skills/praxis/SKILL.md`](skills/praxis/SKILL.md) from the pinned repository root, then provide the actual task and applicable project requirements. The agent selects the appropriate AIPF paths and material specialist expertise; you do not need to select all four specialists or run retrieval commands yourself.
 
-Make the Praxis checkout and your target project accessible to your agent. Ask it to load [`skills/praxis/SKILL.md`](skills/praxis/SKILL.md) from the pinned Praxis root. Then give it your actual task.
+**Example direct request:**
 
-For direct execution:
+> Use Praxis from my pinned checkout. Investigate why an older search response can overwrite a newer result. Preserve the existing interface and public behavior. Reproduce the failure, establish its cause, and propose a focused correction and regression checks within the authorized scope.
 
-> Use Praxis from my pinned checkout to improve the accessibility and readability of the existing dashboard. Preserve the approved brand and functionality. Inspect the current source and establish the correction scope before changing files.
+**Example separate Builder request:**
 
-For a separate Builder:
+> Use Praxis to prepare a self-contained implementation-ready Builder Payload for the approved inventory dashboard. Consult relevant specialist expertise, preserve the approved architecture and access rules, define observable positive and negative tests, and identify any required browser or independent observations. Stop at the handoff.
 
-> Use Praxis to prepare an implementation-ready Builder Payload for the approved incident management dashboard. Consult relevant specialist guidance. Make the payload usable without access to the governing documents, and assign visual verification to an observer who can actually inspect the interface.
+These are starting requests, not blanket authorizations. The assistant must establish the actual scope, permissions, accessible inputs and prerequisites.
 
-These are starting requests, not blanket authorizations. The agent must establish the current scope and prerequisites for the actual project.
+### 3. Use your existing coding environment
 
-### 3. Use your usual coding environment
-
-| Environment | How to use Praxis |
+| Environment | Approach and limits |
 | --- | --- |
-| Repository-aware agent | Use repository-local discovery where supported, or explicitly load the entry file. |
+| Repository-aware coding assistant | Make the repository readable and load the Praxis entry. Repository-local discovery is available where the host supports it. |
 | Cursor | Repository-based activation and separate Task-agent execution have been exercised. Native skill-picker discovery has not been established. |
-| Codex and other compatible agents | Use the repository adapter or explicit entry file. Native Codex discovery has not been independently verified. |
-| External Builder or hosted coding tool | Transfer the authorized payload and provide access to the implementation inputs. Confirm its tools and observation capabilities first. |
-| Chat without file or command access | Supply accessible governing inputs. Do not claim retrieval or execution that the host cannot perform. Missing required governance blocks governed work. |
+| Codex / other compatible assistants | Use the repository adapter or explicit entry file. Native Codex discovery has not been independently verified. |
+| Separate Builder | Provide the authorized payload and accessible implementation inputs. Access to Praxis or the governing documents is optional, not a prerequisite. |
+| Chat without file/command access | Provide accessible governing inputs; do not claim retrieval or tests that cannot be performed. Missing required governance blocks governed work. |
 
-[`AGENTS.md`](AGENTS.md) and the [discovery adapter](.agents/skills/praxis/SKILL.md) help compatible hosts find Praxis. Opening a different application repository doesn't install Praxis globally. If discovery fails, use the explicit entry file. See [PRAXIS.md](PRAXIS.md) for the full workflow.
+[`AGENTS.md`](AGENTS.md) and the [repository discovery adapter](.agents/skills/praxis/SKILL.md) help compatible hosts. Opening another repository does not install Praxis globally. Python is not required to read the framework and guides; the optional local tools and test suite use Python 3 (CI uses 3.12).
 
-## UI/UX specialist (v0.3)
+## Specialists
 
-UI/UX is the first registered specialist. It is consulted for material interface work under AIPF Chapter 14 and can also be used independently.
+Praxis has **four registered specialists in the v1.3.0 source**. They are complementary disciplines, not four independent agents, mandatory phases, or additional approval authorities. A single task may need one, several, or none.
 
-| Mode | Use it when |
+| Specialist | Version | Consultation modes | Main question |
+| --- | --- | --- | --- |
+| [UI/UX & Design Intelligence](skills/aipf-ui-ux/SKILL.md) | 0.3 | build · critique · audit | Is the experience appropriate, usable and coherent? |
+| [Software Architecture & Engineering Design](skills/architecture/SKILL.md) | 0.1 | design · evolve · critique | Is the solution structured appropriately for its requirements? |
+| [Security & Privacy](skills/security-privacy/SKILL.md) | 0.1 | design · harden · review | Are trust boundaries, resources and data protected? |
+| [QA & Engineering Quality](skills/qa-engineering-quality/SKILL.md) | 0.1 | plan · diagnose · review | Does the solution behave correctly, and what establishes that? |
+
+### UI/UX & Design Intelligence
+
+Consult for material user-facing design, interface improvement, visual/usability critique and technical UI audit. Use existing brand and behavior constraints before selecting new references.
+
+- Layout, hierarchy, typography, design systems, components and responsive states.
+- Usability, keyboard/focus, contrast and accessible interaction.
+- Source-linked recommendations and design tokens from the catalog; reject unsuitable references instead of copying them blindly.
+- Verify applicable contrast pairs before issuing design instructions; inspect actual rendered behavior where required.
+
+**Knowledge:** 5,500 source-linked catalog records. The specialist can also be used independently; a material UI request triggers the bounded read-only lookup when the catalog and runner are available.
+
+[Skill](skills/aipf-ui-ux/SKILL.md) · [Search contract](catalog/SEARCH.md) · [Design Index](ui/catalog-explorer/README.md)
+
+### Software Architecture & Engineering Design
+
+Consult for material new-system design, existing-system evolution and structural critique. Select the simplest suitable approach rather than imposing a preferred framework or pattern.
+
+- System boundaries, responsibilities, data models, interfaces and integration contracts.
+- Technology/service selection, quality attributes, workload and maintainability tradeoffs.
+- Preserve accepted behavior during evolution; compare retaining, extending, refactoring and replacing only where justified.
+- Consider failure behavior, migration, recovery and verification implications before implementation.
+
+**Knowledge:** 11 progressive guides, 33 original decision cards.
+
+[Skill](skills/architecture/SKILL.md) · [Decision index](skills/architecture/INDEX.md) · [Sources](skills/architecture/SOURCES.md) · [Requirements](docs/PRD.md#8-architecture--engineering-design)
+
+### Security & Privacy
+
+Consult for material secure design, hardening and source assessment. Derive controls from actual assets, actors, threats, resources, data flows and purpose—not a universal checklist.
+
+- Authentication, authorization, ownership, tenant boundaries and least privilege.
+- Input handling, secrets, cryptography, supply-chain and agent/tool trust.
+- Data minimization, collection, retention, deletion, logging and disclosure.
+- Positive and negative control checks, source-bound findings, counterevidence and appropriate corrections.
+
+**Knowledge:** Nine progressive guides, 36 original decision cards. Source review is not authority to probe live systems, install scanners, disclose data or accept risk.
+
+[Skill](skills/security-privacy/SKILL.md) · [Decision index](skills/security-privacy/INDEX.md) · [Sources](skills/security-privacy/SOURCES.md) · [Requirements](docs/PRD.md#13-security-and-privacy-specialist)
+
+### QA & Engineering Quality
+
+Consult for material test strategy, diagnosis, regression and engineering-quality review. Verify meaningful behavior and the effectiveness of the tests themselves, not just whether a test command turns green.
+
+- Risk and impact, independent oracles, boundary/property/state and contract testing.
+- Browser and user-facing behavior, failure injection, retry, recovery, concurrency and flakiness.
+- Causal diagnosis, comparable baseline/candidate checks, targeted mutation and regression.
+- Data integrity, maintainability, AI/agent outcomes, tool constraints, evaluation validity and appropriate abstention.
+
+**Knowledge:** Twelve progressive guide families, 37 original decision cards. Different valid agent execution paths are acceptable; an unauthorized action is not. Actual verification requires suitable tools, observers and authority. No mandatory runner or evaluation service.
+
+[Skill](skills/qa-engineering-quality/SKILL.md) · [Decision index](skills/qa-engineering-quality/INDEX.md) · [Sources](skills/qa-engineering-quality/SOURCES.md) · [Requirements](docs/PRD.md#14-qa--engineering-quality-specialist)
+
+### How the disciplines work together
+
+Consider a shared dashboard that lets an owner update inventory and view aggregate activity. This illustrative scenario is not a claim that Praxis includes an inventory application.
+
+| Discipline | Concrete contribution |
 | --- | --- |
-| `build` | Creating or materially improving an interface within approved requirements. |
-| `critique` | Reviewing hierarchy, readability, usability and visual coherence. |
-| `audit` | Checking technical interface requirements, including accessibility and observable behavior. |
+| Architecture | Choose suitable component, data and API boundaries; define update and retry semantics. |
+| Security & Privacy | Establish who can modify which resource, what data is necessary and what must not be disclosed or logged. |
+| UI/UX | Define clear form, keyboard/focus, loading, error and recovery states within the approved design. |
+| QA | Verify allowed and denied updates, actual state changes, zero-value handling, duplicate retry prevention and observable user feedback. |
 
-The specialist is not a theme generator that needs to run on every task. It uses one initial recommendation lookup when useful, followed by at most one justified targeted search within the same lookup scope. The agent must decide which references fit, reject those that don't, and preserve the approved design identity.
+The agent synthesizes those decisions into one coherent strategy or authorized payload. AIPF controls authorization, evidence and acceptance throughout. A minor typo does not need this full consultation; a simple backend correction does not need UI/UX merely because the product has a UI.
 
-We learned why the verification step matters during the incident-dashboard exercise. The first dashboard looked reasonable in screenshots, but orange and amber priority text fell below the required 4.5:1 contrast ratio. The next independent exercise measured candidate color pairs before issuing the payload, rejected inadequate combinations and used verified badge colors instead. Looking accessible and meeting a measured requirement are different things.
+## How Praxis works
 
-The specialist now requires applicable prescribed contrast pairs to be checked before issuance. That doesn't replace inspection of the finished interface.
-
-<details>
-<summary><strong>Optional command-line tools</strong></summary>
-
-Run these from the Praxis root. They are separate examples, not three mandatory steps for every task.
-
-```bash
-python scripts/recommend_design.py "Build a financial dashboard with readable tables" --mode build --platform web
-python scripts/search_catalog.py "keyboard focus" --limit 3
-python scripts/check_contrast.py "#7F1D1D" "#FEE2E2" --minimum 4.5
+```mermaid
+flowchart TD
+  U["Task + approved project context"] --> E["Praxis unified entry"]
+  E --> G["AIPF v8.10.1: applicable paths and scope"]
+  G --> M{"Material specialist decision?"}
+  M -->|Yes| S["Consult relevant disciplines"]
+  K["Decision guides + catalog + shared capabilities"] -.-> S
+  M -->|No| P["Derive concrete work and verification"]
+  S --> P
+  P --> A{"Authority and preflight satisfied?"}
+  A -->|No| H["Stop affected work / resolve prerequisite"]
+  A -->|Yes| X{"Execution model"}
+  X -->|Direct| D["Same agent executes"]
+  X -->|Distinct| T["Portable Builder Payload"]
+  T --> B["Builder executes, reports and stops"]
+  D --> V["Verify and reconcile actual evidence"]
+  B --> V
+  V --> Q{"Required criteria satisfied?"}
+  Q -->|No| F["Record outcome / authorized correction or observation"]
+  Q -->|Yes| O["Accept bounded work and stop or seek next authorization"]
+  O -. "separate authority where applicable" .-> R["Release and verify"]
 ```
 
-The recommender returns three results by default and accepts a limit of 1–5. Choose the actual mode and platform for your task. The optional `praxis_context.py` helper takes an already-selected task and framework chapters; it is not a natural-language classifier or a replacement for AIPF routing. Use its successful recommendation lookup or the direct command, not both for the same initial lookup.
+This is an explanatory overview, not an alternative to the canonical AIPF Path Selector or issuance rules.
 
-The contrast calculator accepts opaque six-digit sRGB hex colors. It checks a color pair, not an entire interface. On non-UTF-8 hosts, use `python -X utf8` where needed.
+### Direct or separate-agent execution
 
-See the [specialist instructions](skills/aipf-ui-ux/SKILL.md), [catalog search contract](catalog/SEARCH.md) and [integrated workflow](PRAXIS.md).
+| Responsibility | Direct execution | Separate Prompt Agent and Builder |
+| --- | --- | --- |
+| Load governance and select relevant expertise | Executing agent | Prompt Agent |
+| Derive implementation and verification requirements | Executing agent | Prompt Agent creates canonical operational payload |
+| Implement within scope | Same agent | Builder using accessible target files and tools |
+| Verify and reconcile | Agent and required observers | Builder reports; Prompt Agent reconciles, with required observers |
+| Stop | At authorization boundary | Builder returns handoff and stops; Prompt Agent controls subsequent work |
 
-</details>
+A distinct Builder does not need its own copy of Praxis, AIPF, the catalog or the PRD. Optional access grants no extra authority. The payload must carry actual requirements, relevant design decisions, constraints, expected outcomes, evidence and stop conditions; the Builder still needs the implementation inputs and tools required for the task.
 
-## Design knowledge and its sources
+Correctness and operational completeness come before token efficiency. Direct execution needs no artificial self-handoff.
 
-The catalog contains **5,500 source-linked design records** and a separate starter file with examples. It includes metadata, guidelines, style references and design tokens. No third-party font files, photographs or screenshots are bundled. Some descriptions and tokens, including an embedded SVG texture, come from upstream sources and remain subject to their applicable terms.
+### Principles that apply throughout
 
-| Source | Reference |
+- Access is not permission; the current authorization defines what may change.
+- A PRD is not an open-ended work order; preserve accepted behavior and protected scope.
+- Consult expertise when it can improve a material decision, not just because a chapter or keyword matches.
+- A reference is not a license; a candidate tool is not an approved dependency.
+- Passing tests establish only what their assertions and observed environment support.
+- Implementation, acceptance and publication remain distinct where required.
+
+See [integrated workflow](PRAXIS.md), [Builder context independence](docs/decisions/PRAXIS-DEC-002-builder-context-independence.md) and [quality-first prompts](docs/decisions/PRAXIS-DEC-003-quality-first-prompts.md).
+
+## Knowledge and capabilities
+
+| Resource | Scope in the v1.3.0 source |
 | --- | --- |
-| Hallmark | [Nutlope/hallmark](https://github.com/Nutlope/hallmark) |
-| UI UX Pro Max | [nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) |
-| Open Design Agent Kit | [feimacode/open-design-agent-kit](https://github.com/feimacode/open-design-agent-kit) |
-| Impeccable | [pbakaus/impeccable](https://github.com/pbakaus/impeccable) |
-| MengTo Skills | [MengTo/Skills](https://github.com/MengTo/Skills) |
+| Design catalog | 5,500 source-linked records, plus a separate starter file |
+| Architecture, Security and QA decision knowledge | 32 progressive guide families and 106 original decision cards (11/33, 9/36 and 12/37 respectively) |
+| Shared technology/service capability index | 30 discovery records, usable independently of a specialist |
+| Cross-specialist research | 14 retained leads for future decisions, not approved implementations |
 
-The [field map](catalog/mappings/source-field-map.md) explains how source records were normalized. The [license register](research/licensing/source-license-register.md) records upstream terms and item-level redistribution gates. A repository license doesn't necessarily cover every photograph, font, icon or brand asset referenced inside it.
+Guidance is progressively loaded from question-led indexes rather than sending the entire corpus to every agent. Decision cards describe context, alternatives (including no change), tradeoffs, counterexamples, verification and source limitations. Shared capability records describe candidates, not a required stack. Verify material version, rights, access, data flow, pricing, limits and exhaustion behavior at point of use; a free-tier pointer is not a cost guarantee.
 
-### Browse the catalog yourself
+[Shared capability index](knowledge/capabilities/INDEX.md) · [Qualification guidance](knowledge/capabilities/QUALIFICATION.md) · [Deferred research](research/CROSS-SPECIALIST-RESEARCH-REGISTER.md)
 
-The optional Design Index is a local browser for the same catalog. From the Praxis root, run:
+### Design catalog and local Design Index
+
+The design catalog normalizes references from [Hallmark](https://github.com/Nutlope/hallmark), [UI UX Pro Max](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill), [Open Design Agent Kit](https://github.com/feimacode/open-design-agent-kit), [Impeccable](https://github.com/pbakaus/impeccable) and [MengTo Skills](https://github.com/MengTo/Skills). It contains metadata, design guidance, style references and tokens. No third-party font files, photographs or screenshots are bundled; some upstream descriptions and tokens, including an embedded SVG texture, retain their original terms.
+
+For manual browsing, run from the Praxis root:
 
 ```bash
 python ui/catalog-explorer/server.py --port 8765
 ```
 
-Open `http://127.0.0.1:8765/` on the same computer. Search and filter records, inspect their sources and tokens, save references in browser-local storage, or copy a brief for your agent. Press Ctrl+C in the server terminal when finished.
+Visit `http://127.0.0.1:8765/` on the same computer. Search, filter, inspect source records, save references in browser-local storage or copy a brief. Stop the server with Ctrl+C.
 
-The server uses Python's standard library and binds to loopback. No database, account or external runtime is required. It doesn't call an AI or change your application. You don't need to run it for agent-side retrieval.
+The optional Design Index uses Python's standard library and binds to loopback. No account, AI connection, database or public deployment is needed. Local request logging remains a privacy consideration; avoid sensitive queries. The browser is not required for agent-side retrieval.
 
-See the [Design Index guide](ui/catalog-explorer/README.md).
+[Design Index guide](ui/catalog-explorer/README.md) · [Field map](catalog/mappings/source-field-map.md) · [Source/license register](research/licensing/source-license-register.md)
 
-## What we've actually verified
+<details>
+<summary><strong>Optional commands for technical users and agents</strong></summary>
 
-The accepted QUALITY-01 implementation passed 134 regression tests on Linux and 134 on Windows. All 17 frozen retrieval benchmark cases reproduced their original outputs after the inherited defects were corrected. Independent Cursor exercises also demonstrated a Prompt Agent preparing a payload, a separate Builder implementing it without depending on governing documents, and the Prompt Agent reconciling the result.
+Run from a pinned Praxis checkout. These are independent examples, not mandatory steps:
 
-The earlier test suite missed real defects. Typing `/` in the design-task textarea moved focus to search; clearing search reset the category and left Saved; and Saved search didn't match the same references as Explore. Those failures now have targeted regression coverage. Passing the old tests wasn't enough.
+```bash
+python scripts/recommend_design.py "Build a financial dashboard with readable tables" --mode build --platform web
+python scripts/search_catalog.py "keyboard focus" --limit 3
+python scripts/check_contrast.py "#7F1D1D" "#FEE2E2" --minimum 4.5
+python scripts/praxis_context.py --task architecture-design --chapter 11
+python scripts/praxis_context.py --task security-design --chapter 12
+python scripts/praxis_context.py --task qa-diagnose --chapter 12
+```
 
-| Evidence | Result |
-| --- | --- |
-| QUALITY-01 regression | 134/134 on Linux and Windows |
-| Frozen retrieval benchmarks | 17/17 original outputs reproduced |
-| Quality findings | 13 addressed, including contrast, retrieval limits and framework identity |
-| Independent agent workflow | Demonstrated |
-| Operator acceptance | VALIDATION-05 accepted with notes, November 25, 2026 |
+Use the actual selected path and task. The helper resolves explicit task IDs and chapter eligibility; it neither classifies free text nor proves the agent read or applied the specialist. Architecture, Security and QA have no required lookup subprocess. UI/UX uses one initial lookup when applicable and at most one justified targeted search within the same scope. The recommender defaults to three results, accepts limits 1–5, and returns candidates rather than approved designs. A contrast check evaluates one opaque sRGB color pair, not an entire interface. Use `python -X utf8` on non-UTF-8 hosts where needed.
 
-The integrated R4 tree subsequently passed 136/136 tests in both [PR validation](https://github.com/S-Pillow/praxis/actions/runs/45645758443) and [main validation](https://github.com/S-Pillow/praxis/actions/runs/45647515984). A later review identified Git CRLF checkout conversion as a raw-byte integrity risk; the final correction adds explicit LF attributes and a regression test. Its own CI evidence is tracked separately.
+</details>
 
-There are limits to that evidence. Native Codex discovery and manual enrichment workflow dispatch remain unverified. Catalog browser regression used isolated Chromium documents with synthetic API responses, not a complete Windows HTTP integration test. The disposable dashboard also revealed two remaining opportunities: retaining keyboard focus after incident selection and using a more appropriate accessible selection state.
+## Verification and evidence
 
-These results belong to the tested source and environment. They don't guarantee future agent compliance, establish blanket WCAG conformance or prove that Praxis is better than every other development approach.
+The project retains standing regressions, source-bound observations, disposable direct exercises, separate Builder handoffs and independent reviewer evidence. These support different claims; test counts are not interchangeable.
 
-The accepted Security & Privacy implementation at `c6393f6` passed 163/163 on hosted Linux and native Windows in [B4 CI](https://github.com/S-Pillow/praxis/actions/runs/45758697505). Separate synthetic independent Builder v2 tests reproduced 22/22 and 14/14 additional reviewer methods after four v1 findings were corrected. These observations are not a general security, host discovery or agent reliability guarantee. See [qualification and release record](docs/releases/1.2.0.md).
+| Milestone | Representative integrated regression | Evidence |
+| --- | --- | --- |
+| Praxis v1.0.0 / UI/UX | 137/137 final pre-publication; historical QUALITY-01 134/134 per OS | [v1.0.0 record](docs/releases/1.0.0.md) |
+| Praxis v1.1.0 / Architecture | 155/155 Linux and native Windows | [v1.1.0 record](docs/releases/1.1.0.md) |
+| Praxis v1.2.0 / Security | 163/163 Linux and native Windows | [v1.2.0 record](docs/releases/1.2.0.md) |
+| Praxis v1.3.0 / QA | 173/173 Linux and native Windows at accepted B4 commit `b36e6f5` | [B4 CI](https://github.com/S-Pillow/praxis/actions/runs/45847126856) · [v1.3.0 record](docs/releases/1.3.0.md) |
 
-The accepted QA candidate at `b36e6f5` passed 173/173 on Linux and native Windows in [B4 CI](https://github.com/S-Pillow/praxis/actions/runs/45847126856), after correcting an additive capability-schema defect. Distinct synthetic Builder 19/19 reported on Windows, reproduced 19/19 on Linux; nine additional reviewer checks passed and detected a deliberately defective receipt variant missed by the Builder suite. Eight shared-context behavioral observations support representative consultation, not universal host or model reliability. See [v1.3.0 qualification and limits](docs/releases/1.3.0.md).
+### Why tests alone are not enough
 
-To run the regression suite yourself, use:
+- **UI/UX:** Earlier browser and accessibility exercises exposed focus, filtering and contrast defects that the old checks missed. Targeted regression coverage was added; 17 frozen retrieval cases reproduced their original outputs.
+- **Architecture:** A separate synthetic Builder exercise reached 25/25 after targeted correction, distinct from the standing Praxis regression.
+- **Security:** An independent Builder's original 15 passing tests missed four reviewer findings. The corrected synthetic implementation reproduced 22/22 tests, plus 14/14 additional reviewer checks. This is not a live security audit.
+- **QA:** The distinct inventory Builder reported 19/19 on Windows, reproduced 19/19 on Linux, and passed nine additional reviewer tests. A deliberately defective copy survived the original 19 tests but failed a reviewer receipt-integrity assertion. The submitted original was correct. The QA integration itself initially failed the inherited capability schema test (172/173 on each OS); the corrected B4 candidate passed all 173 without weakening assertions.
+
+The accepted QA candidate's 42 requirements and 18 acceptance criteria were reconciled in B4. Eight external behavioral requests used one shared agent context and an unknown host model version. They support bounded consultation and composition observations, not eight independent trials or universal agent reliability. Private raw evidence is retained outside the public repository; release records retain provenance, identities and limitations.
+
+### Run the standing suite
 
 ```bash
 python -m unittest discover -s tests -v
 ```
 
-The [testing guide](docs/TESTING.md) covers optional browser checks with available Playwright/Chromium and permanent scenario regression. Keep original evidence intact, and distinguish direct observations from reported results and inferences.
+The test suite verifies repository mechanisms and relevant standing behavior. Actual browser behavior, provider integrations, semantic agent decisions and independent execution require appropriate separate observations. Historical catalog-browser checks used isolated Chromium documents with synthetic API responses, not a full Windows browser/HTTP integration. Native host discovery and the manual enrichment workflow dispatch remain unverified. Residual disposable-dashboard focus/selection observations are recorded in earlier release evidence.
 
-## Repository architecture
+No claim is made of universal security, WCAG conformance, guaranteed cost, all-host activation or comparative superiority over AIPF alone. The [testing strategy](docs/TESTING.md) and [release records](docs/releases/1.3.0.md) distinguish scope, environment, observer and limitations. Published version identity comes from the [GitHub releases](https://github.com/S-Pillow/praxis/releases), not a badge or source version label.
+
+## Repository layout
 
 | Path | Purpose |
 | --- | --- |
-| `PRAXIS.md` / `AGENTS.md` | Integrated usage and repository agent guidance |
-| `framework/` | Complete unchanged AIPF v8.10.1 projection and identity manifest |
-| `skills/praxis/` | Unified entry and payload synthesis guidance |
-| `skills/aipf-ui-ux/` | Registered UI/UX specialist |
-| `skills/architecture/` | Architecture v0.1 |
-| `skills/security-privacy/` | Security & Privacy v0.1 |
-| `skills/qa-engineering-quality/` | QA & Engineering Quality v0.1 |
-| `knowledge/capabilities/` | Independent service/technology discovery and qualification guidance |
-| `skills/specialists.json` | Specialist registry |
-| `.agents/skills/` | Repository-scoped discovery adapters |
-| `catalog/` | Source-linked records, schema, field mapping and search contract |
+| [`PRAXIS.md`](PRAXIS.md), [`AGENTS.md`](AGENTS.md) | Integrated usage and repository agent guidance |
+| [`framework/`](framework/README.md) | Complete AIPF v8.10.1 projection and identity manifest |
+| [`skills/`](skills/README.md) | Unified entry, specialist guidance, registry and progressive references |
+| [`knowledge/capabilities/`](knowledge/capabilities/INDEX.md) | Independent capability discovery and qualification |
+| [`catalog/`](catalog/SEARCH.md) | Design records, schema, field mapping and search contract |
 | `scripts/` | Optional local lookup, verification and maintenance tools |
-| `ui/catalog-explorer/` | Local Design Index |
-| `tests/` | Executable regressions and scenario fixtures |
-| `docs/` | Approved baseline, architecture, decisions and verification guidance |
-| `research/` | Historical evaluations, source provenance and licensing research |
+| [`ui/catalog-explorer/`](ui/catalog-explorer/README.md) | Local Design Index |
+| `tests/` | Standing regression and scenario fixtures |
+| [`docs/`](docs/PRD.md) | Canonical requirements, architecture, decisions and release evidence |
+| `research/` | Source provenance, licensing, historical evaluations and deferred investigations |
 
-## Deep-dive documentation
+## Documentation
 
-| Domain | Start here |
+| I want to… | Read |
 | --- | --- |
-| Product requirements | [Consolidated product PRD v1.4](docs/PRD.md) · [Security & Privacy section](docs/PRD.md#13-security-and-privacy-specialist) · [QA section](docs/PRD.md#14-qa--engineering-quality-specialist) |
-| Logical architecture | [Architecture](docs/ARCHITECTURE.md) |
-| Historical approved baseline | [Development baseline](docs/DEVELOPMENT-BASELINE.md) |
-| Usage | [Praxis workflow](PRAXIS.md) · [Unified entry](skills/praxis/SKILL.md) |
-| Incorporated framework | [Framework identity](framework/README.md) |
-| Specialist | [Skills overview](skills/README.md) · [Registry](skills/specialists.json) |
-| Catalog | [Search contract](catalog/SEARCH.md) · [Design Index](ui/catalog-explorer/README.md) |
-| Validation | [Testing strategy](docs/TESTING.md) · [Permanent scenario regression](docs/decisions/PRAXIS-DEC-001-scenario-regression.md) |
-| Builder portability | [Context independence](docs/decisions/PRAXIS-DEC-002-builder-context-independence.md) |
-| Prompt quality | [Quality-first decision](docs/decisions/PRAXIS-DEC-003-quality-first-prompts.md) |
-| Version history | [Changelog](CHANGELOG.md) |
-| Release evidence | [v1.3.0 release record](docs/releases/1.3.0.md) · [v1.2.0 release record](docs/releases/1.2.0.md) · [v1.1.0 release record](docs/releases/1.1.0.md) · [v1.0.0 historical record](docs/releases/1.0.0.md) |
-| Repository participation | [Contributing](CONTRIBUTING.md) · [Security reporting](SECURITY.md) · [Third-party notices](THIRD_PARTY_NOTICES.md) |
+| Understand the whole product | [Canonical product PRD v1.4](docs/PRD.md), [logical architecture](docs/ARCHITECTURE.md) |
+| Use Praxis with my agent | [Integrated workflow](PRAXIS.md), [entry skill](skills/praxis/SKILL.md), [specialist registry](skills/specialists.json) |
+| Understand the underlying framework | [AIPF identity and projection](framework/README.md), [AIPF introduction](https://stevenpillow.com/aipf) |
+| Design a portable Builder handoff | [Context independence](docs/decisions/PRAXIS-DEC-002-builder-context-independence.md), [payload synthesis](skills/praxis/references/builder-payload.md) |
+| Verify work and evidence | [Testing strategy](docs/TESTING.md), [scenario regression decision](docs/decisions/PRAXIS-DEC-001-scenario-regression.md) |
+| Review release history | [Changelog](CHANGELOG.md), [v1.3.0](docs/releases/1.3.0.md), [v1.2.0](docs/releases/1.2.0.md), [v1.1.0](docs/releases/1.1.0.md), [v1.0.0](docs/releases/1.0.0.md) |
+| Understand decisions and development history | [Development baseline](docs/DEVELOPMENT-BASELINE.md), [specialist expansion decision](docs/decisions/PRAXIS-DEC-004-specialist-expansion.md) |
+| Contribute or report a security issue | [Contributing](CONTRIBUTING.md), [Security reporting](SECURITY.md) |
 
-## Where Praxis goes next
+## Roadmap
 
-The goal is to give an agent the expertise of a multidisciplinary engineering team without requiring a separate agent for every discipline. AIPF provides the governing methodology; specialists contribute the domain knowledge and practical techniques that help the agent make better decisions.
+The long-term direction is a multidisciplinary engineering capability available to the assistant you already use. The current source includes four of the five planned specialist disciplines.
 
-The v1.1.0 source adds advisory software architecture and engineering design to the v1.0.0 foundation. Choosing an appropriate system structure, technology stack, data model and integration approach early can prevent avoidable complexity later. In a separate-agent workflow, the Prompt Agent uses that expertise to shape the authorized Builder Payload. The Builder receives the decisions, constraints and implementation guidance it needs without having to load the specialist itself.
+| Discipline or initiative | State |
+| --- | --- |
+| UI/UX & Design Intelligence v0.3 | Available since Praxis v1.0.0 |
+| Software Architecture & Engineering Design v0.1 | Released in v1.1.0 |
+| Security & Privacy v0.1 | Released in v1.2.0 |
+| QA & Engineering Quality v0.1 | Qualified and owner accepted for v1.3.0 |
+| DevOps & Reliability | Future: deployment, infrastructure, observability, recovery and operational resilience; not implemented |
+| Review Parity | Deferred cross-cutting assurance research, not a fifth domain specialist or implemented approval runtime |
+| Packaged plugin | Possible future distribution option, not a required installation |
 
-### Proposed specialist roadmap
-
-| Specialist | Status | Focus |
-| --- | --- | --- |
-| **UI/UX & Design Intelligence** | Available in v1.0.0 | Design systems, visual design, usability and accessibility |
-| **Software Architecture & Engineering Design** | v0.1, qualified for v1.1.0 | System design, technology selection, data and integration patterns, architectural tradeoffs and maintainability |
-| **Security & Privacy** | v0.1, released in v1.2.0 — [requirements](docs/PRD.md#13-security-and-privacy-specialist) | Threat modeling, trust boundaries, secure design and data protection |
-| **QA & Engineering Quality** | v0.1, accepted for v1.3.0 — [requirements](docs/PRD.md#14-qa--engineering-quality-specialist) | Risk-based test design, systematic diagnosis, regression quality and effective verification |
-| **DevOps & Reliability** | Future | Deployment strategies, infrastructure, observability and operational resilience |
-
-The specialist should help choose the simplest suitable approach, not prescribe fashionable patterns, frameworks or additional layers by default. Expertise remains available for direct execution as well as separate-agent workflows, including critique of existing systems and verification of material design decisions.
-
-### What the architecture specialist contributes
-
-- **Architecture intelligence:** context-sensitive patterns, quality attributes, tradeoffs, interfaces and maintainability.
-- **Technology and service intelligence:** local, self-hosted, existing and hosted options; current official verification of material pricing, terms and limits rather than copying free-tier directories.
-- **Engineering capability intelligence:** source-linked discovery of useful external tools, including observability and review automation. No provider integration is required or enabled.
-
-The v1.1.0 source includes 33 original decision cards across 11 progressive guides, plus 20 shared capability records. It does not require a vector database, new cloud service, separate Builder installation or mandatory lookup engine. See the [detailed PRD](docs/PRD.md) and [architecture specialist build plan](docs/ARCHITECTURE-SPECIALIST-BUILD-PLAN.md). These capabilities are implemented in v1.1.0 source, not v1.0.0. See the [v1.1.0 release record](docs/releases/1.1.0.md) for qualification evidence and publication reconciliation.
-
-### What the Security & Privacy specialist contributes
-
-Security & Privacy v0.1 provides design, harden and review modes for material trust/data decisions after AIPF routing. Nine progressive guides contain 36 original decision cards; four discovery-only records extend the shared capability index to 24. No new runtime dependency, mandatory scanner, lookup, provider integration or independent approval mechanism. Source review is not live audit authority. See [skill](skills/security-privacy/SKILL.md), [index](skills/security-privacy/INDEX.md) and [requirements](docs/PRD.md#13-security-and-privacy-specialist).
-
-### What the QA & Engineering Quality specialist contributes
-
-QA v0.1 provides plan, diagnose and review modes for material verification and quality decisions. Twelve progressive guide families contain 37 original decision cards; six discovery-only additions extend the shared capability index to 30 records. It addresses test oracles, meaningful negative checks, differential verification, failure/recovery, test effectiveness, data and AI/agent quality. No required runner, external tool, dependency or independent acceptance authority. See [skill](skills/qa-engineering-quality/SKILL.md), [index](skills/qa-engineering-quality/INDEX.md) and [requirements](docs/PRD.md#14-qa--engineering-quality-specialist).
-
-### Cross-cutting capability: Review Parity
-
-Review Parity is a separate experimental initiative whose mechanisms may eventually support all Praxis specialists. Its proposed role is engineering assurance: deterministic evidence verification, source and scope integrity, finding reconciliation and release-evidence auditing. It would complement AIPF and specialist judgment, not replace either or grant independent approval authority.
-
-We intend to build useful capabilities, verify their behavior and evaluate them on meaningful projects. More process, more tests or a larger catalog are not objectives in themselves.
-
-The roadmap describes direction, not delivery commitments. UI/UX was the only registered specialist in v1.0.0; v1.1.0 adds Architecture v0.1; v1.2.0 source adds Security & Privacy v0.1. v1.3.0 source adds QA & Engineering Quality v0.1. DevOps and Review Parity remain unimplemented. A packaged plugin is also a possible future addition. The standalone AIPF framework remains separate and unchanged; Praxis incorporates v8.10.1 without changing its version or authority.
-
-See the [product roadmap and specialist principles](docs/PRD.md#6-specialist-expansion-roadmap) and [expansion decision](docs/decisions/PRAXIS-DEC-004-specialist-expansion.md).
+The [product roadmap](docs/PRD.md#6-specialist-expansion-roadmap) establishes direction, not delivery commitments. Future requirements, implementation and publication require separate decisions. Research leads are retained in the [cross-specialist register](research/CROSS-SPECIALIST-RESEARCH-REGISTER.md). Neither a larger catalog nor more process is an objective in itself.
 
 ## License and provenance
 
-I’ve chosen [Apache-2.0](LICENSE) for the original Praxis code, documentation and the incorporated AIPF framework. You can use, modify and redistribute those materials, including in commercial projects, under the terms of that license. Third-party materials retain their original terms. See [NOTICE](NOTICE) for attribution. Consult the [license register](research/licensing/source-license-register.md) and [third-party notices](THIRD_PARTY_NOTICES.md) before redistributing material. Knowing where something came from is not the same as having permission to copy it.
+Original Praxis code, documentation and incorporated AIPF materials are licensed under [Apache-2.0](LICENSE), including commercial use, modification and redistribution subject to its terms. Third-party materials retain their own terms; references, tokens and source metadata do not grant blanket rights to photographs, fonts, icons, code or brand assets.
+
+See [NOTICE](NOTICE), [third-party notices](THIRD_PARTY_NOTICES.md) and the [source/license register](research/licensing/source-license-register.md) for attribution, item-level restrictions and provenance. The incorporated AIPF framework remains unchanged and independently maintained.
+
+---
+
+**Praxis — Intelligence into action.** Govern the work, apply the expertise that matters, and establish what the evidence actually supports.
