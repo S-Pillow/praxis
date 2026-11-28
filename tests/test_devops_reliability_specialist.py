@@ -101,7 +101,7 @@ class DevOpsIntegration(unittest.TestCase):
                       "whether or not DevOps is activated", "not a sixth registered specialist"):
             self.assertIn(value, entry)
         self.assertIn("Distinct Builder needs no Praxis, AIPF, PRD or specialist access", skill)
-        self.assertIn("no self-handoff", skill)
+        self.assertIn("without self-handoff", skill)
         self.assertIn("Available access is not authority", skill)
 
 
