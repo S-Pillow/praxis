@@ -4,9 +4,13 @@ This original instructional example is not a released project or executed comman
 
 ## Strong sample
 
-# Line Count
+### Line Count
 
 Count nonempty lines in a local UTF-8 text file. Offline; no network or account. Example assumes Python 3.12 and the single-file implementation below. It is an illustrative first-success example, not a compatibility or benchmark claim.
+
+Save the code below as `count.py` in a disposable directory. Create `input.txt` containing two nonempty lines separated by a blank line. Run `python count.py input.txt`. Expected illustrative stdout: `2`.
+
+#### Implementation
 
 ```python
 from pathlib import Path
@@ -16,7 +20,7 @@ text = Path(sys.argv[1]).read_text(encoding="utf-8")
 print(sum(bool(line.strip()) for line in text.splitlines()))
 ```
 
-Save as count.py in a disposable directory. Create input.txt containing two nonempty lines separated by a blank line. Run `python count.py input.txt`. Expected illustrative stdout: `2`. Invalid path or encoding raises an error; no claim of graceful handling. This only reads the specified local file. No install or service. License/support not asserted for a fictional repo; use actual project files in a real README.
+Invalid path or encoding raises an error; no claim of graceful handling. This only reads the specified local file. No install or service. License/support not asserted for a fictional repo; use actual project files in a real README.
 
 ## Faulty contrast
 

@@ -4,11 +4,13 @@ Original instructional illustration, not a deployed project or real customer API
 
 ## Strong sample
 
-# Status Echo
+### Status Echo
 
 Local demonstration service that returns the status of a synthetic task. For maintainers evaluating a service boundary; no production deployment, hosted monitoring, persistent data or authentication claim. Illustrative supported setup: Python 3.12 standard library, disposable working directory, permission for a loopback socket. It starts only an ephemeral loopback listener, sends one local request and closes it. No external network, install or service provision.
 
-Save this sample as status_echo.py:
+Save the code below as `status_echo.py`. Run `python status_echo.py`. Expected illustrative stdout: `{"status": "ready"}`.
+
+#### Implementation
 
 ```python
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
@@ -49,9 +51,9 @@ if __name__ == "__main__":
     main()
 ```
 
-Run `python status_echo.py`. Expected illustrative stdout: `{"status": "ready"}`. A different route responds with HTTP 404 and not_found; binding or request failure is not service readiness. This example describes a local endpoint, not live availability; test actual output in your environment.
+A different route responds with HTTP 404 and not_found; binding or request failure is not service readiness. This example describes a local endpoint, not live availability; test actual output in your environment.
 
-### Operating boundary
+#### Operating boundary
 
 For a real service README, identify supported runtime, configuration names (not secrets), trust/auth, environment, readiness vs user outcome, data retention, logs and recovery. For AI-backed service also identify model/prompt/skill version, data flow, permissions, host limits, costs and actual evaluation vs trace. Link approved architecture, privacy and runbook only when present. Separate authority for provisioning or release; no production credentials.
 

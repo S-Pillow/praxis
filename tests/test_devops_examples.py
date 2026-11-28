@@ -3,6 +3,11 @@ import hashlib
 import json
 from pathlib import Path
 import re
+import runpy
+from threading import Thread
+from http.server import ThreadingHTTPServer
+from urllib.error import HTTPError
+from urllib.request import build_opener, ProxyHandler
 import subprocess
 import sys
 import tempfile
@@ -46,6 +51,38 @@ class DocumentationFirstUse(unittest.TestCase):
         result = self.run_example("SERVICE.md", "status_echo.py")
         self.assertEqual(result.returncode, 0, result.stderr)
         self.assertEqual(json.loads(result.stdout), {"status": "ready"})
+
+
+    def test_examples_first_action_and_heading_hierarchy(self):
+        for name in ("CLI.md", "SERVICE.md"):
+            with self.subTest(name=name):
+                doc = (EXAMPLES / name).read_text(encoding="utf-8")
+                self.assertEqual(len(re.findall(r"(?m)^# ", doc)), 1)
+                self.assertLess(doc.index("Run " + chr(96) + "python"),
+                                doc.index(chr(96)*3 + "python"))
+
+    def test_service_actual_unknown_route_is_not_ready(self):
+        doc = (EXAMPLES / "SERVICE.md").read_text(encoding="utf-8")
+        code, = re.findall(r"(?s)\x60\x60\x60python\n(.*?)\n\x60\x60\x60", doc)
+        with tempfile.TemporaryDirectory() as tmp:
+            script = Path(tmp) / "status_echo.py"
+            script.write_text(code + "\n", encoding="utf-8")
+            handler = runpy.run_path(str(script))["Handler"]
+            with ThreadingHTTPServer(("127.0.0.1", 0), handler) as server:
+                worker = Thread(target=server.serve_forever, daemon=True)
+                worker.start()
+                try:
+                    opener = build_opener(ProxyHandler({}))
+                    url = f"http://127.0.0.1:{server.server_port}/unknown"
+                    with self.assertRaises(HTTPError) as caught:
+                        opener.open(url, timeout=3)
+                    with caught.exception as response:
+                        self.assertEqual(response.code, 404)
+                        self.assertEqual(json.loads(response.read()), {"status": "not_found"})
+                finally:
+                    server.shutdown()
+                    worker.join(timeout=3)
+                self.assertFalse(worker.is_alive())
 
 
 class OperationalNegativeControls(unittest.TestCase):
@@ -93,6 +130,21 @@ class OperationalNegativeControls(unittest.TestCase):
             self.assertEqual(good.returncode, 0, good.stderr)
             self.assertNotIn("Ran 1 test", weak.stderr)
             self.assertIn("Ran 1 test", good.stderr)
+
+    def test_resolving_link_does_not_establish_semantic_parity(self):
+        """RQ03: both local targets exist, only one supports the claimed function."""
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            (root / "delivery.md").write_text("# Deployment\nRelease a build.\n", encoding="utf-8")
+            (root / "recovery.md").write_text("# Recovery\nRestore a backup.\n", encoding="utf-8")
+            for target, expected in (("delivery.md", False), ("recovery.md", True)):
+                with self.subTest(target=target):
+                    index = f"[Backup recovery]({target})"
+                    label, dest = re.fullmatch(r"\[([^]]+)\]\(([^)]+)\)", index).groups()
+                    self.assertEqual(label, "Backup recovery")
+                    self.assertTrue((root / dest).is_file())
+                    title = (root / dest).read_text(encoding="utf-8").splitlines()[0]
+                    self.assertEqual(title == "# Recovery", expected)
 
     def test_zero_and_missing_samples_distinct(self):
         """DQ08: demonstrate a lossy fallback vs an explicit missing observation."""
