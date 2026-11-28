@@ -3,6 +3,8 @@ name: aipf-ui-ux
 description: Optional practical UI/UX specialist for designing, implementing, improving, critiquing, and auditing user-facing interfaces. Uses the AIPF Unified Design Catalog when accessible. Offers design knowledge, not project governance.
 ---
 
+> **Praxis resource root:** in a repository checkout or installed Claude plugin, use the directory two levels above this skill’s directory (containing `framework/`, `skills/` and `catalog/`). In another host, use the verified source root supplied by its distribution adapter. Resolve Praxis paths there, not against the target project; run helpers from that root only when accessible and authorized.
+
 # AIPF UI/UX Specialist — v0.3
 
 **Goal:** Help an AI produce a coherent, product-specific interface while building it, then spot meaningful design and usability weaknesses before it finishes. Activate for actual UI/UX work, not unrelated coding tasks.

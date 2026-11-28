@@ -1,0 +1,12 @@
+# Praxis — ChatGPT skills-only plugin
+
+Praxis v@VERSION@ with AIPF v8.10.1, five specialist disciplines, and complete selected engineering knowledge and design catalog. If your ChatGPT environment permits custom plugin installation, import the ZIP and explicitly select Praxis, then ask it to work on a concrete software development task. The single discoverable skill progressively loads the canonical framework, registered specialists and relevant guidance. It does not make five autonomous agents or introduce new approval authority.
+
+- Release list (verify publication separately): https://github.com/S-Pillow/praxis/releases
+- Package state: `@STATE@` (a candidate is not a published release).
+- Exact bundled commit: `@COMMIT@`.
+- Host entry point: [skills/praxis/SKILL.md](skills/praxis/SKILL.md).
+- [Resource map](skills/praxis/references/RESOURCE-MAP.md) and [identity](skills/praxis/references/PACKAGE-IDENTITY.json).
+- [Source license](skills/praxis/references/release/LICENSE), [notice](skills/praxis/references/release/NOTICE), [third-party notices](skills/praxis/references/release/THIRD_PARTY_NOTICES.md) and source-specific licenses in the original snapshot.
+
+This is a GitHub-distributed skills-only package, not a hosted app, public plugin listing, MCP server or guarantee of repository/shell access. Catalog retrieval and implementation require actual accessible resources, available tools and authorization. All @FILE_COUNT@ selected source files are retained byte-for-byte under `skills/praxis/references/release/`. The canonical source DOCX itself is not distributed by the original release; its canonical projection and recorded identity are preserved. The source's original optional local UI and CI workflow files are not launched or installed by the plugin. No additional server, permissions, credentials, dependency installation or automatic execution is introduced.

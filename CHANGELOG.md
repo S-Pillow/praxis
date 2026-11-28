@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.4.1 — Plugin distribution (source candidate)
+
+- Add Claude Code marketplace configuration and clarify source-root resolution in all six skill entry files. Framework, specialist capabilities, registry, guides, catalog and shared knowledge remain unchanged.
+- Add reproducible Git-snapshot builds for Claude and ChatGPT, package identity checks, installation guidance and package regression tests. Preserve all source and license notices in both archives.
+- [Approved distribution scope and qualification gates](docs/releases/1.4.1.md); publication and final release-asset reconciliation require separate authorization.
+
 ## v1.4.0 — DevOps & Reliability and Repository Quality (source candidate)
 
 - DevOps v0.1: plan, diagnose and review; 12 guide families, 33 original decision cards; nine additional discovery records (39 total). Shared repository quality adds nine cards and two illustrative README profiles, not a sixth registered specialist.

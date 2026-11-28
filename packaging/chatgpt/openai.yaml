@@ -1,0 +1,6 @@
+interface:
+  display_name: Praxis
+  short_description: Governed software development
+  default_prompt: Use Praxis to assess my software development task, select the applicable AIPF path and relevant specialist guidance, and identify the next authorized action.
+policy:
+  allow_implicit_invocation: false

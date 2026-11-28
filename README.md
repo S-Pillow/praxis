@@ -6,10 +6,10 @@
   <strong>A unified AI-assisted development system: from requirements and engineering decisions to implementation and verified results.</strong>
 </p>
 
-**Start here:** [Obtain a published version](#quick-start), give your assistant access to the pinned checkout, and ask it to load [`skills/praxis/SKILL.md`](skills/praxis/SKILL.md). The v1.4.0 source includes five specialists; publication status comes from the [release list](https://github.com/S-Pillow/praxis/releases).
+**Start here:** [Obtain a published version](#quick-start), give your assistant access to the pinned checkout, and ask it to load [`skills/praxis/SKILL.md`](skills/praxis/SKILL.md). The v1.4.1 packaging candidate includes the same five specialists; publication status comes from the [release list](https://github.com/S-Pillow/praxis/releases).
 
 <p align="center">
-  <a href="https://github.com/S-Pillow/praxis/releases"><img alt="Praxis source v1.4.0" src="https://img.shields.io/badge/Praxis%20source-v1.4.0-18364a?style=flat-square" /></a>
+  <a href="https://github.com/S-Pillow/praxis/releases"><img alt="Praxis source v1.4.1" src="https://img.shields.io/badge/Praxis%20source-v1.4.1-18364a?style=flat-square" /></a>
   <a href="framework/README.md"><img alt="AIPF v8.10.1" src="https://img.shields.io/badge/AIPF-v8.10.1-006b59?style=flat-square" /></a>
   <a href="skills/README.md"><img alt="Five registered specialists" src="https://img.shields.io/badge/Specialists-5-18364a?style=flat-square" /></a>
   <a href="docs/releases/1.4.0.md"><img alt="192 tests passed per OS at the accepted v1.4.0 B4 candidate" src="https://img.shields.io/badge/B4%20regression-192%20per%20OS-28765e?style=flat-square" /></a>
@@ -53,12 +53,12 @@ Learn about the standalone framework at [stevenpillow.com/aipf](https://stevenpi
 
 ### 1. Obtain a pinned version
 
-Confirm that v1.4.0 is published in the [release list](https://github.com/S-Pillow/praxis/releases) before running these commands. If it is not yet published, use `git checkout v1.3.0` for the published recovery baseline (four specialists), or the exact authorized candidate commit for evaluation of the five-specialist source.
+Confirm that v1.4.1 is published in the [release list](https://github.com/S-Pillow/praxis/releases) before running these commands. Until then, use `git checkout v1.4.0` for the published five-specialist recovery baseline, or the exact authorized candidate commit for evaluation.
 
 ```bash
 git clone https://github.com/S-Pillow/praxis.git
 cd praxis
-git checkout v1.4.0
+git checkout v1.4.1
 ```
 
 For an existing checkout, run `git fetch --tags` first. Pinning a reviewed release makes the framework, guidance and evidence reproducible; a moving branch or source version badge is not the same thing as a published release.
@@ -81,17 +81,20 @@ These are starting requests, not blanket authorizations. The assistant must esta
 
 | Environment | Approach and limits |
 | --- | --- |
+| Claude Code | After marketplace integration, run `/plugin marketplace add S-Pillow/praxis`, then `/plugin install praxis@praxis`. This follows the marketplace repository; for a pinned version see [Plugin distribution](docs/PLUGIN-DISTRIBUTION.md). |
+| Claude app / Cowork | Where custom plugin uploads are permitted, download the `.plugin` asset for a published release and import it through Customize → Plugins. |
+| ChatGPT | Where custom plugin uploads are permitted, use the ChatGPT ZIP asset from the published release. GitHub download alone does not install a plugin or grant host permissions. Otherwise use accessible repository resources. |
 | Repository-aware coding assistant | Make the repository readable and load the Praxis entry. Repository-local discovery is available where the host supports it. |
 | Cursor | Repository-based activation and separate Task-agent execution have been exercised. Native skill-picker discovery has not been established. |
 | Codex / other compatible assistants | Use the repository adapter or explicit entry file. Native Codex discovery has not been independently verified. |
 | Separate Builder | Provide the authorized payload and accessible implementation inputs. Access to Praxis or the governing documents is optional, not a prerequisite. |
 | Chat without file/command access | Provide accessible governing inputs; do not claim retrieval or tests that cannot be performed. Missing required governance blocks governed work. |
 
-[`AGENTS.md`](AGENTS.md) and the [repository discovery adapter](.agents/skills/praxis/SKILL.md) help compatible hosts. Opening another repository does not install Praxis globally. Python is not required to read the framework and guides; the optional local tools and test suite use Python 3 (CI uses 3.12).
+[`AGENTS.md`](AGENTS.md) and the [repository discovery adapter](.agents/skills/praxis/SKILL.md) help compatible hosts. Opening another repository does not install Praxis globally. Python is not required to read the framework and guides; the optional local tools and test suite use Python 3 (CI uses 3.12). See [Plugin distribution](docs/PLUGIN-DISTRIBUTION.md) for verification, installation, build instructions and host-dependent limitations.
 
 ## Specialists
 
-Praxis has **five registered specialists in the v1.4.0 source**. They are complementary disciplines, not five independent agents, mandatory phases, or additional approval authorities. A single task may need one, several, or none.
+Praxis has **five registered specialists**, unchanged from v1.4.0. They are complementary disciplines, not five independent agents, mandatory phases, or additional approval authorities. A single task may need one, several, or none.
 
 | Specialist | Version | Consultation modes | Main question |
 | --- | --- | --- | --- |
@@ -236,7 +239,7 @@ See [integrated workflow](PRAXIS.md), [Builder context independence](docs/decisi
 
 ## Knowledge and capabilities
 
-| Resource | Scope in the v1.4.0 source |
+| Resource | Scope (unchanged from v1.4.0) |
 | --- | --- |
 | Design catalog | 5,500 source-linked records, plus a separate starter file |
 | Architecture, Security, QA and DevOps decision knowledge | 44 progressive guide families and 139 original decision cards (11/33, 9/36, 12/37 and 12/33 respectively) |
@@ -314,7 +317,7 @@ python -m unittest discover -s tests -v
 
 The test suite verifies repository mechanisms and relevant standing behavior. Actual browser behavior, provider integrations, semantic agent decisions and independent execution require appropriate separate observations. Historical catalog-browser checks used isolated Chromium documents with synthetic API responses, not a full Windows browser/HTTP integration. Native host discovery and the manual enrichment workflow dispatch remain unverified. Residual disposable-dashboard focus/selection observations are recorded in earlier release evidence.
 
-No claim is made of universal security, WCAG conformance, guaranteed cost, all-host activation or comparative superiority over AIPF alone. The [testing strategy](docs/TESTING.md) and [release records](docs/releases/1.4.0.md) distinguish scope, environment, observer and limitations. Published version identity comes from the [GitHub releases](https://github.com/S-Pillow/praxis/releases), not a badge or source version label.
+No claim is made of universal security, WCAG conformance, guaranteed cost, all-host activation or comparative superiority over AIPF alone. The [testing strategy](docs/TESTING.md) and [release records](docs/releases/1.4.1.md) distinguish scope, environment, observer and limitations. Published version identity comes from the [GitHub releases](https://github.com/S-Pillow/praxis/releases), not a badge or source version label.
 
 ## Repository layout
 
@@ -341,13 +344,13 @@ No claim is made of universal security, WCAG conformance, guaranteed cost, all-h
 | Understand the underlying framework | [AIPF identity and projection](framework/README.md), [AIPF introduction](https://stevenpillow.com/aipf) |
 | Design a portable Builder handoff | [Context independence](docs/decisions/PRAXIS-DEC-002-builder-context-independence.md), [payload synthesis](skills/praxis/references/builder-payload.md) |
 | Verify work and evidence | [Testing strategy](docs/TESTING.md), [scenario regression decision](docs/decisions/PRAXIS-DEC-001-scenario-regression.md) |
-| Review release history | [Changelog](CHANGELOG.md), [v1.4.0](docs/releases/1.4.0.md), [v1.3.0](docs/releases/1.3.0.md), [v1.2.0](docs/releases/1.2.0.md), [v1.1.0](docs/releases/1.1.0.md), [v1.0.0](docs/releases/1.0.0.md) |
+| Review release history | [Changelog](CHANGELOG.md), [v1.4.1](docs/releases/1.4.1.md), [v1.4.0](docs/releases/1.4.0.md), [v1.3.0](docs/releases/1.3.0.md), [v1.2.0](docs/releases/1.2.0.md), [v1.1.0](docs/releases/1.1.0.md), [v1.0.0](docs/releases/1.0.0.md) |
 | Understand decisions and development history | [Development baseline](docs/DEVELOPMENT-BASELINE.md), [specialist expansion decision](docs/decisions/PRAXIS-DEC-004-specialist-expansion.md) |
 | Contribute or report a security issue | [Contributing](CONTRIBUTING.md), [Security reporting](SECURITY.md) |
 
 ## Roadmap
 
-The long-term direction is a multidisciplinary engineering capability available to the assistant you already use. The v1.4.0 source implements all five planned specialist disciplines.
+The long-term direction is a multidisciplinary engineering capability available to the assistant you already use. The v1.4.0 release implements all five planned specialist disciplines; v1.4.1 adds distribution support only.
 
 | Discipline or initiative | State |
 | --- | --- |

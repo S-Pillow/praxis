@@ -1,0 +1,15 @@
+{
+  "name": "praxis",
+  "owner": { "name": "Steven Pillow", "url": "https://stevenpillow.com" },
+  "metadata": { "description": "Praxis: AIPF-governed AI-assisted development with five advisory specialists." },
+  "plugins": [
+    {
+      "name": "praxis",
+      "source": "./",
+      "description": "AIPF v8.10.1 with UI/UX, Architecture, Security & Privacy, QA & Engineering Quality, and DevOps & Reliability specialists.",
+      "version": "1.4.1",
+      "license": "Apache-2.0",
+      "homepage": "https://github.com/S-Pillow/praxis"
+    }
+  ]
+}

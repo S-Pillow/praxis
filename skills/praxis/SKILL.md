@@ -3,6 +3,8 @@ name: praxis
 description: Integrated AIPF development framework with task-specific specialist expertise. Use when the user or authorized project selects the Praxis; do not automatically govern unrelated work.
 ---
 
+> **Praxis resource root:** in a repository checkout or installed Claude plugin, use the directory two levels above this skill’s directory (containing `framework/`, `skills/` and `catalog/`). In another host, use the verified source root supplied by its distribution adapter. Resolve Praxis paths there, not against the target project; run helpers from that root only when accessible and authorized.
+
 # Praxis — integrated entry point
 
 Use this entry point when Praxis is selected for a Prompt Agent or direct executing agent. If assigned a distinct Builder Payload, execute that payload without loading Praxis as a prerequisite; optional access does not change your role or authority. The Prompt Agent loading and consultation procedure below is not a Builder prerequisite. Resolve all resource paths relative to the Praxis checkout, not the target application. The Praxis is the selected development tool; the standalone AIPF plugin is not required. No tool access or task selection grants execution authority.
