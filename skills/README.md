@@ -35,3 +35,11 @@ Use integrated Praxis after canonical routing for material security/privacy desi
 ## QA & Engineering Quality v0.1
 
 [Skill](qa-engineering-quality/SKILL.md) · [question index](qa-engineering-quality/INDEX.md) · [sources](qa-engineering-quality/SOURCES.md). Material plan/diagnose/review after canonical routing; no executable lookup or separate dependency. Compose actual tests and oracles with relevant UI/UX, Architecture and Security. No acceptance authority or mandatory test platform; see [qualification and limits](../docs/releases/1.3.0.md).
+
+## DevOps & Reliability v0.1
+
+[Skill](devops-reliability/SKILL.md) · [question index](devops-reliability/INDEX.md) · [sources](devops-reliability/SOURCES.md). Material plan, diagnose and review after canonical AIPF routing, with twelve guide families and 33 original decision cards. No executable lookup or mandatory operational platform. Compose actual operational requirements, permissions, recovery and evidence with the other relevant disciplines. See [qualification and limits](../docs/releases/1.4.0.md).
+
+## Shared Documentation & Repository Quality
+
+[Shared guidance](../knowledge/repository-quality/INDEX.md) for material README, safe onboarding, repository health, runbooks, source parity and rendering. Nine decision cards and two illustrative profiles; available independently of DevOps activation, not a sixth specialist or replacement for Chapter 13.

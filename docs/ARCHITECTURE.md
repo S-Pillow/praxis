@@ -1,6 +1,6 @@
 # Praxis — Architecture
 
-Version: 0.1 | Status: Owner approved | Approval: 2026-11-24
+Version: 0.1 | Status: Owner-approved logical architecture (2026-11-24); v1.4.0 integration description reconciled 2026-11-27
 
 ## 1. Logical architecture
 
@@ -10,8 +10,9 @@ flowchart TD
   E --> G[AIPF Governance Core]
   G --> C[Project Context]
   G --> R[Specialist Routing]
-  R --> S[Specialist Modules: UI/UX + Architecture + Security & Privacy + QA]
+  R --> S[Specialist Modules: UI/UX + Architecture + Security & Privacy + QA + DevOps]
   S --- K[Knowledge Catalogs and Specialist Tools]
+  K --- Q[Shared Documentation and Repository Quality]
   C --> P[Prompt Agent synthesis]
   S --> P
   G --> P
@@ -23,7 +24,7 @@ flowchart TD
   H --> V
 ```
 
-These are logical capabilities, not separate servers or mandatory running services. UI/UX was the only registered specialist in v1.0.0. The v1.1.0 source adds Software Architecture & Engineering Design; v1.2.0 source adds [Security & Privacy](PRD.md#13-security-and-privacy-specialist). The v1.3.0 source adds [QA & Engineering Quality](PRD.md#14-qa--engineering-quality-specialist). DevOps and cross-cutting assurance in the [specialist roadmap](PRD.md#6-specialist-expansion-roadmap) remain future directions, not current deliverables.
+These are logical capabilities, not separate servers or mandatory running services. UI/UX was the only registered specialist in v1.0.0. The v1.1.0 source adds Software Architecture & Engineering Design; v1.2.0 source adds [Security & Privacy](PRD.md#13-security-and-privacy-specialist). The v1.3.0 source adds [QA & Engineering Quality](PRD.md#14-qa--engineering-quality-specialist). The v1.4.0 source adds [DevOps & Reliability and shared Repository Quality](PRD.md#15-devops--reliability-and-shared-documentation--repository-quality), accepted in B4. Review Parity remains deferred in the [specialist roadmap](PRD.md#6-specialist-expansion-roadmap).
 
 ## 2. Responsibilities and boundaries
 
@@ -63,7 +64,7 @@ The user need not separately invoke AIPF, the UI/UX specialist or retrieval scri
 | Output expectations | Useful guidance and evidence |
 | Fallback behavior | Handle unavailable capabilities |
 
-Future specialists should primarily be added by implementing and registering them. Governing integration may evolve when necessary. The v1.3.0 source registers UI/UX v0.3, Architecture v0.1, Security & Privacy v0.1 and QA & Engineering Quality v0.1; see [release qualification](releases/1.3.0.md). No placeholder specialists are required. Missing specialist capabilities must be reported transparently, with a suitable bounded fallback where feasible. Missing required governance cannot be silently bypassed.
+Future specialists should primarily be added by implementing and registering them. Governing integration may evolve when necessary. The v1.4.0 source registers UI/UX v0.3, Architecture v0.1, Security & Privacy v0.1, QA & Engineering Quality v0.1 and DevOps & Reliability v0.1; see [release preparation and qualification](releases/1.4.0.md). Shared repository quality is not a registered specialist. No placeholder specialists are required. Missing specialist capabilities must be reported transparently, with a suitable bounded fallback where feasible. Missing required governance cannot be silently bypassed.
 
 For future integration, specialize in domain knowledge and practical engineering judgment rather than adding parallel governance. The Prompt Agent (or direct executing agent) selects and synthesizes relevant advice into concrete decisions, constraints, implementation guidance and verification implications. No mandatory specialist access, additional agent, retrieval engine or catalog is presumed for the Builder. Existing architecture and appropriate implementation discretion remain protected.
 
@@ -81,7 +82,11 @@ Security & Privacy consults `skills/security-privacy/` for material design, hard
 
 QA consults `skills/qa-engineering-quality/` for material plan, diagnose and review. Existing registry and helper are unchanged in mechanism; no lookup, service, dependency or additional authority. QA supplies verification oracles and diagnosis in coherent direct work or portable T1 with relevant UI/UX, Architecture and Security advice. Requirements: [PRD Section 14](PRD.md#14-qa--engineering-quality-specialist).
 
-## 5. Proposed repository layout
+### Implemented v1.4.0 integration
+
+DevOps consults `skills/devops-reliability/` for material plan, diagnose and review across applicable canonical Chapters 11–21; the optional helper resolves explicit task IDs without a subprocess. Shared `knowledge/repository-quality/` is independently available to all relevant disciplines. Both are original advisory knowledge: no service, external API, mandatory tool or additional authority. The Prompt Agent resolves overlapping advice against approved constraints and synthesizes one decision or portable T1. See [PRD Section 15](PRD.md#15-devops--reliability-and-shared-documentation--repository-quality).
+
+## 5. Repository layout
 
 ```text
 praxis/
@@ -91,6 +96,7 @@ praxis/
   framework/      Incorporated AIPF framework
   skills/         Praxis and specialist skill modules
   catalog/        Curated specialist knowledge
+  knowledge/      Shared capabilities and repository-quality guidance
   scripts/        Retrieval and supporting tools
   .agents/        Agent-specific discovery adapters
   tests/          Regression and integration tests

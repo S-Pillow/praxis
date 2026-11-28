@@ -6,11 +6,13 @@
   <strong>A unified AI-assisted development system: from requirements and engineering decisions to implementation and verified results.</strong>
 </p>
 
+**Start here:** [Obtain a published version](#quick-start), give your assistant access to the pinned checkout, and ask it to load [`skills/praxis/SKILL.md`](skills/praxis/SKILL.md). The v1.4.0 source includes five specialists; publication status comes from the [release list](https://github.com/S-Pillow/praxis/releases).
+
 <p align="center">
-  <a href="https://github.com/S-Pillow/praxis/releases"><img alt="Praxis source v1.3.0" src="https://img.shields.io/badge/Praxis-v1.3.0-18364a?style=flat-square" /></a>
+  <a href="https://github.com/S-Pillow/praxis/releases"><img alt="Praxis source v1.4.0" src="https://img.shields.io/badge/Praxis%20source-v1.4.0-18364a?style=flat-square" /></a>
   <a href="framework/README.md"><img alt="AIPF v8.10.1" src="https://img.shields.io/badge/AIPF-v8.10.1-006b59?style=flat-square" /></a>
-  <a href="skills/README.md"><img alt="Four registered specialists" src="https://img.shields.io/badge/Specialists-4-18364a?style=flat-square" /></a>
-  <a href="docs/releases/1.3.0.md"><img alt="173 tests passed per OS at the accepted B4 candidate" src="https://img.shields.io/badge/B4%20regression-173%20per%20OS-28765e?style=flat-square" /></a>
+  <a href="skills/README.md"><img alt="Five registered specialists" src="https://img.shields.io/badge/Specialists-5-18364a?style=flat-square" /></a>
+  <a href="docs/releases/1.4.0.md"><img alt="192 tests passed per OS at the accepted v1.4.0 B4 candidate" src="https://img.shields.io/badge/B4%20regression-192%20per%20OS-28765e?style=flat-square" /></a>
   <a href="LICENSE"><img alt="Apache 2.0 for original materials" src="https://img.shields.io/badge/Original%20materials-Apache--2.0-18364a?style=flat-square" /></a>
 </p>
 
@@ -38,7 +40,7 @@ Praxis is not a new model, IDE, hosted agent platform, or collection of mandator
 | Layer | Contribution |
 | --- | --- |
 | **Governance** | The complete, unchanged [AI Prompt-First Development Framework (AIPF) v8.10.1](framework/README.md) establishes scope, authorization, applicable paths, verification and stop conditions. |
-| **Specialist intelligence** | Four registered disciplines supply practical, conditional engineering judgment when their expertise can improve the current task. |
+| **Specialist intelligence** | Five registered disciplines supply practical, conditional engineering judgment when their expertise can improve the current task. |
 | **Knowledge** | Original decision guides, source-linked design references and independent technology/service capability records support informed choices. |
 | **Execution** | Work directly with one agent, or have a Prompt Agent derive an operationally complete payload for a separate Builder. |
 | **Evidence** | Distinguish source inspection, actual execution, independent observations and unresolved gaps; reconcile results before acceptance or release. |
@@ -57,11 +59,11 @@ cd praxis
 git checkout v1.3.0
 ```
 
-Use the v1.3.0 tag once it is published, or select an existing published tag from the [release list](https://github.com/S-Pillow/praxis/releases). For an existing checkout, run `git fetch --tags` first. Pinning a reviewed release makes the framework, guidance and evidence reproducible; a moving branch is not the same thing as a released version.
+The example above pins the published v1.3.0 recovery baseline. For the five-specialist v1.4.0 source described here, use `git checkout v1.4.0` only when that tag and its publication appear in the [release list](https://github.com/S-Pillow/praxis/releases); before publication, use the exact authorized candidate commit for evaluation. For an existing checkout, run `git fetch --tags` first. Pinning a reviewed release makes the framework, guidance and evidence reproducible; a moving branch or source version badge is not the same thing as a published release.
 
 ### 2. Give your assistant access to Praxis and your project
 
-Ask it to load [`skills/praxis/SKILL.md`](skills/praxis/SKILL.md) from the pinned repository root, then provide the actual task and applicable project requirements. The agent selects the appropriate AIPF paths and material specialist expertise; you do not need to select all four specialists or run retrieval commands yourself.
+Ask it to load [`skills/praxis/SKILL.md`](skills/praxis/SKILL.md) from the pinned repository root, then provide the actual task and applicable project requirements. The agent selects the appropriate AIPF paths and material specialist expertise; you do not need to select every specialist or run retrieval commands yourself.
 
 **Example direct request:**
 
@@ -87,7 +89,7 @@ These are starting requests, not blanket authorizations. The assistant must esta
 
 ## Specialists
 
-Praxis has **four registered specialists in the v1.3.0 source**. They are complementary disciplines, not four independent agents, mandatory phases, or additional approval authorities. A single task may need one, several, or none.
+Praxis has **five registered specialists in the v1.4.0 source**. They are complementary disciplines, not five independent agents, mandatory phases, or additional approval authorities. A single task may need one, several, or none.
 
 | Specialist | Version | Consultation modes | Main question |
 | --- | --- | --- | --- |
@@ -95,6 +97,7 @@ Praxis has **four registered specialists in the v1.3.0 source**. They are comple
 | [Software Architecture & Engineering Design](skills/architecture/SKILL.md) | 0.1 | design · evolve · critique | Is the solution structured appropriately for its requirements? |
 | [Security & Privacy](skills/security-privacy/SKILL.md) | 0.1 | design · harden · review | Are trust boundaries, resources and data protected? |
 | [QA & Engineering Quality](skills/qa-engineering-quality/SKILL.md) | 0.1 | plan · diagnose · review | Does the solution behave correctly, and what establishes that? |
+| [DevOps & Reliability](skills/devops-reliability/SKILL.md) | 0.1 | plan · diagnose · review | What is the simplest suitable operating model, and how can it be delivered, observed and recovered safely? |
 
 ### UI/UX specialist (v0.3) — Design Intelligence
 
@@ -148,6 +151,20 @@ Consult for material test strategy, diagnosis, regression and engineering-qualit
 
 [Skill](skills/qa-engineering-quality/SKILL.md) · [Decision index](skills/qa-engineering-quality/INDEX.md) · [Sources](skills/qa-engineering-quality/SOURCES.md) · [Requirements](docs/PRD.md#14-qa--engineering-quality-specialist)
 
+### DevOps & Reliability specialist (v0.1)
+
+Consult for material operating-model choices, release and CI evidence, infrastructure/configuration, runtime, networking, observability, recovery and resource cost. Start with the existing or simplest adequate approach; do not introduce cloud, orchestration or a new service merely because a tool exists.
+
+- Separate plan from apply, build from publication, green status from observed behavior, backup integrity from actual recovery, and missing samples from true zero.
+- Diagnose the smallest discriminating observation, preserve target and permission boundaries, and reconcile partial effects before retrying.
+- Evaluate source-linked tools, actual data flows, costs, rights and limits when relevant; no mandatory scanner, integration, runtime or hosting.
+
+**Knowledge:** Twelve progressive guide families and 33 original decision cards. [Skill](skills/devops-reliability/SKILL.md) · [Decision index](skills/devops-reliability/INDEX.md) · [Sources](skills/devops-reliability/SOURCES.md) · [Requirements](docs/PRD.md#15-devops--reliability-and-shared-documentation--repository-quality)
+
+### Shared Documentation & Repository Quality
+
+Use [shared guidance](knowledge/repository-quality/INDEX.md) across the relevant disciplines for audience-appropriate README and onboarding, repository health, security reporting, operational documentation, truthful claims, link semantics and actual rendering. Nine decision cards and two original runnable illustrative profiles; not a sixth specialist, a mandatory template or a new approval process.
+
 ### How the disciplines work together
 
 Consider a shared dashboard that lets an owner update inventory and view aggregate activity. This illustrative scenario is not a claim that Praxis includes an inventory application.
@@ -158,6 +175,8 @@ Consider a shared dashboard that lets an owner update inventory and view aggrega
 | Security & Privacy | Establish who can modify which resource, what data is necessary and what must not be disclosed or logged. |
 | UI/UX | Define clear form, keyboard/focus, loading, error and recovery states within the approved design. |
 | QA | Verify allowed and denied updates, actual state changes, zero-value handling, duplicate retry prevention and observable user feedback. |
+| DevOps | Choose appropriate runtime and delivery; verify readiness, safe recovery, operational cost and the actual user outcome. |
+| Shared repository quality | Describe actual setup, supported version, safe first use and operational boundaries; verify material claims and rendering. |
 
 The agent synthesizes those decisions into one coherent strategy or authorized payload. AIPF controls authorization, evidence and acceptance throughout. A minor typo does not need this full consultation; a simple backend correction does not need UI/UX merely because the product has a UI.
 
@@ -215,11 +234,12 @@ See [integrated workflow](PRAXIS.md), [Builder context independence](docs/decisi
 
 ## Knowledge and capabilities
 
-| Resource | Scope in the v1.3.0 source |
+| Resource | Scope in the v1.4.0 source |
 | --- | --- |
 | Design catalog | 5,500 source-linked records, plus a separate starter file |
-| Architecture, Security and QA decision knowledge | 32 progressive guide families and 106 original decision cards (11/33, 9/36 and 12/37 respectively) |
-| Shared technology/service capability index | 30 discovery records, usable independently of a specialist |
+| Architecture, Security, QA and DevOps decision knowledge | 44 progressive guide families and 139 original decision cards (11/33, 9/36, 12/37 and 12/33 respectively) |
+| Shared Documentation & Repository Quality | 9 decision cards and 2 original illustrative README profiles |
+| Shared technology/service capability index | 39 discovery records, usable independently of a specialist |
 | Cross-specialist research | 14 retained leads for future decisions, not approved implementations |
 
 Guidance is progressively loaded from question-led indexes rather than sending the entire corpus to every agent. Decision cards describe context, alternatives (including no change), tradeoffs, counterexamples, verification and source limitations. Shared capability records describe candidates, not a required stack. Verify material version, rights, access, data flow, pricing, limits and exhaustion behavior at point of use; a free-tier pointer is not a cost guarantee.
@@ -254,9 +274,10 @@ python scripts/check_contrast.py "#7F1D1D" "#FEE2E2" --minimum 4.5
 python scripts/praxis_context.py --task architecture-design --chapter 11
 python scripts/praxis_context.py --task security-design --chapter 12
 python scripts/praxis_context.py --task qa-diagnose --chapter 12
+python scripts/praxis_context.py --task devops-diagnose --chapter 12
 ```
 
-Use the actual selected path and task. The helper resolves explicit task IDs and chapter eligibility; it neither classifies free text nor proves the agent read or applied the specialist. Architecture, Security and QA have no required lookup subprocess. UI/UX uses one initial lookup when applicable and at most one justified targeted search within the same scope. The recommender defaults to three results, accepts limits 1–5, and returns candidates rather than approved designs. A contrast check evaluates one opaque sRGB color pair, not an entire interface. Use `python -X utf8` on non-UTF-8 hosts where needed.
+Use the actual selected path and task. The helper resolves explicit task IDs and chapter eligibility; it neither classifies free text nor proves the agent read or applied the specialist. Architecture, Security, QA and DevOps have no required lookup subprocess. UI/UX uses one initial lookup when applicable and at most one justified targeted search within the same scope. The recommender defaults to three results, accepts limits 1–5, and returns candidates rather than approved designs. A contrast check evaluates one opaque sRGB color pair, not an entire interface. Use `python -X utf8` on non-UTF-8 hosts where needed.
 
 </details>
 
@@ -270,6 +291,7 @@ The project retains standing regressions, source-bound observations, disposable 
 | Praxis v1.1.0 / Architecture | 155/155 Linux and native Windows | [v1.1.0 record](docs/releases/1.1.0.md) |
 | Praxis v1.2.0 / Security | 163/163 Linux and native Windows | [v1.2.0 record](docs/releases/1.2.0.md) |
 | Praxis v1.3.0 / QA | 173/173 Linux and native Windows at accepted B4 commit `b36e6f5` | [B4 CI](https://github.com/S-Pillow/praxis/actions/runs/45847126856) · [v1.3.0 record](docs/releases/1.3.0.md) |
+| Praxis v1.4.0 / DevOps and repository quality | 192/192 Linux and native Windows at owner-accepted B4 commit `44749d2` | [B4 CI](https://github.com/S-Pillow/praxis/actions/runs/46098432220) · [v1.4.0 record](docs/releases/1.4.0.md) |
 
 ### Why tests alone are not enough
 
@@ -278,7 +300,9 @@ The project retains standing regressions, source-bound observations, disposable 
 - **Security:** An independent Builder's original 15 passing tests missed four reviewer findings. The corrected synthetic implementation reproduced 22/22 tests, plus 14/14 additional reviewer checks. This is not a live security audit.
 - **QA:** The distinct inventory Builder reported 19/19 on Windows, reproduced 19/19 on Linux, and passed nine additional reviewer tests. A deliberately defective copy survived the original 19 tests but failed a reviewer receipt-integrity assertion. The submitted original was correct. The QA integration itself initially failed the inherited capability schema test (172/173 on each OS); the corrected B4 candidate passed all 173 without weakening assertions.
 
-The accepted QA candidate's 42 requirements and 18 acceptance criteria were reconciled in B4. Eight external behavioral requests used one shared agent context and an unknown host model version. They support bounded consultation and composition observations, not eight independent trials or universal agent reliability. Private raw evidence is retained outside the public repository; release records retain provenance, identities and limitations.
+- **DevOps:** An independent synthetic checker review identified unsafe normalized filenames, weak boundary/disclosure tests and corrupt-data classification. The corrected artifact passed 63 specified verdicts (six additional observation-only fixtures), detected both deliberately defective variants, and was separately rechecked with no observed input mutation. This is not a deployed backup tool or proof of real application recovery. Native GitHub review also corrected mobile first-command placement.
+
+The accepted QA candidate's 42 requirements and 18 acceptance criteria were reconciled in B4. Eight external behavioral requests used one shared agent context and an unknown host model version. They support bounded consultation and composition observations, not eight independent trials or universal agent reliability. The DevOps increment's 68 requirements and 28 acceptance criteria were reconciled; the owner accepted B4 PASS WITH NOTES. The separate Builder/reviewer used the same reported model in different sessions; advisory scenario overlap limits generalization. Private raw evidence is retained outside the public repository; release records retain provenance, identities and limitations.
 
 ### Run the standing suite
 
@@ -288,7 +312,7 @@ python -m unittest discover -s tests -v
 
 The test suite verifies repository mechanisms and relevant standing behavior. Actual browser behavior, provider integrations, semantic agent decisions and independent execution require appropriate separate observations. Historical catalog-browser checks used isolated Chromium documents with synthetic API responses, not a full Windows browser/HTTP integration. Native host discovery and the manual enrichment workflow dispatch remain unverified. Residual disposable-dashboard focus/selection observations are recorded in earlier release evidence.
 
-No claim is made of universal security, WCAG conformance, guaranteed cost, all-host activation or comparative superiority over AIPF alone. The [testing strategy](docs/TESTING.md) and [release records](docs/releases/1.3.0.md) distinguish scope, environment, observer and limitations. Published version identity comes from the [GitHub releases](https://github.com/S-Pillow/praxis/releases), not a badge or source version label.
+No claim is made of universal security, WCAG conformance, guaranteed cost, all-host activation or comparative superiority over AIPF alone. The [testing strategy](docs/TESTING.md) and [release records](docs/releases/1.4.0.md) distinguish scope, environment, observer and limitations. Published version identity comes from the [GitHub releases](https://github.com/S-Pillow/praxis/releases), not a badge or source version label.
 
 ## Repository layout
 
@@ -298,6 +322,7 @@ No claim is made of universal security, WCAG conformance, guaranteed cost, all-h
 | [`framework/`](framework/README.md) | Complete AIPF v8.10.1 projection and identity manifest |
 | [`skills/`](skills/README.md) | Unified entry, specialist guidance, registry and progressive references |
 | [`knowledge/capabilities/`](knowledge/capabilities/INDEX.md) | Independent capability discovery and qualification |
+| [`knowledge/repository-quality/`](knowledge/repository-quality/INDEX.md) | Shared documentation, first-use and repository-quality guidance |
 | [`catalog/`](catalog/SEARCH.md) | Design records, schema, field mapping and search contract |
 | `scripts/` | Optional local lookup, verification and maintenance tools |
 | [`ui/catalog-explorer/`](ui/catalog-explorer/README.md) | Local Design Index |
@@ -309,27 +334,28 @@ No claim is made of universal security, WCAG conformance, guaranteed cost, all-h
 
 | I want to… | Read |
 | --- | --- |
-| Understand the whole product | [Canonical product PRD v1.4](docs/PRD.md), [logical architecture](docs/ARCHITECTURE.md) |
+| Understand the whole product | [Canonical product PRD v1.5](docs/PRD.md), [logical architecture](docs/ARCHITECTURE.md) |
 | Use Praxis with my agent | [Integrated workflow](PRAXIS.md), [entry skill](skills/praxis/SKILL.md), [specialist registry](skills/specialists.json) |
 | Understand the underlying framework | [AIPF identity and projection](framework/README.md), [AIPF introduction](https://stevenpillow.com/aipf) |
 | Design a portable Builder handoff | [Context independence](docs/decisions/PRAXIS-DEC-002-builder-context-independence.md), [payload synthesis](skills/praxis/references/builder-payload.md) |
 | Verify work and evidence | [Testing strategy](docs/TESTING.md), [scenario regression decision](docs/decisions/PRAXIS-DEC-001-scenario-regression.md) |
-| Review release history | [Changelog](CHANGELOG.md), [v1.3.0](docs/releases/1.3.0.md), [v1.2.0](docs/releases/1.2.0.md), [v1.1.0](docs/releases/1.1.0.md), [v1.0.0](docs/releases/1.0.0.md) |
+| Review release history | [Changelog](CHANGELOG.md), [v1.4.0](docs/releases/1.4.0.md), [v1.3.0](docs/releases/1.3.0.md), [v1.2.0](docs/releases/1.2.0.md), [v1.1.0](docs/releases/1.1.0.md), [v1.0.0](docs/releases/1.0.0.md) |
 | Understand decisions and development history | [Development baseline](docs/DEVELOPMENT-BASELINE.md), [specialist expansion decision](docs/decisions/PRAXIS-DEC-004-specialist-expansion.md) |
 | Contribute or report a security issue | [Contributing](CONTRIBUTING.md), [Security reporting](SECURITY.md) |
 
 ## Roadmap
 
-The long-term direction is a multidisciplinary engineering capability available to the assistant you already use. The current source includes four of the five planned specialist disciplines.
+The long-term direction is a multidisciplinary engineering capability available to the assistant you already use. The v1.4.0 source implements all five planned specialist disciplines.
 
 | Discipline or initiative | State |
 | --- | --- |
 | UI/UX & Design Intelligence v0.3 | Available since Praxis v1.0.0 |
 | Software Architecture & Engineering Design v0.1 | Released in v1.1.0 |
 | Security & Privacy v0.1 | Released in v1.2.0 |
-| QA & Engineering Quality v0.1 | Qualified and owner accepted for v1.3.0 |
-| DevOps & Reliability | Future: deployment, infrastructure, observability, recovery and operational resilience; not implemented |
-| Review Parity | Deferred cross-cutting assurance research, not a fifth domain specialist or implemented approval runtime |
+| QA & Engineering Quality v0.1 | Released in v1.3.0 |
+| DevOps & Reliability v0.1 | B4 accepted for v1.4.0; see [release record](docs/releases/1.4.0.md) |
+| Shared Documentation & Repository Quality | B4 accepted for v1.4.0; shared knowledge, not a registered specialist |
+| Review Parity | Deferred cross-cutting assurance research, not a sixth domain specialist or implemented approval runtime |
 | Packaged plugin | Possible future distribution option, not a required installation |
 
 The [product roadmap](docs/PRD.md#6-specialist-expansion-roadmap) establishes direction, not delivery commitments. Future requirements, implementation and publication require separate decisions. Research leads are retained in the [cross-specialist register](research/CROSS-SPECIALIST-RESEARCH-REGISTER.md). Neither a larger catalog nor more process is an objective in itself.
