@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.4.0 — DevOps & Reliability and Repository Quality (source candidate)
+
+- DevOps v0.1: plan, diagnose and review; 12 guide families, 33 original decision cards; nine additional discovery records (39 total). Shared repository quality adds nine cards and two illustrative README profiles, not a sixth registered specialist.
+- Owner accepted corrected B4 `44749d2` PASS WITH NOTES: 192/192 on Linux and native Windows, separate Linux reproduction, corrected synthetic fixture and mutation checks, native GitHub rendering and bounded advisory observations. Same-model/scenario-overlap and settings-observation limits retained.
+- Consolidate 68 approved requirements and 28 acceptance criteria into [PRD v1.5](docs/PRD.md#15-devops--reliability-and-shared-documentation--repository-quality), preserve 55 source records and existing specialist/framework behavior; align repository documentation and release identity. [Preparation and qualification](docs/releases/1.4.0.md). Publication is separately authorized and verified; source changelog is not proof of publication.
+
 ## v1.3.0 — QA & Engineering Quality
 
 - QA v0.1: plan, diagnose and review; 12 guide families, 37 original decision cards, six discovery-only records (30 total).

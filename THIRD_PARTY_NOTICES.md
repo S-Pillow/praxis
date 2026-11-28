@@ -28,3 +28,7 @@ The source register, pinned source paths and historical research record provenan
 - [Framework identity](framework/README.md)
 
 This notice preserves observed attributions and describes boundaries. It is not a completed item-level legal clearance or permission to change repository visibility. Inspect actual copied material, applicable licenses and source-specific notices before further redistribution. If rights are uncertain, retain source pointers rather than unapproved media or expressive extracts.
+
+## DevOps and repository-quality reference material
+
+The v1.4.0 additions are original advisory synthesis and synthetic illustrative examples. The [DevOps source register](research/devops-reliability/DEVOPS-SOURCE-REGISTER-01.md), [DevOps sources](skills/devops-reliability/SOURCES.md) and [repository-quality sources](knowledge/repository-quality/SOURCES.md) preserve 55 source IDs and reference-only dispositions. No external tool code, README, screenshots, workflows or media were imported. Root license metadata does not clear independently licensed components or assets; qualify exact rights and operational terms before any later reuse. The shared discovery records are not selected dependencies.
