@@ -70,7 +70,7 @@ class QAMechanismTests(unittest.TestCase):
         reg = json.loads((ROOT / 'skills/specialists.json').read_text(encoding='utf-8'))
         self.assertEqual(reg['schema_version'], 1)
         self.assertEqual(reg['specialists'][:3], LEGACY)
-        self.assertEqual(len(reg['specialists']), 4)
+        self.assertEqual(len(reg['specialists']), 5)  # approved additive DevOps entry
         for legacy in LEGACY:
             chapter = legacy.get('chapter') or legacy['chapters_any'][0]
             for task, mode in legacy['tasks'].items():
@@ -134,13 +134,14 @@ class QAKnowledgeTests(unittest.TestCase):
         self.assertEqual(len(ids), len(set(ids)))
         self.assertTrue(set(PRIOR_CAPS) <= set(ids))
         additions = {f'CAP-B{i:02d}' for i in range(3, 9)}
-        self.assertEqual(set(ids) - set(PRIOR_CAPS), additions)
+        devops_additions = {f'CAP-R{i:02d}' for i in range(1, 10)}
+        self.assertEqual(set(ids) - set(PRIOR_CAPS) - devops_additions, additions)
         records = (CAP / 'engineering-quality.md').read_text(encoding='utf-8')
         self.assertTrue(additions <= set(re.findall(r'^## (CAP-[A-Z]\d{2})$', records, re.M)))
 
     def test_registration_sources_and_unique_tasks(self):
         reg = json.loads((ROOT / 'skills/specialists.json').read_text(encoding='utf-8'))
-        qa = reg['specialists'][-1]
+        qa = next(s for s in reg['specialists'] if s['id'] == 'aipf-qa-engineering-quality')
         self.assertEqual(qa['tasks'], {'qa-' + mode: mode for mode in MODES})
         self.assertEqual(qa['chapters_any'], list(range(11, 22)))
         self.assertEqual(qa['tools'], [])

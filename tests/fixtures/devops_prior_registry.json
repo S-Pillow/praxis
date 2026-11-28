@@ -1,0 +1,124 @@
+{
+  "schema_version": 1,
+  "specialists": [
+    {
+      "id": "aipf-ui-ux",
+      "version": "0.3",
+      "chapter": 14,
+      "skill": "skills/aipf-ui-ux/SKILL.md",
+      "retrieval_script": "scripts/recommend_design.py",
+      "tasks": {
+        "ui-build": "build",
+        "ui-critique": "critique",
+        "ui-audit": "audit"
+      },
+      "purpose": "Practical UI/UX design, improvement, visual critique and technical UI audit",
+      "authority": "Advisory; AIPF, approved requirements and current authorization govern",
+      "domain": "UI/UX",
+      "activation": "Material user-facing UI design, improvement, critique or technical audit after canonical Chapter 14 routing; not unrelated coding or trivial edits.",
+      "knowledge_sources": [
+        "catalog/entries/",
+        "catalog/SEARCH.md"
+      ],
+      "tools": [
+        "scripts/recommend_design.py",
+        "scripts/search_catalog.py"
+      ],
+      "output": "Source-linked candidate references and applied guidance; distinguish observations from recommendations and respect licensing.",
+      "fallback": "Use approved project context and available craft when sufficient; disclose unavailable guidance or retrieval; never fabricate references."
+    },
+    {
+      "id": "aipf-architecture",
+      "version": "0.1",
+      "chapters_any": [
+        11,
+        12
+      ],
+      "skill": "skills/architecture/SKILL.md",
+      "tasks": {
+        "architecture-design": "design",
+        "architecture-evolve": "evolve",
+        "architecture-critique": "critique"
+      },
+      "purpose": "Context-grounded software architecture and engineering design decisions, evolution and critique",
+      "authority": "Advisory; AIPF, approved requirements and current authorization govern",
+      "domain": "Software Architecture & Engineering Design",
+      "activation": "Material architecture decision, structural diagnosis, change to boundaries/data/contracts, or technology evaluation after canonical AIPF routing; not incidental code edits or chapter presence alone.",
+      "knowledge_sources": [
+        "skills/architecture/INDEX.md",
+        "knowledge/capabilities/INDEX.md"
+      ],
+      "tools": [],
+      "output": "Suitable options including no change, tradeoffs, assumptions, implementation constraints and verification implications, source-linked when material.",
+      "fallback": "Disclose missing guides or facts; use verified project context and qualified alternatives only where sufficient, otherwise identify the material decision gap."
+    },
+    {
+      "id": "aipf-security-privacy",
+      "version": "0.1",
+      "chapters_any": [
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "skill": "skills/security-privacy/SKILL.md",
+      "tasks": {
+        "security-design": "design",
+        "security-harden": "harden",
+        "security-review": "review"
+      },
+      "purpose": "Context-grounded defensive security and privacy design, hardening and source assessment",
+      "authority": "Advisory; AIPF, approved requirements and current authorization govern",
+      "domain": "Security & Privacy",
+      "activation": "Material security/privacy intent or trust/data boundary change after canonical AIPF routing; not chapter presence or minor unrelated work.",
+      "knowledge_sources": [
+        "skills/security-privacy/INDEX.md",
+        "knowledge/capabilities/INDEX.md"
+      ],
+      "tools": [],
+      "output": "Conditional controls, alternatives, trust/data invariants, positive/negative verification and source-bound findings with evidence limits.",
+      "fallback": "Disclose unavailable guidance or facts; continue only with sufficient verified approved context, otherwise identify decision or observation gap."
+    },
+    {
+      "id": "aipf-qa-engineering-quality",
+      "version": "0.1",
+      "chapters_any": [
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "skill": "skills/qa-engineering-quality/SKILL.md",
+      "tasks": {
+        "qa-plan": "plan",
+        "qa-diagnose": "diagnose",
+        "qa-review": "review"
+      },
+      "purpose": "Context-grounded test design, diagnosis, regression, test effectiveness and engineering-quality critique",
+      "authority": "Advisory; AIPF, approved requirements and current authorization govern",
+      "domain": "QA & Engineering Quality",
+      "activation": "Material verification strategy, failure diagnosis, test effectiveness or engineering-quality review after canonical AIPF routing; not chapter presence, routine tests or trivial unrelated changes alone.",
+      "knowledge_sources": [
+        "skills/qa-engineering-quality/INDEX.md",
+        "knowledge/capabilities/INDEX.md"
+      ],
+      "tools": [],
+      "output": "Risk-selected methods and observables, causal diagnosis, source-bound findings and evidence limits with relevant alternatives.",
+      "fallback": "Disclose unavailable guidance, tool, source or observer; proceed only with sufficient verified approved context and qualified alternatives, otherwise identify material decision or observation gap."
+    }
+  ]
+}

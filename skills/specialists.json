@@ -119,6 +119,41 @@
       "tools": [],
       "output": "Risk-selected methods and observables, causal diagnosis, source-bound findings and evidence limits with relevant alternatives.",
       "fallback": "Disclose unavailable guidance, tool, source or observer; proceed only with sufficient verified approved context and qualified alternatives, otherwise identify material decision or observation gap."
+    },
+    {
+      "id": "aipf-devops-reliability",
+      "version": "0.1",
+      "chapters_any": [
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "skill": "skills/devops-reliability/SKILL.md",
+      "tasks": {
+        "devops-plan": "plan",
+        "devops-diagnose": "diagnose",
+        "devops-review": "review"
+      },
+      "purpose": "Context-grounded operations design, diagnosis and review for delivery, infrastructure, reliability, runtime, repository lifecycle and cost",
+      "authority": "Advisory; AIPF, approved requirements and current authorization govern",
+      "domain": "DevOps & Reliability",
+      "activation": "Material operational, delivery, runtime, reliability or repository lifecycle decision after canonical AIPF routing; not chapter presence, routine verification or trivial documentation alone.",
+      "knowledge_sources": [
+        "skills/devops-reliability/INDEX.md",
+        "knowledge/repository-quality/INDEX.md",
+        "knowledge/capabilities/INDEX.md"
+      ],
+      "tools": [],
+      "output": "Suitable alternatives including no change, operational effects, authority and cost/privacy constraints, source-bound evidence, causal diagnosis and recovery implications.",
+      "fallback": "Disclose unavailable guidance, source, target, telemetry, tool or observer; continue only where verified approved context and alternatives suffice, otherwise identify material decision or observation gap."
     }
   ]
 }

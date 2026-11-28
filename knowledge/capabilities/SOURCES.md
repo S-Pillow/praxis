@@ -18,3 +18,7 @@ Four CAP-S records use original selection guidance and pinned reference-only obs
 ## QA & Engineering Quality development records
 
 Six additive CAP-B03–B08 discovery records, with source identity/rights/limitations in [QA SOURCES](../../skills/qa-engineering-quality/SOURCES.md) and its linked pinned register. Existing 24 records unchanged; no tool selected, installed or connected, no new runtime. Other candidates and deferred cross-specialist leads remain research only. Apply existing QUALIFICATION.md at point of use.
+
+## DevOps and Repository Quality v0.1 candidate additions
+
+Nine distinct CAP-R discovery records; see [DevOps SOURCES](../../skills/devops-reliability/SOURCES.md) and the pinned register for provenance, inspected files, exact claims and limitations. Preserve all 30 prior records and reuse CAP-B01, CAP-V01 and CAP-B07 instead of duplicates. No tool selected, installed or connected; no current pricing, runtime or integration claim. Other candidates remain reference-only; apply QUALIFICATION.md at use.

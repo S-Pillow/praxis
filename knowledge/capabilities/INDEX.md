@@ -81,3 +81,16 @@ First alternatives: manual scoped review, existing tools, no collection, approve
 - [CAP-S04 — OpenRewrite](security-privacy.md#cap-s04)
 
 Other security candidates (OSV-Scanner, Semgrep, Gitleaks, GitHub security features, CycloneDX / Dependency-Track and aeo.js) remain discovery only pending concrete need and exact version, rights, data and coverage qualification. See [security source register](../../skills/security-privacy/SOURCES.md).
+
+## [Operational and repository quality](operations.md)
+First alternatives: retain approved existing operations and native/local checks; no new service or external scan unless a real need and permission exist. These are source-linked discovery candidates, not selected dependencies.
+
+- [CAP-R01 — OpenSSF Scorecard](operations.md#cap-r01)
+- [CAP-R02 — Actionlint](operations.md#cap-r02)
+- [CAP-R03 — Lychee](operations.md#cap-r03)
+- [CAP-R04 — OpenTofu](operations.md#cap-r04)
+- [CAP-R05 — Ansible](operations.md#cap-r05)
+- [CAP-R06 — Restic](operations.md#cap-r06)
+- [CAP-R07 — Prometheus](operations.md#cap-r07)
+- [CAP-R08 — Argo CD](operations.md#cap-r08)
+- [CAP-R09 — Infracost](operations.md#cap-r09)
