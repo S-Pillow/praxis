@@ -83,3 +83,7 @@ Keep existing XR-01–14 register unchanged. Revisit prior XR-04 (Forgejo), XR-0
 - DR-06: deferred Review Parity, DO-S03/13; source/subject identity and stale evidence, not a new governance runtime.
 
 Next decision: approve a detailed temporary DevOps & Reliability PRD, with repository-quality coverage explicitly cross-cutting and proportionate. Proposed target Praxis v1.4.0 / DevOps v0.1, subject to owner review. Do not change standalone AIPF or start implementation now.
+
+## Supplementary research — Scorecard and Awesome Actions
+
+See [discovery 02](DEVOPS-SECURE-AUTOMATION-DISCOVERY-02.md) and extended [source register](DEVOPS-SOURCE-REGISTER-01.md#supplement-02--scorecard-and-github-actions), DO-S19–25. Refine secure delivery, repository lifecycle, CI, release/artifact and QA/DevOps coverage: individual posture findings with unknowns, action qualification, archived action avoidance, artifact retention and verified publication. Extend DR-01/02/06 and add DR-07/08 as described there. No new requirements, dependency or score threshold authorized.
