@@ -60,6 +60,18 @@ class DocumentationFirstUse(unittest.TestCase):
                 self.assertEqual(len(re.findall(r"(?m)^# ", doc)), 1)
                 self.assertLess(doc.index("Run " + chr(96) + "python"),
                                 doc.index(chr(96)*3 + "python"))
+                # Source hierarchy oracle only; not proof of host viewport geometry.
+                first_secondary = re.search(r"(?m)^## ", doc)
+                self.assertIsNotNone(first_secondary)
+                self.assertLess(doc.index("Run " + chr(96) + "python"), first_secondary.start())
+                self.assertIn("Illustrative only;", doc[:first_secondary.start()])
+
+    def test_service_profile_and_boundary_headings(self):
+        doc = (EXAMPLES / "SERVICE.md").read_text(encoding="utf-8")
+        self.assertIn("constant readiness response", doc)
+        self.assertIn("\n## Operating boundary\n", doc)
+        self.assertIn("\n### If the service is AI-backed\n", doc)
+        self.assertIn("not features of Status Echo", doc)
 
     def test_service_actual_unknown_route_is_not_ready(self):
         doc = (EXAMPLES / "SERVICE.md").read_text(encoding="utf-8")

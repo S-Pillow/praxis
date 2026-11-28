@@ -1,16 +1,12 @@
-# Example: Status Echo (synthetic service/AI profile)
+# Status Echo — synthetic local service README example
 
-Original instructional illustration, not a deployed project or real customer API. No real hostname, credential, price or uptime claim.
+A loopback HTTP demo returns a constant readiness response. Illustrative only; not deployed.
 
-## Strong sample
+Save the code below as `status_echo.py`. Run `python status_echo.py` → expected `{"status": "ready"}`.
 
-### Status Echo
+## Setup and implementation
 
-Local demonstration service that returns the status of a synthetic task. For maintainers evaluating a service boundary; no production deployment, hosted monitoring, persistent data or authentication claim. Illustrative supported setup: Python 3.12 standard library, disposable working directory, permission for a loopback socket. It starts only an ephemeral loopback listener, sends one local request and closes it. No external network, install or service provision.
-
-Save the code below as `status_echo.py`. Run `python status_echo.py`. Expected illustrative stdout: `{"status": "ready"}`.
-
-#### Implementation
+Use an available Python 3.12+ interpreter in a disposable directory with permission for a loopback socket. If needed, substitute the verified `python3` or `py` command. This uses the standard library, opens an ephemeral loopback listener, sends one local request and closes it. No external network, installation or hosted service.
 
 ```python
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
@@ -51,16 +47,20 @@ if __name__ == "__main__":
     main()
 ```
 
-A different route responds with HTTP 404 and not_found; binding or request failure is not service readiness. This example describes a local endpoint, not live availability; test actual output in your environment.
+A different route responds with HTTP 404 and not_found. Binding or request failure is not readiness. This sample does not establish live availability, authentication, persistent state or production monitoring.
 
-#### Operating boundary
+## Operating boundary
 
-For a real service README, identify supported runtime, configuration names (not secrets), trust/auth, environment, readiness vs user outcome, data retention, logs and recovery. For AI-backed service also identify model/prompt/skill version, data flow, permissions, host limits, costs and actual evaluation vs trace. Link approved architecture, privacy and runbook only when present. Separate authority for provisioning or release; no production credentials.
+For a real service README, identify supported runtime, configuration names (not secrets), trust and authentication, environment, readiness versus user outcome, data retention, logs and recovery. Link approved architecture, privacy and runbooks only when present. Provisioning or release requires separate authority; no production credentials.
+
+### If the service is AI-backed
+
+Document the actual model, prompt and skill versions; permitted inputs, outputs and tool actions; data flow and retention; host limitations; cost and quota bounds; and how evaluation differs from tracing. These are additional profile requirements when applicable, not features of Status Echo.
 
 ## Faulty contrast
 
-“Production-ready on every cloud, 100% uptime, free forever, secure by design.” Generic badge and unverified demo link do not establish availability, cost, security or real setup. Do not expose debug listener or upload real data to make the demonstration work.
+“Production-ready on every cloud, 100% uptime, free forever, secure by design.” Generic badges and an unverified demo link do not establish availability, cost, security or real setup. Do not expose a debug listener or upload real data to make a demonstration work.
 
 ## Verification plan
 
-In a disposable directory, execute the documented sample with permitted loopback; verify exact response, nonready/unknown-route or unavailable behavior, no unintended writes, actual source and cleanup. Observe actual rendering and first-reader interpretation separately. Source alone does not prove execution or visual quality.
+In a disposable directory, execute the documented sample with permitted loopback. Verify the exact response, unknown route or unavailable behavior, no unintended writes, actual source and cleanup. Observe actual target rendering and first-reader interpretation separately. Illustrative output is not deployment or visual acceptance evidence.
