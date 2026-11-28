@@ -87,3 +87,7 @@ Next decision: approve a detailed temporary DevOps & Reliability PRD, with repos
 ## Supplementary research — Scorecard and Awesome Actions
 
 See [discovery 02](DEVOPS-SECURE-AUTOMATION-DISCOVERY-02.md) and extended [source register](DEVOPS-SOURCE-REGISTER-01.md#supplement-02--scorecard-and-github-actions), DO-S19–25. Refine secure delivery, repository lifecycle, CI, release/artifact and QA/DevOps coverage: individual posture findings with unknowns, action qualification, archived action avoidance, artifact retention and verified publication. Extend DR-01/02/06 and add DR-07/08 as described there. No new requirements, dependency or score threshold authorized.
+
+## Final operational-depth research
+
+[Discovery 03](DEVOPS-OPERATIONAL-DEPTH-DISCOVERY-03.md) addresses infrastructure/locking, configuration repeatability, declarative deployment, backup/restore, forge/runner, telemetry/AI operations, workflow and link validation, and cost. Reconciles XR-04/05/06/12 and extends DR-09–14; no changes to original deferred register. Source DO-S26–55. Proposed knowledge breadth now sufficient for detailed PRD drafting; further source qualification only for concrete decisions. No implementation approval.

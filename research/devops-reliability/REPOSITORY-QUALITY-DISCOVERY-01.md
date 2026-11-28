@@ -64,3 +64,7 @@ Include in next temporary DevOps PRD explicitly as cross-cutting repository-qual
 ## Supplementary research — repository security and automation
 
 [Discovery 02](DEVOPS-SECURE-AUTOMATION-DISCOVERY-02.md) extends repository-quality research with DO-S19–25. Use Scorecard as an optional source of bounded repository security findings, never as a complete repository-quality or compliance score. Verify actual community docs, reporting route, CI and released content separately. Awesome Actions is discovery only; qualify candidate versions, permissions, data flows, state changes and failure behavior. Existing Praxis workflow path filters omit README/docs; assess material documentation-only validation coverage in future authorized work. No required badge, external scan, publishing or workflow changes.
+
+## Final operational-depth research
+
+[Discovery 03](DEVOPS-OPERATIONAL-DEPTH-DISCOVERY-03.md) adds Actionlint (DO-S32) and Lychee (DO-S33) as optional candidates. Validate workflow grammar/expressions and local links/anchors first; external link checks bounded and authorized, status/redirect/cache/credential handling explicit. Actual workflow effects, source semantic parity, onboarding and rendered presentation remain distinct observations. No mandatory linter, service or new workflow.
