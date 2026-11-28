@@ -1,0 +1,29 @@
+# Praxis packaged resource map
+
+All paths below are relative to `references/release/` (the exact selected source root). Read the original `skills/praxis/SKILL.md` before consulting specialist resources for governed work. This map is a navigation aid, not a replacement for the canonical loading procedure or registry.
+
+| Resource | Path |
+|---|---|
+| Original Praxis entry point | `skills/praxis/SKILL.md` |
+| Canonical framework identity | `framework/projection-manifest.json` |
+| Framework loading and core | `framework/references/overview.md`, `how-to-use.md`, `core/sections-1-4.md`, `core/sections-5-10.md` (under `framework/references/`) |
+| Framework path chapters and shared controls | `framework/references/paths/`, `framework/references/shared/` |
+| Specialist registry | `skills/specialists.json` |
+| UI/UX v0.3 | `skills/aipf-ui-ux/SKILL.md`, `catalog/SEARCH.md` |
+| Architecture v0.1 | `skills/architecture/SKILL.md`, `skills/architecture/INDEX.md` |
+| Security & Privacy v0.1 | `skills/security-privacy/SKILL.md`, `skills/security-privacy/INDEX.md` |
+| QA & Engineering Quality v0.1 | `skills/qa-engineering-quality/SKILL.md`, `skills/qa-engineering-quality/INDEX.md` |
+| DevOps & Reliability v0.1 | `skills/devops-reliability/SKILL.md`, `skills/devops-reliability/INDEX.md` |
+| Shared capability index | `knowledge/capabilities/INDEX.md` |
+| Shared Repository Quality | `knowledge/repository-quality/INDEX.md` |
+| Full design catalog | `catalog/entries/` (30 production JSON files; 5,500 unique catalog IDs; separate 9-record illustrative starter retained) |
+| Catalog provenance and schema | `catalog/provenance/`, `catalog/schema/`, `catalog/mappings/`, `catalog/relations/` |
+| Optional command-line helpers | `scripts/praxis_context.py`, `scripts/recommend_design.py`, `scripts/search_catalog.py`, `scripts/check_contrast.py` |
+| Portable Builder guidance | `skills/praxis/references/builder-payload.md` |
+| Product requirements and release history | `docs/PRD.md`, `docs/releases/@VERSION@.md`, `CHANGELOG.md` |
+| Historical qualification and research | `research/` |
+| Original regression suite | `tests/` |
+| Original optional Design Index | `ui/` |
+| License and provenance limits | `LICENSE`, `NOTICE`, `THIRD_PARTY_NOTICES.md`, `licenses/` |
+
+The packaged source snapshot includes all @FILE_COUNT@ tracked source files. The nested `.agents` and `.github` files are retained for source identity and historical documentation, not installed host agents or active workflows. The single discoverable plugin skill is `praxis`; specialist instructions are progressively loaded from their exact selected source files. No MCP server or attached app is declared.

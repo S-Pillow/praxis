@@ -1,0 +1,31 @@
+---
+name: praxis
+description: "Use when the user or an authorized project explicitly selects Praxis for governed software development, engineering decisions, design, security, quality, reliability, documentation or release work. Includes AIPF v8.10.1 and five advisory specialist disciplines; do not govern unrelated work."
+---
+
+# Praxis v@VERSION@ — ChatGPT plugin entry point
+
+This is a distribution adapter, not a new development framework. The exact selected Praxis source is bundled at `references/release/` relative to this skill. Treat that directory as the Praxis checkout root, separate from any target application. The canonical skill resource-root note refers to that snapshot in this host, not the outer ChatGPT plugin directory. It contains the canonical AIPF projection, Praxis integration guidance, five specialist instruction sets, shared knowledge, full 5,500-record design catalog, original helper scripts, tests, documentation and provenance. `references/PACKAGE-IDENTITY.json` records the source identity. No standalone AIPF or specialist plugin is required.
+
+## Activation and authority
+
+Activate only when explicitly selected by the user or a controlling authorized project artifact. Selection is not permission to mutate files, run privileged commands, provision services, install dependencies, or publish. Follow the current governing intent and authorization boundary. If assigned a distinct Builder Payload, execute that payload under its own authority; do not require loading this skill as a Builder prerequisite or invent an independent reviewer. If directly executing, use direct AIPF controls; do not self-handoff.
+
+## Load the canonical entry point
+
+Read the bundled `references/release/skills/praxis/SKILL.md` and follow its loading, path selection, specialist consultation and precedence instructions. Resolve its checkout-relative paths against `references/release/`. In a host resource reader, use that skill-relative prefix; in an accessible command runner, resolve the actual filesystem directory before invoking a script. Do not assume a skill-resource name is an OS path. The original entry point and all referenced AIPF and specialist files are authoritative within their original scope; this adapter supplies only host/path translation and capability checks.
+
+For a Prompt Agent or direct execution, first use, context reset or stale core requires the original framework loading route: overview, how-to-use, both Part 1 sections files, canonical Section 8 Path Selector, all selected path chapters and applicable Part 3 dependencies. On a later authorization unit in reliable context follow the original minimum-load route. Never substitute a summary for required canonical text, invent a second routing table or conflate a missing required framework file with optional specialist fallback. If necessary canonical resources are inaccessible, stop the affected governed work and report the missing dependency. The source snapshot is pinned to AIPF v8.10.1; do not silently mix another version.
+
+## Specialist consultation and shared resources
+
+Read `references/release/skills/specialists.json` after selecting the canonical paths and understanding the actual material decision. The five specialist skills are available at their registry paths: UI/UX (v0.3), Architecture, Security & Privacy, QA & Engineering Quality, DevOps & Reliability (each v0.1). The shared capability index and Repository Quality knowledge are under `references/release/knowledge/`. Follow the original mode, materiality, composition, evidence and fallback rules; use only relevant guides. These are advisory disciplines, not separate approval roles or independent agents. Repository Quality is shared knowledge, not a sixth specialist. See `references/RESOURCE-MAP.md` for navigation, not alternate governance.
+
+## Host capability and evidence boundary
+
+- **Resources:** first use the host's actual skill-file/resource-reading capability. Do not claim access merely because a filename is bundled. If the required bytes are inaccessible, an already-authorized connected repository reader may retrieve the exact pinned source commit `@COMMIT@` in `S-Pillow/praxis` without switching versions. If still unavailable, apply the original stop or specialist fallback as appropriate. Do not impose new tooling on the user solely to compensate for optional retrieval.
+- **Design retrieval:** when material UI/UX work calls for it and a command runner can actually read the entire release directory, execute the original read-only catalog helper from that directory, respecting the existing one initial lookup and at most one targeted follow-up rule. The catalog is bundled but not an MCP search service. If Python or files are unavailable, disclose that the ranked lookup did not run and use approved project context and available design craft as allowed. Do not invent catalog matches, commands or provenance. Reading a specific catalog record is not proof of ranked retrieval.
+- **Execution:** included scripts are resources, not automatic tools. No background agent, server, MCP endpoint, permission grant, independent execution, live UI, GitHub write, deployment, or publication is provided by this package. Use only actual available and authorized host tools. The local Design Index UI remains an optional source resource, not a ChatGPT app view. Do not claim tests, rendering, execution, release or independent verification without actual evidence. The source tests document the selected repository's checks, not ChatGPT host behavior.
+- **Rights:** preserve original source and asset restrictions. Read `references/release/THIRD_PARTY_NOTICES.md`, `NOTICE` and `licenses/` as applicable. Catalog metadata, exact tokens and source links do not grant blanket permission to reproduce assets or redistribute third-party expressive material. Do not import media or dependencies without appropriate rights and authority.
+
+Use the approved project requirements, keep evidence truthful and scope proportional, and return the current result and next permitted action or stop boundary. The adapter adds no governance requirements beyond the selected source.

@@ -1,0 +1,10 @@
+{
+  "name": "praxis",
+  "version": "1.4.1",
+  "description": "Praxis: the AI Prompt-First Development Framework (AIPF v8.10.1) with five advisory specialists (UI/UX, Architecture, Security & Privacy, QA & Engineering Quality, DevOps & Reliability) for governed AI-assisted development.",
+  "author": { "name": "Steven Pillow", "url": "https://stevenpillow.com" },
+  "homepage": "https://github.com/S-Pillow/praxis",
+  "repository": "https://github.com/S-Pillow/praxis",
+  "license": "Apache-2.0",
+  "keywords": ["aipf", "praxis", "software-development", "governance", "architecture", "security", "qa", "devops", "ui-ux"]
+}

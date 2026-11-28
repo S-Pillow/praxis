@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" role="img" aria-label="Praxis connected governance, expertise and execution nodes">
+<rect width="256" height="256" rx="46" fill="#111D2B"/>
+<path d="M32 128H224M64 60V196M192 60V196" stroke="#31485A" stroke-width="2" fill="none"/>
+<path d="M28 128L64 76L128 128L192 180L228 128" stroke="#79D8B8" stroke-width="7" stroke-linejoin="round" stroke-linecap="round" fill="none"/>
+<g fill="#111D2B" stroke="#79D8B8" stroke-width="7"><circle cx="64" cy="76" r="15"/><circle cx="128" cy="128" r="15"/><circle cx="192" cy="180" r="15"/></g>
+</svg>

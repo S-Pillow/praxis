@@ -1,0 +1,35 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "praxis",
+  "version": "@VERSION@",
+  "description": "Praxis v@VERSION@: integrated AIPF v8.10.1 governance, five specialist disciplines, shared engineering knowledge and the full design catalog. GitHub-distributed skills-only package; tool access is host-dependent.",
+  "author": {
+    "name": "Steven Pillow"
+  },
+  "homepage": "https://github.com/S-Pillow/praxis",
+  "repository": "https://github.com/S-Pillow/praxis",
+  "keywords": [
+    "software-development",
+    "aipf",
+    "architecture",
+    "ui-ux",
+    "security",
+    "quality-assurance",
+    "devops"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Praxis",
+        "shortDescription": "Governed software development",
+        "longDescription": "An AI-powered software development system combining AIPF governance, structured reasoning, agent orchestration, specialist engineering expertise, design intelligence, and evidence-driven quality assurance. Includes the complete selected Praxis v@VERSION@ resource snapshot. Select Praxis explicitly to guide a project; actual execution and catalog retrieval depend on available authorized tools.",
+        "developerName": "Steven Pillow",
+        "category": "Developer Tools",
+        "capabilities": [],
+        "defaultPrompt": "Use Praxis to assess my software development task, select the applicable AIPF path and material specialist guidance, and identify the next authorized action.",
+        "logo": "./assets/praxis-icon.svg",
+        "composerIcon": "./assets/praxis-icon.svg"
+      }
+    }
+  }
+}

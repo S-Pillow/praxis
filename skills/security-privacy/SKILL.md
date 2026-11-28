@@ -3,6 +3,8 @@ name: aipf-security-privacy
 description: Advisory security and privacy expertise for material design, hardening and source review under Praxis/AIPF; not an audit authorization or Builder prerequisite.
 ---
 
+> **Praxis resource root:** in a repository checkout or installed Claude plugin, use the directory two levels above this skill’s directory (containing `framework/`, `skills/` and `catalog/`). In another host, use the verified source root supplied by its distribution adapter. Resolve Praxis paths there, not against the target project; run helpers from that root only when accessible and authorized.
+
 # Security & Privacy Specialist — v0.1
 
 Consult after canonical AIPF v8.10.1 routing only when material security/privacy intent or a trust/data boundary could change the decision. Applicable across canonical paths; chapter presence alone is insufficient. Skip cosmetic and unrelated edits. AIPF, approved requirements and actual authorization govern. No scanner, new workflow, persistence, telemetry, certification or execution permission.

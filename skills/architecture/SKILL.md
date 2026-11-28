@@ -3,6 +3,8 @@ name: aipf-architecture
 description: Advisory software architecture and engineering design expertise for material system decisions, existing-system evolution and critique under Praxis/AIPF; not governance or an execution prerequisite for a distinct Builder.
 ---
 
+> **Praxis resource root:** in a repository checkout or installed Claude plugin, use the directory two levels above this skill’s directory (containing `framework/`, `skills/` and `catalog/`). In another host, use the verified source root supplied by its distribution adapter. Resolve Praxis paths there, not against the target project; run helpers from that root only when accessible and authorized.
+
 # Software Architecture & Engineering Design — v0.1
 
 Use after canonical AIPF v8.10.1 path selection (new applications Ch. 11 or existing applications Ch. 12; load other applicable chapters). This is not another development framework. AIPF and authorized project intent govern. Activate when architecture knowledge could change a material design, technology, integration, data, resilience or structural decision. Skip minor copy, straightforward corrections or unrelated work where consultation cannot change the outcome. Path presence alone is insufficient. No project state, permissions, code execution, external services or acceptance are created by consultation.

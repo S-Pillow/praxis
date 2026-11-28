@@ -3,6 +3,8 @@ name: aipf-qa-engineering-quality
 description: Advisory material test planning, diagnosis, regression and engineering-quality review within Praxis/AIPF; no mandatory runner or independent approval.
 ---
 
+> **Praxis resource root:** in a repository checkout or installed Claude plugin, use the directory two levels above this skill’s directory (containing `framework/`, `skills/` and `catalog/`). In another host, use the verified source root supplied by its distribution adapter. Resolve Praxis paths there, not against the target project; run helpers from that root only when accessible and authorized.
+
 # QA & Engineering Quality Specialist — v0.1
 
 Use after canonical AIPF v8.10.1 routing for material verification, diagnosis or quality decisions across applicable Chapters 11–21. Path presence or routine tests alone do not activate QA. Skip trivial unrelated edits absent concrete benefit. AIPF, approved requirements and action-scoped authority govern; this specialist adds techniques, not governance, acceptance authority or a test runtime.

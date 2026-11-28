@@ -3,6 +3,8 @@ name: aipf-devops-reliability
 description: Context-grounded operational design, diagnosis and review for material delivery, infrastructure, reliability, runtime, repository lifecycle and cost decisions after AIPF routing.
 ---
 
+> **Praxis resource root:** in a repository checkout or installed Claude plugin, use the directory two levels above this skill’s directory (containing `framework/`, `skills/` and `catalog/`). In another host, use the verified source root supplied by its distribution adapter. Resolve Praxis paths there, not against the target project; run helpers from that root only when accessible and authorized.
+
 # DevOps & Reliability v0.1
 
 Advisory expertise under AIPF v8.10.1; use when a material operational decision can change the work, not merely because a chapter or DevOps tool is present. Do not consult for trivial/unrelated edits or routine AIPF checks with no benefit. Shared [Documentation & Repository Quality](../../knowledge/repository-quality/INDEX.md) may apply independently.
