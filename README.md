@@ -53,13 +53,15 @@ Learn about the standalone framework at [stevenpillow.com/aipf](https://stevenpi
 
 ### 1. Obtain a pinned version
 
+Confirm that v1.4.0 is published in the [release list](https://github.com/S-Pillow/praxis/releases) before running these commands. If it is not yet published, use `git checkout v1.3.0` for the published recovery baseline (four specialists), or the exact authorized candidate commit for evaluation of the five-specialist source.
+
 ```bash
 git clone https://github.com/S-Pillow/praxis.git
 cd praxis
-git checkout v1.3.0
+git checkout v1.4.0
 ```
 
-The example above pins the published v1.3.0 recovery baseline. For the five-specialist v1.4.0 source described here, use `git checkout v1.4.0` only when that tag and its publication appear in the [release list](https://github.com/S-Pillow/praxis/releases); before publication, use the exact authorized candidate commit for evaluation. For an existing checkout, run `git fetch --tags` first. Pinning a reviewed release makes the framework, guidance and evidence reproducible; a moving branch or source version badge is not the same thing as a published release.
+For an existing checkout, run `git fetch --tags` first. Pinning a reviewed release makes the framework, guidance and evidence reproducible; a moving branch or source version badge is not the same thing as a published release.
 
 ### 2. Give your assistant access to Praxis and your project
 

@@ -1,6 +1,6 @@
 # Praxis — Product Requirements Document
 
-Version: 1.5 | Status: Owner-approved consolidated product requirements | Date: 2026-11-27 | Release target: Praxis v1.4.0 (B4 accepted PASS WITH NOTES; publication independently authorized and verified)
+Version: 1.5 | Status: Owner-approved consolidated product requirements | Date: 2026-11-27 | Release target: Praxis v1.4.0 (B4 accepted PASS WITH NOTES; publication requires separate authorization and verification)
 
 This is the single authoritative product PRD for Praxis. It consolidates [product PRD v1.2](https://github.com/S-Pillow/praxis/blob/c6393f6174e8d83e6760cf64bfbe889710d8919d/docs/PRD.md) and [Security & Privacy Specialist PRD v1.1](https://github.com/S-Pillow/praxis/blob/c6393f6174e8d83e6760cf64bfbe889710d8919d/docs/SECURITY-PRIVACY-PRD.md), preserving their approved requirements, stable identifiers, source/rights boundaries and history. The owner accepted the qualified security candidate and separately authorized B5 and consolidation on 2026-11-26. AIPF v8.10.1 governs execution; requirements approval does not grant execution authority. See [v1.2.0 qualification and release record](releases/1.2.0.md), [DEC-004](decisions/PRAXIS-DEC-004-specialist-expansion.md) and the [architecture specialist build plan](ARCHITECTURE-SPECIALIST-BUILD-PLAN.md).
 
