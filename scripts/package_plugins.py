@@ -79,9 +79,25 @@ def snapshot(root, ref):
         if mode != '100644' or kind != 'blob':
             raise ValueError('Unsupported Git entry: ' + path)
         expected[path] = sha
-    files = read_zip(git(root, 'archive', '--format=zip', commit))
-    if set(files) != set(expected) or any(blob_sha(data) != expected[p] for p, data in files.items()):
-        raise ValueError('Archive does not reproduce the selected Git tree')
+    # git archive can apply CRLF/export attributes, even when reading a commit.
+    # Read the raw object database without filters, using one binary batch.
+    request = ('\n'.join(expected.values()) + '\n').encode('ascii')
+    stream = io.BytesIO(subprocess.check_output(
+        ['git', 'cat-file', '--batch'], cwd=root, input=request, stderr=subprocess.PIPE))
+    files = {}
+    for path, sha in expected.items():
+        header = stream.readline().decode('ascii').rstrip('\n').split()
+        if len(header) != 3 or header[:2] != [sha, 'blob']:
+            raise ValueError('Unexpected Git object header: ' + path)
+        size = int(header[2])
+        if size < 0:
+            raise ValueError('Invalid Git object size: ' + path)
+        data = stream.read(size)
+        if len(data) != size or stream.read(1) != b'\n' or blob_sha(data) != sha:
+            raise ValueError('Raw Git blob does not match the selected tree: ' + path)
+        files[path] = data
+    if stream.read(1):
+        raise ValueError('Unexpected trailing Git object data')
     return commit, tree, files
 
 

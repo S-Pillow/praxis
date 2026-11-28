@@ -72,6 +72,28 @@ class ArchiveSafety(unittest.TestCase):
             self.assertEqual(files, {'tracked.txt': b'approved\n'})
 
 
+    def test_raw_snapshot_ignores_checkout_and_archive_filters(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            repo = Path(tmp)
+            p.git(repo, 'init', '-q')
+            p.git(repo, 'config', 'core.autocrlf', 'true')
+            attrs = b'tracked.txt text eol=crlf\nomitted.txt export-ignore\n'
+            (repo / '.gitattributes').write_bytes(attrs)
+            for name in ('tracked.txt', 'duplicate.txt', 'omitted.txt'):
+                (repo / name).write_bytes(b'approved\n')
+            p.git(repo, 'add', '--all')
+            p.git(repo, '-c', 'user.name=Test', '-c', 'user.email=test@example.invalid', 'commit', '-qm', 'filtered fixture')
+            (repo / 'tracked.txt').unlink()
+            p.git(repo, 'checkout-index', '-a', '-f')
+            self.assertEqual((repo / 'tracked.txt').read_bytes(), b'approved\r\n')
+            filtered = p.read_zip(p.git(repo, 'archive', '--format=zip', 'HEAD'))
+            self.assertNotIn('omitted.txt', filtered)
+            self.assertEqual(filtered['tracked.txt'], b'approved\r\n')
+            _, _, files = p.snapshot(repo, 'HEAD')
+            self.assertEqual(files, {'.gitattributes': attrs, 'tracked.txt': b'approved\n',
+                                     'duplicate.txt': b'approved\n', 'omitted.txt': b'approved\n'})
+
+
 class CommittedPackageQualification(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
